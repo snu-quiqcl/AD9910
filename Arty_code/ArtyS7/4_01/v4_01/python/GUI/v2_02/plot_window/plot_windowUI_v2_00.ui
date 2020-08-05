@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>778</width>
+    <height>569</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Plot window</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="2">
+    <widget class="QWidget" name="plot_widget" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>700</width>
+       <height>500</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="status_bar">
+     <property name="text">
+      <string>Status bar</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QPushButton" name="change_font_button">
+     <property name="maximumSize">
+      <size>
+       <width>80</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Change font</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QCheckBox" name="log_checkbox">
+     <property name="text">
+      <string>Log scale</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+  <zorder>plot_widget</zorder>
+  <zorder>change_font_button</zorder>
+  <zorder>log_checkbox</zorder>
+  <zorder>status_bar</zorder>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>change_font_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>change_font()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>489</x>
+     <y>440</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>269</x>
+     <y>230</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>log_checkbox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>Form</receiver>
+   <slot>log_scale_toggled()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>269</x>
+     <y>414</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>269</x>
+     <y>230</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>change_font()</slot>
+  <slot>log_scale_toggled()</slot>
+ </slots>
+</ui>

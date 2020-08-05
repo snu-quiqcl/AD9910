@@ -1,0 +1,39 @@
+[O:\Users\thkim\Arty_S7\Sequencer\sequencer design\v4_01]
+Page 2 & 3 & 4 of sequencer design_v4_XX.pptx
+
+changes.txt <= copy of main_v1_01.sv part
+
+
+
+[O:\Users\thkim\Arty_S7\Sequencer\v4_01]
+
+<main_v1_01.sv>
+At the end around
+    :
+    assign ja_6 = external_output[5]; // output_ports[0][5] or patterns[27]
+    :
+add more lines
+
+At the beginning, module main(...)
+add/delete input/output ports or sometimes I might have to change in/out type.
+
+
+Change "Sequencer v4_XX" version
+
+<Arty-S7-50-Master.xdc>
+Uncomment corresponding pins in xdc file and also change the drive strength (IMPLEMENTATION => Open Implemented Design => Choose I/O Ports tab)
+
+
+
+
+[O:\Users\thkim\Arty_S7\Sequencer\v4_01\python]
+
+
+<HardwareDefinition_v4_xx.py>
+Change version part of the filename
+Update HW_VERSION
+Copy part of main_v1_01.sv and update "Output port[0] bit assignment" part
+
+
+Update Controller software
+

@@ -1,0 +1,40 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../v3_05.srcs/sources_1/ip/clk_800MHz" --include "E:/Xilinx/Vivado/2017.3/data/xilinx_vip/include" \
+"../../../../v3_05.srcs/sources_1/ip/fifo_generator_0/sim/fifo_generator_0.v" \
+"../../../../v3_05.srcs/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v" \
+"../../../../v3_05.srcs/sources_1/ip/fifo_generator_bram_64x1024/sim/fifo_generator_bram_64x1024.v" \
+"../../../../v3_05.srcs/sources_1/ip/clk_800MHz/clk_800MHz_clk_wiz.v" \
+"../../../../v3_05.srcs/sources_1/ip/clk_800MHz/clk_800MHz.v" \
+"../../../../v3_05.srcs/sources_1/new/ascii2decimal.v" \
+"../../../../v3_05.srcs/sources_1/new/ascii2hex.v" \
+"../../../../v3_05.srcs/sources_1/new/async_receiver.v" \
+"../../../../v3_05.srcs/sources_1/new/async_transmitter.v" \
+"../../../../v3_05.srcs/sources_1/new/data_memory.v" \
+"../../../../v3_05.srcs/sources_1/new/hex2ascii.v" \
+"../../../../v3_05.srcs/sources_1/new/led_intensity_adjust.v" \
+
+sv xil_defaultlib  --include "../../../../v3_05.srcs/sources_1/ip/clk_800MHz" --include "E:/Xilinx/Vivado/2017.3/data/xilinx_vip/include" \
+"../../../../v3_05.srcs/sources_1/new/parameterPkg.sv" \
+"../../../../v3_05.srcs/sources_1/new/capture_waveform_data_v1_01.sv" \
+"../../../../v3_05.srcs/sources_1/new/main_v1_01.sv" \
+"../../../../v3_05.srcs/sources_1/new/sequencer_v1_00.sv" \
+"../../../../v3_05.srcs/sources_1/new/data_sender_v1_02.sv" \
+"../../../../v3_05.srcs/sources_1/new/data_receiver_v1_00.sv" \
+"../../../../v3_05.srcs/sources_1/new/dual_port_ram.sv" \
+
+verilog xil_defaultlib  --include "../../../../v3_05.srcs/sources_1/ip/clk_800MHz" --include "E:/Xilinx/Vivado/2017.3/data/xilinx_vip/include" \
+"../../../../v3_05.srcs/sources_1/new/counter_v1_00.v" \
+"../../../../v3_05.srcs/sources_1/new/stop_watch_v3_00.v" \
+
+sv xil_defaultlib  --include "../../../../v3_05.srcs/sources_1/ip/clk_800MHz" --include "E:/Xilinx/Vivado/2017.3/data/xilinx_vip/include" \
+"../../../../v3_05.srcs/sources_1/new/mux2.sv" \
+"../../../../v3_05.srcs/sim_1/new/testbench.sv" \
+
+verilog xil_defaultlib  --include "../../../../v3_05.srcs/sources_1/ip/clk_800MHz" --include "E:/Xilinx/Vivado/2017.3/data/xilinx_vip/include" \
+"../../../../v3_05.srcs/sim_1/new/dual_port_ram_sim.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

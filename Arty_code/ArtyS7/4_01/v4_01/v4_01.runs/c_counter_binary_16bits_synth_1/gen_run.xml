@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="c_counter_binary_16bits_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1517401244">
+  <File Type="PA-TCL" Name="c_counter_binary_16bits.tcl"/>
+  <File Type="REPORTS-TCL" Name="c_counter_binary_16bits_reports.tcl"/>
+  <File Type="RDS-RDS" Name="c_counter_binary_16bits.vds"/>
+  <File Type="RDS-UTIL" Name="c_counter_binary_16bits_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="c_counter_binary_16bits_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="c_counter_binary_16bits.dcp"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/c_counter_binary_16bits">
+    <File Path="$PSRCDIR/sources_1/ip/c_counter_binary_16bits/c_counter_binary_16bits.xci">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../v3_05/v3_05.srcs/sources_1/ip/c_counter_binary_16bits/c_counter_binary_16bits.xci"/>
+        <Attr Name="ImportTime" Val="1517401238"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="c_counter_binary_16bits"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/c_counter_binary_16bits">
+    <File Path="$PSRCDIR/sources_1/ip/c_counter_binary_16bits/c_counter_binary_16bits.xci">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../v3_05/v3_05.srcs/sources_1/ip/c_counter_binary_16bits/c_counter_binary_16bits.xci"/>
+        <Attr Name="ImportTime" Val="1517401238"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="c_counter_binary_16bits"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

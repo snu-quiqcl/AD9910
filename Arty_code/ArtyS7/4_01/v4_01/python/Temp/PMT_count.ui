@@ -1,0 +1,761 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>604</width>
+    <height>470</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="Acq_value">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>80</y>
+     <width>201</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(255, 255, 255)</string>
+   </property>
+   <property name="text">
+    <string>Value</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>180</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>X</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>180</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Y</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>436</x>
+     <y>180</y>
+     <width>20</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Z</string>
+   </property>
+  </widget>
+  <widget class="QScrollBar" name="ScrollBar_X">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>205</y>
+     <width>81</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(150, 150, 150)</string>
+   </property>
+   <property name="minimum">
+    <number>-1500</number>
+   </property>
+   <property name="maximum">
+    <number>1500</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QScrollBar" name="ScrollBar_Y">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>205</y>
+     <width>81</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(150, 150, 150)</string>
+   </property>
+   <property name="minimum">
+    <number>-1500</number>
+   </property>
+   <property name="maximum">
+    <number>1500</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QScrollBar" name="ScrollBar_Z">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>205</y>
+     <width>81</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(150, 150, 150)</string>
+   </property>
+   <property name="minimum">
+    <number>-1500</number>
+   </property>
+   <property name="maximum">
+    <number>1500</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="TextBox_X">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>220</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="TextBox_Y">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>220</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="TextBox_Z">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>220</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="TextBox_X_step">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>250</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(11, 220, 220)</string>
+   </property>
+   <property name="text">
+    <string>10</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="TextBox_Y_step">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>250</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(11, 220, 220)</string>
+   </property>
+   <property name="text">
+    <string>10</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="TextBox_Z_step">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>250</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(11, 220, 220)</string>
+   </property>
+   <property name="text">
+    <string>10</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="TextBox_xy_min">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>70</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>-3</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="TextBox_xy_MAX">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>120</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>3</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>65</x>
+     <y>50</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>xy_min</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>65</x>
+     <y>100</y>
+     <width>51</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>xy_MAX</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>60</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Acquired Value</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BTN_SAVE">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>350</y>
+     <width>121</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BTN_min">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>350</y>
+     <width>121</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Set to min</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BTN_MAX">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>350</y>
+     <width>121</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Set to MAX</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="TextBox_z_min">
+   <property name="geometry">
+    <rect>
+     <x>425</x>
+     <y>70</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>-2</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>100</y>
+     <width>31</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>z_MAX</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="TextBox_z_MAX">
+   <property name="geometry">
+    <rect>
+     <x>425</x>
+     <y>120</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>2</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>50</y>
+     <width>31</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>z_min</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BTN_NEXT">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>220</y>
+     <width>71</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Next step</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="xy_min_real_TXT">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>70</y>
+     <width>61</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(80, 80, 80);color:rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="xy_MAX_real_TXT">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>120</y>
+     <width>61</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(80, 80, 80);color:rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="z_min_real_TXT">
+   <property name="geometry">
+    <rect>
+     <x>505</x>
+     <y>70</y>
+     <width>61</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(80, 80, 80);color:rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="z_MAX_real_TXT">
+   <property name="geometry">
+    <rect>
+     <x>505</x>
+     <y>120</y>
+     <width>61</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(80, 80, 80);color:rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <zorder>ScrollBar_Z</zorder>
+  <zorder>ScrollBar_Y</zorder>
+  <zorder>ScrollBar_X</zorder>
+  <zorder>Acq_value</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_4</zorder>
+  <zorder>TextBox_X</zorder>
+  <zorder>TextBox_Y</zorder>
+  <zorder>TextBox_Z</zorder>
+  <zorder>TextBox_X_step</zorder>
+  <zorder>TextBox_Y_step</zorder>
+  <zorder>TextBox_Z_step</zorder>
+  <zorder>TextBox_xy_min</zorder>
+  <zorder>TextBox_xy_MAX</zorder>
+  <zorder>label_5</zorder>
+  <zorder>label_6</zorder>
+  <zorder>label_7</zorder>
+  <zorder>BTN_SAVE</zorder>
+  <zorder>BTN_min</zorder>
+  <zorder>BTN_MAX</zorder>
+  <zorder>TextBox_z_min</zorder>
+  <zorder>label_8</zorder>
+  <zorder>TextBox_z_MAX</zorder>
+  <zorder>label_9</zorder>
+  <zorder>BTN_NEXT</zorder>
+  <zorder>xy_min_real_TXT</zorder>
+  <zorder>xy_MAX_real_TXT</zorder>
+  <zorder>z_min_real_TXT</zorder>
+  <zorder>z_MAX_real_TXT</zorder>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>BTN_NEXT</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>NextStep()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>61</x>
+     <y>247</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>53</x>
+     <y>316</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BTN_SAVE</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>SaveData()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>156</x>
+     <y>383</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>189</x>
+     <y>426</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BTN_min</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>SettoMin()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>306</x>
+     <y>378</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>341</x>
+     <y>431</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BTN_MAX</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>SettoMax()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>400</x>
+     <y>380</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>509</x>
+     <y>431</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TextBox_xy_min</sender>
+   <signal>returnPressed()</signal>
+   <receiver>Form</receiver>
+   <slot>MM_Edit()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>97</x>
+     <y>87</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>155</x>
+     <y>99</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TextBox_xy_MAX</sender>
+   <signal>returnPressed()</signal>
+   <receiver>Form</receiver>
+   <slot>MM_Edit()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>95</x>
+     <y>135</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>165</x>
+     <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TextBox_z_min</sender>
+   <signal>returnPressed()</signal>
+   <receiver>Form</receiver>
+   <slot>MM_Edit()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>537</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>588</x>
+     <y>94</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TextBox_z_MAX</sender>
+   <signal>returnPressed()</signal>
+   <receiver>Form</receiver>
+   <slot>MM_Edit()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>526</x>
+     <y>136</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>577</x>
+     <y>169</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ScrollBar_X</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>Form</receiver>
+   <slot>x_Change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>179</x>
+     <y>292</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>232</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ScrollBar_Y</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>Form</receiver>
+   <slot>y_Change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>314</x>
+     <y>289</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>381</x>
+     <y>315</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ScrollBar_Z</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>Form</receiver>
+   <slot>z_Change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>469</x>
+     <y>289</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>517</x>
+     <y>303</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>NextStep()</slot>
+  <slot>SaveData()</slot>
+  <slot>SettoMin()</slot>
+  <slot>SettoMax()</slot>
+  <slot>XY_min_Edit()</slot>
+  <slot>XY_max_Edit()</slot>
+  <slot>z_min_Edit()</slot>
+  <slot>z_max_Edit()</slot>
+  <slot>x_Change()</slot>
+  <slot>y_Change()</slot>
+  <slot>z_Change()</slot>
+  <slot>MM_Edit()</slot>
+ </slots>
+</ui>

@@ -1,0 +1,73 @@
+    assign counters_13_0[0] = jb_0_counter_output;
+    assign counters_13_0[1] = jb_2_counter_output;
+    assign counters_13_0[2] = jb_4_counter_output;
+    assign counters_13_0[3] = jb_6_counter_output;
+
+    assign counters_13_0[6] = jb_0_stopwatch_output;
+    assign counters_13_0[7] = jb_2_stopwatch_output;
+    assign counters_13_0[8] = jb_4_stopwatch_output;
+    assign counters_13_0[9] = jb_6_stopwatch_output;
+    assign counters_13_0[10] = ja_2_stopwatch_output;
+
+	
+    assign trigger_level_in[15] = jb_0_stopwatch_stopped;
+    assign trigger_level_in[14] = jb_2_stopwatch_stopped;
+    assign trigger_level_in[13] = jb_4_stopwatch_stopped;
+    assign trigger_level_in[12] = jb_6_stopwatch_stopped;
+    assign trigger_level_in[11] = ja_2_stopwatch_stopped;
+
+    assign jb_0_counter_reset = trigger_out[15];
+    assign jb_2_counter_reset = trigger_out[14];
+    assign jb_4_counter_reset = trigger_out[13];
+    assign jb_6_counter_reset = trigger_out[12];
+    
+    assign jb_0_stopwatch_start = trigger_out[11];
+    assign jb_2_stopwatch_start = trigger_out[10];
+    assign jb_4_stopwatch_start = trigger_out[9];
+    assign jb_6_stopwatch_start = trigger_out[8];
+    assign ja_2_stopwatch_start = trigger_out[7];
+    
+    assign jb_0_stopwatch_reset = trigger_out[6];
+    assign jb_2_stopwatch_reset = trigger_out[5];
+    assign jb_4_stopwatch_reset = trigger_out[4];
+    assign jb_6_stopwatch_reset = trigger_out[3];
+    assign ja_2_stopwatch_reset = trigger_out[2];
+
+
+    
+    assign ja_3 = external_output[15]; // output_ports[0][15] or patterns[17]
+    assign ja_7 = external_output[14]; // output_ports[0][14] or patterns[18]
+    assign jb_1 = external_output[13]; // output_ports[0][13] or patterns[19]
+    assign jb_3 = external_output[12]; // output_ports[0][12] or patterns[20]
+    assign jb_5 = external_output[11]; // output_ports[0][11] or patterns[21]
+    assign jb_7 = external_output[10]; // output_ports[0][10] or patterns[22]
+    assign ja_0 = external_output[9]; // output_ports[0][9] or patterns[23]
+    assign ja_1 = external_output[8]; // output_ports[0][8] or patterns[24]
+    assign ja_4 = external_output[7]; // output_ports[0][7] or patterns[25]
+    assign ja_5 = external_output[6]; // output_ports[0][6] or patterns[26]
+    assign ja_6 = external_output[5]; // output_ports[0][5] or patterns[27]
+
+	
+    wire [15:0] output_ports_1;
+    assign output_ports_1 = output_ports[1];
+    assign jb_0_counter_clock_enable = output_ports_1[15];
+    assign jb_2_counter_clock_enable = output_ports_1[14];
+    assign jb_4_counter_clock_enable = output_ports_1[13];
+    assign jb_6_counter_clock_enable = output_ports_1[12];
+
+	
+	
+
+
+input_mapping = {'jb_0': 'PMT1', 'jb_2': 'PMT2', 'ja_2': 'pulse_trigger'}
+
+# Output port pin mapping
+# For output pin, there might be more than one device controlled by the output pin
+output_mapping = {'C1_EOM_7_37GHz': 'ja_3', \
+                  'C1_EOM_2_1GHz' : 'ja_7', \
+                  'C1_AOM_200MHz' : 'jb_1', \
+                  'C1_AOM_210MHz' : 'jb_3', \
+                  'C1_Microwave_SW': 'jb_5', \
+                  'single_shot': 'jb_7'}
+
+				  

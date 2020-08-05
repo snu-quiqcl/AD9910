@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2017.3 (64-bit)
+# SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
+# IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
+# Start of session at: Fri Jul 26 14:12:03 2019
+# Process ID: 6592
+# Current directory: Q:/Users/thkim/Arty_S7/Sequencer/v4_01
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5480 Q:\Users\thkim\Arty_S7\Sequencer\v4_01\v4_01.xpr
+# Log file: Q:/Users/thkim/Arty_S7/Sequencer/v4_01/vivado.log
+# Journal file: Q:/Users/thkim/Arty_S7/Sequencer/v4_01\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project Q:/Users/thkim/Arty_S7/Sequencer/v4_01/v4_01.xpr

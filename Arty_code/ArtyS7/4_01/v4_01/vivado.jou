@@ -1,0 +1,48 @@
+#-----------------------------------------------------------
+# Vivado v2017.3 (64-bit)
+# SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
+# IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
+# Start of session at: Fri Jul 26 14:29:39 2019
+# Process ID: 51064
+# Current directory: Q:/Users/thkim/Arty_S7/Sequencer/v4_01
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent59228 Q:\Users\thkim\Arty_S7\Sequencer\v4_01\v4_01.xpr
+# Log file: Q:/Users/thkim/Arty_S7/Sequencer/v4_01/vivado.log
+# Journal file: Q:/Users/thkim/Arty_S7/Sequencer/v4_01\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project Q:/Users/thkim/Arty_S7/Sequencer/v4_01/v4_01.xpr
+open_project {Q:/Users/yjpark/Arty S7/DAC8734/v1_00/v1_00.xpr}
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {Q:/Users/yjpark/Arty S7/DAC8734/v1_00/v1_00.runs/impl_1/main_without_capture_waveform_data.bit} [get_hw_devices xc7s50_0]
+current_hw_device [get_hw_devices xc7s50_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7s50_0] 0]
+create_hw_cfgmem -hw_device [lindex [get_hw_devices] 0] -mem_dev [lindex [get_cfgmem_parts {s25fl128sxxxxxx0-spi-x1_x2_x4}] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property PROGRAM.FILE {Q:/Users/yjpark/Arty S7/DAC8734/v1_00/v1_00.runs/impl_1/main_without_capture_waveform_data.bit} [get_hw_devices xc7s50_0]
+program_hw_devices [get_hw_devices xc7s50_0]
+refresh_hw_device [lindex [get_hw_devices xc7s50_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property PROGRAM.FILE {Q:/Users/yjpark/Arty S7/DAC8734/v1_00/v1_00.runs/impl_1/main_without_capture_waveform_data.bit} [get_hw_devices xc7s50_0]
+program_hw_devices [get_hw_devices xc7s50_0]
+refresh_hw_device [lindex [get_hw_devices xc7s50_0] 0]
+open_project {Q:/Users/yjpark/Arty S7/PID/from_v1_00/from_v1_00.xpr}
+update_compile_order -fileset sources_1
+current_project v1_00
+close_project
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {Q:\Users\yjpark\Arty S7\DAC8734\v1_00\v1_00.runs\impl_1\main_without_capture_waveform_data.bit} [get_hw_devices xc7s50_0]
+current_hw_device [get_hw_devices xc7s50_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7s50_0] 0]
+create_hw_cfgmem -hw_device [lindex [get_hw_devices] 0] -mem_dev [lindex [get_cfgmem_parts {s25fl128sxxxxxx0-spi-x1_x2_x4}] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property PROGRAM.FILE {Q:/Users/yjpark/Arty S7/PID/from_v1_00/from_v1_00.runs/impl_1/main_without_capture_waveform_data.bit} [get_hw_devices xc7s50_0]
+program_hw_devices [get_hw_devices xc7s50_0]
+refresh_hw_device [lindex [get_hw_devices xc7s50_0] 0]
+close_project

@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>673</width>
+    <height>354</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Rabi oscillation with pulse laser</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="1" column="0">
+    <widget class="QPushButton" name="open_RF_generator_button">
+     <property name="text">
+      <string>Open RF generator control panel</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLabel" name="RF_generator_status">
+     <property name="text">
+      <string>Disconnected</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QFrame" name="frame">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QGroupBox" name="power_sweep_group">
+        <property name="title">
+         <string>Power sweep settings (mW)</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="2">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Step</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QDoubleSpinBox" name="stop_spinbox">
+           <property name="maximum">
+            <double>1000.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>0.010000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Start</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QDoubleSpinBox" name="start_spinbox">
+           <property name="maximum">
+            <double>1000.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>0.010000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QDoubleSpinBox" name="step_spinbox">
+           <property name="singleStep">
+            <double>0.010000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Stop</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QGroupBox" name="sequencer_group">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="title">
+         <string>Sequencer</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>Program</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="program_path_line_edit"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <widget class="QPushButton" name="choose_program_button">
+             <property name="text">
+              <string>Choose program</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="edit_program_button">
+             <property name="text">
+              <string>Edit program</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="export_data_button">
+             <property name="text">
+              <string>To data_exported</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="run_button">
+        <property name="text">
+         <string>Run</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Current power (mW):</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="current_power_label">
+          <property name="font">
+           <font>
+            <family>Arial</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="3" column="0" colspan="2">
+       <widget class="QLabel" name="status_display">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="2">
+    <widget class="QGroupBox" name="config_file_group">
+     <property name="title">
+      <string>Config file</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_5">
+      <item row="2" column="0">
+       <widget class="QPushButton" name="reload_config_button">
+        <property name="text">
+         <string>Reload from config file</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="edit_config_button">
+        <property name="text">
+         <string>Edit config file</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QPushButton" name="save_config_button">
+        <property name="text">
+         <string>Save current settings to config file</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="3">
+       <widget class="QLabel" name="config_file_label">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>run_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>run()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>316</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>186</x>
+     <y>82</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>choose_program_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>choose_program()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>276</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>267</x>
+     <y>189</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>edit_program_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>edit_program()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>436</x>
+     <y>276</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>267</x>
+     <y>189</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>reload_config_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>reload_config()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>162</x>
+     <y>71</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>267</x>
+     <y>189</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>save_config_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>save_config()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>653</x>
+     <y>71</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>267</x>
+     <y>189</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>export_data_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>export_data()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>642</x>
+     <y>276</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>267</x>
+     <y>189</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>edit_config_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>edit_config()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>240</x>
+     <y>60</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>267</x>
+     <y>189</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>open_RF_generator_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>open_RF_generator()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>120</x>
+     <y>99</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>234</x>
+     <y>167</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>run()</slot>
+  <slot>reload_config()</slot>
+  <slot>save_config()</slot>
+  <slot>choose_program()</slot>
+  <slot>edit_program()</slot>
+  <slot>export_data()</slot>
+  <slot>edit_config()</slot>
+  <slot>open_RF_generator()</slot>
+ </slots>
+</ui>

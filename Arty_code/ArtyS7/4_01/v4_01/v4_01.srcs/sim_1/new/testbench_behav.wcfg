@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="\$unit_1 " />
+            <top_module name="glbl" />
+            <top_module name="parameterPkg" />
+            <top_module name="testbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="344970000fs"></ZoomStartTime>
+      <ZoomEndTime time="437432861fs"></ZoomEndTime>
+      <Cursor1Time time="579950000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="234"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="82" />
+   <wvobject fp_name="/testbench/CLK100MHZ" type="logic">
+      <obj_property name="ElementShortName">CLK100MHZ</obj_property>
+      <obj_property name="ObjectShortName">CLK100MHZ</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/instruction_memory_data_out" type="array">
+      <obj_property name="ElementShortName">instruction_memory_data_out[63:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction_memory_data_out[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/PC" type="array">
+      <obj_property name="ElementShortName">PC[8:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/dp/PC_MUX/y" type="array">
+      <obj_property name="ElementShortName">y[8:0]</obj_property>
+      <obj_property name="ObjectShortName">y[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/instr" type="array">
+      <obj_property name="ElementShortName">instr[63:0]</obj_property>
+      <obj_property name="ObjectShortName">instr[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="vbus339" type="vbus">
+      <obj_property name="label">opcode</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/testbench/instr[63]" type="logic">
+         <obj_property name="ElementShortName">[63]</obj_property>
+         <obj_property name="ObjectShortName">[63]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/instr[62]" type="logic">
+         <obj_property name="ElementShortName">[62]</obj_property>
+         <obj_property name="ObjectShortName">[62]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/instr[61]" type="logic">
+         <obj_property name="ElementShortName">[61]</obj_property>
+         <obj_property name="ObjectShortName">[61]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/instr[60]" type="logic">
+         <obj_property name="ElementShortName">[60]</obj_property>
+         <obj_property name="ObjectShortName">[60]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/instr[59]" type="logic">
+         <obj_property name="ElementShortName">[59]</obj_property>
+         <obj_property name="ObjectShortName">[59]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/instr[58]" type="logic">
+         <obj_property name="ElementShortName">[58]</obj_property>
+         <obj_property name="ObjectShortName">[58]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/instr[57]" type="logic">
+         <obj_property name="ElementShortName">[57]</obj_property>
+         <obj_property name="ObjectShortName">[57]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/instr[56]" type="logic">
+         <obj_property name="ElementShortName">[56]</obj_property>
+         <obj_property name="ObjectShortName">[56]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/testbench/output_fifo/wr_en" type="logic">
+      <obj_property name="ElementShortName">wr_en</obj_property>
+      <obj_property name="ObjectShortName">wr_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/dp/run_jump_wait" type="array">
+      <obj_property name="ElementShortName">run_jump_wait[1:0]</obj_property>
+      <obj_property name="ObjectShortName">run_jump_wait[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/c/internal_run_jump_wait" type="array">
+      <obj_property name="ElementShortName">internal_run_jump_wait[1:0]</obj_property>
+      <obj_property name="ObjectShortName">internal_run_jump_wait[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/output_ports[0][15]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[15]</obj_property>
+      <obj_property name="ObjectShortName">[15]</obj_property>
+      <obj_property name="label">[15] EOM_7_37GHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/output_ports[0][14]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[14]</obj_property>
+      <obj_property name="ObjectShortName">[14]</obj_property>
+      <obj_property name="label">[14] EOM_2_1GHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/output_ports[0][13]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[13]</obj_property>
+      <obj_property name="ObjectShortName">[13]</obj_property>
+      <obj_property name="label">[13] AOM_200MHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/output_ports[0][12]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[12]</obj_property>
+      <obj_property name="ObjectShortName">[12]</obj_property>
+      <obj_property name="label">[12] AOM_210MHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/output_ports[0][11]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[11]</obj_property>
+      <obj_property name="ObjectShortName">[11]</obj_property>
+      <obj_property name="label">[11] Microwave_SW</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/output_ports[0][10]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[10]</obj_property>
+      <obj_property name="ObjectShortName">[10]</obj_property>
+      <obj_property name="label">[10] Counter_Enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/c/force_run" type="logic">
+      <obj_property name="ElementShortName">force_run</obj_property>
+      <obj_property name="ObjectShortName">force_run</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/c/seq_state" type="array">
+      <obj_property name="ElementShortName">seq_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">seq_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/c/wait_counter" type="array">
+      <obj_property name="ElementShortName">wait_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">wait_counter[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/c/pattern_matched" type="logic">
+      <obj_property name="ElementShortName">pattern_matched</obj_property>
+      <obj_property name="ObjectShortName">pattern_matched</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/output_ports" type="array">
+      <obj_property name="ElementShortName">output_ports[3:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">output_ports[3:0][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/trigger_out" type="array">
+      <obj_property name="ElementShortName">trigger_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">trigger_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/start_sequencer" type="logic">
+      <obj_property name="ElementShortName">start_sequencer</obj_property>
+      <obj_property name="ObjectShortName">start_sequencer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/stopped" type="logic">
+      <obj_property name="ElementShortName">stopped</obj_property>
+      <obj_property name="ObjectShortName">stopped</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/counters_13_0" type="array">
+      <obj_property name="ElementShortName">counters_13_0[13:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">counters_13_0[13:0][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/rd1" type="array">
+      <obj_property name="ElementShortName">rd1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rd1[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/rd2" type="array">
+      <obj_property name="ElementShortName">rd2[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rd2[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/rd3" type="array">
+      <obj_property name="ElementShortName">rd3[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rd3[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/dp/rf/rf" type="array">
+      <obj_property name="ElementShortName">rf[31:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">rf[31:0][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/output_fifo_we" type="logic">
+      <obj_property name="ElementShortName">output_fifo_we</obj_property>
+      <obj_property name="ObjectShortName">output_fifo_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/output_fifo_data_count" type="array">
+      <obj_property name="ElementShortName">output_fifo_data_count[10:0]</obj_property>
+      <obj_property name="ObjectShortName">output_fifo_data_count[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/data_fifo_rd_en" type="logic">
+      <obj_property name="ElementShortName">data_fifo_rd_en</obj_property>
+      <obj_property name="ObjectShortName">data_fifo_rd_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/data_fifo_dout" type="array">
+      <obj_property name="ElementShortName">data_fifo_dout[63:0]</obj_property>
+      <obj_property name="ObjectShortName">data_fifo_dout[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/REGISTER_ADDR_WIDTH" type="array">
+      <obj_property name="ElementShortName">REGISTER_ADDR_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">REGISTER_ADDR_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/REGISTER_WIDTH" type="array">
+      <obj_property name="ElementShortName">REGISTER_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">REGISTER_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/OUTPUT_FIFO_DATA_WIDTH" type="array">
+      <obj_property name="ElementShortName">OUTPUT_FIFO_DATA_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">OUTPUT_FIFO_DATA_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/OUTPUT_FIFO_DATA_COUNT_WIDTH" type="array">
+      <obj_property name="ElementShortName">OUTPUT_FIFO_DATA_COUNT_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">OUTPUT_FIFO_DATA_COUNT_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/INSTRUCTION_MEMORY_DATA_WIDTH" type="array">
+      <obj_property name="ElementShortName">INSTRUCTION_MEMORY_DATA_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">INSTRUCTION_MEMORY_DATA_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/INSTRUCTION_MEMORY_ADDR_WIDTH" type="array">
+      <obj_property name="ElementShortName">INSTRUCTION_MEMORY_ADDR_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">INSTRUCTION_MEMORY_ADDR_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/dp/PC_MUX/d0" type="array">
+      <obj_property name="ElementShortName">d0[8:0]</obj_property>
+      <obj_property name="ObjectShortName">d0[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/dp/PC_MUX/d1" type="array">
+      <obj_property name="ElementShortName">d1[8:0]</obj_property>
+      <obj_property name="ObjectShortName">d1[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/dp/PC_MUX/d2" type="array">
+      <obj_property name="ElementShortName">d2[8:0]</obj_property>
+      <obj_property name="ObjectShortName">d2[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/dp/PC_MUX/d3" type="array">
+      <obj_property name="ElementShortName">d3[8:0]</obj_property>
+      <obj_property name="ObjectShortName">d3[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/dp/PC_MUX/select" type="array">
+      <obj_property name="ElementShortName">select[1:0]</obj_property>
+      <obj_property name="ObjectShortName">select[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/dp/PC_MUX/WIDTH" type="array">
+      <obj_property name="ElementShortName">WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/dp/rf/we3" type="logic">
+      <obj_property name="ElementShortName">we3</obj_property>
+      <obj_property name="ObjectShortName">we3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/dp/rf/a1" type="array">
+      <obj_property name="ElementShortName">a1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">a1[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/dp/rf/a2" type="array">
+      <obj_property name="ElementShortName">a2[4:0]</obj_property>
+      <obj_property name="ObjectShortName">a2[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/dp/rf/a3" type="array">
+      <obj_property name="ElementShortName">a3[4:0]</obj_property>
+      <obj_property name="ObjectShortName">a3[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seq/dp/rf/wd3" type="array">
+      <obj_property name="ElementShortName">wd3[15:0]</obj_property>
+      <obj_property name="ObjectShortName">wd3[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_4_stopwatch/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_4_stopwatch/stop" type="logic">
+      <obj_property name="ElementShortName">stop</obj_property>
+      <obj_property name="ObjectShortName">stop</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_4_stopwatch/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_4_stopwatch/interval" type="array">
+      <obj_property name="ElementShortName">interval[15:0]</obj_property>
+      <obj_property name="ObjectShortName">interval[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_4_stopwatch/clk_800MHz" type="logic">
+      <obj_property name="ElementShortName">clk_800MHz</obj_property>
+      <obj_property name="ObjectShortName">clk_800MHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_4_stopwatch/counter_output" type="array">
+      <obj_property name="ElementShortName">counter_output[15:0]</obj_property>
+      <obj_property name="ObjectShortName">counter_output[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_4_stopwatch/COUNTER_LENGTH_BITS" type="array">
+      <obj_property name="ElementShortName">COUNTER_LENGTH_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">COUNTER_LENGTH_BITS[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_5_stopwatch/clk_800MHz" type="logic">
+      <obj_property name="ElementShortName">clk_800MHz</obj_property>
+      <obj_property name="ObjectShortName">clk_800MHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_5_stopwatch/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_5_stopwatch/stop" type="logic">
+      <obj_property name="ElementShortName">stop</obj_property>
+      <obj_property name="ObjectShortName">stop</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_5_stopwatch/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_5_stopwatch/interval" type="array">
+      <obj_property name="ElementShortName">interval[15:0]</obj_property>
+      <obj_property name="ObjectShortName">interval[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_5_stopwatch/stopped" type="logic">
+      <obj_property name="ElementShortName">stopped</obj_property>
+      <obj_property name="ObjectShortName">stopped</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_5_stopwatch/reset_shortened" type="logic">
+      <obj_property name="ElementShortName">reset_shortened</obj_property>
+      <obj_property name="ObjectShortName">reset_shortened</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_5_stopwatch/started" type="logic">
+      <obj_property name="ElementShortName">started</obj_property>
+      <obj_property name="ObjectShortName">started</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_5_stopwatch/stop_signal_captured_at_start_posedge" type="logic">
+      <obj_property name="ElementShortName">stop_signal_captured_at_start_posedge</obj_property>
+      <obj_property name="ObjectShortName">stop_signal_captured_at_start_posedge</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_5_stopwatch/stop_negedge_detected_after_start" type="logic">
+      <obj_property name="ElementShortName">stop_negedge_detected_after_start</obj_property>
+      <obj_property name="ObjectShortName">stop_negedge_detected_after_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_5_stopwatch/stop_signal_mask" type="logic">
+      <obj_property name="ElementShortName">stop_signal_mask</obj_property>
+      <obj_property name="ObjectShortName">stop_signal_mask</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_5_stopwatch/counter_output" type="array">
+      <obj_property name="ElementShortName">counter_output[15:0]</obj_property>
+      <obj_property name="ObjectShortName">counter_output[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_5_stopwatch/COUNTER_LENGTH_BITS" type="array">
+      <obj_property name="ElementShortName">COUNTER_LENGTH_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">COUNTER_LENGTH_BITS[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_6_stopwatch/clk_800MHz" type="logic">
+      <obj_property name="ElementShortName">clk_800MHz</obj_property>
+      <obj_property name="ObjectShortName">clk_800MHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_6_stopwatch/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_6_stopwatch/stop" type="logic">
+      <obj_property name="ElementShortName">stop</obj_property>
+      <obj_property name="ObjectShortName">stop</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_6_stopwatch/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_6_stopwatch/interval" type="array">
+      <obj_property name="ElementShortName">interval[15:0]</obj_property>
+      <obj_property name="ObjectShortName">interval[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_6_stopwatch/stopped" type="logic">
+      <obj_property name="ElementShortName">stopped</obj_property>
+      <obj_property name="ObjectShortName">stopped</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_6_stopwatch/reset_shortened" type="logic">
+      <obj_property name="ElementShortName">reset_shortened</obj_property>
+      <obj_property name="ObjectShortName">reset_shortened</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_6_stopwatch/started" type="logic">
+      <obj_property name="ElementShortName">started</obj_property>
+      <obj_property name="ObjectShortName">started</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_6_stopwatch/stop_signal_captured_at_start_posedge" type="logic">
+      <obj_property name="ElementShortName">stop_signal_captured_at_start_posedge</obj_property>
+      <obj_property name="ObjectShortName">stop_signal_captured_at_start_posedge</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_6_stopwatch/stop_negedge_detected_after_start" type="logic">
+      <obj_property name="ElementShortName">stop_negedge_detected_after_start</obj_property>
+      <obj_property name="ObjectShortName">stop_negedge_detected_after_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_6_stopwatch/stop_signal_mask" type="logic">
+      <obj_property name="ElementShortName">stop_signal_mask</obj_property>
+      <obj_property name="ObjectShortName">stop_signal_mask</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_6_stopwatch/counter_output" type="array">
+      <obj_property name="ElementShortName">counter_output[15:0]</obj_property>
+      <obj_property name="ObjectShortName">counter_output[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/jb_6_stopwatch/COUNTER_LENGTH_BITS" type="array">
+      <obj_property name="ElementShortName">COUNTER_LENGTH_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">COUNTER_LENGTH_BITS[31:0]</obj_property>
+   </wvobject>
+</wave_config>
