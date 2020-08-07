@@ -240,7 +240,7 @@ class AD9910:
         else:
             print('Error in set_phase: not suitable unit (%s).'\
                   % unit, 'unit should be \'FRAC\', \'RAD\', \'DEG\'')
-        self.write16(POW_ADDR, self.phase_to_POW(phase, unit = 'FRAC'))
+        self.write16(POW_ADDR, self.phase_to_POW(phase_in_frac, unit = 'FRAC'))
         
     def set_amplitude(self, amplitude_frac, ch1, ch2):
         if(amplitude_frac > 1 or amplitude_frac < 0):
