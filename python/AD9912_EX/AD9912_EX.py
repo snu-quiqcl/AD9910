@@ -8,8 +8,13 @@ Created on Fri Aug  7 14:03:46 2020
 from Arty_S7_v1_01 import *
 from AD9912_DAC8734_v1_01 import *
 
+TEST = 1
+
 if __name__ == '__main__':
-    fpga = ArtyS7('COM1')
+    if TEST:
+        fpga = ArtyS7(None)
+    else:
+        fpga = ArtyS7('COM1')
     dds = AD9912(fpga)
     
     while(1):
@@ -19,18 +24,19 @@ if __name__ == '__main__':
         order = input('select funct you want to implement')
         
         if( order == '1' ):
-            freq_in_MHz = input('freq_in_MHz : ')
-            ch1 = input('ch1 : ')
-            ch2 = input('ch2 : ')
+            freq_in_MHz = float(input('freq_in_MHz : '))
+            ch1 = int(input('ch1 : '))
+            ch2 = int(input('ch2 : '))
             dds.set_frequency(freq_in_MHz, ch1, ch2)
             
         elif( order == '2' ):
-            current = input('current : ')
-            ch1 = input('ch1 : ')
-            ch2 = input('ch2 : ')
+            current = float(input('current : '))
+            ch1 = int(input('ch1 : '))
+            ch2 = int(input('ch2 : '))
             dds.set_current(current, ch1, ch2)
             
         elif( order == '8' ):
+            fpga.close()
             break
         
         else:

@@ -10,6 +10,8 @@ v1_01: Added read_DNA(), print_idn() methods
 
 import serial
 
+TEST = 1
+
 class escapeSequenceDetected(Exception):
     def __init__(self, escape_char):
         self.escape_char = escape_char
@@ -23,12 +25,16 @@ class ArtyS7:
     PATTERN_BYTES = 4
     
     def __init__(self, serialPort):
-        self.com = serial.Serial(serialPort, baudrate=57600, timeout=1, \
+        if TEST:
+            self.com = None
+        else:
+            self.com = serial.Serial(serialPort, baudrate=57600, timeout=1, \
                 parity='N', bytesize=8, stopbits=2, xonxoff=False, \
                 rtscts=False, dsrdtr=False, writeTimeout = 0 )
         
     def close(self):
-        self.com.close()
+        if TEST != 1:
+            self.com.close()
 
 
     def send_command(self, cmd):
@@ -45,7 +51,12 @@ class ArtyS7:
                     string_to_send += each_char
             string_to_send += '\r\n'
             string_to_send = string_to_send.encode('latin-1')
-            self.com.write(string_to_send)
+            if TEST:
+                print(string_to_send)
+                binary_string = bin(int.from_bytes(string_to_send,'little'))[2:].zfill(8)
+                print(binary_string)
+            else:
+                self.com.write(string_to_send)
 
     def send_mod_BTF_string(self, modified_BTF):
         string_length = len(modified_BTF)
@@ -63,8 +74,12 @@ class ArtyS7:
                     data_to_send += each_char
             data_to_send += '\r\n'
             data_to_send = data_to_send.encode('latin-1')
-            #print(data_to_send)
-            self.com.write(data_to_send)
+            if TEST:
+                print(data_to_send)
+                binary_string = bin(int.from_bytes(data_to_send,'little'))[2:].zfill(8)
+                print(binary_string)
+            else:
+                self.com.write(data_to_send)
 
     def send_mod_BTF_int_list(self, modified_BTF):
         dataLength = len(modified_BTF)
@@ -82,8 +97,12 @@ class ArtyS7:
                     data_to_send += chr(each_byte)
             data_to_send += '\r\n'
             data_to_send = data_to_send.encode('latin-1')
-            #print(data_to_send)
-            self.com.write(data_to_send)
+            if TEST:
+                print(data_to_send)
+                binary_string = bin(int.from_bytes(data_to_send,'little'))[2:].zfill(8)
+                print(binary_string)
+            else:
+                self.com.write(data_to_send)
 
 
 

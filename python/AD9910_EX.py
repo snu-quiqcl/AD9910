@@ -8,8 +8,13 @@ Created on Fri Aug  7 14:04:01 2020
 from Arty_S7_v1_01 import *
 from AD9910_eval import *
 
+TEST = 1
+
 if __name__ == '__main__':
-    fpga = ArtyS7('COM12')
+    if TEST:
+        fpga = ArtyS7(None)
+    else:
+        fpga = ArtyS7('COM12')
     dds = AD9910(fpga)
     
     while(1):
@@ -32,13 +37,13 @@ if __name__ == '__main__':
             dds.set_frequency(freq_in_MHz, ch1, ch2)
             
         elif( order == '2' ):
-            phase = float(input('freq_in_MHz : '))
+            phase = float(input('phase : '))
             ch1 = int(input('ch1 : '))
             ch2 = int(input('ch2 : '))
             dds.set_phase(phase, ch1, ch2, unit = 'FRAC')
         
         elif( order == '3' ):
-            amplitude_frac = float(input('freq_in_MHz : '))
+            amplitude_frac = float(input('amplitude_frac : '))
             ch1 = int(input('ch1 : '))
             ch2 = int(input('ch2 : '))
             dds.set_amplitude(amplitude_frac, ch1, ch2)
@@ -72,6 +77,7 @@ if __name__ == '__main__':
             dds.set_CFR3(ch1, ch2)
             
         elif( order == '111' ):
+            fpga.close()
             break
         
         else:

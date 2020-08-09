@@ -35,6 +35,8 @@ RAM_ADDR                = 0x16
 
 PI                      = 3.1415926535897931
 
+TEST = 0
+
 class AD9910:
     def __init__(self, fpga, min_freq = 10, max_freq = 400, sys_clk = 1000, 
                  unit = 'MHz'):                        
@@ -109,11 +111,18 @@ class AD9910:
         int_list.append(register_addr & 0xff)
         int_list.append(register_data // (2 ** 8) & 0xff )
         int_list.append(register_data // (2 ** 0) & 0xff )
+        int_list.append(0)
+        int_list.append(0)
+        int_list.append(0)
+        int_list.append(0)
+        int_list.append(0)
+        int_list.append(0)
         
-        print(int_list)
-        
-        self.fpga.send_mod_BTF_int_list(int_list)
-        self.fpga.send_command('WRITE DDS REG')
+        if(TEST != 1):
+            self.fpga.send_mod_BTF_int_list(int_list)
+            self.fpga.send_command('WRITE DDS REG')
+        else:
+            print(int_list)
     
     def write32(self, register_addr, register_data, ch1, ch2):
         """
@@ -127,11 +136,16 @@ class AD9910:
         int_list.append(register_data // (2 ** 16) & 0xff )
         int_list.append(register_data // (2 ** 8) & 0xff )
         int_list.append(register_data // (2 ** 0) & 0xff )
+        int_list.append(0)
+        int_list.append(0)
+        int_list.append(0)
+        int_list.append(0)
         
-        print(int_list)
-        
-        self.fpga.send_mod_BTF_int_list(int_list)
-        self.fpga.send_command('WRITE DDS REG')
+        if(TEST != 1):
+            self.fpga.send_mod_BTF_int_list(int_list)
+            self.fpga.send_command('WRITE DDS REG')
+        else:
+            print(int_list)
     
     def write64(self, register_addr, register_data, ch1, ch2):
         """
@@ -150,10 +164,12 @@ class AD9910:
         int_list.append(register_data // (2 ** 8) & 0xff )
         int_list.append(register_data // (2 ** 0) & 0xff )
         
-        print(int_list)
+        if(TEST != 1):
+            self.fpga.send_mod_BTF_int_list(int_list)
+            self.fpga.send_command('WRITE DDS REG')
+        else:
+            print(int_list)
         
-        self.fpga.send_mod_BTF_int_list(int_list)
-        self.fpga.send_command('WRITE DDS REG')
     
     def frequency_to_FTW(self, freq, unit = 'MHz'):
         """
@@ -161,13 +177,13 @@ class AD9910:
         Note that FTW is 32 bits in AD9910
         """
         if(unit == 'Hz' or unit == 'hz'):
-            FTW = int((2**32)*(freq/(self.sys_clk*(10**0))))
+            FTW = int((2**32)*(freq*(10**0)/(self.sys_clk)))
         elif(unit == 'kHz' or unit == 'KHz' or unit == 'Khz' or unit == 'khz'):
-            FTW = int((2**32)*(freq/(self.sys_clk*(10**3))))
+            FTW = int((2**32)*(freq*(10**3)/(self.sys_clk)))
         elif(unit == 'mHz' or unit == 'MHz' or unit == 'Mhz' or unit == 'mhz'):
-            FTW = int((2**32)*(freq/(self.sys_clk*(10**6))))
+            FTW = int((2**32)*(freq*(10**6)/(self.sys_clk)))
         elif(unit == 'gHz' or unit == 'GHz' or unit == 'Ghz' or unit == 'ghz'):
-            FTW = int((2**32)*(freq/(self.sys_clk*(10**9))))
+            FTW = int((2**32)*(freq*(10**9)/(self.sys_clk)))
         else:
             print('Error in frequency_to_FTW: not suitable unit (%s).'\
                   % unit, 'unit should be \'Hz\', \'kHz\', \'MHz\', \'GHz\'')
@@ -221,6 +237,7 @@ class AD9910:
             print('Error in set_frequency: frequency should be between %d'\
                   'and %d' % (self.min_freq, self.max_freq))
             raise ValueError(freq_in_Hz)
+        
         self.write32(FTW_ADDR, self.frequency_to_FTW(freq_in_Hz, unit = 'Hz'), 
                      ch1, ch2)
         
@@ -288,9 +305,9 @@ class AD9910:
             | (LSB_first << 0) )
         self.write32(CFR1_ADDR, CFR1_setting, ch1, ch2)
         
-    def set_CFR2(self, ch1, ch2, amp_en_single_tone = 0, internal_IO_update = 0, 
+    def set_CFR2(self, ch1, ch2, amp_en_single_tone = 1, internal_IO_update = 0, 
                  SYNC_CLK_en = 0, DRG_dest = 0, DRG_en = 0, 
-                 DRG_no_dwell_high = 0, DRG_no_dwell_low = 0, read_eff_FTW = 0, 
+                 DRG_no_dwell_high = 0, DRG_no_dwell_low = 0, read_eff_FTW = 1, 
                  IO_update_rate = 0, PDCLK_en = 0, PDCLK_inv = 0, Tx_inv = 0, 
                  matched_latency_en = 0, data_ass_hold = 0, sync_val_dis = 1, 
                  parallel_port = 0, FM_gain = 0):
@@ -315,12 +332,14 @@ class AD9910:
         self.write32(CFR2_ADDR, CFR2_setting, ch1, ch2)
         
     def set_CFR3(self, ch1, ch2, DRV0 = 0, PLL_VCO = 0, I_CP = 0, 
-                 REFCLK_div_bypass = 1, REFCLK_input_div_reset = 0, 
+                 REFCLK_div_bypass = 1, REFCLK_input_div_reset = 1, 
                  PFD_reset = 0, PLL_en = 0, N = 0):
         CFR3_setting = (
             ( DRV0 << 28 )
+            | ( 1 << 27)
             | ( PLL_VCO << 24 )
             | ( I_CP << 19 )
+            | ( 7 << 16 )
             | ( REFCLK_div_bypass << 15 )
             | ( REFCLK_input_div_reset << 14 )
             | ( PFD_reset << 10 )

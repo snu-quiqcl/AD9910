@@ -16,6 +16,8 @@ class escapeSequenceDetected(Exception):
     def __str__(self):
         return ('\\x10%c is detected' % self.escape_char)
 
+TEST = 1
+
 class ArtyS7:
     CMD_RX_BUFFER_BYTES = 0xf
     BTF_RX_BUFFER_BYTES = 0x100
@@ -45,7 +47,12 @@ class ArtyS7:
                     string_to_send += each_char
             string_to_send += '\r\n'
             string_to_send = string_to_send.encode('latin-1')
-            self.com.write(string_to_send)
+            if TEST:
+                print(string_to_send)
+                binary_string = bin(int.from_bytes(string_to_send,'little'))[2:].zfill(8)
+                print(binary_string)
+            else:
+                self.com.write(string_to_send)
 
     def send_mod_BTF_string(self, modified_BTF):
         string_length = len(modified_BTF)
@@ -63,8 +70,12 @@ class ArtyS7:
                     data_to_send += each_char
             data_to_send += '\r\n'
             data_to_send = data_to_send.encode('latin-1')
-            #print(data_to_send)
-            self.com.write(data_to_send)
+            if TEST:
+                print(data_to_send)
+                binary_string = bin(int.from_bytes(data_to_send,'little'))[2:].zfill(8)
+                print(binary_string)
+            else:
+                self.com.write(data_to_send)
 
     def send_mod_BTF_int_list(self, modified_BTF):
         dataLength = len(modified_BTF)
@@ -82,8 +93,12 @@ class ArtyS7:
                     data_to_send += chr(each_byte)
             data_to_send += '\r\n'
             data_to_send = data_to_send.encode('latin-1')
-            #print(data_to_send)
-            self.com.write(data_to_send)
+            if TEST:
+                print(data_to_send)
+                binary_string = bin(int.from_bytes(data_to_send,'little'))[2:].zfill(8)
+                print(binary_string)
+            else:
+                self.com.write(data_to_send)
 
 
 
