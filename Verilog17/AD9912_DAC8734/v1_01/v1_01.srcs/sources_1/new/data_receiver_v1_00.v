@@ -22,7 +22,11 @@
 
 
 module data_receiver
-    #(parameter BTF_RX_BUFFER_COUNT_WIDTH = 9,
+    #(
+    ////
+    //*****BTF_RX_BUFFER_COUNT_WIDTH should be changed to 10?
+    ////
+      parameter BTF_RX_BUFFER_COUNT_WIDTH = 9,
       parameter BTF_RX_BUFFER_BYTES = 9'h100, // can be between 1 and 2^BTF_RX_BUFFER_COUNT_WIDTH - 1
       parameter BTF_RX_BUFFER_WIDTH = 8 * BTF_RX_BUFFER_BYTES,
       parameter BaudRate = 57600,    // Baud rate. Maximum allowed Baud rate of FTDI chip is 3000000 which means that transmission of 1 Byte takes at least 2.6 us. In usual Baud rate is much less than the maximum, so transmission of each character takes much longer than 2.6 us. 
@@ -263,8 +267,13 @@ module data_receiver
 
     always @(TERMINATOR_CURRENT_CHAR_POINTER)
         case(TERMINATOR_CURRENT_CHAR_POINTER)
-            0: TERMINATOR_CURRENT_CHAR = "\r";
-            1: TERMINATOR_CURRENT_CHAR = "\n"; // (TERMINATOR_LENGTH - 1)
+            //0: TERMINATOR_CURRENT_CHAR = "\r";
+            //1: TERMINATOR_CURRENT_CHAR = "\n"; // (TERMINATOR_LENGTH - 1)
+            ////
+            //****changed im AD9910 SIM
+            ////
+            0: TERMINATOR_CURRENT_CHAR = 13;
+            1: TERMINATOR_CURRENT_CHAR = 10; // (TERMINATOR_LENGTH - 1)
             default: TERMINATOR_CURRENT_CHAR = 'd0;
         endcase
         
@@ -276,6 +285,7 @@ module data_receiver
         CMD_Ready <= 1'b0;
         BTF_Ready <= 1'b0;
         wrong_format <= 1'b0;
+        BTF_RXBuffer <= 0;
     end
     always @ (posedge clk)
         if (esc_char_detected == 1'b1) begin
@@ -286,7 +296,7 @@ module data_receiver
         end
         else begin  
             case (main_state)
-                MAIN_IDLE: begin
+                MAIN_IDLE: begin//0
                         CMD_Ready <= 1'b0;
                         BTF_Ready <= 1'b0;
                         wrong_format <= 1'b0;
@@ -317,7 +327,7 @@ module data_receiver
                         end
                     end
 
-                MAIN_BTF_READ_NUM_DIGITS:
+                MAIN_BTF_READ_NUM_DIGITS://1
                     if (usbready == 1) begin
                         if (non_hexadecimal == 0) begin
                             btf_num_digits[3:0] <= hexadecimal_value[3:0];
@@ -329,7 +339,7 @@ module data_receiver
                         end
                     end
 
-                MAIN_BTF_READ_BYTE_COUNT:
+                MAIN_BTF_READ_BYTE_COUNT://2
                     if  (usbready == 1) begin
                         if (non_hexadecimal == 0) begin
                             btf_byte_count[BTF_RX_BUFFER_COUNT_WIDTH-1:0] <= {btf_byte_count[BTF_RX_BUFFER_COUNT_WIDTH-1-4:0], hexadecimal_value[3:0]};
@@ -344,7 +354,7 @@ module data_receiver
                         end
                     end
                 
-                MAIN_BTF_READ_RAW_DATA:
+                MAIN_BTF_READ_RAW_DATA://3
                     if  (usbready == 1) begin
                         BTF_RXBuffer[BTF_RX_BUFFER_WIDTH-1:0] <= {BTF_RXBuffer[BTF_RX_BUFFER_WIDTH-1-8:0], usbdata[7:0]};
                         btf_byte_count[BTF_RX_BUFFER_COUNT_WIDTH-1:0] <= btf_byte_count[BTF_RX_BUFFER_COUNT_WIDTH-1:0] - 'h1;
@@ -358,7 +368,7 @@ module data_receiver
                         end
                     end
 
-                MAIN_BTF_READ_RAW_DATA_ESC_DETECTED:
+                MAIN_BTF_READ_RAW_DATA_ESC_DETECTED://4
                     if  (usbready == 1) begin
                         if (usbdata[7:0] == 8'h10) begin // The second '\x10' is detected
                             if (btf_byte_count[BTF_RX_BUFFER_COUNT_WIDTH-1:0] == 'h0) begin // In case '\x10\x10' sequence is the last byte 
@@ -375,7 +385,7 @@ module data_receiver
                     end
 
 
-                MAIN_BTF_CHECK_TERMINATOR:
+                MAIN_BTF_CHECK_TERMINATOR://5
                     if  (usbready == 1) begin
                         if (usbdata[7:0] == TERMINATOR_CURRENT_CHAR) begin
                             if (TERMINATOR_CURRENT_CHAR_POINTER == (TERMINATOR_LENGTH - 1)) begin
@@ -395,7 +405,7 @@ module data_receiver
                     end
 
 
-                MAIN_BTF_EXECUTION:
+                MAIN_BTF_EXECUTION://6
                     begin
                         main_state <= MAIN_IDLE;
                         BTF_Ready <= 1'b0;

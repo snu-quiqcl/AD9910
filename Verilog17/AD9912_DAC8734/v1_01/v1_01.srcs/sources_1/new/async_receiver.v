@@ -90,4 +90,20 @@ always @(posedge clk) if (state!=0) gap_count<=5'h00; else if(Baud8Tick & ~gap_c
 assign RxD_idle = gap_count[4];
 reg RxD_endofpacket; always @(posedge clk) RxD_endofpacket <= Baud8Tick & (gap_count==5'h0F);
 
+////
+//****initial begin code added for simulation
+////
+initial begin
+    Baud8GeneratorAcc <= 0;
+    RxD_sync_inv <= 0;
+    RxD_cnt_inv <= 0;
+    RxD_bit_inv <= 0;
+    bit_spacing <= 0;
+    state <= 0;
+    gap_count <= 0;
+    RxD_endofpacket <= 0;
+    RxD_data_ready <= 0;
+    RxD_data_error <= 0;
+end
+
 endmodule

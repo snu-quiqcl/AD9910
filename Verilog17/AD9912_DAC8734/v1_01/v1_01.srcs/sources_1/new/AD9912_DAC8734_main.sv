@@ -262,6 +262,8 @@ module main(
     //assign {ja_7, ja_6, ja_5, ja_4, ja_3, ja_2, ja_1, ja_0}  = {DDS1_powerdown, rsdio_1, rcsbar_1, DDS_reset, rsclk, DDS2_powerdown, rsdio_2, rcsbar_2};
     
     reg DDS1_ioupdate, DDS2_ioupdate, DDS_reset;    // powerdown pins were replaced to IO UPDATE pin becuase powerdoen was not used
+    parameter IO_UPDATE_COUNT_LENGTH = 3;
+    reg[IO_UPDATE_COUNT_LENGTH-1:0] io_update_count;   // to make io update duration sufficienlt long
     initial {DDS1_ioupdate, DDS2_ioupdate, DDS_reset} <= 3'h0;
                                       
     assign {ja_7, ja_6, ja_5, ja_4, ja_3, ja_2, ja_1, ja_0}  = {DDS1_ioupdate, rsdio_1, rcsbar_1, DDS_reset, rsclk, DDS2_ioupdate, rsdio_2, rcsbar_2};
@@ -450,8 +452,7 @@ module main(
                             end
                             else if ((DDS1_update != 0) || (DDS2_update != 0)) begin
                                 main_state <= MAIN_DDS_IOUPDATE_OUT;
-                                dds_data_ready_1 <= DDS1_update;
-                                dds_data_ready_2 <= DDS2_update;
+                                io_update_count <= 'd5;
                             end
                         end
 
@@ -586,19 +587,19 @@ module main(
                 //****code added for AD9910**** this if statement is for IO UPDATE of AD9910
                 ////
                 MAIN_DDS_IOUPDATE_OUT: begin
-                    if(dds_data_ready_1 == 1'b1) begin
-                        DDS1_ioupdate <= 1'b1;
-                    end
-                    if(dds_data_ready_2 == 1'b1) begin
-                        DDS1_ioupdate <= 1'b1;
-                    end
-                    main_state <= MAIN_DDS_IOUPDATE_END;
+                    DDS1_ioupdate <= 1'b1;
+                    DDS2_ioupdate <= 1'b1;
+                    io_update_count <= io_update_count - 'd1;
+                    if( io_update_count == 0 ) begin
+                        main_state <= MAIN_DDS_IOUPDATE_END;
+                        end
                     end
                     
                 MAIN_DDS_IOUPDATE_END: begin
                         DDS1_ioupdate <= 1'b0;
-                        DDS1_ioupdate <= 1'b0;
+                        DDS2_ioupdate <= 1'b0;
                         main_state <= MAIN_IDLE;
+                        io_update_count = 0;
                     end
 
 
