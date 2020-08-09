@@ -221,7 +221,8 @@ class AD9910:
             print('Error in set_frequency: frequency should be between %d'\
                   'and %d' % (self.min_freq, self.max_freq))
             raise ValueError(freq_in_Hz)
-        self.write32(FTW_ADDR, self.frequency_to_FTW(freq_in_Hz, unit = 'Hz'))
+        self.write32(FTW_ADDR, self.frequency_to_FTW(freq_in_Hz, unit = 'Hz'), 
+                     ch1, ch2)
         
     def set_phase(self, phase, ch1, ch2, unit = 'FRAC'):
         """
@@ -240,7 +241,8 @@ class AD9910:
         else:
             print('Error in set_phase: not suitable unit (%s).'\
                   % unit, 'unit should be \'FRAC\', \'RAD\', \'DEG\'')
-        self.write16(POW_ADDR, self.phase_to_POW(phase_in_frac, unit = 'FRAC'))
+        self.write16(POW_ADDR, self.phase_to_POW(phase_in_frac, unit = 'FRAC'),
+                     ch1, ch2)
         
     def set_amplitude(self, amplitude_frac, ch1, ch2):
         if(amplitude_frac > 1 or amplitude_frac < 0):
@@ -254,7 +256,7 @@ class AD9910:
         self.set_CFR2()
         self.set_CFR3()
         
-    def set_CFR1(self, ram_en = 0, ram_playback = 0, manual_OSK = 0, 
+    def set_CFR1(self, ch1, ch2, ram_en = 0, ram_playback = 0, manual_OSK = 0, 
                  inverse_sinc_filter = 0, internal_porfile = 0, sine = 1,
                  load_LRR = 0, autoclear_DRG = 0, autoclear_phase = 0, 
                  clear_DRG = 0, clear_phase = 0, load_ARR = 0, OSK_en = 0,
@@ -284,9 +286,9 @@ class AD9910:
             | (external_power_down_ctrl << 3) 
             | (SDIO_in_only << 1) 
             | (LSB_first << 0) )
-        self.write32(CFR1_ADDR, CFR1_setting)
+        self.write32(CFR1_ADDR, CFR1_setting, ch1, ch2)
         
-    def set_CFR2(self, amp_en_single_tone = 0, internal_IO_update = 0, 
+    def set_CFR2(self, ch1, ch2, amp_en_single_tone = 0, internal_IO_update = 0, 
                  SYNC_CLK_en = 0, DRG_dest = 0, DRG_en = 0, 
                  DRG_no_dwell_high = 0, DRG_no_dwell_low = 0, read_eff_FTW = 0, 
                  IO_update_rate = 0, PDCLK_en = 0, PDCLK_inv = 0, Tx_inv = 0, 
@@ -310,10 +312,11 @@ class AD9910:
             | ( sync_val_dis << 5 ) 
             | ( parallel_port << 4 ) 
             | ( FM_gain << 0 ) )
-        self.write32(CFR2_ADDR, CFR2_setting)
+        self.write32(CFR2_ADDR, CFR2_setting, ch1, ch2)
         
-    def set_CFR3(self, DRV0 = 0, PLL_VCO = 0, I_CP = 0, REFCLK_div_bypass = 1, 
-                 REFCLK_input_div_reset = 0, PFD_reset = 0, PLL_en = 0, N = 0):
+    def set_CFR3(self, ch1, ch2, DRV0 = 0, PLL_VCO = 0, I_CP = 0, 
+                 REFCLK_div_bypass = 1, REFCLK_input_div_reset = 0, 
+                 PFD_reset = 0, PLL_en = 0, N = 0):
         CFR3_setting = (
             ( DRV0 << 28 )
             | ( PLL_VCO << 24 )
@@ -323,7 +326,7 @@ class AD9910:
             | ( PFD_reset << 10 )
             | ( PLL_en << 8 )
             | ( N << 1 ) )
-        self.write32(CFR3_ADDR, CFR3_setting)
+        self.write32(CFR3_ADDR, CFR3_setting, ch1, ch2)
     
     def set_profile(self, freq, phase, amplitude, ch1, ch2, profile = 0, 
                     unit_freq = 'MHz', unit_phase = 'FRAC'):
@@ -368,6 +371,9 @@ class AD9910:
         ASF = self.amplitude_to_ASF(amplitude)
         data = ( ASF << 48 ) | ( POW << 32 ) | ( FTW << 0 )
         self.write64(PROFILE0_ADDR + profile,data, ch1, ch2)
+    
+    def io_update(self):
+        self.fpga.send_command('DDS IO UPDATE')
         
 
 if __name__ == "__main__":
