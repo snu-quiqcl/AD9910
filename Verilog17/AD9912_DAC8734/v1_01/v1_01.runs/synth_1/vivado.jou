@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.3 (64-bit)
+# SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
+# IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
+# Start of session at: Sat Aug  8 21:41:47 2020
+# Process ID: 16536
+# Current directory: C:/Users/CPO/Desktop/AD9910_CODE-master/AD9910_CODE-master/TEMP/AD9912_DAC8734/v1_01/v1_01.runs/synth_1
+# Command line: vivado.exe -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
+# Log file: C:/Users/CPO/Desktop/AD9910_CODE-master/AD9910_CODE-master/TEMP/AD9912_DAC8734/v1_01/v1_01.runs/synth_1/main.vds
+# Journal file: C:/Users/CPO/Desktop/AD9910_CODE-master/AD9910_CODE-master/TEMP/AD9912_DAC8734/v1_01/v1_01.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source main.tcl -notrace
