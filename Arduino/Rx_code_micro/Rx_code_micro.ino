@@ -1,4 +1,4 @@
-#define MAX_RX_LENGTH = 100;
+#define MAX_RX_LENGTH 100
 
 int SCLK = 2;
 int SDIO = 4;
