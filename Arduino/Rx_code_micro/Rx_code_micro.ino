@@ -37,19 +37,28 @@ void sclk_change(){
 
 void loop() {
   char ch = 0;
-  
-  
+  //****let's delete this part when we check other part****
+  int io_update = digitalRead(IO_UPDATE);
+  unsigned long t1 = micros();
+  while(io_update == 1){
+    io_update = digitalRead(IO_UPDATE);
+    if(io_update == 0){
+      unsigned long t2 = micros();
+      Serial.print("IO UPDATE DURATION : ");
+      Serial.println(t2-t1);
+    }
+  }
   while( csb_state == 0 ){
     if(csb_state == 1) break;
   }
-  if( i != 0){
+  if( i != 0 && csb_state != 0){
     Serial.println("show?");
     while(ch != '1'){
       ch = Serial.read();
     }
     ch = 0;
     Serial.print("Length : ");
-    Serial.print(i);
+    Serial.println(i);
     for( int j = 0; j < i;j++){
       Serial.println(sdio_value[j]);
       sdio_value[j] = 0;

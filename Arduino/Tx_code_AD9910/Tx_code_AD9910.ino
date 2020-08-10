@@ -270,7 +270,7 @@ void set_cfr3(){
 void io_update(){
   delay(100);
   digitalWrite(IO_UPDATE, 1);
-  delay(1);
+  delay(10);
   digitalWrite(IO_UPDATE, 0);
   delay(100);
 }
@@ -300,10 +300,9 @@ void loop() {
     Serial.println(">> [3] set CFR2");
     Serial.println(">> [4] set CFR3");
     Serial.println(">> [5] IO UPDATE");
-    while(select != '1' | select != '2' | select != '3' | select != '4' | select != '5'){
+    while(select != '1' && select != '2' && select != '3' && select != '4' && select != '5'){
       select = Serial.read();
     }
-    select = 0;
     switch(select){
       case '1':
         Serial.println("set_profile");
