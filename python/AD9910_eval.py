@@ -35,7 +35,7 @@ RAM_ADDR                = 0x16
 
 PI                      = 3.1415926535897931
 
-TEST = 0
+TEST = 1
 
 class AD9910:
     def __init__(self, fpga, min_freq = 10, max_freq = 400, sys_clk = 1000, 
@@ -123,6 +123,8 @@ class AD9910:
             self.fpga.send_command('WRITE DDS REG')
         else:
             print(int_list)
+            bin_list=[bin(i)[2:].zfill(8) for i in int_list]
+            print(bin_list)
     
     def write32(self, register_addr, register_data, ch1, ch2):
         """
@@ -146,6 +148,8 @@ class AD9910:
             self.fpga.send_command('WRITE DDS REG')
         else:
             print(int_list)
+            bin_list=[bin(i)[2:].zfill(8) for i in int_list]
+            print(bin_list)
     
     def write64(self, register_addr, register_data, ch1, ch2):
         """
@@ -169,6 +173,8 @@ class AD9910:
             self.fpga.send_command('WRITE DDS REG')
         else:
             print(int_list)
+            bin_list=[bin(i)[2:].zfill(8) for i in int_list]
+            print(bin_list)
         
     
     def frequency_to_FTW(self, freq, unit = 'MHz'):
