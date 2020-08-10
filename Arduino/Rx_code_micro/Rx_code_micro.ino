@@ -1,3 +1,5 @@
+#define MAX_RX_LENGTH = 100;
+
 int SCLK = 2;
 int SDIO = 4;
 int CSB = 3;
@@ -16,7 +18,7 @@ void setup() {
 
 volatile int csb_state = 1;
 volatile int sclk_state = 0;
-volatile int sdio_value[10] = {0};
+volatile int sdio_value[MAX_RX_LENGTH] = {0};
 volatile int i = 0;
 
 void csb_change(){
@@ -46,8 +48,11 @@ void loop() {
       ch = Serial.read();
     }
     ch = 0;
-    for( int j = 0; j < 10;j++){
+    Serial.print("Length : ");
+    Serial.print(i);
+    for( int j = 0; j < i;j++){
       Serial.println(sdio_value[j]);
+      sdio_value[j] = 0;
     }
 
     i = 0;
