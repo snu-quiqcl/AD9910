@@ -41,22 +41,41 @@ module main(
     output ck_io_36, ck_io_35, ck_io_34, // DAC1
     output ck_io_6, // LDAC
 
-    output ja_7, //powerdown
-    inout ja_6, //sdio
-    output ja_5, //csb
-    output ja_4, //reset
-    output ja_3, // sclk
-    output ja_2, // powerdown2
-    inout ja_1, //sdio2
-    output ja_0, // csb2
-    input jb_0,
-    input jb_1,
-    input jb_2,
-    input jb_3,
-    input jb_4,
-    input jb_5,
-    input jb_6,
-    input jb_7,
+    output ja_7, //powerdown -> dds1 ioupdate
+    inout ja_6, //sdio -> dds1 sdio
+    output ja_5, //csb -> dds1 csb
+    input ja_4, //reset -> 
+    output ja_3, // sclk -> dds1 sclk
+    output ja_2, // powerdown2 -> dds1 profile0
+    output ja_1, //sdio2 -> dds1 profile1
+    output ja_0, // csb2 -> dds1 profile2
+    ////
+    //****input, output changeded for AD9910****
+    ////
+    output jb_0,
+    output jb_1,
+    output jb_2,
+    output jb_3,
+    output jb_4,
+    output jb_5,
+    inout jb_6,
+    output jb_7,
+    output jc_0,
+    output jc_1,
+    output jc_2,
+    output jc_3,
+    output jc_4,
+    output jc_5,
+    output jc_6,
+    output jc_7,
+    output jd_0,
+    output jd_1,
+    output jd_2,
+    output jd_3,
+    output jd_4,
+    output jd_5,
+    output jd_6,
+    output jd_7,
     output [5:2] led,
     output led0_r,
     output led0_g,
@@ -264,9 +283,25 @@ module main(
     reg DDS1_ioupdate, DDS2_ioupdate, DDS_reset;    // powerdown pins were replaced to IO UPDATE pin becuase powerdoen was not used
     parameter IO_UPDATE_COUNT_LENGTH = 3;
     reg[IO_UPDATE_COUNT_LENGTH-1:0] io_update_count;   // to make io update duration sufficienlt long
+    reg[2:0]DDS1_profile;
+    reg[2:0]DDS2_profile;
+    reg[17:0]out_buffer1;
+    reg[17:0]out_buffer2;
+    wire[17:0] fifo_output;
+    wire[63:0] fifo_timestamp;
+    logic DDS1_pdclk;
+    
     initial {DDS1_ioupdate, DDS2_ioupdate, DDS_reset} <= 3'h0;
+    initial DDS1_profile <= 0;
+    initial DDS2_profile <= 0;
                                       
-    assign {ja_7, ja_6, ja_5, ja_4, ja_3, ja_2, ja_1, ja_0}  = {DDS1_ioupdate, rsdio_1, rcsbar_1, DDS_reset, rsclk, DDS2_ioupdate, rsdio_2, rcsbar_2};
+    assign {ja_7, ja_6, ja_5, ja_3, ja_2, ja_1, ja_0}  = {DDS1_ioupdate, rsdio_1, rcsbar_1, rsclk, DDS2_profile[0], DDS2_profile[1], DDS2_profile[2]};
+    assign {jb_7, jb_6, jb_5, jb_4, jb_3, jb_2, jb_1, jb_0}  = {DDS2_ioupdate, rsdio_2, rcsbar_2, out_buffer2[17], out_buffer2[16], DDS1_profile[0], DDS1_profile[1], DDS1_profile[2]};
+    assign DDS1_pdclk = ja_4;
+    always @ (negedge DDS1_pdclk) begin
+        out_buffer1 <= fifo_timestamp;
+        out_buffer2 <= out_buffer1;
+    end
 
 
 

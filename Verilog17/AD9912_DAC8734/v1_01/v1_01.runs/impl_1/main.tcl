@@ -60,7 +60,6 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 
 start_step init_design
 set ACTIVE_STEP init_design
@@ -69,14 +68,14 @@ set rc [catch {
   create_project -in_memory -part xc7s50csga324-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Users/CPO/Desktop/AD9910_CODE-master/AD9910_CODE-master/TEMP/AD9912_DAC8734/v1_01/v1_01.cache/wt [current_project]
-  set_property parent.project_path C:/Users/CPO/Desktop/AD9910_CODE-master/AD9910_CODE-master/TEMP/AD9912_DAC8734/v1_01/v1_01.xpr [current_project]
-  set_property ip_output_repo C:/Users/CPO/Desktop/AD9910_CODE-master/AD9910_CODE-master/TEMP/AD9912_DAC8734/v1_01/v1_01.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/CPO/Downloads/AD9910_CODE-master/Verilog17/AD9912_DAC8734/v1_01/v1_01.cache/wt [current_project]
+  set_property parent.project_path C:/Users/CPO/Downloads/AD9910_CODE-master/Verilog17/AD9912_DAC8734/v1_01/v1_01.xpr [current_project]
+  set_property ip_output_repo C:/Users/CPO/Downloads/AD9910_CODE-master/Verilog17/AD9912_DAC8734/v1_01/v1_01.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
-  add_files -quiet C:/Users/CPO/Desktop/AD9910_CODE-master/AD9910_CODE-master/TEMP/AD9912_DAC8734/v1_01/v1_01.runs/synth_1/main.dcp
-  read_ip -quiet C:/Users/CPO/Desktop/AD9910_CODE-master/AD9910_CODE-master/TEMP/AD9912_DAC8734/v1_01/v1_01.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xci
-  read_xdc C:/Users/CPO/Desktop/AD9910_CODE-master/AD9910_CODE-master/TEMP/AD9912_DAC8734/v1_01/v1_01.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc
+  add_files -quiet C:/Users/CPO/Downloads/AD9910_CODE-master/Verilog17/AD9912_DAC8734/v1_01/v1_01.runs/synth_1/main.dcp
+  read_ip -quiet C:/Users/CPO/Downloads/AD9910_CODE-master/Verilog17/AD9912_DAC8734/v1_01/v1_01.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xci
+  read_xdc C:/Users/CPO/Downloads/AD9910_CODE-master/Verilog17/AD9912_DAC8734/v1_01/v1_01.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc
   link_design -top main -part xc7s50csga324-1
   close_msg_db -file init_design.pb
 } RESULT]

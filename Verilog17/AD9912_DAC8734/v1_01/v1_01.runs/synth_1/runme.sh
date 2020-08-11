@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/CPO/Desktop/AD9910_CODE-master/AD9910_CODE-master/TEMP/AD9912_DAC8734/v1_01/v1_01.runs/synth_1'
+HD_PWD='C:/Users/CPO/Downloads/AD9910_CODE-master/Verilog17/AD9912_DAC8734/v1_01/v1_01.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
