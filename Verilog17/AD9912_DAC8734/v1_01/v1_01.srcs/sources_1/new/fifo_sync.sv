@@ -20,7 +20,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module fifo_sync(
-
+module fifo_sync
+#(
+    parameter FIFO_DEPTH = 1024
+)
+(
+    input clk,
+    input read,
+    input write,
+    input[83:0] data_in,
+    input reset,
+    output empty,
+    output full,
+    output[83:0] data_out
     );
 endmodule

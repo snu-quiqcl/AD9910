@@ -229,7 +229,88 @@ module main(
     //****parameter added for AD9910****
     ////
     parameter CMD_IOUPDATE_DDS_REG = "DDS IO UPDATE"; // 13 characters. this was added for IO UPDATE 
+    
+    ////
+    //****parameter added for AD9910 parallel mode****
+    ////
+    parameter CMD_DDS_PROFILE_SET = "SET DDS PRO"; // 11 characters. this sets DDS profile
+    
+    reg[2:0]DDS1_profile;
+    reg[2:0]DDS2_profile;
+    initial begin
+        DDS1_profile <= 0;
+        DDS2_profile <= 0;
+    end
+        
+    parameter CMD_DDS_PARALLEL_WRITE = "WRITE DDS PAR"; // 13 characters. this writes in FIFO
+    
+    parameter FORCE_VALUE_LENGTH = 18;
+    parameter COUNTER_LENGTH = 64;
+    parameter FIFO_DEPTH = 1024;
+    
+    reg[FORCE_VALUE_LENGTH - 1:0]out_buffer1;
+    reg[FORCE_VALUE_LENGTH - 1:0]out_buffer2;
+    wire[FORCE_VALUE_LENGTH - 1:0] parallel_output;
+    wire[COUNTER_LENGTH - 1:0] fifo_timestamp;
+    wire [FORCE_VALUE_LENGTH + COUNTER_LENGTH + 1:0] fifo_data_out;
+    wire check_timestamp_counter;
+    wire [FORCE_VALUE_LENGTH + COUNTER_LENGTH + 1:0] fifo_data_in;
+    wire [COUNTER_LENGTH - 1:0] counter_out;  
+    wire empty_fifo;  
+    wire full_fifo;
+    wire write_fifo;
+    
+    parameter CMD_DDS_PARALLEL_FORCE = "FORCE DDS PAR"; // 13 characters. this supply parallel value directly
+    reg [FORCE_VALUE_LENGTH - 1:0] force_value;
+    reg select;
+    reg force_select;
+    
+    always @(CLK100MHZ) begin
+        if(check_timestamp_counter == 1) begin
+            select <= 0;
+        end
+        
+        else if( force_select == 1) begin
+            select <= 1;
+        end
+        
+        else begin
+            select <= select;
+        end
+    end
+    
+    parameter CMD_DDS_FIFO_FLUSH = "FLUSH DDS FIFO"; // 14 characters. this flush FIFO
+    
+    assign DDS1_pdclk = ja_4;
+    assign check_timestamp_counter = ( counter_out == fifo_timestamp );
+    assign fifo_timestamp = fifo_data_out[FORCE_VALUE_LENGTH + COUNTER_LENGTH + 1:FORCE_VALUE_LENGTH + 2];
 
+    always @ (negedge DDS1_pdclk) begin
+        out_buffer1 <= parallel_output;
+        out_buffer2 <= out_buffer1;
+    end
+    
+    fifo_sync #(
+        .FIFO_DEPTH(FIFO_DEPTH)
+    ) 
+    dds_parallel_fifo1
+    (
+        .clk(CLK100MHZ),
+        .read(check_timestamp_counte & ~empty_fifo),
+        .write(write_fifo & ~full),
+        .data_in(fifo_data_in),
+        .reset,
+        .empty(empty_fifo),
+        .full(full_fifo),
+        .data_out(fifo_data_out)
+    );
+    
+    counter counter1 (
+        .clk(CLK100MHZ),
+        .reset,
+        .out(counter_out)
+    );
+       
     ////
     //****parameter changeded for AD9910****
     ////
@@ -271,41 +352,18 @@ module main(
     WriteToRegister WTR2(.DDS_clock(DDS_clock), .dataLength(data_length[3:0]), .registerData(DDS_data), .registerDataReady(dds_data_ready_2), .busy(DDS_busy_2),
                                 .wr_rcsbar(rcsbar_2), /*.rsclk(rsclk00),*/ .rsdio(rsdio_2) ); //, .extendedDataReady(extendedDataReady00));   //, .countmonitor(monitor00), .registerDataReadymonitor(RDataReadymonitor00)
                                 //);
-
-    ////
-    //****code modified for AD9910****
-    ////
-    //reg DDS1_powerdown, DDS2_powerdown, DDS_reset;    // powerdown pins were replaced to IO UPDATE pin becuase powerdoen was not used
-    //initial {DDS1_powerdown, DDS2_powerdown, DDS_reset} <= 3'h0;
-                                      
-    //assign {ja_7, ja_6, ja_5, ja_4, ja_3, ja_2, ja_1, ja_0}  = {DDS1_powerdown, rsdio_1, rcsbar_1, DDS_reset, rsclk, DDS2_powerdown, rsdio_2, rcsbar_2};
-    
+                                   
     reg DDS1_ioupdate, DDS2_ioupdate, DDS_reset;    // powerdown pins were replaced to IO UPDATE pin becuase powerdoen was not used
     parameter IO_UPDATE_COUNT_LENGTH = 3;
     reg[IO_UPDATE_COUNT_LENGTH-1:0] io_update_count;   // to make io update duration sufficienlt long
-    reg[2:0]DDS1_profile;
-    reg[2:0]DDS2_profile;
-    reg[17:0]out_buffer1;
-    reg[17:0]out_buffer2;
-    wire[17:0] fifo_output;
-    wire[63:0] fifo_timestamp;
-    logic DDS1_pdclk;
+    
+    wire DDS1_pdclk;
     
     initial {DDS1_ioupdate, DDS2_ioupdate, DDS_reset} <= 3'h0;
-    initial DDS1_profile <= 0;
-    initial DDS2_profile <= 0;
                                       
     assign {ja_7, ja_6, ja_5, ja_3, ja_2, ja_1, ja_0}  = {DDS1_ioupdate, rsdio_1, rcsbar_1, rsclk, DDS2_profile[0], DDS2_profile[1], DDS2_profile[2]};
     assign {jb_7, jb_6, jb_5, jb_4, jb_3, jb_2, jb_1, jb_0}  = {DDS2_ioupdate, rsdio_2, rcsbar_2, out_buffer2[17], out_buffer2[16], DDS1_profile[0], DDS1_profile[1], DDS1_profile[2]};
-    assign DDS1_pdclk = ja_4;
-    always @ (negedge DDS1_pdclk) begin
-        out_buffer1 <= fifo_timestamp;
-        out_buffer2 <= out_buffer1;
-    end
-
-
-
-
+    
     /////////////////////////////////////////////////////////////////
     // Command definition for DAC
     /////////////////////////////////////////////////////////////////
@@ -430,6 +488,7 @@ module main(
     ////
     parameter MAIN_DDS_IOUPDATE_OUT = 4'h7;
     parameter MAIN_DDS_IOUPDATE_END = 4'h8;
+    parameter MAIN_DDS_PARALLEL_FORCE = 4'h9;
 
 
     parameter MAIN_UNKNOWN_CMD =4'hf;
@@ -568,6 +627,11 @@ module main(
                             TX_buffer1_ready <= 1'b1;
                             main_state <= MAIN_IDLE;
                         end
+                        
+                        else if ((CMD_Length == $bits(CMD_DDS_PARALLEL_FORCE)/8) && (CMD_Buffer[$bits(CMD_DDS_PARALLEL_FORCE):1] == CMD_DDS_PARALLEL_FORCE)) begin
+                            main_state <= MAIN_DDS_PARALLEL_FORCE;
+                            force_select <= 1;
+                        end
                             
                         
 
@@ -635,6 +699,10 @@ module main(
                         DDS2_ioupdate <= 1'b0;
                         main_state <= MAIN_IDLE;
                         io_update_count = 0;
+                    end
+                
+                MAIN_DDS_PARALLEL_FORCE: begin
+                        force_value <= 
                     end
 
 

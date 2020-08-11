@@ -21,6 +21,8 @@
 
 
 module counter(
-
+    input reset,
+    input clk,
+    output[63:0] out
     );
 endmodule
