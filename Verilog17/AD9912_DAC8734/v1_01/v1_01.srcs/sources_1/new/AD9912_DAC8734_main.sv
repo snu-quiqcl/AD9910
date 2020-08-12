@@ -474,9 +474,9 @@ module main(
     ////
     parameter MAIN_DDS_IOUPDATE_OUT = 4'h7;
     parameter MAIN_DDS_PARALLEL_WRITE = 4'h8; // 13 characters. this writes in FIFO
-    parameter MAIN_DDS_PARALLEL_FORCE = 4'h9;
+    //parameter MAIN_DDS_PARALLEL_FORCE = 4'h9;
     parameter MAIN_DDS_FIFO_FLUSH = 4'h10; // 14 characters. this flush FIFO
-    parameter MAIN_DDS_PARALLEL_RESET = 4'h11;// 14 characters. this reset FIFO and counter to 0
+    //parameter MAIN_DDS_PARALLEL_RESET = 4'h11;// 14 characters. this reset FIFO and counter to 0
 
 
     parameter MAIN_UNKNOWN_CMD =4'hf;
