@@ -1,0 +1,50 @@
+Vivado Simulator 2017.3
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.3/bin/unwrapped/win64.o/xelab.exe -wto d54dfa7969894540b3406bd82e0ba90c --incr --debug typical --relax --mt 2 -L fifo_generator_v13_2_0 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot testbench_main_behav xil_defaultlib.testbench_main xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package synopsys.attributes
+Compiling package ieee.std_logic_misc
+Compiling package fifo_generator_v13_2_0.fifo_generator_v13_2_0_pkg
+Compiling package xpm.vcomponents
+Compiling package unisim.vcomponents
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling module xil_defaultlib.async_receiver(Baud=57600)
+Compiling module xil_defaultlib.ascii2hex
+Compiling module xil_defaultlib.data_receiver(BTF_RX_BUFFER_WIDT...
+Compiling module xil_defaultlib.hex2ascii
+Compiling architecture xilinx of entity fifo_generator_v13_2_0.reset_builtin [\reset_builtin(c_has_int_clk=0)\]
+Compiling architecture ff36_internal_vhdl_v of entity unisim.FF36_INTERNAL_VHDL [\FF36_INTERNAL_VHDL(almost_full_...]
+Compiling architecture fifo36e1_v of entity unisim.FIFO36E1 [\FIFO36E1(almost_full_offset="00...]
+Compiling architecture xilinx of entity fifo_generator_v13_2_0.builtin_prim_v6 [\builtin_prim_v6(c_family="7SERI...]
+Compiling architecture xilinx of entity fifo_generator_v13_2_0.builtin_extdepth_v6 [\builtin_extdepth_v6(c_family="7...]
+Compiling architecture xilinx of entity fifo_generator_v13_2_0.builtin_top_v6 [\builtin_top_v6(c_family="7SERIE...]
+Compiling architecture xilinx of entity fifo_generator_v13_2_0.input_blk [\input_blk(c_rd_pntr_width=13,c_...]
+Compiling architecture xilinx of entity fifo_generator_v13_2_0.output_blk [\output_blk(c_has_overflow=1,c_h...]
+Compiling architecture xilinx of entity fifo_generator_v13_2_0.fifo_generator_v13_2_0_builtin [\fifo_generator_v13_2_0_builtin(...]
+Compiling architecture xilinx of entity fifo_generator_v13_2_0.fifo_generator_top [\fifo_generator_top(c_family="vi...]
+Compiling architecture xilinx of entity fifo_generator_v13_2_0.fifo_generator_v13_2_0_synth [\fifo_generator_v13_2_0_synth(c_...]
+Compiling module fifo_generator_v13_2_0.fifo_generator_v13_2_0(C_COMMON_...
+Compiling module xil_defaultlib.fifo_generator_0
+Compiling module xil_defaultlib.async_transmitter(ClkFrequency=1...
+Compiling module xil_defaultlib.data_sender(TX_BUFFER1_WIDTH=32'...
+Compiling module xil_defaultlib.led_intensity_adjust
+Compiling module xil_defaultlib.WriteToRegister_default
+Compiling module xil_defaultlib.DAC8734
+Compiling module unisims_ver.DNA_PORT_default
+Compiling module xil_defaultlib.device_DNA
+Compiling module xil_defaultlib.main_default
+Compiling module xil_defaultlib.testbench_main
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_main_behav

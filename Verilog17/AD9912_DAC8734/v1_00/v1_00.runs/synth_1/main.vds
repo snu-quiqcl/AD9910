@@ -1,0 +1,1421 @@
+#-----------------------------------------------------------
+# Vivado v2017.3 (64-bit)
+# SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
+# IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
+# Start of session at: Fri May 18 23:01:07 2018
+# Process ID: 8884
+# Current directory: O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.runs/synth_1
+# Command line: vivado.exe -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
+# Log file: O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.runs/synth_1/main.vds
+# Journal file: O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source main.tcl -notrace
+Command: synth_design -top main -part xc7s50csga324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 9272 
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:131]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:148]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:149]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:151]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:152]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:153]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:156]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:158]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:163]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:165]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:169]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:171]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:175]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:177]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:179]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:180]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:403]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:404]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:405]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:128]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:129]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:130]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:131]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:132]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:133]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:227]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:230]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:232]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:235]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:237]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:238]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:239]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:242]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:245]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:247]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:248]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:249]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:252]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:255]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:257]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:260]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 379.945 ; gain = 104.039
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'main' [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:33]
+	Parameter ClkFreq bound to: 100000000 - type: integer 
+	Parameter BaudRate bound to: 57600 - type: integer 
+	Parameter BTF_MAX_BYTES bound to: 9'b100000000 
+	Parameter BTF_MAX_BUFFER_WIDTH bound to: 2048 - type: integer 
+	Parameter BTF_MAX_BUFFER_COUNT_WIDTH bound to: 9 - type: integer 
+	Parameter BTF_RX_BUFFER_BYTES bound to: 9'b100000000 
+	Parameter BTF_RX_BUFFER_WIDTH bound to: 2048 - type: integer 
+	Parameter BTF_RX_BUFFER_COUNT_WIDTH bound to: 9 - type: integer 
+	Parameter CMD_RX_BUFFER_BYTES bound to: 4'b1111 
+	Parameter CMD_RX_BUFFER_WIDTH bound to: 120 - type: integer 
+	Parameter TX_BUFFER1_BYTES bound to: 4'b1111 
+	Parameter TX_BUFFER1_WIDTH bound to: 120 - type: integer 
+	Parameter TX_BUFFER1_LENGTH_WIDTH bound to: 4 - type: integer 
+	Parameter TX_BUFFER2_BYTES bound to: 9'b100000000 
+	Parameter TX_BUFFER2_WIDTH bound to: 2048 - type: integer 
+	Parameter TX_BUFFER2_LENGTH_WIDTH bound to: 9 - type: integer 
+	Parameter CMD_IDN bound to: *IDN? - type: string 
+	Parameter IDN_REPLY bound to: DDS_DAC v1_00 - type: string 
+	Parameter CMD_WRITE_DDS_REG bound to: WRITE DDS REG - type: string 
+	Parameter DDS_MAX_LENGTH bound to: 8 - type: integer 
+	Parameter DDS_WIDTH bound to: 64 - type: integer 
+	Parameter CMD_WRITE_DAC_REG bound to: WRITE DAC REG - type: string 
+	Parameter DAC_DATA_WIDTH bound to: 24 - type: integer 
+	Parameter CMD_LDAC bound to: LDAC - type: string 
+	Parameter CMD_UPDATE_LDAC_LENGTH bound to: LDAC LENGTH - type: string 
+	Parameter CMD_TEST bound to: 48'b000100000101010001000101010100110101010000010000 
+	Parameter CMD_ADJUST_INTENSITY bound to: ADJ INTENSITY - type: string 
+	Parameter CMD_READ_INTENSITY bound to: READ INTENSITY - type: string 
+	Parameter CMD_CAPTURE_BTF_BUFFER bound to: CAPTURE BTF - type: string 
+	Parameter CMD_SET_BTF_BUFFER_READING_COUNT bound to: BTF READ COUNT - type: string 
+	Parameter CMD_READ_BTF_BUFFER bound to: READ BTF - type: string 
+	Parameter CMD_UPDATE_BIT_PATTERNS bound to: UPDATE BITS - type: string 
+	Parameter PATTERN_BYTES bound to: 4 - type: integer 
+	Parameter PATTERN_WIDTH bound to: 32 - type: integer 
+	Parameter CMD_READ_BIT_PATTERNS bound to: READ BITS - type: string 
+	Parameter MAIN_IDLE bound to: 4'b0000 
+	Parameter MAIN_DDS_WAIT_FOR_BUSY_ON bound to: 4'b0001 
+	Parameter MAIN_DDS_WAIT_FOR_BUSY_OFF bound to: 4'b0010 
+	Parameter MAIN_DAC_WAIT_FOR_BUSY_ON bound to: 4'b0011 
+	Parameter MAIN_DAC_WAIT_FOR_BUSY_OFF bound to: 4'b0100 
+	Parameter MAIN_DAC_LDAC_PAUSE bound to: 4'b0101 
+	Parameter MAIN_DAC_LDAC_OFF bound to: 4'b0110 
+	Parameter MAIN_UNKNOWN_CMD bound to: 4'b1000 
+INFO: [Synth 8-638] synthesizing module 'DAC8734' [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/imports/new/DAC8734.v:23]
+	Parameter STANDBY bound to: 3'b000 
+	Parameter WRITE_DAC bound to: 3'b011 
+	Parameter END_OF_CYCLE bound to: 3'b100 
+INFO: [Synth 8-256] done synthesizing module 'DAC8734' (1#1) [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/imports/new/DAC8734.v:23]
+INFO: [Synth 8-638] synthesizing module 'data_receiver' [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:24]
+	Parameter BTF_RX_BUFFER_COUNT_WIDTH bound to: 9 - type: integer 
+	Parameter BTF_RX_BUFFER_BYTES bound to: 9'b100000000 
+	Parameter BTF_RX_BUFFER_WIDTH bound to: 2048 - type: integer 
+	Parameter BaudRate bound to: 57600 - type: integer 
+	Parameter ClkFreq bound to: 100000000 - type: integer 
+	Parameter CMD_RX_BUFFER_BYTES bound to: 4'b1111 
+	Parameter CMD_RX_BUFFER_WIDTH bound to: 120 - type: integer 
+	Parameter WAVEFORM_WIDTH bound to: 16 - type: integer 
+	Parameter WAVEFORM_MAX_DEPTH bound to: 1023 - type: integer 
+	Parameter WAVEFORM_COUNTER_WIDTH bound to: 10 - type: integer 
+	Parameter ESC_IDLE bound to: 4'b0000 
+	Parameter ESC_DETECT bound to: 4'b0001 
+	Parameter ESC_C_FOUND bound to: 4'b0010 
+	Parameter ESC_R_FOUND bound to: 4'b0011 
+	Parameter ESC_W_FOUND bound to: 4'b0100 
+	Parameter ESC_A_FOUND bound to: 4'b0101 
+	Parameter MAIN_IDLE bound to: 4'b0000 
+	Parameter MAIN_BTF_READ_NUM_DIGITS bound to: 4'b0001 
+	Parameter MAIN_BTF_READ_BYTE_COUNT bound to: 4'b0010 
+	Parameter MAIN_BTF_READ_RAW_DATA bound to: 4'b0011 
+	Parameter MAIN_BTF_READ_RAW_DATA_ESC_DETECTED bound to: 4'b0100 
+	Parameter MAIN_BTF_CHECK_TERMINATOR bound to: 4'b0101 
+	Parameter MAIN_BTF_EXECUTION bound to: 4'b0110 
+	Parameter MAIN_CMD_READ_BYTE_COUNT bound to: 4'b0111 
+	Parameter MAIN_CMD_READ_ASCII_STRING bound to: 4'b1000 
+	Parameter MAIN_CMD_READ_ASCII_STRING_ESC_DETECTED bound to: 4'b1001 
+	Parameter MAIN_CMD_CHECK_TERMINATOR bound to: 4'b1010 
+	Parameter MAIN_CMD_EXECUTION bound to: 4'b1011 
+	Parameter MAIN_ESC_CHAR_DETECTED bound to: 4'b1100 
+	Parameter MAIN_WRONG_FORMAT bound to: 4'b1101 
+	Parameter MAIN_IDLE_FIRST_ESC_DETECTED bound to: 4'b1110 
+	Parameter TERMINATOR_LENGTH bound to: 2 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'async_receiver' [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/async_receiver.v:4]
+	Parameter ClkFrequency bound to: 100000000 - type: integer 
+	Parameter Baud bound to: 57600 - type: integer 
+	Parameter Baud8 bound to: 460800 - type: integer 
+	Parameter Baud8GeneratorAccWidth bound to: 16 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element RxD_data_error_reg was removed.  [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/async_receiver.v:85]
+INFO: [Synth 8-256] done synthesizing module 'async_receiver' (2#1) [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/async_receiver.v:4]
+WARNING: [Synth 8-350] instance 'RXUSB' of module 'async_receiver' requires 6 connections, but only 4 given [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:68]
+INFO: [Synth 8-638] synthesizing module 'ascii2hex' [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/ascii2hex.v:21]
+INFO: [Synth 8-256] done synthesizing module 'ascii2hex' (3#1) [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/ascii2hex.v:21]
+INFO: [Synth 8-226] default block is never used [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:265]
+INFO: [Synth 8-256] done synthesizing module 'data_receiver' (4#1) [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:24]
+WARNING: [Synth 8-350] instance 'receiver' of module 'data_receiver' requires 18 connections, but only 10 given [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:107]
+INFO: [Synth 8-638] synthesizing module 'data_sender' [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:22]
+	Parameter BaudRate bound to: 57600 - type: integer 
+	Parameter ClkFreq bound to: 100000000 - type: integer 
+	Parameter TX_BUFFER1_BYTES bound to: 4'b1111 
+	Parameter TX_BUFFER1_WIDTH bound to: 120 - type: integer 
+	Parameter TX_BUFFER1_LENGTH_WIDTH bound to: 4 - type: integer 
+	Parameter TX_BUFFER2_BYTES bound to: 9'b100000000 
+	Parameter TX_BUFFER2_WIDTH bound to: 2048 - type: integer 
+	Parameter TX_BUFFER2_LENGTH_WIDTH bound to: 9 - type: integer 
+	Parameter TX_WAVEFORM_BUFFER_BYTES bound to: 8'b10000000 
+	Parameter TX_WAVEFORM_BTF_HEADER bound to: #280 - type: string 
+	Parameter TX_WAVEFORM_BUFFER_WIDTH bound to: 1024 - type: integer 
+	Parameter TX_WAVEFORM_BUFFER_LENGTH_WIDTH bound to: 8 - type: integer 
+	Parameter TERMINATOR_LENGTH bound to: 2 - type: integer 
+	Parameter MAIN_FIFO_INITIALIZE bound to: 0 - type: integer 
+	Parameter MAIN_FIFO_INITIALIZE_WAIT bound to: 1 - type: integer 
+	Parameter MAIN_IDLE bound to: 4 - type: integer 
+	Parameter MAIN_ESC_CHAR_SEND bound to: 5 - type: integer 
+	Parameter MAIN_SEND_FINISH bound to: 6 - type: integer 
+	Parameter MAIN_BUFFER1_SEND bound to: 8 - type: integer 
+	Parameter TX_FULL_BUFFER1_WIDTH bound to: 136 - type: integer 
+	Parameter MAIN_BUFFER2_SEND bound to: 9 - type: integer 
+	Parameter TX_FULL_BUFFER2_WIDTH bound to: 2088 - type: integer 
+	Parameter MAIN_WAVEFORM_BUFFER_SEND bound to: 10 - type: integer 
+	Parameter TX_FULL_WAVEFORM_BUFFER_WIDTH bound to: 1056 - type: integer 
+	Parameter MAIN_SEND_TERMINATOR bound to: 16 - type: integer 
+	Parameter MAIN_ESC_DETECTED bound to: 17 - type: integer 
+	Parameter FIFO_RESET_WAIT_COUNTER_WIDTH bound to: 4 - type: integer 
+	Parameter FIFO_RESET_WAIT_INTERVAL bound to: 15 - type: integer 
+	Parameter TX_IDLE bound to: 4'b0000 
+	Parameter TX_WAIT1 bound to: 4'b0001 
+	Parameter TX_WAIT2 bound to: 4'b0010 
+INFO: [Synth 8-638] synthesizing module 'hex2ascii' [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/hex2ascii.v:21]
+INFO: [Synth 8-256] done synthesizing module 'hex2ascii' (5#1) [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/hex2ascii.v:21]
+INFO: [Synth 8-638] synthesizing module 'fifo_generator_0' [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.runs/synth_1/.Xil/Vivado-8884-IonTrap7/realtime/fifo_generator_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'fifo_generator_0' (6#1) [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.runs/synth_1/.Xil/Vivado-8884-IonTrap7/realtime/fifo_generator_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'async_transmitter' [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/async_transmitter.v:6]
+	Parameter ClkFrequency bound to: 100000000 - type: integer 
+	Parameter Baud bound to: 57600 - type: integer 
+	Parameter RegisterInputData bound to: 1 - type: integer 
+	Parameter BaudGeneratorAccWidth bound to: 16 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'async_transmitter' (7#1) [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/async_transmitter.v:6]
+INFO: [Synth 8-256] done synthesizing module 'data_sender' (8#1) [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:22]
+WARNING: [Synth 8-350] instance 'sender' of module 'data_sender' requires 19 connections, but only 14 given [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+INFO: [Synth 8-638] synthesizing module 'led_intensity_adjust' [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/led_intensity_adjust.v:23]
+INFO: [Synth 8-256] done synthesizing module 'led_intensity_adjust' (9#1) [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/led_intensity_adjust.v:23]
+INFO: [Synth 8-638] synthesizing module 'WriteToRegister' [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/WriteToRegister.v:21]
+	Parameter MAXLENGTH bound to: 8 - type: integer 
+	Parameter MAXLENGTH8 bound to: 64 - type: integer 
+	Parameter IDLE bound to: 2'b00 
+	Parameter READY bound to: 2'b01 
+	Parameter SEND bound to: 2'b10 
+	Parameter FINISH bound to: 2'b11 
+INFO: [Synth 8-226] default block is never used [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/WriteToRegister.v:66]
+INFO: [Synth 8-256] done synthesizing module 'WriteToRegister' (10#1) [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/WriteToRegister.v:21]
+WARNING: [Synth 8-350] instance 'WTR1' of module 'WriteToRegister' requires 10 connections, but only 7 given [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:240]
+WARNING: [Synth 8-350] instance 'WTR2' of module 'WriteToRegister' requires 10 connections, but only 7 given [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:244]
+WARNING: [Synth 8-6014] Unused sequential element BTN0Delay_reg was removed.  [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:573]
+INFO: [Synth 8-256] done synthesizing module 'main' (11#1) [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:33]
+WARNING: [Synth 8-3917] design main has port ja_7 driven by constant 0
+WARNING: [Synth 8-3917] design main has port ja_4 driven by constant 0
+WARNING: [Synth 8-3917] design main has port ja_2 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d5 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d4 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d3 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d2 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d1 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d0 driven by constant 0
+WARNING: [Synth 8-3331] design main has unconnected port BTN0
+WARNING: [Synth 8-3331] design main has unconnected port BTN1
+WARNING: [Synth 8-3331] design main has unconnected port BTN2
+WARNING: [Synth 8-3331] design main has unconnected port jb_0
+WARNING: [Synth 8-3331] design main has unconnected port jb_1
+WARNING: [Synth 8-3331] design main has unconnected port jb_2
+WARNING: [Synth 8-3331] design main has unconnected port jb_3
+WARNING: [Synth 8-3331] design main has unconnected port jb_4
+WARNING: [Synth 8-3331] design main has unconnected port jb_5
+WARNING: [Synth 8-3331] design main has unconnected port jb_6
+WARNING: [Synth 8-3331] design main has unconnected port jb_7
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 475.504 ; gain = 199.598
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[1] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[2] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[3] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[4] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[5] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[6] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[7] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[8] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[9] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[10] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[11] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[12] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[13] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[14] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[15] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[16] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[17] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[18] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[19] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[20] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[21] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[22] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[23] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[24] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[25] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[26] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[27] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[28] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[29] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[30] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[31] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[32] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[33] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[34] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[35] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[36] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[37] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[38] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[39] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[40] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[41] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[42] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[43] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[44] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[45] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[46] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[47] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[48] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[49] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[50] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[51] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[52] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[53] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[54] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[55] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[56] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[57] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[58] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[59] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[60] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[61] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[62] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[63] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[64] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[65] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[66] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[67] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[68] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[69] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[70] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[71] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[72] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[73] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[74] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[75] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[76] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[77] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[78] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[79] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[80] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[81] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[82] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[83] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[84] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[85] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[86] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[87] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[88] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[89] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[90] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[91] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[92] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[93] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[94] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[95] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[96] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[97] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[98] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[99] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[100] to constant 0 [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:15 . Memory (MB): peak = 475.504 ; gain = 199.598
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7s50csga324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.runs/synth_1/.Xil/Vivado-8884-IonTrap7/dcp3/fifo_generator_0_in_context.xdc] for cell 'sender/transmitter_FIFO'
+Finished Parsing XDC File [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.runs/synth_1/.Xil/Vivado-8884-IonTrap7/dcp3/fifo_generator_0_in_context.xdc] for cell 'sender/transmitter_FIFO'
+Parsing XDC File [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc]
+Finished Parsing XDC File [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/main_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/main_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 883.895 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:34 ; elapsed = 00:00:45 . Memory (MB): peak = 883.895 ; gain = 607.988
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7s50csga324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:34 ; elapsed = 00:00:45 . Memory (MB): peak = 883.895 ; gain = 607.988
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for sender/transmitter_FIFO. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:45 . Memory (MB): peak = 883.895 ; gain = 607.988
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'async_receiver'
+INFO: [Synth 8-5544] ROM "RxD_bit_inv" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "RxD_bit_inv" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "bit_spacing" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+WARNING: [Synth 8-6014] Unused sequential element gap_count_reg was removed.  [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/async_receiver.v:89]
+INFO: [Synth 8-802] inferred FSM for state register 'escape_state_reg' in module 'data_receiver'
+INFO: [Synth 8-802] inferred FSM for state register 'main_state_reg' in module 'data_receiver'
+INFO: [Synth 8-5546] ROM "esc_char_detected" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "escape_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "TERMINATOR_CURRENT_CHAR_POINTER" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "TERMINATOR_CURRENT_CHAR_POINTER" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "debug1" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "debug3" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "debug2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "wrong_format" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'async_transmitter'
+INFO: [Synth 8-802] inferred FSM for state register 'main_state_reg' in module 'data_sender'
+INFO: [Synth 8-802] inferred FSM for state register 'transmitter_state_reg' in module 'data_sender'
+INFO: [Synth 8-5544] ROM "FIFO_wr_en" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FIFO_wr_en" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FIFO_reset_wait_counter" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "TX_full_buffer1_length" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TX_full_buffer1" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "reset_FIFO" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FIFO_rd_en" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "TxD_start" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/led_intensity_adjust.v:47]
+INFO: [Synth 8-5546] ROM "writeStage" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "busy" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "cs_bar" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sdi" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+WARNING: [Synth 8-3936] Found unconnected internal register 'DDS_buffer_reg' and it is trimmed from '72' to '68' bits. [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:223]
+WARNING: [Synth 8-3936] Found unconnected internal register 'DAC_buffer_reg' and it is trimmed from '32' to '24' bits. [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:271]
+INFO: [Synth 8-802] inferred FSM for state register 'main_state_reg' in module 'main'
+INFO: [Synth 8-5546] ROM "TX_buffer1_ready" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "main_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "main_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+WARNING: [Synth 8-6014] Unused sequential element DDS_slow_clock_reg was removed.  [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:230]
+INFO: [Synth 8-5546] ROM "TX_buffer1_ready" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "main_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "main_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0000 |                             0000
+                 iSTATE0 |                             0001 |                             1000
+                 iSTATE1 |                             0010 |                             1001
+                 iSTATE2 |                             0011 |                             1010
+                 iSTATE3 |                             0100 |                             1011
+                 iSTATE4 |                             0101 |                             1100
+                 iSTATE5 |                             0110 |                             1101
+                 iSTATE6 |                             0111 |                             1110
+                 iSTATE7 |                             1000 |                             1111
+                 iSTATE8 |                             1001 |                             0001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'async_receiver'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                ESC_IDLE |                              000 |                             0000
+              ESC_DETECT |                              001 |                             0001
+             ESC_C_FOUND |                              010 |                             0010
+             ESC_R_FOUND |                              011 |                             0011
+             ESC_A_FOUND |                              100 |                             0101
+             ESC_W_FOUND |                              101 |                             0100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'escape_state_reg' using encoding 'sequential' in module 'data_receiver'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+  MAIN_ESC_CHAR_DETECTED |                             0000 |                             1100
+               MAIN_IDLE |                             0001 |                             0000
+MAIN_BTF_READ_NUM_DIGITS |                             0010 |                             0001
+MAIN_BTF_READ_BYTE_COUNT |                             0011 |                             0010
+  MAIN_BTF_READ_RAW_DATA |                             0100 |                             0011
+MAIN_BTF_READ_RAW_DATA_ESC_DETECTED |                             0101 |                             0100
+MAIN_BTF_CHECK_TERMINATOR |                             0110 |                             0101
+      MAIN_BTF_EXECUTION |                             0111 |                             0110
+MAIN_CMD_READ_BYTE_COUNT |                             1000 |                             0111
+MAIN_CMD_READ_ASCII_STRING |                             1001 |                             1000
+MAIN_CMD_READ_ASCII_STRING_ESC_DETECTED |                             1010 |                             1001
+MAIN_CMD_CHECK_TERMINATOR |                             1011 |                             1010
+      MAIN_CMD_EXECUTION |                             1100 |                             1011
+MAIN_IDLE_FIRST_ESC_DETECTED |                             1101 |                             1110
+       MAIN_WRONG_FORMAT |                             1110 |                             1101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'main_state_reg' using encoding 'sequential' in module 'data_receiver'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0000 |                             0000
+                 iSTATE0 |                             0001 |                             0001
+                 iSTATE1 |                             0010 |                             0100
+                 iSTATE2 |                             0011 |                             1000
+                 iSTATE3 |                             0100 |                             1001
+                 iSTATE4 |                             0101 |                             1010
+                 iSTATE5 |                             0110 |                             1011
+                 iSTATE6 |                             0111 |                             1100
+                 iSTATE7 |                             1000 |                             1101
+                 iSTATE8 |                             1001 |                             1110
+                 iSTATE9 |                             1010 |                             1111
+                iSTATE10 |                             1011 |                             0010
+                iSTATE11 |                             1100 |                             0011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'async_transmitter'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+    MAIN_FIFO_INITIALIZE |                       0000000001 |                           000000
+MAIN_FIFO_INITIALIZE_WAIT |                       0000000010 |                           000001
+       MAIN_ESC_DETECTED |                       0000000100 |                           010001
+      MAIN_ESC_CHAR_SEND |                       0000001000 |                           000101
+        MAIN_SEND_FINISH |                       0000010000 |                           000110
+               MAIN_IDLE |                       0000100000 |                           000100
+       MAIN_BUFFER1_SEND |                       0001000000 |                           001000
+       MAIN_BUFFER2_SEND |                       0010000000 |                           001001
+MAIN_WAVEFORM_BUFFER_SEND |                       0100000000 |                           001010
+    MAIN_SEND_TERMINATOR |                       1000000000 |                           010000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'main_state_reg' using encoding 'one-hot' in module 'data_sender'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 TX_IDLE |                               00 |                             0000
+                TX_WAIT1 |                               01 |                             0001
+                TX_WAIT2 |                               10 |                             0010
+                  iSTATE |                               11 |                             1111
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'transmitter_state_reg' using encoding 'sequential' in module 'data_sender'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+               MAIN_IDLE |                              000 |                             0000
+MAIN_DDS_WAIT_FOR_BUSY_ON |                              001 |                             0001
+MAIN_DDS_WAIT_FOR_BUSY_OFF |                              010 |                             0010
+MAIN_DAC_WAIT_FOR_BUSY_ON |                              011 |                             0011
+MAIN_DAC_WAIT_FOR_BUSY_OFF |                              100 |                             0100
+     MAIN_DAC_LDAC_PAUSE |                              101 |                             0101
+       MAIN_DAC_LDAC_OFF |                              110 |                             0110
+        MAIN_UNKNOWN_CMD |                              111 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'main_state_reg' using encoding 'sequential' in module 'main'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:40 ; elapsed = 00:00:52 . Memory (MB): peak = 883.895 ; gain = 607.988
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |main__GB0     |           1|     43834|
+|2     |main__GB1     |           1|     22528|
+|3     |main__GB2     |           1|     41044|
+|4     |main__GB3     |           1|     22151|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register TX_buffer2_reg [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:158]
+INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_capture_reg [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:467]
+INFO: [Synth 8-3538] Detected potentially large (wide) register TX_full_buffer2_reg [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:244]
+INFO: [Synth 8-3538] Detected potentially large (wide) register TX_full_waveform_buffer_reg [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:252]
+INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_RXBuffer_reg [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:349]
+INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_Buffer_reg [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:384]
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 2     
+	   2 Input     10 Bit       Adders := 2     
+	   2 Input      9 Bit       Adders := 3     
+	   2 Input      8 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 6     
+	   2 Input      6 Bit       Adders := 2     
+	   2 Input      5 Bit       Adders := 3     
+	   2 Input      4 Bit       Adders := 7     
+	   2 Input      2 Bit       Adders := 3     
+	   2 Input      1 Bit       Adders := 1     
++---Registers : 
+	             2088 Bit    Registers := 1     
+	             2048 Bit    Registers := 4     
+	             1056 Bit    Registers := 1     
+	              136 Bit    Registers := 1     
+	              120 Bit    Registers := 3     
+	               68 Bit    Registers := 1     
+	               32 Bit    Registers := 1     
+	               24 Bit    Registers := 3     
+	               17 Bit    Registers := 2     
+	               16 Bit    Registers := 2     
+	               10 Bit    Registers := 2     
+	                9 Bit    Registers := 6     
+	                8 Bit    Registers := 10    
+	                6 Bit    Registers := 3     
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 8     
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 38    
++---Muxes : 
+	   2 Input   2088 Bit        Muxes := 3     
+	   3 Input   2088 Bit        Muxes := 1     
+	  10 Input   2088 Bit        Muxes := 2     
+	   9 Input   2048 Bit        Muxes := 1     
+	   2 Input   2048 Bit        Muxes := 5     
+	   8 Input   2048 Bit        Muxes := 2     
+	  11 Input   2048 Bit        Muxes := 1     
+	  15 Input   2048 Bit        Muxes := 1     
+	   2 Input   1056 Bit        Muxes := 4     
+	   3 Input   1056 Bit        Muxes := 1     
+	  10 Input   1056 Bit        Muxes := 2     
+	   2 Input    136 Bit        Muxes := 3     
+	   3 Input    136 Bit        Muxes := 1     
+	  10 Input    136 Bit        Muxes := 2     
+	   8 Input    120 Bit        Muxes := 2     
+	   2 Input    120 Bit        Muxes := 3     
+	  15 Input    120 Bit        Muxes := 1     
+	   4 Input     64 Bit        Muxes := 2     
+	   2 Input     40 Bit        Muxes := 1     
+	   5 Input     32 Bit        Muxes := 1     
+	   4 Input     24 Bit        Muxes := 2     
+	  10 Input     10 Bit        Muxes := 1     
+	  15 Input     10 Bit        Muxes := 1     
+	   8 Input      9 Bit        Muxes := 2     
+	  10 Input      9 Bit        Muxes := 2     
+	   2 Input      9 Bit        Muxes := 6     
+	  11 Input      9 Bit        Muxes := 1     
+	  15 Input      9 Bit        Muxes := 4     
+	   8 Input      8 Bit        Muxes := 5     
+	   2 Input      8 Bit        Muxes := 12    
+	  10 Input      8 Bit        Muxes := 1     
+	   6 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 2     
+	   7 Input      8 Bit        Muxes := 1     
+	   4 Input      7 Bit        Muxes := 2     
+	   2 Input      6 Bit        Muxes := 4     
+	   4 Input      6 Bit        Muxes := 2     
+	   2 Input      5 Bit        Muxes := 2     
+	  10 Input      5 Bit        Muxes := 1     
+	  11 Input      5 Bit        Muxes := 1     
+	   8 Input      4 Bit        Muxes := 1     
+	  13 Input      4 Bit        Muxes := 1     
+	  14 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 8     
+	  10 Input      4 Bit        Muxes := 2     
+	   4 Input      4 Bit        Muxes := 1     
+	   6 Input      4 Bit        Muxes := 1     
+	  11 Input      4 Bit        Muxes := 1     
+	  15 Input      4 Bit        Muxes := 5     
+	  31 Input      4 Bit        Muxes := 1     
+	  17 Input      3 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 2     
+	  13 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 5     
+	  10 Input      2 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 2     
+	   6 Input      2 Bit        Muxes := 2     
+	   8 Input      1 Bit        Muxes := 13    
+	  13 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 51    
+	  10 Input      1 Bit        Muxes := 15    
+	   4 Input      1 Bit        Muxes := 27    
+	   5 Input      1 Bit        Muxes := 2     
+	   3 Input      1 Bit        Muxes := 2     
+	   6 Input      1 Bit        Muxes := 5     
+	  15 Input      1 Bit        Muxes := 15    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register TX_buffer2_reg [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:158]
+INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_capture_reg [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:467]
+INFO: [Synth 8-3538] Detected potentially large (wide) register TX_full_buffer2_reg [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:244]
+INFO: [Synth 8-3538] Detected potentially large (wide) register TX_full_waveform_buffer_reg [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_sender_v1_01.sv:252]
+INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_RXBuffer_reg [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:349]
+INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_Buffer_reg [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/data_receiver_v1_00.v:384]
+Hierarchical RTL Component report 
+Module main 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	             2048 Bit    Registers := 2     
+	              120 Bit    Registers := 1     
+	               68 Bit    Registers := 1     
+	               32 Bit    Registers := 1     
+	               24 Bit    Registers := 1     
+	                9 Bit    Registers := 2     
+	                8 Bit    Registers := 4     
+	                4 Bit    Registers := 2     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 5     
++---Muxes : 
+	   9 Input   2048 Bit        Muxes := 1     
+	   2 Input   2048 Bit        Muxes := 4     
+	   8 Input   2048 Bit        Muxes := 2     
+	  11 Input   2048 Bit        Muxes := 1     
+	   8 Input    120 Bit        Muxes := 2     
+	   2 Input    120 Bit        Muxes := 2     
+	   5 Input     32 Bit        Muxes := 1     
+	   8 Input      9 Bit        Muxes := 2     
+	  10 Input      9 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 4     
+	  11 Input      9 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 5     
+	   2 Input      8 Bit        Muxes := 8     
+	   6 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 1     
+	   7 Input      8 Bit        Muxes := 1     
+	   8 Input      4 Bit        Muxes := 1     
+	   6 Input      4 Bit        Muxes := 1     
+	  17 Input      3 Bit        Muxes := 1     
+	   8 Input      1 Bit        Muxes := 13    
+	   2 Input      1 Bit        Muxes := 12    
+	   5 Input      1 Bit        Muxes := 1     
+Module hex2ascii__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+Module hex2ascii__2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+Module hex2ascii__3 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+Module hex2ascii 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+Module async_transmitter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	  13 Input      4 Bit        Muxes := 1     
+	  14 Input      4 Bit        Muxes := 1     
+	  13 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module data_sender 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 2     
+	   2 Input      9 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	             2088 Bit    Registers := 1     
+	             1056 Bit    Registers := 1     
+	              136 Bit    Registers := 1     
+	               10 Bit    Registers := 1     
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 9     
++---Muxes : 
+	   2 Input   2088 Bit        Muxes := 3     
+	   3 Input   2088 Bit        Muxes := 1     
+	  10 Input   2088 Bit        Muxes := 2     
+	   2 Input   1056 Bit        Muxes := 4     
+	   3 Input   1056 Bit        Muxes := 1     
+	  10 Input   1056 Bit        Muxes := 2     
+	   2 Input    136 Bit        Muxes := 3     
+	   3 Input    136 Bit        Muxes := 1     
+	  10 Input    136 Bit        Muxes := 2     
+	   2 Input     40 Bit        Muxes := 1     
+	  10 Input     10 Bit        Muxes := 1     
+	  15 Input     10 Bit        Muxes := 1     
+	  10 Input      9 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 3     
+	  10 Input      8 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+	  10 Input      5 Bit        Muxes := 1     
+	  11 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 3     
+	  10 Input      4 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 4     
+	  10 Input      2 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 12    
+	  10 Input      1 Bit        Muxes := 14    
+	   4 Input      1 Bit        Muxes := 5     
+Module DAC8734__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	               24 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   4 Input     24 Bit        Muxes := 1     
+	   4 Input      6 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 5     
+Module DAC8734 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	               24 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   4 Input     24 Bit        Muxes := 1     
+	   4 Input      6 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 5     
+Module WriteToRegister__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Muxes : 
+	   4 Input     64 Bit        Muxes := 1     
+	   4 Input      7 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 6     
+Module WriteToRegister 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Muxes : 
+	   4 Input     64 Bit        Muxes := 1     
+	   4 Input      7 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 6     
+Module led_intensity_adjust 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 6     
+Module async_receiver 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	  10 Input      4 Bit        Muxes := 1     
+	  11 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+	  10 Input      1 Bit        Muxes := 1     
+Module ascii2hex 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 3     
+Module data_receiver 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 3     
+	   2 Input      1 Bit       Adders := 1     
++---Registers : 
+	             2048 Bit    Registers := 2     
+	              120 Bit    Registers := 2     
+	               16 Bit    Registers := 2     
+	               10 Bit    Registers := 1     
+	                9 Bit    Registers := 3     
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 4     
+	                1 Bit    Registers := 8     
++---Muxes : 
+	  15 Input   2048 Bit        Muxes := 1     
+	   2 Input   2048 Bit        Muxes := 1     
+	  15 Input    120 Bit        Muxes := 1     
+	   2 Input    120 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 2     
+	  15 Input      9 Bit        Muxes := 4     
+	   2 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 2     
+	  15 Input      4 Bit        Muxes := 5     
+	  31 Input      4 Bit        Muxes := 1     
+	  13 Input      3 Bit        Muxes := 1     
+	   6 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 18    
+	   3 Input      1 Bit        Muxes := 2     
+	   5 Input      1 Bit        Muxes := 1     
+	   6 Input      1 Bit        Muxes := 5     
+	  15 Input      1 Bit        Muxes := 15    
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 120 (col length:60)
+BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "genblk1[1].dac/cs_bar" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "genblk1[1].dac/sdi" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "genblk1[1].dac/busy" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "genblk1[0].dac/cs_bar" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "genblk1[0].dac/sdi" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "genblk1[0].dac/busy" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5545] ROM "main_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "main_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TX_buffer1_ready" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "WTR2/writeStage" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "WTR1/writeStage" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element DDS_slow_clock_reg was removed.  [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:230]
+INFO: [Synth 8-5546] ROM "TX_full_buffer1_length" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TX_full_buffer1" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/led_intensity_adjust.v:47]
+WARNING: [Synth 8-6014] Unused sequential element gap_count_reg was removed.  [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/async_receiver.v:89]
+INFO: [Synth 8-5546] ROM "esc_char_detected" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "escape_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TERMINATOR_CURRENT_CHAR_POINTER" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "main_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "main_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TX_buffer1_ready" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "WTR2/writeStage" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "WTR1/writeStage" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element DDS_slow_clock_reg was removed.  [O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.srcs/sources_1/new/AD9912_DAC8734_main.sv:230]
+WARNING: [Synth 8-3917] design main has port ja_7 driven by constant 0
+WARNING: [Synth 8-3917] design main has port ja_4 driven by constant 0
+WARNING: [Synth 8-3917] design main has port ja_2 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d5 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d4 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d3 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d2 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d1 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d0 driven by constant 0
+WARNING: [Synth 8-3331] design main has unconnected port BTN0
+WARNING: [Synth 8-3331] design main has unconnected port BTN1
+WARNING: [Synth 8-3331] design main has unconnected port BTN2
+WARNING: [Synth 8-3331] design main has unconnected port jb_0
+WARNING: [Synth 8-3331] design main has unconnected port jb_1
+WARNING: [Synth 8-3331] design main has unconnected port jb_2
+WARNING: [Synth 8-3331] design main has unconnected port jb_3
+WARNING: [Synth 8-3331] design main has unconnected port jb_4
+WARNING: [Synth 8-3331] design main has unconnected port jb_5
+WARNING: [Synth 8-3331] design main has unconnected port jb_6
+WARNING: [Synth 8-3331] design main has unconnected port jb_7
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1056] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1055] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1054] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1053] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1052] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1051] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1050] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1049] )
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_buffer1_reg[136]' (FDE) to 'i_2/sender/TX_full_buffer1_reg[135]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_buffer1_reg[135]' (FDE) to 'i_2/sender/TX_full_buffer1_reg[134]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_buffer1_reg[134]' (FDE) to 'i_2/sender/TX_full_buffer1_reg[133]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_buffer1_reg[133]' (FDE) to 'i_2/sender/TX_full_buffer1_reg[132]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_buffer1_reg[132]' (FDE) to 'i_2/sender/TX_full_buffer1_reg[131]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_buffer1_reg[131]' (FDE) to 'i_2/sender/TX_full_buffer1_reg[130]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_buffer1_reg[130]' (FDE) to 'i_2/sender/TX_full_buffer1_reg[129]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_buffer1_reg[129] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/TX_waveform_buffer_ready_delay_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1048] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1047] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1046] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1045] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1044] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1043] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1042] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1041] )
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_buffer1_reg[129]' (FDE) to 'i_2/sender/TX_full_buffer1_reg[128]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_buffer1_reg[128]' (FDE) to 'i_2/sender/TX_full_buffer1_reg[127]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_buffer1_reg[127]' (FDE) to 'i_2/sender/TX_full_buffer1_reg[126]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_buffer1_reg[126]' (FDE) to 'i_2/sender/TX_full_buffer1_reg[125]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_buffer1_reg[125]' (FDE) to 'i_2/sender/TX_full_buffer1_reg[124]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_buffer1_reg[124]' (FDE) to 'i_2/sender/TX_full_buffer1_reg[123]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_buffer1_reg[123]' (FDE) to 'i_2/sender/TX_full_buffer1_reg[122]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_buffer1_reg[122]' (FDE) to 'i_2/sender/TX_full_buffer1_reg[121]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_buffer1_reg[121] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1040] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1039] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1038] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1037] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1036] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1035] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1034] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1033] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1032] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1031] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1030] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1029] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1028] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1027] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1026] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1025] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1024] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1023] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1022] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1021] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1020] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1019] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1018] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1017] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1016] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1015] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1014] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1013] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1012] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1011] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1010] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1009] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1008] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1007] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1006] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1005] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1004] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1003] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1002] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1001] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1000] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[999] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[998] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[997] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[996] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[995] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[994] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[993] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[992] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[991] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[990] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[989] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[988] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[987] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[986] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[985] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[984] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[983] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[982] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[981] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[980] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[979] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[978] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[977] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[976] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[975] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[974] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[973] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[972] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[971] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[970] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[969] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[968] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[967] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[966] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[965] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[964] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[963] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[962] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[961] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[960] )
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (TX_full_buffer1_reg[121]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[1]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[2]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[6]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[9]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[10]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[14]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[16]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[17]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[18]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[22]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[23]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[24]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[25]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[26]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[29]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[30]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[31]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[32]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[33]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[34]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[35]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[36]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[37]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[38]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[39]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[40]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[41]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[42]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[43]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[44]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[45]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[46]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[47]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[48]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[49]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[50]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[51]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[52]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[53]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[54]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[55]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[56]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[57]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[58]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[59]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[60]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[61]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[62]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[63]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[64]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[65]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[66]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[67]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[68]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[69]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[70]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[71]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[72]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[73]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[74]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[75]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[76]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[77]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[78]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[79]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[80]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[81]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[82]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[83]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[84]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[85]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[86]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[87]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[88]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[89]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[90]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[91]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[92]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[93]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[94]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[95]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[96]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[97]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[98]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[99]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[100]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[101]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[102]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[103]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[104]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[105]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[106]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[107]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[108]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[109]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[110]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[111]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[112]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[113]) is unused and will be removed from module data_sender.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'i_3/genblk1[1].dac/state_reg[0]' (FDE) to 'i_3/genblk1[1].dac/state_reg[1]'
+INFO: [Synth 8-3886] merging instance 'i_3/genblk1[0].dac/state_reg[0]' (FDE) to 'i_3/genblk1[0].dac/state_reg[1]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_waveform_buffer_reg[28]' (FDE) to 'i_2/sender/TX_full_waveform_buffer_reg[27]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_waveform_buffer_reg[27]' (FDE) to 'i_2/sender/TX_full_waveform_buffer_reg[21]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_waveform_buffer_reg[21]' (FDE) to 'i_2/sender/TX_full_waveform_buffer_reg[15]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_waveform_buffer_reg[15]' (FDE) to 'i_2/sender/TX_full_waveform_buffer_reg[8]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_waveform_buffer_reg[20]' (FDE) to 'i_2/sender/TX_full_waveform_buffer_reg[19]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_waveform_buffer_reg[19]' (FDE) to 'i_2/sender/TX_full_waveform_buffer_reg[7]'
+INFO: [Synth 8-3886] merging instance 'i_2/sender/TX_full_waveform_buffer_reg[12]' (FDE) to 'i_2/sender/TX_full_waveform_buffer_reg[11]'
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:11 ; elapsed = 00:03:27 . Memory (MB): peak = 1171.039 ; gain = 895.133
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |main__GB0     |           1|     18638|
+|2     |main__GB1     |           1|      2058|
+|3     |main__GB2     |           1|     25220|
+|4     |main__GB3     |           1|     12604|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:25 ; elapsed = 00:03:42 . Memory (MB): peak = 1272.051 ; gain = 996.145
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:04:05 ; elapsed = 00:04:22 . Memory (MB): peak = 1330.789 ; gain = 1054.883
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |data_sender   |           1|     24357|
+|2     |main_GT0      |           1|     34163|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[94]' (FDE) to 'TX_buffer1_reg[89]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[93]' (FDE) to 'TX_buffer1_reg[90]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[96]' (FDE) to 'TX_buffer1_reg[89]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[95]' (FDE) to 'TX_buffer1_reg[89]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[85]' (FDRE) to 'TX_buffer1_reg[88]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[88]' (FDRE) to 'TX_buffer1_reg[87]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[78]' (FDSE) to 'TX_buffer1_reg[74]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[77]' (FDSE) to 'TX_buffer1_reg[46]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[80]' (FDSE) to 'TX_buffer1_reg[66]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[79]' (FDRE) to 'TX_buffer1_reg[69]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[76]' (FDRE) to 'TX_buffer1_reg[68]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[75]' (FDRE) to 'TX_buffer1_reg[70]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[70]' (FDRE) to 'TX_buffer1_reg[67]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[69]' (FDRE) to 'TX_buffer1_reg[62]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[74]' (FDSE) to 'TX_buffer1_reg[54]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[72]' (FDSE) to 'TX_buffer1_reg[47]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[71]' (FDSE) to 'TX_buffer1_reg[59]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[66]' (FDSE) to 'TX_buffer1_reg[38]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[64]' (FDRE) to 'TX_buffer1_reg[58]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[59]' (FDSE) to 'TX_buffer1_reg[50]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[54]' (FDSE) to 'TX_buffer1_reg[51]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[53]' (FDSE) to 'TX_buffer1_reg[40]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[55]' (FDSE) to 'TX_buffer1_reg[48]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[51]' (FDSE) to 'TX_buffer1_reg[43]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[46]' (FDSE) to 'TX_buffer1_reg[37]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[47]' (FDSE) to 'TX_buffer1_reg[44]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[43]' (FDSE) to 'TX_buffer1_reg[35]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[38]' (FDSE) to 'TX_buffer1_reg[34]'
+INFO: [Synth 8-3886] merging instance 'TX_buffer1_reg[40]' (FDSE) to 'TX_buffer1_reg[39]'
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:04:19 ; elapsed = 00:04:36 . Memory (MB): peak = 1330.789 ; gain = 1054.883
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:04:26 ; elapsed = 00:04:44 . Memory (MB): peak = 1330.789 ; gain = 1054.883
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:04:26 ; elapsed = 00:04:44 . Memory (MB): peak = 1330.789 ; gain = 1054.883
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:29 ; elapsed = 00:04:47 . Memory (MB): peak = 1330.789 ; gain = 1054.883
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:04:30 ; elapsed = 00:04:48 . Memory (MB): peak = 1330.789 ; gain = 1054.883
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:04:40 ; elapsed = 00:04:58 . Memory (MB): peak = 1330.789 ; gain = 1054.883
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:04:40 ; elapsed = 00:04:58 . Memory (MB): peak = 1330.789 ; gain = 1054.883
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+-----------------+----------+
+|      |BlackBox name    |Instances |
++------+-----------------+----------+
+|1     |fifo_generator_0 |         1|
++------+-----------------+----------+
+
+Report Cell Usage: 
++------+-----------------+------+
+|      |Cell             |Count |
++------+-----------------+------+
+|1     |fifo_generator_0 |     1|
+|2     |BUFG             |     3|
+|3     |CARRY4           |    94|
+|4     |LUT1             |    21|
+|5     |LUT2             |    87|
+|6     |LUT3             |   585|
+|7     |LUT4             |   226|
+|8     |LUT5             |  2294|
+|9     |LUT6             |  8487|
+|10    |FDRE             | 11285|
+|11    |FDSE             |    40|
+|12    |IBUF             |     2|
+|13    |OBUF             |    32|
++------+-----------------+------+
+
+Report Instance Areas: 
++------+--------------------------+---------------------+------+
+|      |Instance                  |Module               |Cells |
++------+--------------------------+---------------------+------+
+|1     |top                       |                     | 23168|
+|2     |  WTR1                    |WriteToRegister      |   156|
+|3     |  WTR2                    |WriteToRegister_0    |   160|
+|4     |  \genblk1[0].dac         |DAC8734              |    75|
+|5     |  \genblk1[1].dac         |DAC8734_1            |    77|
+|6     |  led_intensity_modulator |led_intensity_adjust |    33|
+|7     |  receiver                |data_receiver        | 11425|
+|8     |    RXUSB                 |async_receiver       |  2266|
+|9     |  sender                  |data_sender          |  6836|
+|10    |    TXUSB                 |async_transmitter    |    53|
++------+--------------------------+---------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:04:40 ; elapsed = 00:04:58 . Memory (MB): peak = 1330.789 ; gain = 1054.883
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1155 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:04:13 ; elapsed = 00:04:37 . Memory (MB): peak = 1330.789 ; gain = 646.492
+Synthesis Optimization Complete : Time (s): cpu = 00:04:40 ; elapsed = 00:04:58 . Memory (MB): peak = 1330.789 ; gain = 1054.883
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 96 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+298 Infos, 297 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:04:48 ; elapsed = 00:05:07 . Memory (MB): peak = 1330.789 ; gain = 1062.535
+INFO: [Common 17-1381] The checkpoint 'O:/Users/thkim/Arty_S7/AD9912_DAC8734/v1_00/v1_00.runs/synth_1/main.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1330.789 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.199 . Memory (MB): peak = 1330.789 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Fri May 18 23:06:39 2018...

@@ -1,0 +1,148 @@
+ratio 구하는 공식
+=1/SQRT(10^(D29/10))
+
+
+divider7~9는 부피 큰 1pF cap 사용
+
+divider10,11은 devicemart의 PCB 이용
+
+divider10
+: 1pF 무라타
+
+divider10-2
+: divider10의 grounding 선 2개를 PCB 기판에 동시에 꽂음
+
+divider11
+: 2pF 무라타 직렬
+
+divider12
+: 1pF syfer
+  ground 선 2개를 한번에 꽂음(10,11은 그렇지 않음)
+  floating 된 전극을 납땜해줌(sj4 2번과 sj5 1번 쇼트)
+  BNC를 amphenol로 바꿈
+
+divider12-2
+: divider12의 전선을 꼬음.
+  BNC ground 부분을 tighten
+  divider와 SA 연결을 30 cm BNC 로 변경
+
+divider13
+: 1pF 무라타에 나머지 조건은 divider12과 똑같음
+
+
+=============divider와 SA 연결을 30 cm BNC 로 변경=========================
+
+
+divider13-2
+: divider13의 전선을 꼬음.
+  BNC ground 부분을 tighten
+  divider와 SA 연결을 30 cm BNC 로 변경
+
+divider13-3
+: total 신호 BNC를 SMA로 바꾸고, 신호선을 짧게(대략 1.5 cm) 바꿈
+
+divider13-4
+: divider13-3의 신호선을 더 짧게(대략 0.7 cm) 바꿈
+
+divider13-6
+: divider13-4의 전압 입력단의 SMA adaptor 부분이 더 짧아지도록 파트 변경 (power 선도 BNC 선에서 SMA케이블로 변경, T 및 50 terminator도 SMA로 변경, 출력단 adaptor 는 여전히 BNC)
+
+divider13-7
+: divider13-6의 출력단에 BNC adaptor 2개를 일부러 더 끼워서 길이가 길어짐에 따라 얼마나 결과에 영향을 주는지 확인
+
+divider13-8
+: divider13-7의 출력단에 BNC adaptor 를 SMA 로 바꿈. Spectrum analyzer로 연결하는 선도 SMA 케이블로 바꿈
+
+divider13-9
+: divider13-8의 출력단에 SMA adaptor 2개를 더 추가 연결해서 impedance가 50옴으로 matching 되지 않은 부분의 길이를 늘려서 변화 확인
+
+divider13-10
+: divider13-9의 출력단에 SMA adaptor 2개를 더 추가 연결해서 impedance가 50옴으로 matching 되지 않은 부분의 길이를 더 늘려서 변화 확인
+
+divider13-11
+: divider13-8의 남땜된 도선들의 방향을 바꿈으로 도선의 방향 변화에 따라 얼마나 결과가 달라지는지 확인
+
+divider13-12
+: divider13-11의 SMA adaptor 4개 모두 제거하고 divider13-8와 같은 조건으로 재실험. 재연성 확인 목적
+
+divider13-13
+: divider13-12의 도선 위치를 '조금' 재조정한 후 재실험. 도선의 방향 변화에 따른 결과 변화 확인 목적
+
+divider13-14
+: divider13-13을 아무런 변화 없이 재실험. 재연성 확인 목적
+
+divider13-15
+: divider13-14의 도선이 너무 PCB에 붙어있어서 좀 떼는 식으로 위치를 재조정하여 재실험.
+
+divider13-16
+: divider13-15을 아무런 변화 없이 재실험. 재연성 확인 목적
+
+divider14-1
+: divider10-2의 floating 된 전극을 납땜해줌(sj4 2번과 sj5 1번 쇼트)
+
+divider14-2,3,4
+: divider14-1가 망가져서 같은 부품을 새 PCB 기판에 남땜하고 조금씩 남땜을 고쳐가셔 계속 시도해봤음
+
+divider15
+: divider13과 똑같은 것을 새로 만듦
+  total pin의 ground선을 source에 바로 연결하지 않고, 또다른 BNC의 ground단에 연결
+
+divider15-3
+: divider15의 total 신호선과 그것의 ground선을 꼬음
+
+============SMA housing 장착========================
+
+
+divider16-1
+: voltage divider2 PCB를 SMA housing에 장착한 형태. housing 덮개는 덮여 있으나 납이 조금 붙어서 건드리면 떨어짐
+무라타 1pF
+
+divider16-2
+: divider16의 housing 덮개를 납땜 더 많이 해서 강하게 접착
+
+divider16-3
+: divider17의 결과가 너무 안좋아서 덕지덕지 붙은 납들을 90프로 떼어네고 다시 측정
+
+divider16-4
+: divider18의 결과도 여전히 안좋아서 덮개를 없애고 측정
+
+divider16-5
+: 덮개 없이 재 측정. 16-2~4 결과는 connector 가 제대로 연결이 안되있는 상태였어서 믿을 수 없는 data
+
+divider16-6
+: 덮개 없이 재 측정. PCB ground 가 한쪽 만 연결했었는데 다른 한쪽도 연결함. 
+
+divider16-7
+: divider16-6에 덮개를 납땜하고 재측정
+
+divider16-8
+: divider16-7의 덮개를 punching 하여 고정한 것
+
+divider17
+: divider16-7과 똑같은데 1000pF짜리를 10% 오차 cap(크기가 더 작음)으로 바꿈
+
+divider17-1
+: divider17d과 똑같은데 1000pF짜리를 10% 오차 cap(크기가 더 작음)으로 바꿈
+
+divider18
+: divider16-7과 완전히 같은 조건으로 새로 만든 것
+
+divider18-2  -----> 나중에 망가져서 이 결과는 이제 안나옴
+: divider18의 덮개를 punching 하여 고정한 것
+
+divider18-3  -----> 망가졌는줄 알았는데 다시 덮개를 고정하고 측정해보니 상태가 정상이어서 써도 될 것 같음
+: divider18의 덮개를 punching 하여 고정한 것
+
+divider20
+: divider17과 같음. (서윤수)
+
+divider20-2
+: divider20에 center punch로 덮개 고정 (서윤수)
+덮개가 돌아감 
+
+divider21
+: divider21의 ground 부분 납땜을 좀 과 같음. (서윤수)
+
+divider21-2
+: divider21의 덮개가 고정되지 않아서 center punch로 추가 고정함 (충격이 많이 가해져서 voltage dividing ratio 재측정)
+망치로 많이 두들긴 이후로 helical resonator 연결 후 실험 결과 이상

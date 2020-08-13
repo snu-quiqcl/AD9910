@@ -1,0 +1,10 @@
+<RCC>
+  <qresource prefix="/">
+    <file>icons/green-led-on.png</file>
+    <file>icons/led-red-on.png</file>
+    <file>icons/online.png</file>
+    <file>icons/offline.png</file>
+	<file>icons/Toggle_Switch_OFF_64x34.png</file>
+	<file>icons/Toggle_Switch_ON_64x34.png</file>
+  </qresource>
+</RCC>
