@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7s50csga324-1" LaunchTime="1597056841">
+<GenRun Id="impl_1" LaunchPart="xc7s50csga324-1" LaunchTime="1596890504">
+  <File Type="PWROPT-DCP" Name="main_pwropt.dcp"/>
   <File Type="ROUTE-PWR" Name="main_power_routed.rpt"/>
   <File Type="PA-TCL" Name="main.tcl"/>
-  <File Type="PWROPT-DCP" Name="main_pwropt.dcp"/>
   <File Type="ROUTE-PWR-SUM" Name="main_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="main_reports.tcl"/>
   <File Type="BG-DRC" Name="main.drc"/>
-  <File Type="OPT-HWDEF" Name="main.hwdef"/>
   <File Type="OPT-DCP" Name="main_opt.dcp"/>
+  <File Type="OPT-HWDEF" Name="main.hwdef"/>
   <File Type="OPT-DRC" Name="main_drc_opted.rpt"/>
   <File Type="PLACE-DCP" Name="main_placed.dcp"/>
   <File Type="PLACE-IO" Name="main_io_placed.rpt"/>
@@ -23,22 +23,22 @@
   <File Type="ROUTE-BLACKBOX-DCP" Name="main_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="main_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="main_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="main_drc_routed.rpx"/>
   <File Type="BITSTR-MSK" Name="main.msk"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="main_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="main_drc_routed.rpx"/>
   <File Type="BG-BGN" Name="main.bgn"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="main_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="main_methodology_drc_routed.rpt"/>
   <File Type="BITSTR-RBT" Name="main.rbt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="main_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="main_methodology_drc_routed.rpx"/>
   <File Type="BG-BIN" Name="main.bin"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="main_methodology_drc_routed.pb"/>
   <File Type="ROUTE-PWR-RPX" Name="main_power_routed.rpx"/>
   <File Type="ROUTE-STATUS" Name="main_route_status.rpt"/>
   <File Type="ROUTE-STATUS-PB" Name="main_route_status.pb"/>
   <File Type="ROUTE-TIMINGSUMMARY" Name="main_timing_summary_routed.rpt"/>
   <File Type="ROUTE-TIMING-PB" Name="main_timing_summary_routed.pb"/>
   <File Type="ROUTE-TIMING-RPX" Name="main_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-CLK" Name="main_clock_utilization_routed.rpt"/>
   <File Type="RDI-RDI" Name="main.vdi"/>
+  <File Type="ROUTE-CLK" Name="main_clock_utilization_routed.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="main_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="main_postroute_physopt_bb.dcp"/>
   <File Type="BITSTR-NKY" Name="main.nky"/>

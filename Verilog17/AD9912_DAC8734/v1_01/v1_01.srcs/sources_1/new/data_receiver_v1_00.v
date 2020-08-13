@@ -24,7 +24,7 @@
 module data_receiver
     #(
     ////
-    //*****BTF_RX_BUFFER_COUNT_WIDTH should be changed to 10? -> No. It is exponential scale, so it does not matter,
+    //*****BTF_RX_BUFFER_COUNT_WIDTH should be changed to 10?
     ////
       parameter BTF_RX_BUFFER_COUNT_WIDTH = 9,
       parameter BTF_RX_BUFFER_BYTES = 9'h100, // can be between 1 and 2^BTF_RX_BUFFER_COUNT_WIDTH - 1

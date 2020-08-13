@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
-| Date         : Mon Aug 10 19:59:56 2020
+| Date         : Sat Aug  8 21:47:28 2020
 | Host         : CPO running 64-bit major release  (build 9200)
 | Command      : report_methodology -file main_methodology_drc_routed.rpt -pb main_methodology_drc_routed.pb -rpx main_methodology_drc_routed.rpx
 | Design       : main
@@ -23,13 +23,13 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 256
+             Violations found: 255
 +-----------+----------+-------------------------------+------------+
 | Rule      | Severity | Description                   | Violations |
 +-----------+----------+-------------------------------+------------+
 | TIMING-16 | Warning  | Large setup violation         | 2          |
 | TIMING-17 | Warning  | Non-clocked sequential cell   | 236        |
-| TIMING-18 | Warning  | Missing input or output delay | 18         |
+| TIMING-18 | Warning  | Missing input or output delay | 17         |
 +-----------+----------+-------------------------------+------------+
 
 2. REPORT DETAILS
@@ -1251,65 +1251,60 @@ Related violations: <none>
 
 TIMING-18#6 Warning
 Missing input or output delay  
-An output delay is missing on ja_2 relative to clock(s) sys_clk_pin
+An output delay is missing on ja_3 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#7 Warning
 Missing input or output delay  
-An output delay is missing on ja_3 relative to clock(s) sys_clk_pin
+An output delay is missing on ja_7 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#8 Warning
 Missing input or output delay  
-An output delay is missing on ja_7 relative to clock(s) sys_clk_pin
+An output delay is missing on led0_b relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#9 Warning
 Missing input or output delay  
-An output delay is missing on led0_b relative to clock(s) sys_clk_pin
+An output delay is missing on led0_g relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#10 Warning
 Missing input or output delay  
-An output delay is missing on led0_g relative to clock(s) sys_clk_pin
+An output delay is missing on led0_r relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#11 Warning
 Missing input or output delay  
-An output delay is missing on led0_r relative to clock(s) sys_clk_pin
+An output delay is missing on led1_b relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#12 Warning
 Missing input or output delay  
-An output delay is missing on led1_b relative to clock(s) sys_clk_pin
+An output delay is missing on led1_g relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#13 Warning
 Missing input or output delay  
-An output delay is missing on led1_g relative to clock(s) sys_clk_pin
+An output delay is missing on led1_r relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#14 Warning
 Missing input or output delay  
-An output delay is missing on led1_r relative to clock(s) sys_clk_pin
+An output delay is missing on led[2] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#15 Warning
 Missing input or output delay  
-An output delay is missing on led[2] relative to clock(s) sys_clk_pin
+An output delay is missing on led[3] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#16 Warning
 Missing input or output delay  
-An output delay is missing on led[3] relative to clock(s) sys_clk_pin
-Related violations: <none>
-
-TIMING-18#17 Warning
-Missing input or output delay  
 An output delay is missing on led[4] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
-TIMING-18#18 Warning
+TIMING-18#17 Warning
 Missing input or output delay  
 An output delay is missing on led[5] relative to clock(s) sys_clk_pin
 Related violations: <none>

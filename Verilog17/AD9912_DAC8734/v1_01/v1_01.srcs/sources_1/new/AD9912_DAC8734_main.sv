@@ -41,41 +41,22 @@ module main(
     output ck_io_36, ck_io_35, ck_io_34, // DAC1
     output ck_io_6, // LDAC
 
-    output ja_7, //powerdown -> dds1 ioupdate
-    inout ja_6, //sdio -> dds1 sdio
-    output ja_5, //csb -> dds1 csb
-    input ja_4, //reset -> 
-    output ja_3, // sclk -> dds1 sclk
-    output ja_2, // powerdown2 -> dds1 profile0
-    output ja_1, //sdio2 -> dds1 profile1
-    output ja_0, // csb2 -> dds1 profile2
-    ////
-    //****input, output changeded for AD9910****
-    ////
-    output jb_0,
-    output jb_1,
-    output jb_2,
-    output jb_3,
-    output jb_4,
-    output jb_5,
-    inout jb_6,
-    output jb_7,
-    output jc_0,
-    output jc_1,
-    output jc_2,
-    output jc_3,
-    output jc_4,
-    output jc_5,
-    output jc_6,
-    output jc_7,
-    output jd_0,
-    output jd_1,
-    output jd_2,
-    output jd_3,
-    output jd_4,
-    output jd_5,
-    output jd_6,
-    output jd_7,
+    output ja_7, //powerdown
+    inout ja_6, //sdio
+    output ja_5, //csb
+    output ja_4, //reset
+    output ja_3, // sclk
+    output ja_2, // powerdown2
+    inout ja_1, //sdio2
+    output ja_0, // csb2
+    input jb_0,
+    input jb_1,
+    input jb_2,
+    input jb_3,
+    input jb_4,
+    input jb_5,
+    input jb_6,
+    input jb_7,
     output [5:2] led,
     output led0_r,
     output led0_g,
@@ -229,74 +210,6 @@ module main(
     //****parameter added for AD9910****
     ////
     parameter CMD_IOUPDATE_DDS_REG = "DDS IO UPDATE"; // 13 characters. this was added for IO UPDATE 
-    
-    ////
-    //****parameter added for AD9910 parallel mode****
-    ////
-    parameter CMD_DDS_PROFILE_WRITE = "WRITE DDS PRO"; // 13 characters. this writes in FIFO
-    
-    parameter CMD_DDS_PROFILE_FORCE = "FORCE DDS PRO"; // 11 characters. this sets DDS profile
-    
-    parameter CMD_DDS_COUNTER = "RESET DDS COUNTER";// 14 characters. this reset FIFO and counter to 0
-    
-    reg[2:0]DDS1_profile_input;
-    reg[2:0]DDS2_profile_input;
-    wire[2:0]DDS1_profile_buffer;
-    wire[2:0]DDS2_profile_buffer;
-    initial begin
-        DDS1_profile_input <= 0;
-        DDS2_profile_input <= 0;
-    end
-    
-    assign DDS1_profile_buffer = BTF_Buffer[2:0];
-    assign DDS2_profile_buffer = BTF_Buffer[6:4];
-        
-    parameter CMD_DDS_PARALLEL_WRITE = "WRITE DDS PAR"; // 13 characters. this writes in Parallel FIFO
-    
-    parameter CMD_DDS_PARALLEL_FORCE = "FORCE DDS PAR"; // 13 characters. this supply parallel value directly
-    
-    parameter CMD_DDS_FIFO_FLUSH = "FLUSH DDS PAR"; // 13 characters. this flush Parallel FIFO
-    
-    parameter PARALLEL_LENGTH = 18;
-    parameter COUNTER_LENGTH = 64;
-    parameter FIFO_DEPTH = 1024;
-        
-    
-    reg [PARALLEL_LENGTH + COUNTER_LENGTH + 1:0]fifo_input;
-    reg[PARALLEL_LENGTH - 1:0] force_value_input;
-    reg[PARALLEL_LENGTH - 1:0] force_select;
-    reg reset_parallel, fifo_flush, fifo_write;
-    wire[PARALLEL_LENGTH - 1:0] parallel_output;
-    wire DDS1_pdclk;
-    
-    initial begin
-        fifo_input <= 0;
-        reset_parallel <= 0;
-        fifo_flush <= 0;
-        fifo_write <= 0;
-        force_value_input <= 0;
-        force_select <= 0;
-    end
-    
-    assign DDS1_pdclk = ja_4;
-    
-    dds_parallel_write
-    #(
-        .PARALLEL_LENGTH(PARALLEL_LENGTH),
-        .COUNTER_LENGTH(COUNTER_LENGTH),
-        .FIFO_DEPTH(FIFO_DEPTH)
-    )
-    (
-        .clk(CLK100MHZ),
-        .pdclk(DDS1_pdclk),
-        .force_value_input(force_value_input),
-        .force_select(force_select),
-        .fifo_flush(fifo_flush),
-        .reset(reset_parallel),
-        .fifo_write(fifo_write),
-        .fifo_input(fifo_input),
-        .parallel_output(parallel_output)
-        );
 
     ////
     //****parameter changeded for AD9910****
@@ -339,17 +252,25 @@ module main(
     WriteToRegister WTR2(.DDS_clock(DDS_clock), .dataLength(data_length[3:0]), .registerData(DDS_data), .registerDataReady(dds_data_ready_2), .busy(DDS_busy_2),
                                 .wr_rcsbar(rcsbar_2), /*.rsclk(rsclk00),*/ .rsdio(rsdio_2) ); //, .extendedDataReady(extendedDataReady00));   //, .countmonitor(monitor00), .registerDataReadymonitor(RDataReadymonitor00)
                                 //);
-                                   
+
+    ////
+    //****code modified for AD9910****
+    ////
+    //reg DDS1_powerdown, DDS2_powerdown, DDS_reset;    // powerdown pins were replaced to IO UPDATE pin becuase powerdoen was not used
+    //initial {DDS1_powerdown, DDS2_powerdown, DDS_reset} <= 3'h0;
+                                      
+    //assign {ja_7, ja_6, ja_5, ja_4, ja_3, ja_2, ja_1, ja_0}  = {DDS1_powerdown, rsdio_1, rcsbar_1, DDS_reset, rsclk, DDS2_powerdown, rsdio_2, rcsbar_2};
+    
     reg DDS1_ioupdate, DDS2_ioupdate, DDS_reset;    // powerdown pins were replaced to IO UPDATE pin becuase powerdoen was not used
     parameter IO_UPDATE_COUNT_LENGTH = 3;
-    parameter IO_UPDATE_BTF_LENGTH = 1;
     reg[IO_UPDATE_COUNT_LENGTH-1:0] io_update_count;   // to make io update duration sufficienlt long
-    
     initial {DDS1_ioupdate, DDS2_ioupdate, DDS_reset} <= 3'h0;
                                       
-    assign {ja_7, ja_6, ja_5, ja_3, ja_2, ja_1, ja_0}  = {DDS1_ioupdate, rsdio_1, rcsbar_1, rsclk, DDS2_profile[0], DDS2_profile[1], DDS2_profile[2]};
-    assign {jb_7, jb_6, jb_5, jb_4, jb_3, jb_2, jb_1, jb_0}  = {DDS2_ioupdate, rsdio_2, rcsbar_2, parallel_output[PARALLEL_LENGTH-1], parallel_output[PARALLEL_LENGTH-2], DDS1_profile[0], DDS1_profile[1], DDS1_profile[2]};
-    
+    assign {ja_7, ja_6, ja_5, ja_4, ja_3, ja_2, ja_1, ja_0}  = {DDS1_ioupdate, rsdio_1, rcsbar_1, DDS_reset, rsclk, DDS2_ioupdate, rsdio_2, rcsbar_2};
+
+
+
+
     /////////////////////////////////////////////////////////////////
     // Command definition for DAC
     /////////////////////////////////////////////////////////////////
@@ -473,10 +394,7 @@ module main(
     //****parameter added for AD9910**** this if statement is for IO UPDATE of AD9910
     ////
     parameter MAIN_DDS_IOUPDATE_OUT = 4'h7;
-    parameter MAIN_DDS_PARALLEL_WRITE = 4'h8; // 13 characters. this writes in FIFO
-    //parameter MAIN_DDS_PARALLEL_FORCE = 4'h9;
-    parameter MAIN_DDS_FIFO_FLUSH = 4'h10; // 14 characters. this flush FIFO
-    //parameter MAIN_DDS_PARALLEL_RESET = 4'h11;// 14 characters. this reset FIFO and counter to 0
+    parameter MAIN_DDS_IOUPDATE_END = 4'h8;
 
 
     parameter MAIN_UNKNOWN_CMD =4'hf;
@@ -535,26 +453,6 @@ module main(
                             else if ((DDS1_update != 0) || (DDS2_update != 0)) begin
                                 main_state <= MAIN_DDS_IOUPDATE_OUT;
                                 io_update_count <= 'd5;
-                                DDS1_ioupdate <= DDS1_update;
-                                DDS2_ioupdate <= DDS2_update;
-                            end
-                        end
-                        
-                        else if ((CMD_Length == $bits(CMD_DDS_PROFILE_SET)/8) && (CMD_Buffer[$bits(CMD_DDS_PROFILE_SET):1] == CMD_DDS_PROFILE_SET)) begin
-                            if (BTF_Length != (DDS_MAX_LENGTH+1)) begin
-                                TX_buffer1[1:13*8] <= {"Wrong length", BTF_Length[7:0]}; // Assuming that BTF_Length is less than 256
-                                TX_buffer1_length[TX_BUFFER1_LENGTH_WIDTH-1:0] <= 'd13;
-                                TX_buffer1_ready <= 1'b1;
-                            end
-                            else if ((DDS1_update != 0) || (DDS2_update != 0)) begin
-                                main_state <= MAIN_IDLE;
-                                if( DDS1_update == 1'b1 ) begin
-                                    DDS1_profile <= DDS1_profile_buffer;
-                                end
-                                
-                                if( DDS2_update == 1'b1 ) begin
-                                    DDS2_profile <= DDS2_profile_buffer;
-                                end
                             end
                         end
 
@@ -635,11 +533,6 @@ module main(
                             TX_buffer1_ready <= 1'b1;
                             main_state <= MAIN_IDLE;
                         end
-                        
-                        else if ((CMD_Length == $bits(CMD_DDS_PARALLEL_FORCE)/8) && (CMD_Buffer[$bits(CMD_DDS_PARALLEL_FORCE):1] == CMD_DDS_PARALLEL_FORCE)) begin
-                            main_state <= MAIN_DDS_PARALLEL_FORCE;
-                            force_select <= 1;
-                        end
                             
                         
 
@@ -694,15 +587,21 @@ module main(
                 //****code added for AD9910**** this if statement is for IO UPDATE of AD9910
                 ////
                 MAIN_DDS_IOUPDATE_OUT: begin
-                    DDS1_ioupdate <= DDS1_ioupdate;
-                    DDS2_ioupdate <= DDS2_ioupdate;
+                    DDS1_ioupdate <= 1'b1;
+                    DDS2_ioupdate <= 1'b1;
                     io_update_count <= io_update_count - 'd1;
                     if( io_update_count == 0 ) begin
+                        main_state <= MAIN_DDS_IOUPDATE_END;
+                        end
+                    end
+                    
+                MAIN_DDS_IOUPDATE_END: begin
                         DDS1_ioupdate <= 1'b0;
                         DDS2_ioupdate <= 1'b0;
                         main_state <= MAIN_IDLE;
-                        end
+                        io_update_count = 0;
                     end
+
 
 
 

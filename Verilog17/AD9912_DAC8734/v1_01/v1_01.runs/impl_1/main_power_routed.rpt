@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
-| Date             : Mon Aug 10 20:00:08 2020
+| Date             : Sat Aug  8 21:47:39 2020
 | Host             : CPO running 64-bit major release  (build 9200)
 | Command          : report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb -rpx main_power_routed.rpx
 | Design           : main
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.178        |
+| Total On-Chip Power (W)  | 0.177        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.106        |
+| Dynamic (W)              | 0.105        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 4.9          |
 | Max Ambient (C)          | 84.1         |
@@ -52,19 +52,19 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.053 |        3 |       --- |             --- |
-| Slice Logic             |     0.016 |    23569 |       --- |             --- |
-|   LUT as Logic          |     0.015 |    11732 |     32600 |           35.99 |
-|   Register              |    <0.001 |    11461 |     65200 |           17.58 |
+| Clocks                  |     0.052 |        3 |       --- |             --- |
+| Slice Logic             |     0.016 |    23558 |       --- |             --- |
+|   LUT as Logic          |     0.016 |    11727 |     32600 |           35.97 |
+|   Register              |    <0.001 |    11457 |     65200 |           17.57 |
 |   BUFG                  |    <0.001 |        2 |        32 |            6.25 |
 |   CARRY4                |    <0.001 |      109 |      8150 |            1.34 |
 |   Others                |     0.000 |       32 |       --- |             --- |
 |   LUT as Shift Register |     0.000 |        1 |      9600 |            0.01 |
-| Signals                 |     0.014 |    14256 |       --- |             --- |
+| Signals                 |     0.013 |    14243 |       --- |             --- |
 | Block RAM               |     0.005 |        2 |        75 |            2.67 |
-| I/O                     |     0.019 |       34 |       210 |           16.19 |
+| I/O                     |     0.018 |       34 |       210 |           16.19 |
 | Static Power            |     0.072 |          |           |                 |
-| Total                   |     0.178 |          |           |                 |
+| Total                   |     0.177 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.097 |       0.087 |      0.010 |
+| Vccint    |       1.000 |     0.096 |       0.086 |      0.010 |
 | Vccaux    |       1.800 |     0.013 |       0.001 |      0.013 |
 | Vcco33    |       3.300 |     0.006 |       0.005 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -141,7 +141,7 @@ Table of Contents
 +----------------------------------------------+-----------+
 | Name                                         | Power (W) |
 +----------------------------------------------+-----------+
-| main                                         |     0.106 |
+| main                                         |     0.105 |
 |   WTR1                                       |    <0.001 |
 |   WTR2                                       |    <0.001 |
 |   device_DNA_inst                            |    <0.001 |
