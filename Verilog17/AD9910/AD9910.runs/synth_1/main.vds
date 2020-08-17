@@ -1,0 +1,1344 @@
+#-----------------------------------------------------------
+# Vivado v2017.3 (64-bit)
+# SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
+# IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
+# Start of session at: Mon Aug 17 17:57:11 2020
+# Process ID: 8768
+# Current directory: C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1
+# Command line: vivado.exe -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
+# Log file: C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/main.vds
+# Journal file: C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source main.tcl -notrace
+Command: synth_design -top main -part xc7s50csga324-1 -fanout_limit 400 -fsm_extraction one_hot -keep_equivalent_registers -resource_sharing off -no_lc -shreg_min_size 5
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 828 
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:131]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:148]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:149]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:151]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:152]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:153]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:156]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:158]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:163]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:165]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:169]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:171]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:175]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:177]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:179]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:180]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:403]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:404]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:405]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:132]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:133]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:134]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:135]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:136]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:137]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:231]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:234]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:236]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:239]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:241]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:242]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:243]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:246]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:249]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:251]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:252]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:253]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:256]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:259]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:261]
+WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:264]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 404.543 ; gain = 102.199
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'main' [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:33]
+	Parameter ClkFreq bound to: 100000000 - type: integer 
+	Parameter BaudRate bound to: 57600 - type: integer 
+	Parameter BTF_MAX_BYTES bound to: 9'b100000000 
+	Parameter BTF_MAX_BUFFER_WIDTH bound to: 2048 - type: integer 
+	Parameter BTF_MAX_BUFFER_COUNT_WIDTH bound to: 9 - type: integer 
+	Parameter BTF_RX_BUFFER_BYTES bound to: 9'b100000000 
+	Parameter BTF_RX_BUFFER_WIDTH bound to: 2048 - type: integer 
+	Parameter BTF_RX_BUFFER_COUNT_WIDTH bound to: 9 - type: integer 
+	Parameter CMD_RX_BUFFER_BYTES bound to: 4'b1111 
+	Parameter CMD_RX_BUFFER_WIDTH bound to: 120 - type: integer 
+	Parameter TX_BUFFER1_BYTES bound to: 4'b1111 
+	Parameter TX_BUFFER1_WIDTH bound to: 120 - type: integer 
+	Parameter TX_BUFFER1_LENGTH_WIDTH bound to: 4 - type: integer 
+	Parameter TX_BUFFER2_BYTES bound to: 9'b100000000 
+	Parameter TX_BUFFER2_WIDTH bound to: 2048 - type: integer 
+	Parameter TX_BUFFER2_LENGTH_WIDTH bound to: 9 - type: integer 
+	Parameter CMD_IDN bound to: *IDN? - type: string 
+	Parameter IDN_REPLY bound to: DDS_DAC v1_01 - type: string 
+	Parameter CMD_WRITE_DDS_REG bound to: WRITE DDS REG - type: string 
+	Parameter CMD_IOUPDATE_DDS_REG bound to: DDS IO UPDATE - type: string 
+	Parameter DDS_MAX_LENGTH bound to: 9 - type: integer 
+	Parameter DDS_WIDTH bound to: 72 - type: integer 
+	Parameter IO_UPDATE_COUNT_LENGTH bound to: 3 - type: integer 
+	Parameter CMD_WRITE_DAC_REG bound to: WRITE DAC REG - type: string 
+	Parameter DAC_DATA_WIDTH bound to: 24 - type: integer 
+	Parameter CMD_LDAC bound to: LDAC - type: string 
+	Parameter CMD_UPDATE_LDAC_LENGTH bound to: LDAC LENGTH - type: string 
+	Parameter CMD_DNA_PORT bound to: DNA_PORT - type: string 
+	Parameter CMD_ADJUST_INTENSITY bound to: ADJ INTENSITY - type: string 
+	Parameter CMD_READ_INTENSITY bound to: READ INTENSITY - type: string 
+	Parameter CMD_CAPTURE_BTF_BUFFER bound to: CAPTURE BTF - type: string 
+	Parameter CMD_SET_BTF_BUFFER_READING_COUNT bound to: BTF READ COUNT - type: string 
+	Parameter CMD_READ_BTF_BUFFER bound to: READ BTF - type: string 
+	Parameter CMD_UPDATE_BIT_PATTERNS bound to: UPDATE BITS - type: string 
+	Parameter PATTERN_BYTES bound to: 4 - type: integer 
+	Parameter PATTERN_WIDTH bound to: 32 - type: integer 
+	Parameter CMD_READ_BIT_PATTERNS bound to: READ BITS - type: string 
+	Parameter MAIN_IDLE bound to: 4'b0000 
+	Parameter MAIN_DDS_WAIT_FOR_BUSY_ON bound to: 4'b0001 
+	Parameter MAIN_DDS_WAIT_FOR_BUSY_OFF bound to: 4'b0010 
+	Parameter MAIN_DAC_WAIT_FOR_BUSY_ON bound to: 4'b0011 
+	Parameter MAIN_DAC_WAIT_FOR_BUSY_OFF bound to: 4'b0100 
+	Parameter MAIN_DAC_LDAC_PAUSE bound to: 4'b0101 
+	Parameter MAIN_DAC_LDAC_OFF bound to: 4'b0110 
+	Parameter MAIN_DDS_IOUPDATE_OUT bound to: 4'b0111 
+	Parameter MAIN_DDS_IOUPDATE_END bound to: 4'b1000 
+	Parameter MAIN_UNKNOWN_CMD bound to: 4'b1111 
+INFO: [Synth 8-638] synthesizing module 'DAC8734' [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/imports/new/DAC8734.v:23]
+	Parameter STANDBY bound to: 3'b000 
+	Parameter WRITE_DAC bound to: 3'b011 
+	Parameter END_OF_CYCLE bound to: 3'b100 
+INFO: [Synth 8-256] done synthesizing module 'DAC8734' (1#1) [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/imports/new/DAC8734.v:23]
+INFO: [Synth 8-638] synthesizing module 'data_receiver' [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:24]
+	Parameter BTF_RX_BUFFER_COUNT_WIDTH bound to: 9 - type: integer 
+	Parameter BTF_RX_BUFFER_BYTES bound to: 9'b100000000 
+	Parameter BTF_RX_BUFFER_WIDTH bound to: 2048 - type: integer 
+	Parameter BaudRate bound to: 57600 - type: integer 
+	Parameter ClkFreq bound to: 100000000 - type: integer 
+	Parameter CMD_RX_BUFFER_BYTES bound to: 4'b1111 
+	Parameter CMD_RX_BUFFER_WIDTH bound to: 120 - type: integer 
+	Parameter WAVEFORM_WIDTH bound to: 16 - type: integer 
+	Parameter WAVEFORM_MAX_DEPTH bound to: 1023 - type: integer 
+	Parameter WAVEFORM_COUNTER_WIDTH bound to: 10 - type: integer 
+	Parameter ESC_IDLE bound to: 4'b0000 
+	Parameter ESC_DETECT bound to: 4'b0001 
+	Parameter ESC_C_FOUND bound to: 4'b0010 
+	Parameter ESC_R_FOUND bound to: 4'b0011 
+	Parameter ESC_W_FOUND bound to: 4'b0100 
+	Parameter ESC_A_FOUND bound to: 4'b0101 
+	Parameter MAIN_IDLE bound to: 4'b0000 
+	Parameter MAIN_BTF_READ_NUM_DIGITS bound to: 4'b0001 
+	Parameter MAIN_BTF_READ_BYTE_COUNT bound to: 4'b0010 
+	Parameter MAIN_BTF_READ_RAW_DATA bound to: 4'b0011 
+	Parameter MAIN_BTF_READ_RAW_DATA_ESC_DETECTED bound to: 4'b0100 
+	Parameter MAIN_BTF_CHECK_TERMINATOR bound to: 4'b0101 
+	Parameter MAIN_BTF_EXECUTION bound to: 4'b0110 
+	Parameter MAIN_CMD_READ_BYTE_COUNT bound to: 4'b0111 
+	Parameter MAIN_CMD_READ_ASCII_STRING bound to: 4'b1000 
+	Parameter MAIN_CMD_READ_ASCII_STRING_ESC_DETECTED bound to: 4'b1001 
+	Parameter MAIN_CMD_CHECK_TERMINATOR bound to: 4'b1010 
+	Parameter MAIN_CMD_EXECUTION bound to: 4'b1011 
+	Parameter MAIN_ESC_CHAR_DETECTED bound to: 4'b1100 
+	Parameter MAIN_WRONG_FORMAT bound to: 4'b1101 
+	Parameter MAIN_IDLE_FIRST_ESC_DETECTED bound to: 4'b1110 
+	Parameter TERMINATOR_LENGTH bound to: 2 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'async_receiver' [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/async_receiver.v:4]
+	Parameter ClkFrequency bound to: 100000000 - type: integer 
+	Parameter Baud bound to: 57600 - type: integer 
+	Parameter Baud8 bound to: 460800 - type: integer 
+	Parameter Baud8GeneratorAccWidth bound to: 16 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element RxD_data_error_reg was removed.  [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/async_receiver.v:85]
+INFO: [Synth 8-256] done synthesizing module 'async_receiver' (2#1) [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/async_receiver.v:4]
+WARNING: [Synth 8-350] instance 'RXUSB' of module 'async_receiver' requires 6 connections, but only 4 given [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:72]
+INFO: [Synth 8-638] synthesizing module 'ascii2hex' [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/ascii2hex.v:21]
+INFO: [Synth 8-256] done synthesizing module 'ascii2hex' (3#1) [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/ascii2hex.v:21]
+INFO: [Synth 8-226] default block is never used [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:269]
+INFO: [Synth 8-256] done synthesizing module 'data_receiver' (4#1) [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:24]
+WARNING: [Synth 8-350] instance 'receiver' of module 'data_receiver' requires 18 connections, but only 10 given [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:107]
+INFO: [Synth 8-638] synthesizing module 'data_sender' [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:22]
+	Parameter BaudRate bound to: 57600 - type: integer 
+	Parameter ClkFreq bound to: 100000000 - type: integer 
+	Parameter TX_BUFFER1_BYTES bound to: 4'b1111 
+	Parameter TX_BUFFER1_WIDTH bound to: 120 - type: integer 
+	Parameter TX_BUFFER1_LENGTH_WIDTH bound to: 4 - type: integer 
+	Parameter TX_BUFFER2_BYTES bound to: 9'b100000000 
+	Parameter TX_BUFFER2_WIDTH bound to: 2048 - type: integer 
+	Parameter TX_BUFFER2_LENGTH_WIDTH bound to: 9 - type: integer 
+	Parameter TX_WAVEFORM_BUFFER_BYTES bound to: 8'b10000000 
+	Parameter TX_WAVEFORM_BTF_HEADER bound to: #280 - type: string 
+	Parameter TX_WAVEFORM_BUFFER_WIDTH bound to: 1024 - type: integer 
+	Parameter TX_WAVEFORM_BUFFER_LENGTH_WIDTH bound to: 8 - type: integer 
+	Parameter TERMINATOR_LENGTH bound to: 2 - type: integer 
+	Parameter MAIN_FIFO_INITIALIZE bound to: 0 - type: integer 
+	Parameter MAIN_FIFO_INITIALIZE_WAIT bound to: 1 - type: integer 
+	Parameter MAIN_IDLE bound to: 4 - type: integer 
+	Parameter MAIN_ESC_CHAR_SEND bound to: 5 - type: integer 
+	Parameter MAIN_SEND_FINISH bound to: 6 - type: integer 
+	Parameter MAIN_BUFFER1_SEND bound to: 8 - type: integer 
+	Parameter TX_FULL_BUFFER1_WIDTH bound to: 136 - type: integer 
+	Parameter MAIN_BUFFER2_SEND bound to: 9 - type: integer 
+	Parameter TX_FULL_BUFFER2_WIDTH bound to: 2088 - type: integer 
+	Parameter MAIN_WAVEFORM_BUFFER_SEND bound to: 10 - type: integer 
+	Parameter TX_FULL_WAVEFORM_BUFFER_WIDTH bound to: 1056 - type: integer 
+	Parameter MAIN_SEND_TERMINATOR bound to: 16 - type: integer 
+	Parameter MAIN_ESC_DETECTED bound to: 17 - type: integer 
+	Parameter FIFO_RESET_WAIT_COUNTER_WIDTH bound to: 4 - type: integer 
+	Parameter FIFO_RESET_WAIT_INTERVAL bound to: 15 - type: integer 
+	Parameter TX_IDLE bound to: 4'b0000 
+	Parameter TX_WAIT1 bound to: 4'b0001 
+	Parameter TX_WAIT2 bound to: 4'b0010 
+INFO: [Synth 8-638] synthesizing module 'hex2ascii' [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/hex2ascii.v:21]
+INFO: [Synth 8-256] done synthesizing module 'hex2ascii' (5#1) [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/hex2ascii.v:21]
+INFO: [Synth 8-638] synthesizing module 'fifo_generator_0' [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-8768-C10/realtime/fifo_generator_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'fifo_generator_0' (6#1) [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-8768-C10/realtime/fifo_generator_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'async_transmitter' [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/async_transmitter.v:6]
+	Parameter ClkFrequency bound to: 100000000 - type: integer 
+	Parameter Baud bound to: 57600 - type: integer 
+	Parameter RegisterInputData bound to: 1 - type: integer 
+	Parameter BaudGeneratorAccWidth bound to: 16 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'async_transmitter' (7#1) [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/async_transmitter.v:6]
+INFO: [Synth 8-256] done synthesizing module 'data_sender' (8#1) [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:22]
+WARNING: [Synth 8-350] instance 'sender' of module 'data_sender' requires 19 connections, but only 14 given [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+INFO: [Synth 8-638] synthesizing module 'led_intensity_adjust' [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/led_intensity_adjust.v:23]
+INFO: [Synth 8-256] done synthesizing module 'led_intensity_adjust' (9#1) [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/led_intensity_adjust.v:23]
+INFO: [Synth 8-638] synthesizing module 'WriteToRegister' [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/WriteToRegister.v:21]
+	Parameter MAXLENGTH bound to: 9 - type: integer 
+	Parameter MAXLENGTH8 bound to: 72 - type: integer 
+	Parameter IDLE bound to: 2'b00 
+	Parameter READY bound to: 2'b01 
+	Parameter SEND bound to: 2'b10 
+	Parameter FINISH bound to: 2'b11 
+INFO: [Synth 8-226] default block is never used [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/WriteToRegister.v:70]
+INFO: [Synth 8-256] done synthesizing module 'WriteToRegister' (10#1) [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/WriteToRegister.v:21]
+WARNING: [Synth 8-350] instance 'WTR1' of module 'WriteToRegister' requires 10 connections, but only 7 given [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:248]
+WARNING: [Synth 8-350] instance 'WTR2' of module 'WriteToRegister' requires 10 connections, but only 7 given [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:252]
+INFO: [Synth 8-638] synthesizing module 'device_DNA' [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/imports/new/device_DNA.v:23]
+	Parameter START bound to: 4'b0000 
+	Parameter DNA_PORT_READ bound to: 4'b0001 
+	Parameter DNA_PORT_SHIFT bound to: 4'b0010 
+	Parameter DNA_PORT_FINISHED bound to: 4'b0011 
+INFO: [Synth 8-638] synthesizing module 'DNA_PORT' [C:/Xilinx/Vivado/2017.3/scripts/rt/data/unisim_comp.v:3032]
+	Parameter SIM_DNA_VALUE bound to: 57'b000000000000000000000000000000000000000000000000000000000 
+INFO: [Synth 8-256] done synthesizing module 'DNA_PORT' (11#1) [C:/Xilinx/Vivado/2017.3/scripts/rt/data/unisim_comp.v:3032]
+INFO: [Synth 8-256] done synthesizing module 'device_DNA' (12#1) [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/imports/new/device_DNA.v:23]
+WARNING: [Synth 8-6014] Unused sequential element BTN0Delay_reg was removed.  [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:638]
+INFO: [Synth 8-256] done synthesizing module 'main' (13#1) [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:33]
+WARNING: [Synth 8-3917] design main has port ja_4 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d5 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d4 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d3 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d2 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d1 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d0 driven by constant 0
+WARNING: [Synth 8-3331] design main has unconnected port BTN0
+WARNING: [Synth 8-3331] design main has unconnected port BTN1
+WARNING: [Synth 8-3331] design main has unconnected port BTN2
+WARNING: [Synth 8-3331] design main has unconnected port jb_0
+WARNING: [Synth 8-3331] design main has unconnected port jb_1
+WARNING: [Synth 8-3331] design main has unconnected port jb_2
+WARNING: [Synth 8-3331] design main has unconnected port jb_3
+WARNING: [Synth 8-3331] design main has unconnected port jb_4
+WARNING: [Synth 8-3331] design main has unconnected port jb_5
+WARNING: [Synth 8-3331] design main has unconnected port jb_6
+WARNING: [Synth 8-3331] design main has unconnected port jb_7
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 504.098 ; gain = 201.754
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[1] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[2] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[3] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[4] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[5] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[6] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[7] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[8] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[9] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[10] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[11] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[12] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[13] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[14] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[15] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[16] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[17] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[18] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[19] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[20] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[21] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[22] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[23] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[24] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[25] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[26] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[27] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[28] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[29] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[30] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[31] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[32] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[33] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[34] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[35] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[36] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[37] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[38] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[39] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[40] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[41] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[42] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[43] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[44] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[45] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[46] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[47] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[48] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[49] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[50] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[51] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[52] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[53] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[54] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[55] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[56] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[57] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[58] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[59] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[60] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[61] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[62] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[63] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[64] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[65] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[66] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[67] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[68] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[69] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[70] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[71] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[72] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[73] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[74] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[75] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[76] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[77] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[78] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[79] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[80] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[81] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[82] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[83] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[84] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[85] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[86] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[87] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[88] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[89] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[90] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[91] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[92] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[93] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[94] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[95] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[96] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[97] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[98] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[99] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[100] to constant 0 [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:147]
+INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 504.098 ; gain = 201.754
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7s50csga324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-8768-C10/dcp3/fifo_generator_0_in_context.xdc] for cell 'sender/transmitter_FIFO'
+Finished Parsing XDC File [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-8768-C10/dcp3/fifo_generator_0_in_context.xdc] for cell 'sender/transmitter_FIFO'
+Parsing XDC File [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc]
+Finished Parsing XDC File [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/main_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/main_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 914.273 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 914.273 ; gain = 611.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7s50csga324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 914.273 ; gain = 611.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for sender/transmitter_FIFO. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 914.273 ; gain = 611.930
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'async_receiver'
+INFO: [Synth 8-5544] ROM "RxD_bit_inv" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "RxD_bit_inv" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "bit_spacing" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+WARNING: [Synth 8-6014] Unused sequential element gap_count_reg was removed.  [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/async_receiver.v:89]
+INFO: [Synth 8-802] inferred FSM for state register 'escape_state_reg' in module 'data_receiver'
+INFO: [Synth 8-802] inferred FSM for state register 'main_state_reg' in module 'data_receiver'
+INFO: [Synth 8-5546] ROM "esc_char_detected" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "escape_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "TERMINATOR_CURRENT_CHAR_POINTER" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "TERMINATOR_CURRENT_CHAR_POINTER" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "debug1" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "debug3" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "debug2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "wrong_format" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'async_transmitter'
+INFO: [Synth 8-802] inferred FSM for state register 'main_state_reg' in module 'data_sender'
+INFO: [Synth 8-802] inferred FSM for state register 'transmitter_state_reg' in module 'data_sender'
+INFO: [Synth 8-5544] ROM "FIFO_wr_en" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FIFO_wr_en" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FIFO_reset_wait_counter" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "TX_full_buffer1_length" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TX_full_buffer1" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "reset_FIFO" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FIFO_rd_en" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "TxD_start" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/led_intensity_adjust.v:47]
+INFO: [Synth 8-5546] ROM "writeStage" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'device_DNA'
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "DNA_PORT_shift" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "DNA_PORT_read" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "DNA_PORT_counter" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "busy" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "cs_bar" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sdi" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+WARNING: [Synth 8-3936] Found unconnected internal register 'DDS_buffer_reg' and it is trimmed from '80' to '76' bits. [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:231]
+WARNING: [Synth 8-3936] Found unconnected internal register 'DAC_buffer_reg' and it is trimmed from '32' to '24' bits. [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:289]
+INFO: [Synth 8-802] inferred FSM for state register 'main_state_reg' in module 'main'
+INFO: [Synth 8-5546] ROM "TX_buffer1_ready" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "main_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "main_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "DDS1_ioupdate" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+WARNING: [Synth 8-6014] Unused sequential element DDS_slow_clock_reg was removed.  [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:238]
+INFO: [Synth 8-5546] ROM "TX_buffer1_ready" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "main_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "main_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "DDS1_ioupdate" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "io_update_count" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                       0000000001 |                             0000
+                 iSTATE0 |                       0000000010 |                             1000
+                 iSTATE1 |                       0000000100 |                             1001
+                 iSTATE2 |                       0000001000 |                             1010
+                 iSTATE3 |                       0000010000 |                             1011
+                 iSTATE4 |                       0000100000 |                             1100
+                 iSTATE5 |                       0001000000 |                             1101
+                 iSTATE6 |                       0010000000 |                             1110
+                 iSTATE7 |                       0100000000 |                             1111
+                 iSTATE8 |                       1000000000 |                             0001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'async_receiver'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                ESC_IDLE |                           000001 |                             0000
+              ESC_DETECT |                           000010 |                             0001
+             ESC_C_FOUND |                           000100 |                             0010
+             ESC_R_FOUND |                           001000 |                             0011
+             ESC_A_FOUND |                           010000 |                             0101
+             ESC_W_FOUND |                           100000 |                             0100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'escape_state_reg' using encoding 'one-hot' in module 'data_receiver'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+  MAIN_ESC_CHAR_DETECTED |                  000000000000001 |                             1100
+               MAIN_IDLE |                  000000000000010 |                             0000
+MAIN_BTF_READ_NUM_DIGITS |                  000000000000100 |                             0001
+MAIN_BTF_READ_BYTE_COUNT |                  000000000001000 |                             0010
+  MAIN_BTF_READ_RAW_DATA |                  000000000010000 |                             0011
+MAIN_BTF_READ_RAW_DATA_ESC_DETECTED |                  000000000100000 |                             0100
+MAIN_BTF_CHECK_TERMINATOR |                  000000001000000 |                             0101
+      MAIN_BTF_EXECUTION |                  000000010000000 |                             0110
+MAIN_CMD_READ_BYTE_COUNT |                  000000100000000 |                             0111
+MAIN_CMD_READ_ASCII_STRING |                  000001000000000 |                             1000
+MAIN_CMD_READ_ASCII_STRING_ESC_DETECTED |                  000010000000000 |                             1001
+MAIN_CMD_CHECK_TERMINATOR |                  000100000000000 |                             1010
+      MAIN_CMD_EXECUTION |                  001000000000000 |                             1011
+MAIN_IDLE_FIRST_ESC_DETECTED |                  010000000000000 |                             1110
+       MAIN_WRONG_FORMAT |                  100000000000000 |                             1101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'main_state_reg' using encoding 'one-hot' in module 'data_receiver'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                    0000000000001 |                             0000
+                 iSTATE0 |                    0000000000010 |                             0001
+                 iSTATE1 |                    0000000000100 |                             0100
+                 iSTATE2 |                    0000000001000 |                             1000
+                 iSTATE3 |                    0000000010000 |                             1001
+                 iSTATE4 |                    0000000100000 |                             1010
+                 iSTATE5 |                    0000001000000 |                             1011
+                 iSTATE6 |                    0000010000000 |                             1100
+                 iSTATE7 |                    0000100000000 |                             1101
+                 iSTATE8 |                    0001000000000 |                             1110
+                 iSTATE9 |                    0010000000000 |                             1111
+                iSTATE10 |                    0100000000000 |                             0010
+                iSTATE11 |                    1000000000000 |                             0011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'async_transmitter'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+    MAIN_FIFO_INITIALIZE |                       0000000001 |                           000000
+MAIN_FIFO_INITIALIZE_WAIT |                       0000000010 |                           000001
+       MAIN_ESC_DETECTED |                       0000000100 |                           010001
+      MAIN_ESC_CHAR_SEND |                       0000001000 |                           000101
+        MAIN_SEND_FINISH |                       0000010000 |                           000110
+               MAIN_IDLE |                       0000100000 |                           000100
+       MAIN_BUFFER1_SEND |                       0001000000 |                           001000
+       MAIN_BUFFER2_SEND |                       0010000000 |                           001001
+MAIN_WAVEFORM_BUFFER_SEND |                       0100000000 |                           001010
+    MAIN_SEND_TERMINATOR |                       1000000000 |                           010000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'main_state_reg' using encoding 'one-hot' in module 'data_sender'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 TX_IDLE |                             0001 |                             0000
+                TX_WAIT1 |                             0010 |                             0001
+                TX_WAIT2 |                             0100 |                             0010
+                  iSTATE |                             1000 |                             1111
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'transmitter_state_reg' using encoding 'one-hot' in module 'data_sender'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   START |                             0001 |                             0000
+           DNA_PORT_READ |                             0010 |                             0001
+          DNA_PORT_SHIFT |                             0100 |                             0010
+       DNA_PORT_FINISHED |                             1000 |                             0011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'device_DNA'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+               MAIN_IDLE |                       0000000001 |                             0000
+MAIN_DDS_WAIT_FOR_BUSY_ON |                       0000000010 |                             0001
+MAIN_DDS_WAIT_FOR_BUSY_OFF |                       0000000100 |                             0010
+   MAIN_DDS_IOUPDATE_OUT |                       0000001000 |                             0111
+   MAIN_DDS_IOUPDATE_END |                       0000010000 |                             1000
+MAIN_DAC_WAIT_FOR_BUSY_ON |                       0000100000 |                             0011
+MAIN_DAC_WAIT_FOR_BUSY_OFF |                       0001000000 |                             0100
+     MAIN_DAC_LDAC_PAUSE |                       0010000000 |                             0101
+       MAIN_DAC_LDAC_OFF |                       0100000000 |                             0110
+        MAIN_UNKNOWN_CMD |                       1000000000 |                             1111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'main_state_reg' using encoding 'one-hot' in module 'main'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 914.273 ; gain = 611.930
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |data_sender   |           1|     38706|
+|2     |main__GB1     |           1|     31355|
+|3     |main__GB2     |           1|     16848|
+|4     |main__GB3     |           1|     25851|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register TX_full_buffer2_reg [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:244]
+INFO: [Synth 8-3538] Detected potentially large (wide) register TX_full_waveform_buffer_reg [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:252]
+INFO: [Synth 8-3538] Detected potentially large (wide) register TX_buffer2_reg [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:158]
+INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_capture_reg [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:502]
+INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_RXBuffer_reg [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:359]
+INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_Buffer_reg [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:394]
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 2     
+	   2 Input     10 Bit       Adders := 2     
+	   2 Input      9 Bit       Adders := 3     
+	   2 Input      8 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 6     
+	   2 Input      6 Bit       Adders := 3     
+	   2 Input      5 Bit       Adders := 3     
+	   2 Input      4 Bit       Adders := 7     
+	   2 Input      3 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 3     
+	   2 Input      1 Bit       Adders := 1     
++---Registers : 
+	             2088 Bit    Registers := 1     
+	             2048 Bit    Registers := 4     
+	             1056 Bit    Registers := 1     
+	              136 Bit    Registers := 1     
+	              120 Bit    Registers := 3     
+	               76 Bit    Registers := 1     
+	               32 Bit    Registers := 1     
+	               24 Bit    Registers := 3     
+	               17 Bit    Registers := 2     
+	               16 Bit    Registers := 2     
+	               10 Bit    Registers := 2     
+	                9 Bit    Registers := 6     
+	                8 Bit    Registers := 10    
+	                6 Bit    Registers := 3     
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 8     
+	                3 Bit    Registers := 3     
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 40    
++---Muxes : 
+	   2 Input   2088 Bit        Muxes := 3     
+	   3 Input   2088 Bit        Muxes := 1     
+	  10 Input   2088 Bit        Muxes := 2     
+	   2 Input   2048 Bit        Muxes := 5     
+	  10 Input   2048 Bit        Muxes := 2     
+	   9 Input   2048 Bit        Muxes := 1     
+	  15 Input   2048 Bit        Muxes := 1     
+	  11 Input   2048 Bit        Muxes := 1     
+	   2 Input   1056 Bit        Muxes := 4     
+	   3 Input   1056 Bit        Muxes := 1     
+	  10 Input   1056 Bit        Muxes := 2     
+	   2 Input    136 Bit        Muxes := 3     
+	   3 Input    136 Bit        Muxes := 1     
+	  10 Input    136 Bit        Muxes := 2     
+	  10 Input    120 Bit        Muxes := 2     
+	   2 Input    120 Bit        Muxes := 3     
+	  15 Input    120 Bit        Muxes := 1     
+	   4 Input     72 Bit        Muxes := 2     
+	   4 Input     64 Bit        Muxes := 2     
+	   2 Input     40 Bit        Muxes := 1     
+	   4 Input     24 Bit        Muxes := 2     
+	  31 Input     15 Bit        Muxes := 1     
+	  14 Input     13 Bit        Muxes := 1     
+	  10 Input     10 Bit        Muxes := 1     
+	  15 Input     10 Bit        Muxes := 1     
+	  21 Input     10 Bit        Muxes := 1     
+	  11 Input     10 Bit        Muxes := 1     
+	  10 Input      9 Bit        Muxes := 4     
+	   2 Input      9 Bit        Muxes := 6     
+	  11 Input      9 Bit        Muxes := 1     
+	  15 Input      9 Bit        Muxes := 4     
+	   2 Input      8 Bit        Muxes := 12    
+	  10 Input      8 Bit        Muxes := 6     
+	   4 Input      8 Bit        Muxes := 2     
+	   6 Input      8 Bit        Muxes := 1     
+	   7 Input      8 Bit        Muxes := 1     
+	   4 Input      7 Bit        Muxes := 2     
+	   2 Input      6 Bit        Muxes := 5     
+	   4 Input      6 Bit        Muxes := 3     
+	  13 Input      6 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+	  10 Input      5 Bit        Muxes := 1     
+	  11 Input      5 Bit        Muxes := 1     
+	  13 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 8     
+	  10 Input      4 Bit        Muxes := 3     
+	   4 Input      4 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 1     
+	   7 Input      4 Bit        Muxes := 1     
+	  15 Input      4 Bit        Muxes := 5     
+	  10 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   7 Input      3 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 5     
+	  10 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 2     
+	   6 Input      2 Bit        Muxes := 2     
+	  13 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 49    
+	  10 Input      1 Bit        Muxes := 30    
+	   4 Input      1 Bit        Muxes := 30    
+	   5 Input      1 Bit        Muxes := 2     
+	   3 Input      1 Bit        Muxes := 2     
+	   6 Input      1 Bit        Muxes := 5     
+	  15 Input      1 Bit        Muxes := 11    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register TX_full_buffer2_reg [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:244]
+INFO: [Synth 8-3538] Detected potentially large (wide) register TX_full_waveform_buffer_reg [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:252]
+INFO: [Synth 8-3538] Detected potentially large (wide) register TX_buffer2_reg [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:158]
+INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_capture_reg [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:502]
+INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_RXBuffer_reg [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:359]
+INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_Buffer_reg [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:394]
+Hierarchical RTL Component report 
+Module main 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	             2048 Bit    Registers := 2     
+	              120 Bit    Registers := 1     
+	               76 Bit    Registers := 1     
+	               32 Bit    Registers := 1     
+	               24 Bit    Registers := 1     
+	                9 Bit    Registers := 2     
+	                8 Bit    Registers := 4     
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 7     
++---Muxes : 
+	   2 Input   2048 Bit        Muxes := 4     
+	  10 Input   2048 Bit        Muxes := 2     
+	   9 Input   2048 Bit        Muxes := 1     
+	  11 Input   2048 Bit        Muxes := 1     
+	  10 Input    120 Bit        Muxes := 2     
+	   2 Input    120 Bit        Muxes := 2     
+	  21 Input     10 Bit        Muxes := 1     
+	  10 Input      9 Bit        Muxes := 3     
+	   2 Input      9 Bit        Muxes := 4     
+	  11 Input      9 Bit        Muxes := 1     
+	  10 Input      8 Bit        Muxes := 5     
+	   2 Input      8 Bit        Muxes := 8     
+	   4 Input      8 Bit        Muxes := 1     
+	   6 Input      8 Bit        Muxes := 1     
+	   7 Input      8 Bit        Muxes := 1     
+	  10 Input      4 Bit        Muxes := 1     
+	   7 Input      4 Bit        Muxes := 1     
+	  10 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   7 Input      3 Bit        Muxes := 1     
+	  10 Input      1 Bit        Muxes := 15    
+	   2 Input      1 Bit        Muxes := 12    
+	   5 Input      1 Bit        Muxes := 1     
+Module hex2ascii__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+Module hex2ascii__2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+Module hex2ascii__3 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+Module hex2ascii 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+Module async_transmitter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	  14 Input     13 Bit        Muxes := 1     
+	  13 Input      4 Bit        Muxes := 1     
+	  13 Input      1 Bit        Muxes := 1     
+Module data_sender 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 2     
+	   2 Input      9 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	             2088 Bit    Registers := 1     
+	             1056 Bit    Registers := 1     
+	              136 Bit    Registers := 1     
+	               10 Bit    Registers := 1     
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 9     
++---Muxes : 
+	   2 Input   2088 Bit        Muxes := 3     
+	   3 Input   2088 Bit        Muxes := 1     
+	  10 Input   2088 Bit        Muxes := 2     
+	   2 Input   1056 Bit        Muxes := 4     
+	   3 Input   1056 Bit        Muxes := 1     
+	  10 Input   1056 Bit        Muxes := 2     
+	   2 Input    136 Bit        Muxes := 3     
+	   3 Input    136 Bit        Muxes := 1     
+	  10 Input    136 Bit        Muxes := 2     
+	   2 Input     40 Bit        Muxes := 1     
+	  10 Input     10 Bit        Muxes := 1     
+	  15 Input     10 Bit        Muxes := 1     
+	  10 Input      9 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 3     
+	  10 Input      8 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+	  10 Input      5 Bit        Muxes := 1     
+	  11 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 3     
+	  10 Input      4 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 4     
+	  10 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 12    
+	  10 Input      1 Bit        Muxes := 14    
+	   4 Input      1 Bit        Muxes := 4     
+Module DAC8734__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	               24 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   4 Input     24 Bit        Muxes := 1     
+	   4 Input      6 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 5     
+Module DAC8734 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	               24 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   4 Input     24 Bit        Muxes := 1     
+	   4 Input      6 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 5     
+Module WriteToRegister__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Muxes : 
+	   4 Input     72 Bit        Muxes := 1     
+	   4 Input      7 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 6     
+Module WriteToRegister 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Muxes : 
+	   4 Input     72 Bit        Muxes := 1     
+	   4 Input      7 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 6     
+Module led_intensity_adjust 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 6     
+Module async_receiver 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	  11 Input     10 Bit        Muxes := 1     
+	  10 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	  10 Input      1 Bit        Muxes := 1     
+Module ascii2hex 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 3     
+Module data_receiver 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 3     
+	   2 Input      1 Bit       Adders := 1     
++---Registers : 
+	             2048 Bit    Registers := 2     
+	              120 Bit    Registers := 2     
+	               16 Bit    Registers := 2     
+	               10 Bit    Registers := 1     
+	                9 Bit    Registers := 3     
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 4     
+	                1 Bit    Registers := 8     
++---Muxes : 
+	  15 Input   2048 Bit        Muxes := 1     
+	   2 Input   2048 Bit        Muxes := 1     
+	  15 Input    120 Bit        Muxes := 1     
+	   2 Input    120 Bit        Muxes := 1     
+	  31 Input     15 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 2     
+	  15 Input      9 Bit        Muxes := 4     
+	   2 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 1     
+	  13 Input      6 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 2     
+	  15 Input      4 Bit        Muxes := 5     
+	   6 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 18    
+	   3 Input      1 Bit        Muxes := 2     
+	   5 Input      1 Bit        Muxes := 1     
+	   6 Input      1 Bit        Muxes := 5     
+	  15 Input      1 Bit        Muxes := 11    
+Module device_DNA 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Muxes : 
+	   4 Input     64 Bit        Muxes := 2     
+	   2 Input      6 Bit        Muxes := 1     
+	   4 Input      6 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 120 (col length:60)
+BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "main_state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "genblk1[1].dac/cs_bar" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "genblk1[1].dac/sdi" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "genblk1[1].dac/busy" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "genblk1[0].dac/cs_bar" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "genblk1[0].dac/sdi" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "genblk1[0].dac/busy" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5545] ROM "main_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "main_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TX_buffer1_ready" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "WTR2/writeStage" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "WTR1/writeStage" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element DDS_slow_clock_reg was removed.  [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:238]
+INFO: [Synth 8-5546] ROM "TX_full_buffer1_length" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TX_full_buffer1" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/led_intensity_adjust.v:47]
+WARNING: [Synth 8-6014] Unused sequential element gap_count_reg was removed.  [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/async_receiver.v:89]
+INFO: [Synth 8-5546] ROM "esc_char_detected" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "escape_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TERMINATOR_CURRENT_CHAR_POINTER" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "main_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "main_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TX_buffer1_ready" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "WTR2/writeStage" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "WTR1/writeStage" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element DDS_slow_clock_reg was removed.  [C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:238]
+WARNING: [Synth 8-3917] design main has port ja_4 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d5 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d4 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d3 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d2 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d1 driven by constant 0
+WARNING: [Synth 8-3917] design main has port d0 driven by constant 0
+WARNING: [Synth 8-3331] design main has unconnected port BTN0
+WARNING: [Synth 8-3331] design main has unconnected port BTN1
+WARNING: [Synth 8-3331] design main has unconnected port BTN2
+WARNING: [Synth 8-3331] design main has unconnected port jb_0
+WARNING: [Synth 8-3331] design main has unconnected port jb_1
+WARNING: [Synth 8-3331] design main has unconnected port jb_2
+WARNING: [Synth 8-3331] design main has unconnected port jb_3
+WARNING: [Synth 8-3331] design main has unconnected port jb_4
+WARNING: [Synth 8-3331] design main has unconnected port jb_5
+WARNING: [Synth 8-3331] design main has unconnected port jb_6
+WARNING: [Synth 8-3331] design main has unconnected port jb_7
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/\main_state_reg[5] )
+WARNING: [Synth 8-3332] Sequential element (RXUSB/gap_count_reg[4]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (RXUSB/gap_count_reg[3]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (RXUSB/gap_count_reg[2]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (RXUSB/gap_count_reg[1]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (RXUSB/gap_count_reg[0]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (RXUSB/RxD_endofpacket_reg) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_RXBuffer_reg[119]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_RXBuffer_reg[118]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_RXBuffer_reg[117]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_RXBuffer_reg[116]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_RXBuffer_reg[115]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_RXBuffer_reg[114]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_RXBuffer_reg[113]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_RXBuffer_reg[112]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_Buffer_reg[119]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_Buffer_reg[118]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_Buffer_reg[117]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_Buffer_reg[116]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_Buffer_reg[115]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_Buffer_reg[114]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_Buffer_reg[113]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_Buffer_reg[112]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (BTF_Ready_reg) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[15]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[14]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[13]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[12]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[11]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[10]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[9]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[8]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[7]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[6]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[5]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[4]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[3]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[2]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[1]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[0]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[15]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[14]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[13]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[12]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[11]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[10]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[9]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[8]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[7]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[6]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[5]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[4]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[3]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[2]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[1]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[0]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[9]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[8]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[7]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[6]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[5]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[4]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[3]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[2]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[1]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[0]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (debug1_reg) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (debug2_reg) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (debug3_reg) is unused and will be removed from module data_receiver.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/\TX_full_buffer1_reg[136] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/\TX_full_buffer1_reg[135] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/\TX_full_buffer1_reg[134] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/\TX_full_buffer1_reg[133] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/\TX_full_buffer1_reg[132] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/\TX_full_buffer1_reg[131] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/\TX_full_buffer1_reg[130] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/\TX_full_buffer1_reg[129] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/TX_waveform_buffer_ready_delay_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/\TX_full_buffer1_reg[128] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/\TX_full_buffer1_reg[127] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/\TX_full_buffer1_reg[126] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/\TX_full_buffer1_reg[125] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/\TX_full_buffer1_reg[124] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/\TX_full_buffer1_reg[123] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/\TX_full_buffer1_reg[122] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/\TX_full_buffer1_reg[121] )
+WARNING: [Synth 8-3332] Sequential element (TX_full_buffer1_reg[121]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_buffer1_reg[122]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_buffer1_reg[123]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_buffer1_reg[124]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_buffer1_reg[125]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_buffer1_reg[126]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_buffer1_reg[127]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_buffer1_reg[128]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_buffer1_reg[129]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_buffer1_reg[130]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_buffer1_reg[131]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_buffer1_reg[132]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_buffer1_reg[133]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_buffer1_reg[134]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_buffer1_reg[135]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_buffer1_reg[136]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_waveform_buffer_ready_delay_reg) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_FIFO_busy_reg) is unused and will be removed from module data_sender.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:56 ; elapsed = 00:00:57 . Memory (MB): peak = 1031.105 ; gain = 728.762
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |data_sender   |           1|     30733|
+|2     |main__GB1     |           1|     18760|
+|3     |main__GB2     |           1|     12985|
+|4     |main__GB3     |           1|      3244|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:04 ; elapsed = 00:01:05 . Memory (MB): peak = 1143.141 ; gain = 840.797
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:07 ; elapsed = 00:01:09 . Memory (MB): peak = 1200.379 ; gain = 898.035
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |data_sender   |           1|     30733|
+|2     |main__GB1     |           1|     18760|
+|3     |main__GB2     |           1|     12985|
+|4     |main__GB3     |           1|      3244|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[1]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[2]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[6]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[9]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[10]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[14]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[16]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[17]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[18]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[22]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[23]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[24]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[25]) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[26]) is unused and will be removed from module data_sender.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\TX_buffer1_reg[94] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\TX_buffer1_reg[96] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\TX_buffer1_reg[95] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\TX_buffer1_reg[89] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\TX_buffer1_reg[81] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\TX_buffer1_reg[73] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\TX_buffer1_reg[65] )
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:19 ; elapsed = 00:01:21 . Memory (MB): peak = 1225.305 ; gain = 922.961
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5777] Ignored max_fanout on net \receiver/FSM_onehot_main_state_reg_n_0_[4]  because some of its loads are not in same hierarchy as its driver   
+INFO: [Synth 8-5777] Ignored max_fanout on net \FSM_onehot_main_state_reg_n_0_[0]  because some of its loads are not in same hierarchy as its driver   
+INFO: [Synth 8-5777] Ignored max_fanout on net \sender/FSM_onehot_main_state_reg_n_0_[5]  because some of its loads are not in same hierarchy as its driver   
+INFO: [Synth 8-5777] Ignored max_fanout on net \sender/FSM_onehot_main_state_reg_n_0_[7]  because some of its loads are not in same hierarchy as its driver   
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:23 ; elapsed = 00:01:24 . Memory (MB): peak = 1225.305 ; gain = 922.961
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:23 ; elapsed = 00:01:24 . Memory (MB): peak = 1225.305 ; gain = 922.961
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:24 ; elapsed = 00:01:25 . Memory (MB): peak = 1225.305 ; gain = 922.961
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:24 ; elapsed = 00:01:26 . Memory (MB): peak = 1225.305 ; gain = 922.961
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:24 ; elapsed = 00:01:26 . Memory (MB): peak = 1225.305 ; gain = 922.961
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:24 ; elapsed = 00:01:26 . Memory (MB): peak = 1225.305 ; gain = 922.961
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+-----------------+----------+
+|      |BlackBox name    |Instances |
++------+-----------------+----------+
+|1     |fifo_generator_0 |         1|
++------+-----------------+----------+
+
+Report Cell Usage: 
++------+-----------------+------+
+|      |Cell             |Count |
++------+-----------------+------+
+|1     |fifo_generator_0 |     1|
+|2     |BUFG             |     3|
+|3     |CARRY4           |   109|
+|4     |DNA_PORT         |     1|
+|5     |LUT1             |    23|
+|6     |LUT2             |   160|
+|7     |LUT3             |   692|
+|8     |LUT4             |   240|
+|9     |LUT5             |  2330|
+|10    |LUT6             |  8508|
+|11    |FDE_1            |     4|
+|12    |FDRE             | 11403|
+|13    |FDSE             |    90|
+|14    |IBUF             |     2|
+|15    |OBUF             |    32|
++------+-----------------+------+
+
+Report Instance Areas: 
++------+--------------------------+---------------------+------+
+|      |Instance                  |Module               |Cells |
++------+--------------------------+---------------------+------+
+|1     |top                       |                     | 23609|
+|2     |  WTR1                    |WriteToRegister      |   173|
+|3     |  WTR2                    |WriteToRegister_0    |   173|
+|4     |  device_DNA_inst         |device_DNA           |   152|
+|5     |  \genblk1[0].dac         |DAC8734              |    76|
+|6     |  \genblk1[1].dac         |DAC8734_1            |    77|
+|7     |  led_intensity_modulator |led_intensity_adjust |    33|
+|8     |  receiver                |data_receiver        | 11562|
+|9     |    RXUSB                 |async_receiver       |  2239|
+|10    |  sender                  |data_sender          |  6901|
+|11    |    TXUSB                 |async_transmitter    |    78|
++------+--------------------------+---------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:24 ; elapsed = 00:01:26 . Memory (MB): peak = 1225.305 ; gain = 922.961
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1162 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:07 ; elapsed = 00:01:16 . Memory (MB): peak = 1225.305 ; gain = 512.785
+Synthesis Optimization Complete : Time (s): cpu = 00:01:24 ; elapsed = 00:01:26 . Memory (MB): peak = 1225.305 ; gain = 922.961
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 115 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  FDE_1 => FDRE (inverted pins: C): 4 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+189 Infos, 293 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:28 ; elapsed = 00:01:30 . Memory (MB): peak = 1225.305 ; gain = 932.797
+INFO: [Common 17-1381] The checkpoint 'C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/main.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.106 . Memory (MB): peak = 1225.305 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Aug 17 17:58:54 2020...
