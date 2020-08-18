@@ -73,18 +73,28 @@ always begin
 end
 
 initial begin
-    CLK100MHZ = 0;
+    CLK100MHZ = 1;
     spi_config_in = 0;
     spi_config_selected = 0;
     spi_data_in = 0;
     spi_data_selected = 0;
     #15
-    spi_config_in = 32'd1 << 28 |  32'd1 << 16 |  32'd32 << 11 | 32'd8;
+    spi_config_in = 32'd1 << 31 | 32'd1 << 28 |  32'd1 << 16 |  32'd31 << 11 | 32'd0 << 8 | 32'd2;
     spi_config_selected = 1'b1;
     #10
     spi_config_selected = 1'b0;
     #20
-    spi_data_in = 32'b1111001101;
+    spi_data_in = 32'b10111111111111110000001111001101;
+    spi_data_selected = 1'b1;
+    #10
+    spi_data_selected = 1'b0;
+    #500
+    spi_config_in = 32'd1 << 31 | 32'd1 << 28 |  32'd1 << 16 |  32'd7 << 11 | 32'd0 << 8 | 32'd2;
+    spi_config_selected = 1'b1;
+    #10
+    spi_config_selected = 1'b0;
+    #20
+    spi_data_in = 32'b00110111111111110000001111001101;
     spi_data_selected = 1'b1;
     #10
     spi_data_selected = 1'b0;

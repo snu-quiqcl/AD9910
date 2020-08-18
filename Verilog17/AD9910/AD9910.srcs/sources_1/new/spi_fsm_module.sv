@@ -66,7 +66,12 @@ reg cs_next_state;
 reg spi_counter_state;
 reg clear_register;
 reg write_en;
+reg write_reg_out;
+reg is_first_low;
 reg [31:0] data_buffer;
+
+reg sck_next_buffer;
+reg cs_next_buffer;
 
 wire spi_counter_end;
 
@@ -74,6 +79,8 @@ parameter IDLE = 3'h0;
 parameter LOW = 3'h1;
 parameter HIGH = 3'h2;
 parameter WAIT_LOW = 3'h3;
+parameter LAST_HIGH = 3'h4;
+parameter LAST_LOW = 3'h5;
 
 initial begin
     busy_state <= 1'b0;
@@ -85,9 +92,9 @@ assign cpha = config_cpha;
 assign cpol = config_cpol;
 assign cspol = config_cspol;
 assign slave_en = config_slave_en;
-assign cs_next = cs_next_state;
+assign cs_next = cs_next_buffer;
 assign off_spi = config_off_spi;
-assign sck_next = sck_next_state;
+assign sck_next = sck_next_buffer;
 assign cs[NUM_CS-1:0] = config_cs[NUM_CS-1:0];
 
 clock_divider clock_divider_0 (
@@ -102,7 +109,7 @@ shift_register_out shift_register_out_0(
     .lsb_first(config_lsb_first),
     .data_load(data_load),
     .data_in(data_buffer),
-    .write(spi_start),
+    .write(write_reg_out),
     .sdo(sdo)
 );
 
@@ -121,6 +128,8 @@ always @(posedge CLK100MHZ) begin
     end
     spi_start <= spi_data_selected & ~busy_state;
     data_buffer[31:0] <= spi_data_in[31:0];
+    sck_next_buffer <= sck_next_state;
+    cs_next_buffer <= cs_next_state;
 end
 
 //FSM of SPI
@@ -128,67 +137,77 @@ always @(posedge CLK100MHZ) begin
     case(spi_fsm_state)
         IDLE:
         begin
-            data_remain <= config_length;
+            data_remain[4:0] <= config_length[4:0];
             if(spi_start == 1'b1) begin
                 busy_state <= 1'b1;
                 cs_next_state <= 1'b1;
                 spi_fsm_state <= LOW;
                 spi_counter_state <= 1'b1;
-                sck_next_state <= config_cpha;
+                //sck_next_state <= config_cpha;
+                sck_next_state <= 1'b0;
                 clear_register <= 1'b0;
                 write_en <= 1'b0;
-                if(config_cpha == 1'b0) begin
-                    data_load <= 1'b1;
-                end
-                else begin
-                    data_load <= 1'b0;
-                end
+                write_reg_out <= 1'b1;
+                is_first_low <= 1'b1;
+                data_load <= 1'b0;
             end
             else begin
-                cs_next_state <= 1'b1;
-                sck_next_state <= config_cpha;
-                busy_state <= 1'b0;
+                cs_next_state <= 1'b0;
+                //sck_next_state <= config_cpha;
+                sck_next_state <= 1'b0;
+                busy_state <= spi_data_selected;
                 data_load <= 1'b0;
                 spi_counter_state <= 1'b0;
                 clear_register <= 1'b1;
                 write_en <= 1'b0;
+                is_first_low <= 1'b0;
             end
         end
         
         LOW:
         begin
+            write_reg_out <= 1'b0;
             if(spi_counter_end == 1'b1) begin
-                if(data_remain[4:0] == 5'd0) begin
-                    if(config_end_spi == 1'b1) begin
-                        sck_next_state <= config_cpha;
-                        spi_fsm_state <= IDLE;
-                        data_load <= 1'b0;
-                        busy_state <= 1'b0;
-                        write_en <= config_slave_en;
+                if(data_remain[4:0] == 5'h0) begin
+                    spi_fsm_state <= LAST_HIGH;
+                    //sck_next_state <= ~config_cpha;
+                    sck_next_state <= 1'b1;
+                    if( cpha == 1'b1 & is_first_low == 1'b1 ) begin
+                        is_first_low <= 1'b0;
                     end
+                    
+                    else if( cpha == 1'b1 & is_first_low == 1'b0 ) begin
+                        data_load <= 1'b1;
+                    end
+                    
                     else begin
-                        spi_fsm_state <= WAIT_LOW;
-                        sck_next_state <= config_cpha;
                         data_load <= 1'b0;
-                        busy_state <= 1'b0;
-                        write_en <= config_slave_en;
+                        is_first_low <= 1'b0;
                     end
                 end
                 
                 else begin
                     spi_fsm_state <= HIGH;
-                    sck_next_state <= ~cpha;
-                    if( cpha == 1'b1 ) begin
+                    //sck_next_state <= ~config_cpha;
+                    sck_next_state <= 1'b1;
+                    if( cpha == 1'b1 & is_first_low == 1'b1 ) begin
+                        is_first_low <= 1'b0;
+                    end
+                    
+                    else if( cpha == 1'b1 & is_first_low == 1'b0 ) begin
                         data_load <= 1'b1;
                     end
+                    
                     else begin
                         data_load <= 1'b0;
+                        is_first_low <= 1'b0;
                     end
                 end
             end
             
             else begin
-                sck_next_state <= cpha;
+                //sck_next_state <= config_cpha;
+                sck_next_state <= 1'b0;
                 data_load <= 1'b0;
             end
         end
@@ -196,7 +215,7 @@ always @(posedge CLK100MHZ) begin
         HIGH:
         begin
             if( spi_counter_end == 1'b1 ) begin
-                data_remain[4:0] <= data_remain[4:0] - 5'd1;
+                data_remain[4:0] <= data_remain[4:0] - 5'h1;
                 spi_fsm_state <= LOW;
                 if( config_cpha == 1'b1 ) begin
                     data_load <= 1'b0;
@@ -204,35 +223,85 @@ always @(posedge CLK100MHZ) begin
                 else begin
                     data_load <= 1'b1;
                 end
-                sck_next_state <= config_cpha;
+                //sck_next_state <= config_cpha;
+                sck_next_state <= 1'b0;
             end
             
             else begin
-                sck_next_state <= ~config_cpha;
+                //sck_next_state <= ~config_cpha;
+                sck_next_state <= 1'b1;
                 data_load <= 1'b0;
             end
         end
         
         WAIT_LOW:
         begin
+            data_remain[4:0] <= config_length[4:0];
             if(spi_start == 1'b1) begin
                 busy_state <= 1'b1;
                 spi_fsm_state = LOW;
+                is_first_low <= 1'b1;
                 write_en <= 1'b0;
                 spi_counter_state <= 1'b1;
-                if( config_cpha == 1'b0 ) begin
-                    data_load <= 1'b1;
-                end
-                else begin
-                    data_load <= 1'b0;
-                end
+                write_reg_out <= 1'b1;
+                sck_next_state <= 1'b0;
+                data_load <= 1'b0;
             end
             
             else begin
+                write_reg_out <= 1'b0;
                 spi_counter_state <= 1'b0;
                 busy_state <= 1'b0;
                 data_load <= 1'b0;
                 write_en <= 1'b0;
+                sck_next_state <= 1'b0;
+            end
+        end
+        
+        LAST_HIGH:
+        begin
+            if(spi_counter_end == 1'b1) begin
+                spi_fsm_state <= LAST_LOW;
+                if( config_cpha == 1'b1 ) begin
+                    data_load <= 1'b0;
+                end
+                else begin
+                    data_load <= 1'b1;
+                end
+                //sck_next_state <= config_cpha;
+                sck_next_state <= 1'b0;
+            end
+            else begin
+                //sck_next_state <= ~config_cpha;
+                sck_next_state <= 1'b1;
+                data_load <= 1'b0;
+            end
+        end
+        LAST_LOW:
+        begin
+            if(spi_counter_end == 1'b1) begin
+                if(config_end_spi == 1'b1) begin
+                    //sck_next_state <= config_cpha;
+                    sck_next_state <= 1'b0;
+                    spi_fsm_state <= IDLE;
+                    data_load <= 1'b1;
+                    busy_state <= 1'b1;
+                    write_en <= config_slave_en;
+                    cs_next_state <= 1'b0;
+                end
+                else begin
+                    spi_fsm_state <= WAIT_LOW;
+                    //sck_next_state <= config_cpha;
+                    sck_next_state <= 1'b0;
+                    data_load <= 1'b1;
+                    busy_state <= 1'b1;
+                    write_en <= config_slave_en;
+                end
+            end
+            else begin
+                //sck_next_state <= config_cpha;
+                sck_next_state <= 1'b0;
+                data_load <= 1'b0;
             end
         end
     endcase
