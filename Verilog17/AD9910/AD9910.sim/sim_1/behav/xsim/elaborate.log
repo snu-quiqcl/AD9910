@@ -11,6 +11,8 @@ Compiling module xil_defaultlib.clock_divider
 Compiling module xil_defaultlib.shift_register_out
 Compiling module xil_defaultlib.shift_register_in
 Compiling module xil_defaultlib.spi_fsm_module
+Compiling module unisims_ver.IOBUF(IBUF_LOW_PWR="FALSE")
+Compiling module xil_defaultlib.spi_single_output_default
 Compiling module xil_defaultlib.testbench_spi_fsm
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot testbench_spi_fsm_behav

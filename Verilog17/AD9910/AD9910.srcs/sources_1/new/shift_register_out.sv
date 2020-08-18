@@ -29,21 +29,21 @@ module shift_register_out(
     output wire sdo
     );
 
-reg [31:0] data;
+reg [33:0] data;
 
-assign sdo = (lsb_first)? data[0]:data[31];
+assign sdo = (lsb_first)? data[0]:data[33];
 
 always @(posedge CLK100MHZ) begin
     if(write == 1'b1) begin
-        data[31:0] <= data_in[31:0];
+        data[33:0] <= {1'b0,data_in[31:0],1'b0};
     end
     else if(data_load == 1'b1) begin
         if( lsb_first == 1'b1 ) begin
-            data[31:0] <= {1'b0, data[31:1]};
+            data[33:0] <= {1'b0, data[33:1]};
         end
         
         else begin
-            data[31:0] <= {data[30:0], 1'b0};
+            data[33:0] <= {data[32:0], 1'b0};
         end
     end
 end
