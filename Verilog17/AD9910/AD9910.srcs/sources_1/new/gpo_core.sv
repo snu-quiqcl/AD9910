@@ -29,22 +29,22 @@ module gpo_core
     input wire CLK100MHZ,
     input wire override_en,
     input wire selected_en,
-    input wire[47:0] override_value,
+    input wire[63:0] override_value,
     input wire counter_matched,
-    input wire [111:0] gpo_in,
+    input wire [127:0] gpo_in,
     input wire busy,
     output wire selected,
-    output wire [111:0] error_data,
+    output wire [127:0] error_data,
     output wire overrided,
     output wire busy_error,
-    output wire[47:0] gpo_out
+    output wire[63:0] gpo_out
     );
 
 reg override_en_state;
 reg selected_state;
-reg [47:0] override_value_reg;
-reg [111:0] gpo_out_buffer;
-reg [111:0] error_data_buffer;
+reg [63:0] override_value_reg;
+reg [127:0] gpo_out_buffer;
+reg [127:0] error_data_buffer;
 reg busy_error_state;
 reg overrided_state;
 
@@ -54,8 +54,8 @@ wire dest_check;
 assign dest_check = ( gpo_in[96 + CHANNEL_LENGTH - 1:96] == DEST_VAL ) & counter_matched;
 assign selected_wire = selected_en | ( dest_check & ~override_en );
 assign selected = selected_state;
-assign gpo_out[47:0] = (override_en_state == 1'b1)? override_value_reg[47:0] : {gpo_out_buffer[111:96],gpo_out_buffer[31:0]};
-assign error_data[111:0] = error_data_buffer[111:0];
+assign gpo_out[63:0] = (override_en_state == 1'b1)? override_value_reg[63:0] : {gpo_out_buffer[127:96],gpo_out_buffer[31:0]};
+assign error_data[127:0] = error_data_buffer[127:0];
 //assign overrided = dest_check & override_en;
 //assign busy_error = busy & selected_wire;
 assign overrided = overrided_state;
@@ -67,19 +67,19 @@ always @(posedge CLK100MHZ) begin
     busy_error_state <= busy & selected_wire;
     overrided_state <= dest_check & override_en;
     if( dest_check & ~busy ) begin
-        gpo_out_buffer[111:0] <= gpo_in[111:0];
+        gpo_out_buffer[127:0] <= gpo_in[127:0];
     end
     
     if( override_en & ~busy ) begin
-        override_value_reg[47:0] <= override_value;
+        override_value_reg[63:0] <= override_value[63:0];
     end
     
     if( ( busy & selected_wire ) | ( dest_check & override_en ) ) begin
         if( dest_check ) begin
-            error_data_buffer[111:0] <= gpo_in[111:0];
+            error_data_buffer[127:0] <= gpo_in[127:0];
         end
         else begin
-            error_data_buffer[111:0] <= {72'h0,override_value[47:0]};
+            error_data_buffer[127:0] <= {72'h0,override_value[63:0]};
         end
     end
 end

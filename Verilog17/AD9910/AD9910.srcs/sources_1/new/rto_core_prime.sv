@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module rto_core_prime2(
+module rto_core_prime(
     input wire clk,
     input wire auto_start,
     input wire reset,
@@ -67,45 +67,25 @@ wire underflow_dummy_wire;
 wire timestamp_match_not_empty;
 wire fifo_output_en;
 
-assign flush = ( (addr[4:0] == 5'h5 ) & cs & write ) | reset;
-assign write_en = ( addr[4:0] == 5'h2 ) & cs & write;
+assign flush = ( (addr[4:0] == 5'h5 ) && cs && write ) || reset;
+assign write_en = ( addr[4:0] == 5'h2 ) && cs && write;
 assign dest_temp[15:0] = dest[15:0];
 assign timestamp_match = ( fifo_dout[95:64] == counter[63:0] );
-assign timestamp_match_not_empty = ( ~empty_wire & timestamp_match );
-assign timestamp_error_wire = (fifo_output[95:32] >= fifo_dout[95:32]) & auto_start & ~empty_wire;
-assign rd_en = timestamp_error_wire | timestamp_match_not_empty;
-assign wr_en = write_en & ~full;
-assign overflow_error_wire = full & write_en;
-assign fifo_output_en = ~timestamp_error_wire & timestamp_match_not_empty;
+assign timestamp_match_not_empty = ( ~empty_wire && timestamp_match );
+assign timestamp_error_wire = (fifo_output[95:32] >= fifo_dout[95:32]) && auto_start && ~empty_wire;
+assign rd_en = timestamp_error_wire || timestamp_match_not_empty;
+assign wr_en = write_en && ~full;
+assign overflow_error_wire = full && write_en;
+assign fifo_output_en = ~timestamp_error_wire && timestamp_match_not_empty;
 assign rto_out[127:0] = fifo_output[127:0];
 assign overflow_error = overflow_error_state;
 assign timestamp_error = timestamp_error_state;
-
-always @ ( * ) begin
-    rd_data = 0;
-    case(addr)
-        5'd3:
-        begin
-            rd_data[31:0] = {30'b0, full, empty};
-        end
-        5'd4:
-        begin
-            rd_data[31:0] = fifo_dout[31:0];
-        end
-        5'd5:
-        begin
-            rd_data[31:0] = fifo_dout[63:32];
-        end
-        5'd6:
-        begin
-            rd_data[31:0] = fifo_dout[63:32];
-        end
-        5'd7:
-        begin
-            rd_data[31:0] = fifo_dout[63:32];
-        end
-    endcase
-end
+assign rd_data[31:0] =  (5'd3) ? {30'b0, full, empty}:
+                        (5'd4) ? fifo_output[63:32]:
+                        (5'd5) ? fifo_output[95:64]:
+                        (5'd6) ? fifo_dout[31:0]:
+                        (5'd7) ? fifo_output[31:0]:
+                        32'h0;
 
 fifo_generator_1 rto_core_FIFO(
     .clk(clk),
@@ -136,11 +116,11 @@ always @(posedge clk) begin
         timestamp_error_data_buffer[127:0] <= fifo_dout[127:0];
     end
     
-    if( addr[0] == 1'b0 ) begin
+    if( addr[0] == 1'b0 && write && cs ) begin
         time_reg[31:0] <= wr_data[31:0];
     end
     
-    if( addr[0] == 1'b1 ) begin
+    if( addr[0] == 1'b1 && write && cs ) begin
         time_reg[63:32] <= wr_data[31:0];
     end
 end
