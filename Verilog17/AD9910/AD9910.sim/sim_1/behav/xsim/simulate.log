@@ -1,2 +1,6 @@
 Vivado Simulator 2017.3
 Time resolution is 1 ps
+Note: Actual FIFO Depth = 1025
+Time: 0 ps  Iteration: 0
+Note:  DEPTH = 1024 WIDTH = 36 C_RD_PRIM_WIDTH = 36 C_RD_PRIM_DEPTH = 1024 DEEP = 1 WIDE = 1
+Time: 0 ps  Iteration: 0

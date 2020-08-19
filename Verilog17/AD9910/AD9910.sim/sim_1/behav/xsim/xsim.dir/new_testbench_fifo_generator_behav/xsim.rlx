@@ -1,0 +1,12 @@
+
+{ 
+    crc :  8502971404699924287  , 
+    ccp_crc :  0  , 
+    cmdline : " -wto c410dce74b084c639dc5e6e81cac80b5 --incr --debug typical --relax --mt 2 -L fifo_generator_v13_2_0 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot new_testbench_fifo_generator_behav xil_defaultlib.new_testbench_fifo_generator xil_defaultlib.glbl" , 
+    buildDate : "Oct  4 2017" , 
+    buildTime : "20:11:37" , 
+    linkCmd : "C:\\Xilinx\\Vivado\\2017.3\\data\\..\\tps\\mingw\\6.2.0\\win64.o\\nt\\bin\\gcc.exe -Wa,-W  -O -Wl,--stack,104857600 -o \"xsim.dir/new_testbench_fifo_generator_behav/xsimk.exe\"   \"xsim.dir/new_testbench_fifo_generator_behav/obj/xsim_0.win64.obj\" \"xsim.dir/new_testbench_fifo_generator_behav/obj/xsim_1.win64.obj\" \"C:\\Xilinx\\Vivado\\2017.3\\lib\\win64.o\\\\librdi_simulator_kernel.dll\" \"C:\\Xilinx\\Vivado\\2017.3\\lib\\win64.o\\\\librdi_simbridge_kernel.dll\"" , 
+    aggregate_nets : 
+    [ 
+    ] 
+} 

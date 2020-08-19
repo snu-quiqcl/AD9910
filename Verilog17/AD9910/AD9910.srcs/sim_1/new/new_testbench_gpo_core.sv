@@ -69,6 +69,7 @@ always begin
 end
 
 initial begin
+    //override
     CLK100MHZ = 0;
     override_en = 1;
     selected_en = 0;
@@ -76,13 +77,149 @@ initial begin
     counter_matched = 0;
     gpo_in = 112'h0;
     busy = 1'b0;
+    
+    //update using gpo_in
     #10
-    override_en = 1;
-    selected_en = 1;
-    override_value = 48'h500000 | 48'h0005 << 32;
-    counter_matched = 0;
-    gpo_in = 112'h0;
+    override_en = 0;
+    selected_en = 0;
+    override_value = 48'h700000 | 48'h0007 << 32;
+    counter_matched = 1'b1;
+    gpo_in = 112'h900000 | 112'h0005 << 96;
     busy = 1'b0;
+    
+    //make counter_matched low
+    #10
+    counter_matched = 1'b0;
+    
+    //gpo_in with different channel
+    #30
+    override_en = 0;
+    selected_en = 0;
+    override_value = 48'h800000 | 48'h0008 << 32;
+    counter_matched = 1'b1;
+    gpo_in = 112'h900000 | 112'h0004 << 96;
+    
+    //make counter_matched low
+    #10
+    counter_matched = 1'b0;
+    
+    //make busy high
+    #10
+    busy = 1'b1;
+    
+    //gpo_in
+    #10
+    override_en = 0;
+    selected_en = 0;
+    override_value = 48'h700000 | 48'h0007 << 32;
+    counter_matched = 1'b1;
+    gpo_in = 112'h900000 | 112'h0005 << 96;
+    
+    //make counter_matched low
+    #10
+    counter_matched = 1'b0;
+    
+    #10
+    override_en = 1'b1;
+    selected_en = 1'b0;
+    override_value = 48'h800000 | 48'h0005 << 32;
+    counter_matched = 1'b0;
+    gpo_in = 112'h900000 | 112'h0005 << 96;
+    
+    #10
+    
+    #10
+    override_en = 1'b1;
+    selected_en = 1'b1;
+    override_value = 48'h900000 | 48'h0005 << 32;
+    counter_matched = 1'b0;
+    gpo_in = 112'h900000 | 112'h0005 << 96;
+    
+    #10
+    override_en = 1'b0;
+    selected_en = 1'b0;
+    
+    #30
+    busy = 1'b0;
+    
+    #10;
+    override_en = 1'b1;
+    selected_en = 1'b1;
+    override_value = 48'h200000 | 48'h0005 << 32;
+    counter_matched = 1'b1;
+    gpo_in = 112'h100000 | 112'h0005 << 96;
+    
+    #10
+    override_en = 1'b1;
+    selected_en = 1'b0;
+    override_value = 48'h200000 | 48'h0005 << 32;
+    counter_matched = 1'b0;
+    gpo_in = 112'h100000 | 112'h0005 << 96;
+    
+    #30
+    override_en = 1'b1;
+    selected_en = 1'b0;
+    override_value = 48'h400000 | 48'h0005 << 32;
+    counter_matched = 1'b1;
+    gpo_in = 112'h300000 | 112'h0005 << 96;
+    
+    #10
+    override_en = 1'b0;
+    selected_en = 1'b0;
+    override_value = 48'h600000 | 48'h0005 << 32;
+    counter_matched = 1'b0;
+    gpo_in = 112'h500000 | 112'h0005 << 96;
+    
+    #10
+    busy = 1'b1;
+    
+    #10
+    override_en = 1'b1;
+    selected_en = 1'b0;
+    override_value = 48'h800000 | 48'h0005 << 32;
+    counter_matched = 1'b0;
+    gpo_in = 112'h700000 | 112'h0005 << 96;
+    
+    #10
+    override_en = 1'b1;
+    selected_en = 1'b1;
+    override_value = 48'h200000 | 48'h0005 << 32;
+    counter_matched = 1'b1;
+    gpo_in = 112'h100000 | 112'h0005 << 96;
+    
+    #10
+    override_en = 1'b1;
+    selected_en = 1'b1;
+    override_value = 48'h400000 | 48'h0005 << 32;
+    counter_matched = 1'b0;
+    gpo_in = 112'h300000 | 112'h0005 << 96;
+    #10
+    override_en = 1'b0;
+    selected_en = 1'b0;
+    override_value = 48'h600000 | 48'h0005 << 32;
+    counter_matched = 1'b1;
+    gpo_in = 112'h500000 | 112'h0006 << 96;
+    
+    #10
+    counter_matched = 1'b0;
+    busy = 1'b0;
+    
+    #30
+    override_en = 1'b1;
+    selected_en = 1'b1;
+    override_value = 48'h400000 | 48'h0005 << 32;
+    counter_matched = 1'b0;
+    gpo_in = 112'h300000 | 112'h0005 << 96;
+    
+    #10
+    override_en = 1'b0;
+    selected_en = 1'b0;
+    override_value = 48'h400000 | 48'h0005 << 32;
+    counter_matched = 1'b1;
+    gpo_in = 112'h300000 | 112'h0005 << 96;
+    
+    #10
+    counter_matched = 1'b0;
 end
 
 endmodule

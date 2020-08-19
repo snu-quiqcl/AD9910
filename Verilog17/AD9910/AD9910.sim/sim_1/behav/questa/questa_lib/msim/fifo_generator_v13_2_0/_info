@@ -1,0 +1,195 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.sim/sim_1/behav/questa
+vfifo_generator_v13_2_0_axic_reg_slice
+Z1 !s10a 1597714473
+Z2 !s110 1597819533
+!i10b 1
+!s100 fe]=jiihbe0PQYZnBkZ7`1
+ISWmcGd0gH:8AofhJ1WP[m1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1597714473
+Z5 8../../../../AD9910.ip_user_files/ipstatic/simulation/fifo_generator_vlog_beh.v
+Z6 F../../../../AD9910.ip_user_files/ipstatic/simulation/fifo_generator_vlog_beh.v
+L0 10323
+Z7 OP;L;10.4a;61
+r1
+!s85 0
+31
+Z8 !s108 1597819533.000000
+Z9 !s107 ../../../../AD9910.ip_user_files/ipstatic/simulation/fifo_generator_vlog_beh.v|
+Z10 !s90 -64|-incr|-work|fifo_generator_v13_2_0|+incdir+C:/Xilinx/Vivado/2017.3/data/xilinx_vip/include|../../../../AD9910.ip_user_files/ipstatic/simulation/fifo_generator_vlog_beh.v|
+!s101 -O0
+!i113 1
+Z11 o-work fifo_generator_v13_2_0 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+Z12 !s92 -work fifo_generator_v13_2_0 +incdir+C:/Xilinx/Vivado/2017.3/data/xilinx_vip/include -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+vfifo_generator_v13_2_0_beh_ver_ll_afifo
+R1
+R2
+!i10b 1
+!s100 9QnX5YEDThLGW3JghHni40
+I@<DASeAlRQ7U<5K4Lg`=C1
+R3
+R0
+R4
+R5
+R6
+L0 6936
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!s101 -O0
+!i113 1
+R11
+R12
+vfifo_generator_v13_2_0_bhv_ver_as
+R1
+R2
+!i10b 1
+!s100 hd7KlHTFjVeQg9ncnc:Ci0
+IfRd@kRm_eNXU>RTmYIi><1
+R3
+R0
+R4
+R5
+R6
+L0 4958
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!s101 -O0
+!i113 1
+R11
+R12
+vfifo_generator_v13_2_0_bhv_ver_preload0
+R1
+R2
+!i10b 1
+!s100 k1QMAOU57c[R>C:GgHJdW1
+IAn49:ESRFRJoc25fL3Xd[2
+R3
+R0
+R4
+R5
+R6
+L0 9205
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!s101 -O0
+!i113 1
+R11
+R12
+vfifo_generator_v13_2_0_bhv_ver_ss
+R1
+R2
+!i10b 1
+!s100 CbV9J=a@PlHbd=MZIGo;O2
+INj8a>CeFhXLo=NEzhI_6O0
+R3
+R0
+R4
+R5
+R6
+L0 7064
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!s101 -O0
+!i113 1
+R11
+R12
+vfifo_generator_v13_2_0_CONV_VER
+R1
+R2
+!i10b 1
+!s100 <dSGF4z99Jg<4B0gIk^Fe3
+IP`X>8[dXZoa`i^Xbf^0RN1
+R3
+R0
+R4
+R5
+R6
+L0 3366
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!s101 -O0
+!i113 1
+R11
+R12
+nfifo_generator_v13_2_0_@c@o@n@v_@v@e@r
+vfifo_generator_v13_2_0_sync_stage
+R1
+R2
+!i10b 1
+!s100 SfMeFc_W:b3=HYO:[Ffln2
+I]8263j9T>IB`F?O_eZNEL1
+R3
+R0
+R4
+R5
+R6
+L0 4937
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!s101 -O0
+!i113 1
+R11
+R12
+vfifo_generator_vlog_beh
+R1
+R2
+!i10b 1
+!s100 PXkWDaJA]^kMCb6K_oNID2
+I8gKA4^Mhbd540ZiR6;HY>3
+R3
+R0
+R4
+R5
+R6
+L0 98
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!s101 -O0
+!i113 1
+R11
+R12

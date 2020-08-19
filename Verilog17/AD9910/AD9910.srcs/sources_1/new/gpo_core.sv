@@ -41,29 +41,46 @@ module gpo_core
     );
 
 reg override_en_state;
-reg selected_en_state;
+reg selected_state;
 reg [47:0] override_value_reg;
 reg [111:0] gpo_out_buffer;
+reg [111:0] error_data_buffer;
+reg busy_error_state;
+reg overrided_state;
 
 wire selected_wire;
 wire dest_check;
 
 assign dest_check = ( gpo_in[96 + CHANNEL_LENGTH - 1:96] == DEST_VAL ) & counter_matched;
-assign selected_wire = selected_en_state | ( dest_check & ~override_en );
-assign selected = selected_wire;
-assign gpo_out[47:0] = (override_en == 1'b1)? override_value_reg[47:0] : {gpo_out_buffer[111:96],gpo_out_buffer[31:0]};
-assign error_data[111:0] = gpo_out_buffer[111:0];
-assign overrided = dest_check & override_en;
-assign busy_error = busy & selected_wire;
+assign selected_wire = selected_en | ( dest_check & ~override_en );
+assign selected = selected_state;
+assign gpo_out[47:0] = (override_en_state == 1'b1)? override_value_reg[47:0] : {gpo_out_buffer[111:96],gpo_out_buffer[31:0]};
+assign error_data[111:0] = error_data_buffer[111:0];
+//assign overrided = dest_check & override_en;
+//assign busy_error = busy & selected_wire;
+assign overrided = overrided_state;
+assign busy_error = busy_error_state;
 
 always @(posedge CLK100MHZ) begin
-    override_en_state <= override_en;
-    selected_en_state <= selected_en;
-    if( selected_wire & ~busy ) begin
+    override_en_state <= override_en & ~busy;
+    selected_state <= ~busy & selected_wire;
+    busy_error_state <= busy & selected_wire;
+    overrided_state <= dest_check & override_en;
+    if( dest_check & ~busy ) begin
         gpo_out_buffer[111:0] <= gpo_in[111:0];
     end
-    if( override_en ) begin
+    
+    if( override_en & ~busy ) begin
         override_value_reg[47:0] <= override_value;
+    end
+    
+    if( ( busy & selected_wire ) | ( dest_check & override_en ) ) begin
+        if( dest_check ) begin
+            error_data_buffer[111:0] <= gpo_in[111:0];
+        end
+        else begin
+            error_data_buffer[111:0] <= {72'h0,override_value[47:0]};
+        end
     end
 end
 
