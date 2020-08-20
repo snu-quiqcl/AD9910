@@ -66,7 +66,7 @@ genvar i;
 generate
     for( i = 0; i <= NUM_CS - 1; i++ ) begin
         always @(posedge CLK100MHZ) begin
-            cs_buffer[i] <= cs_next ^ cs_val[i];
+            cs_buffer[i] <= ~ ( cspol ^( cs_next && cs_val[i] ));
         end
     end
 endgenerate

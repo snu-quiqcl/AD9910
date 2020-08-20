@@ -24,17 +24,17 @@ module new_testbench_fifo_generator;
 
 logic CLK100MHZ;
 logic reset_FIFO;
-logic [31:0] FIFO_din;
+logic [127:0] FIFO_din;
 logic FIFO_wr_en;
 logic FIFO_rd_en;
 
-wire [31:0] FIFO_dout;
+wire [127:0] FIFO_dout;
 wire FIFO_full;
 wire FIFO_overflow;
 wire FIFO_empty;
 wire FIFO_underflow;
 
-fifo_generator_1 temp_FIFO(
+fifo_generator_1 temp_FIFO2(
     .clk(CLK100MHZ),
     .rst(reset_FIFO),
     .din(FIFO_din),
@@ -55,7 +55,7 @@ end
 initial begin
     CLK100MHZ = 0;
     reset_FIFO = 1'b1;
-    FIFO_din = 32'h0;
+    FIFO_din = 128'h0;
     FIFO_rd_en = 1'b0;
     FIFO_wr_en = 1'b0;
     
@@ -63,7 +63,7 @@ initial begin
     reset_FIFO = 1'b0;
     
     #60
-    FIFO_din = 32'h1;
+    FIFO_din = 128'h1;
     
     #10
     FIFO_wr_en = 1'b1;
@@ -72,7 +72,7 @@ initial begin
     FIFO_wr_en = 1'b0;
         
     #10
-    FIFO_din = 32'h2;
+    FIFO_din = 128'h2;
     
     #10
     FIFO_wr_en = 1'b1;
@@ -81,7 +81,7 @@ initial begin
     FIFO_wr_en = 1'b0;
         
     #10
-    FIFO_din = 32'h3;
+    FIFO_din = 128'h3;
     
     #10
     FIFO_wr_en = 1'b1;

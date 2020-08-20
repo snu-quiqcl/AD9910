@@ -22,11 +22,12 @@
 
 module gpo_core_prime
 #(
-    parameter DEST_VAL = 15'h0,
+    parameter DEST_VAL = 16'h0,
     parameter CHANNEL_LENGTH = 12
 )
 (
     input wire CLK100MHZ,
+    input wire reset,
     input wire override_en,
     input wire selected_en,
     input wire[63:0] override_value,
@@ -62,24 +63,37 @@ assign overrided = overrided_state;
 assign busy_error = busy_error_state;
 
 always @(posedge CLK100MHZ) begin
-    override_en_state <= override_en & ~busy;
-    selected_state <= ~busy & selected_wire;
-    busy_error_state <= busy & selected_wire;
-    overrided_state <= dest_check & override_en;
-    if( dest_check & ~busy ) begin
-        gpo_out_buffer[127:0] <= gpo_in[127:0];
+    if( reset == 1'b1 ) begin
+        override_en_state <= 1'b0;
+        selected_state <= ~1'b0;
+        busy_error_state <= 1'b0;
+        overrided_state <= 1'b0;
+        gpo_out_buffer[127:0] <= 128'h0;
+        override_value_reg[63:0] <= 64'h0;
+        error_data_buffer[127:0] <= 128'h0;
+        error_data_buffer[127:0] <= 128'h0;
     end
     
-    if( override_en & ~busy ) begin
-        override_value_reg[63:0] <= override_value[63:0];
-    end
-    
-    if( ( busy & selected_wire ) | ( dest_check & override_en ) ) begin
-        if( dest_check ) begin
-            error_data_buffer[127:0] <= gpo_in[127:0];
+    else begin
+        override_en_state <= override_en & ~busy;
+        selected_state <= ~busy & selected_wire;
+        busy_error_state <= busy & selected_wire;
+        overrided_state <= dest_check & override_en;
+        if( dest_check & ~busy ) begin
+            gpo_out_buffer[127:0] <= gpo_in[127:0];
         end
-        else begin
-            error_data_buffer[127:0] <= {72'h0,override_value[63:0]};
+        
+        if( override_en & ~busy ) begin
+            override_value_reg[63:0] <= override_value[63:0];
+        end
+        
+        if( ( busy & selected_wire ) | ( dest_check & override_en ) ) begin
+            if( dest_check ) begin
+                error_data_buffer[127:0] <= gpo_in[127:0];
+            end
+            else begin
+                error_data_buffer[127:0] <= {override_value[63:32],64'h0,override_value[31:0]};
+            end
         end
     end
 end

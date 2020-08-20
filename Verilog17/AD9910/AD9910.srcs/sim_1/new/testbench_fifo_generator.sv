@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 2020/08/19 15:18:51
+// Create Date: 2020/08/19 15:29:15
 // Design Name: 
-// Module Name: testbench_fifo_generator
+// Module Name: new_testbench_fifo_generator
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,15 +20,15 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module testbench_fifo_generator;
+module testbench_fifo_generator2;
 
 logic CLK100MHZ;
-reg reset_FIFO;
-reg [31:0] FIFO_din;
-reg FIFO_wr_en;
-reg FIFO_rd_en;
+logic reset_FIFO;
+logic [127:0] FIFO_din;
+logic FIFO_wr_en;
+logic FIFO_rd_en;
 
-wire [31:0] FIFO_dout;
+wire [127:0] FIFO_dout;
 wire FIFO_full;
 wire FIFO_overflow;
 wire FIFO_empty;
@@ -55,21 +55,45 @@ end
 initial begin
     CLK100MHZ = 0;
     reset_FIFO = 1'b1;
-    FIFO_din = 32'h0;
+    FIFO_din = 128'h0;
     FIFO_rd_en = 1'b0;
     FIFO_wr_en = 1'b0;
     
     #10
     reset_FIFO = 1'b0;
     
-    #10
-    FIFO_din = 32'h1;
+    #60
+    FIFO_din = 128'h1;
     
     #10
     FIFO_wr_en = 1'b1;
     
     #10
     FIFO_wr_en = 1'b0;
+        
+    #10
+    FIFO_din = 128'h2;
+    
+    #10
+    FIFO_wr_en = 1'b1;
+    
+    #10
+    FIFO_wr_en = 1'b0;
+        
+    #10
+    FIFO_din = 128'h3;
+    
+    #10
+    FIFO_wr_en = 1'b1;
+    
+    #10
+    FIFO_wr_en = 1'b0;
+        
+    #10
+    FIFO_rd_en = 1'b1;
+            
+    #50
+    FIFO_rd_en = 1'b0;
     
 end
 
