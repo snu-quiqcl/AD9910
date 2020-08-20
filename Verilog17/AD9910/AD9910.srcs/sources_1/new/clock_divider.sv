@@ -22,6 +22,7 @@
 
 module clock_divider(
     input wire CLK100MHZ,
+    input wire reset,
     input wire [7:0] divide,
     input wire count_enable,
     output wire count_end
@@ -30,15 +31,20 @@ module clock_divider(
 reg[7:0] count;
 assign count_end = (count == 8'h0);
 always @(posedge CLK100MHZ) begin
-    if(count_enable == 1'b1) begin
-        count[7:0] <= count[7:0] - 8'h1;
-        if( count[7:0] == 8'h0 ) begin
+    if(reset) begin
+        count[7:0] <= 8'h0;
+    end
+    else begin
+        if(count_enable == 1'b1) begin
+            count[7:0] <= count[7:0] - 8'h1;
+            if( count[7:0] == 8'h0 ) begin
+                count[7:0] <= {1'b0,divide[7:1]} - 8'h1;
+            end
+        end
+        
+        else begin
             count[7:0] <= {1'b0,divide[7:1]} - 8'h1;
         end
-    end
-    
-    else begin
-        count[7:0] <= {1'b0,divide[7:1]} - 8'h1;
     end
 end
 

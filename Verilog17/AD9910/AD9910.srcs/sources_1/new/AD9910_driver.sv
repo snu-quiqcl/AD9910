@@ -186,14 +186,15 @@ spi_fsm_module
 spi_fsm_module_0
 (
     .CLK100MHZ(clk),
+    .reset(reset),
     .spi_config_in(spi_data_in),
     .spi_config_selected(spi_config_selected),
     .spi_data_in(spi_data_in),
     .spi_data_selected(spi_data_selected),
+    .sdi(sdi_wire),
     .busy(spi_busy),
     .spi_data_out(spi_data_out),
     .data_write(gpi_write),
-    .sdi(sdi_wire),
     .sdo(sdo_wire),
     .cpha(cpha_wire),
     .cpol(cpol_wire),

@@ -1,7 +1,7 @@
-Running: xsim.dir/testbench_ad9910_driver_behav/xsimk.exe -simmode gui -wdb testbench_ad9910_driver_behav.wdb -simrunnum 0 -socket 59059
+Running: xsim.dir/testbench_ad9910_driver_behav/xsimk.exe -simmode gui -wdb testbench_ad9910_driver_behav.wdb -simrunnum 0 -socket 59280
 Design successfully loaded
 Design Loading Memory Usage: 8052 KB (Peak: 8052 KB)
-Design Loading CPU Usage: 61 ms
+Design Loading CPU Usage: 15 ms
 Simulation completed
-Simulation Memory Usage: 11068 KB (Peak: 11068 KB)
-Simulation CPU Usage: 108 ms
+Simulation Memory Usage: 11064 KB (Peak: 11064 KB)
+Simulation CPU Usage: 92 ms

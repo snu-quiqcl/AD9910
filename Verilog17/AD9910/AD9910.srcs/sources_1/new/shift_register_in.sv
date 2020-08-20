@@ -22,6 +22,7 @@
 
 module shift_register_in(
     input wire CLK100MHZ,
+    input wire reset,
     input wire lsb_first,
     input wire data_load,
     input wire sdi,
@@ -33,15 +34,20 @@ reg[31:0] data;
 assign data_out[31:0] = data[31:0];
 
 always@(posedge CLK100MHZ) begin
-    if( clear_register == 1'b1) begin
-        data[31:0] <= 32'b0;
+    if(reset) begin
+        data[31:0] <= 32'h0;
     end
-    else if(data_load == 1'b1) begin
-        if(lsb_first == 1'b1) begin
-            data[31:0] <= {data[30:0], sdi};
+    else begin
+        if( clear_register == 1'b1) begin
+            data[31:0] <= 32'b0;
         end
-        else begin
-            data[31:0] <= {sdi,data[31:1]};
+        else if(data_load == 1'b1) begin
+            if(lsb_first == 1'b1) begin
+                data[31:0] <= {data[30:0], sdi};
+            end
+            else begin
+                data[31:0] <= {sdi,data[31:1]};
+            end
         end
     end
 end

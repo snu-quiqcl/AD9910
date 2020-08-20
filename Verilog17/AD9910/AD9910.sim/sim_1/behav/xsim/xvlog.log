@@ -1,34 +1,10 @@
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/rto_core_prime.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module rto_core_prime
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/gpo_core_prime.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module gpo_core_prime
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/gpo_core_prime_addr.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module gpo_core_prime_addr
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/timestamp_counter.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module timestamp_counter
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/gpi_core_prime.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module gpi_core_prime
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/rti_core_prime.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module rti_core_prime
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9910_driver.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module AD9910_driver
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/single_output_port.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module single_output_port
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sim_1/new/testbench_main.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module testbench_main
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sim_1/new/testbench_spi_fsm.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module testbench_spi_fsm
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sim_1/new/new_testbench_gpo_core.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module new_testbench_gpo_core
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sim_1/new/new_testbench_fifo_generator.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module new_testbench_fifo_generator
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sim_1/new/testbench_rto_core_prime.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module testbench_rto_core_prime
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sim_1/new/testbench_gpi_core.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module testbench_gpi_core
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sim_1/new/testbench_rti_core_prime.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module testbench_rti_core_prime
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sim_1/new/testbench_ad9910_driver.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module testbench_ad9910_driver
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sim_1/new/testbench_ad9910_override.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module testbench_ad9910_override
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/spi_fsm_module.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module spi_fsm_module
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/shift_register_out.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module shift_register_out
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/shift_register_in.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module shift_register_in
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/clock_divider.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clock_divider
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/spi_single_output.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module spi_single_output
