@@ -1,0 +1,7 @@
+Running: xsim.dir/testbench_ad9910_override_behav/xsimk.exe -simmode gui -wdb testbench_ad9910_override_behav.wdb -simrunnum 0 -socket 58944
+Design successfully loaded
+Design Loading Memory Usage: 8040 KB (Peak: 8040 KB)
+Design Loading CPU Usage: 62 ms
+Simulation completed
+Simulation Memory Usage: 10844 KB (Peak: 10844 KB)
+Simulation CPU Usage: 108 ms

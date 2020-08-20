@@ -55,6 +55,11 @@ wire [127:0] gpi_out;
 wire io;
 wire sck;
 wire [1:0] cs;
+wire io_update1;
+wire io_update2;
+wire [2:0] profile1;
+wire [2:0] profile2;
+wire [18:0] parallel_out;
 logic io_val;
 
 assign io = (~AD9910_driver_0.slave_en_wire)? 1'bz:io_val;
@@ -97,7 +102,12 @@ AD9910_driver_0
     .gpi_out(gpi_out),
     .io(io),
     .sck(sck),
-    .cs(cs)
+    .cs(cs),
+    .io_update1(io_update1),
+    .io_update2(io_update2),
+    .profile1(profile1),
+    .profile2(profile2),
+    .parallel_out(parallel_out)
     );
 
 logic start;
@@ -140,56 +150,136 @@ initial begin
     reset = 1'b0;
     
     #100
-    rto_fifo_din[127:0] = 128'd1 << 111 | 128'd1 << 96 | 128'd5 << 32 | 128'd1 << 31 | 128'd0 << 29 |  128'd1 << 16 |  128'd31 << 11 | 128'd0 << 8 | 128'd8;
+    rto_fifo_din[127:0] = 128'd1 << 108 | 128'd1 << 96 | 128'd5 << 32 | 128'd1 << 31 | 128'd0 << 29 |  128'd1 << 16 |  128'd31 << 11 | 128'd0 << 8 | 128'd8;
     write_rto_fifo = 1'b1;
     #10
     write_rto_fifo = 1'b0;
     
     #100
-    rto_fifo_din[127:0] = 128'd0 << 111 | 128'd1 << 96 | 128'd10 << 32 | 128'b10111111111111110000001111001101;
+    rto_fifo_din[127:0] = 128'd0 << 108 | 128'd1 << 96 | 128'd10 << 32 | 128'b10111111111111110000001111001101;
     write_rto_fifo = 1'b1;
     #10
     write_rto_fifo = 1'b0;
     
     #100
-    rto_fifo_din[127:0] = 128'd1 << 111 | 128'd1 << 96 | 128'h114 << 32 | 128'd1 << 31 | 128'd1 << 29 |  128'd1 << 16 |  128'd7 << 11 | 128'd1 << 8 | 128'd8;
+    rto_fifo_din[127:0] = 128'd1 << 108 | 128'd1 << 96 | 128'h114 << 32 | 128'd1 << 31 | 128'd1 << 29 |  128'd1 << 16 |  128'd7 << 11 | 128'd1 << 8 | 128'd8;
     write_rto_fifo = 1'b1;
     #10
     write_rto_fifo = 1'b0;
     
     #100
-    rto_fifo_din[127:0] = 128'd0 << 111 | 128'd1 << 96 | 128'h115 << 32 | 128'b00110111111111110000001111001101;
+    rto_fifo_din[127:0] = 128'd0 << 108 | 128'd1 << 96 | 128'h115 << 32 | 128'b00110111111111110000001111001101;
     write_rto_fifo = 1'b1;
     #10
     write_rto_fifo = 1'b0;
     
     #100
-    rto_fifo_din[127:0] = 128'd1 << 111 | 128'd1 << 96 | 128'h163 << 32 | 128'd0 << 31 | 128'd1 << 30 | 128'd0 << 29 |  128'd1 << 16 |  128'd7 << 11 | 128'd1 << 8 | 128'd8;
+    rto_fifo_din[127:0] = 128'd1 << 108 | 128'd1 << 96 | 128'h163 << 32 | 128'd0 << 31 | 128'd1 << 30 | 128'd0 << 29 |  128'd1 << 16 |  128'd7 << 11 | 128'd1 << 8 | 128'd8;
     write_rto_fifo = 1'b1;
     #10
     write_rto_fifo = 1'b0;
     
     #100
-    rto_fifo_din[127:0] = 128'd0 << 111 | 128'd1 << 96 | 128'h164 << 32 | 128'b0;
+    rto_fifo_din[127:0] = 128'd0 << 108 | 128'd1 << 96 | 128'h164 << 32 | 128'b0;
     write_rto_fifo = 1'b1;
     #10
     write_rto_fifo = 1'b0;
     
     #100
-    rto_fifo_din[127:0] = 128'd1 << 111 | 128'd1 << 96 | 128'h1ae << 32 | 128'd0 << 31 | 128'd1 << 30 | 128'd1 << 29 |  128'd1 << 16 |  128'd7 << 11 | 128'd0 << 8 | 128'd8;
+    rto_fifo_din[127:0] = 128'd1 << 108 | 128'd1 << 96 | 128'h1ae << 32 | 128'd0 << 31 | 128'd1 << 30 | 128'd1 << 29 |  128'd1 << 16 |  128'd7 << 11 | 128'd0 << 8 | 128'd8;
     write_rto_fifo = 1'b1;
     #10
     write_rto_fifo = 1'b0;
     
     #100
-    rto_fifo_din[127:0] = 128'd0 << 111 | 128'd1 << 96 | 128'h1af << 32 | 128'b0;
+    rto_fifo_din[127:0] = 128'd0 << 108 | 128'd1 << 96 | 128'h1af << 32 | 128'b0;
     write_rto_fifo = 1'b1;
     #10
     write_rto_fifo = 1'b0;
+    
+    //// io_update
+    
+    #100
+    rto_fifo_din[127:0] = 128'd2 << 108 | 128'd1 << 96 | 128'h1fc << 32 | 128'b11;
+    write_rto_fifo = 1'b1;
+    #10
+    write_rto_fifo = 1'b0;
+    
+    #100
+    rto_fifo_din[127:0] = 128'd2 << 108 | 128'd1 << 96 | 128'h1fd << 32 | 128'b10;
+    write_rto_fifo = 1'b1;
+    #10
+    write_rto_fifo = 1'b0;
+    
+    #100
+    rto_fifo_din[127:0] = 128'd2 << 108 | 128'd1 << 96 | 128'h1fe << 32 | 128'b01;
+    write_rto_fifo = 1'b1;
+    #10
+    write_rto_fifo = 1'b0;
+    
+    #100
+    rto_fifo_din[127:0] = 128'd2 << 108 | 128'd1 << 96 | 128'h1ff << 32 | 128'b00;
+    write_rto_fifo = 1'b1;
+    #10
+    write_rto_fifo = 1'b0;
+    
+    //// profile
+        
+    #100
+    rto_fifo_din[127:0] = 128'd3 << 108 | 128'd1 << 96 | 128'h200 << 32 | 128'b111111;
+    write_rto_fifo = 1'b1;
+    #10
+    write_rto_fifo = 1'b0;
+    
+    #100
+    rto_fifo_din[127:0] = 128'd3 << 108 | 128'd1 << 96 | 128'h201 << 32 | 128'b101010;
+    write_rto_fifo = 1'b1;
+    #10
+    write_rto_fifo = 1'b0;
+    
+    #100
+    rto_fifo_din[127:0] = 128'd3 << 108 | 128'd1 << 96 | 128'h202 << 32 | 128'b010101;
+    write_rto_fifo = 1'b1;
+    #10
+    write_rto_fifo = 1'b0;
+    
+    #100
+    rto_fifo_din[127:0] = 128'd3 << 108 | 128'd1 << 96 | 128'h203 << 32 | 128'b001111;
+    write_rto_fifo = 1'b1;
+    #10
+    write_rto_fifo = 1'b0;
+    
+    //// parallel
+    #100
+    rto_fifo_din[127:0] = 128'd4 << 108 | 128'd1 << 96 | 128'h204 << 32 | 128'b1111111111111111111;
+    write_rto_fifo = 1'b1;
+    #10
+    write_rto_fifo = 1'b0;
+    
+    #100
+    rto_fifo_din[127:0] = 128'd4 << 108 | 128'd1 << 96 | 128'h205 << 32 | 128'b1010101010101010101;
+    write_rto_fifo = 1'b1;
+    #10
+    write_rto_fifo = 1'b0;
+    
+    #100
+    rto_fifo_din[127:0] = 128'd4 << 108 | 128'd1 << 96 | 128'h206 << 32 | 128'b0101010101010101011;
+    write_rto_fifo = 1'b1;
+    #10
+    write_rto_fifo = 1'b0;
+    
+    #100
+    rto_fifo_din[127:0] = 128'd4 << 108 | 128'd1 << 96 | 128'h203 << 32 | 128'b0011110011110011111;
+    write_rto_fifo = 1'b1;
+    #10
+    write_rto_fifo = 1'b0;
+    
     
     #30
     auto_start = 1'b1;
     start = 1'b1;
+    #11000
+    start = 1'b0;
 end
 
 initial begin
@@ -205,6 +295,10 @@ initial begin
     read_rti_fifo = 1'b1;
     #10
     read_rti_fifo = 1'b0;
+    #6000
+    reset = 1'b1;
+    #10
+    reset = 1'b0;
 end
 
 initial begin

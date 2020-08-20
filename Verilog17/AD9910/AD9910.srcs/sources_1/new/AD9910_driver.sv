@@ -22,7 +22,9 @@
 
 module AD9910_driver
 #(
-    parameter NUM_CS = 2
+    parameter NUM_CS = 2,
+    parameter DEST_VAL = 12'h1,
+    parameter CHANNEL_LENGTH = 12
 )
 (
     input wire clk,
@@ -57,7 +59,12 @@ module AD9910_driver
     output wire [127:0] gpi_out,
     inout wire io,
     output wire sck,
-    output wire [NUM_CS - 1:0] cs
+    output wire [NUM_CS - 1:0] cs,
+    output wire io_update1,
+    output wire io_update2,
+    output wire [2:0] profile1,
+    output wire [2:0] profile2,
+    output wire [18:0] parallel_out
     );
     
 wire counter_matched;
@@ -81,12 +88,25 @@ wire slave_en_wire;
 wire cs_next_wire;
 wire sck_next_wire;
 wire [NUM_CS - 1:0] cs_val_wire;
+wire wr_en_io_update;
+wire wr_en_profile;
+wire [5:0] profile;
+wire wr_en_parallel;
+wire [1:0] io_update;
 
-assign spi_config_selected = gpo_out[47] && selected;
-assign spi_data_selected = (~gpo_out[47]) && selected;
+assign spi_config_selected = ( gpo_out[47:32+CHANNEL_LENGTH] ==  1 ) && selected;
+assign spi_data_selected = (gpo_out[47:32+CHANNEL_LENGTH] == 0 ) && selected;
+assign wr_en_io_update = ( gpo_out[47:32+CHANNEL_LENGTH] ==  2 ) && selected;
+assign wr_en_profile = ( gpo_out[47:32+CHANNEL_LENGTH] ==  3 ) && selected;
+assign wr_en_parallel = ( gpo_out[47:32+CHANNEL_LENGTH] ==  4 ) && selected;
+assign profile1[2:0] = profile[2:0];
+assign profile2[2:0] = profile[5:3];
+assign io_update1 = io_update[0:0];
+assign io_update2 = io_update[1:1];
 assign spi_data_in[31:0] = gpo_out[31:0];
 assign gpi_data_ready = data_ready;
 assign busy = spi_busy;
+assign gpi_out[127:0] = rti_in[127:0];
 
 rto_core_prime rto_core_prime_0(
     .clk(clk),
@@ -123,8 +143,8 @@ rti_core_prime rti_core_prime_0(
     
 gpo_core_prime
 #(
-    .DEST_VAL(12'h1),
-    .CHANNEL_LENGTH(12)
+    .DEST_VAL(DEST_VAL),
+    .CHANNEL_LENGTH(CHANNEL_LENGTH)
 )
 gpo_core_prime_0
 (
@@ -145,8 +165,8 @@ gpo_core_prime_0
     
 gpi_core_prime
 #(
-    .DEST_VAL(16'h1),
-    .CHANNEL_LENGTH(12)
+    .DEST_VAL(DEST_VAL),
+    .CHANNEL_LENGTH(CHANNEL_LENGTH)
 )
 gpi_core_prime_0
 (
@@ -161,7 +181,7 @@ gpi_core_prime_0
     
 spi_fsm_module
 #(
-    .NUM_CS(2)
+    .NUM_CS(NUM_CS)
 )
 spi_fsm_module_0
 (
@@ -187,7 +207,7 @@ spi_fsm_module_0
     
 spi_single_output 
 #(
-    .NUM_CS(2)
+    .NUM_CS(NUM_CS)
 )
 spi_single_output_0
 (
@@ -203,6 +223,51 @@ spi_single_output_0
     .io(io),
     .sck(sck),
     .cs(cs)
+    );
+    
+single_output_port
+#(
+    .NUM_DATA(2),
+    .DEST_VAL(DEST_VAL),
+    .CHANNEL_LENGTH(CHANNEL_LENGTH)
+)
+io_update_port
+(
+    .clk(clk),
+    .reset(reset),
+    .wr_en(wr_en_io_update),
+    .data_in(spi_data_in[1:0]),
+    .data_out(io_update)
+    );
+
+single_output_port
+#(
+    .NUM_DATA(6),
+    .DEST_VAL(DEST_VAL),
+    .CHANNEL_LENGTH(CHANNEL_LENGTH)
+)
+profile_port
+(
+    .clk(clk),
+    .reset(reset),
+    .wr_en(wr_en_profile),
+    .data_in(spi_data_in[5:0]),
+    .data_out(profile)
+    );
+    
+single_output_port
+#(
+    .NUM_DATA(19),
+    .DEST_VAL(DEST_VAL),
+    .CHANNEL_LENGTH(CHANNEL_LENGTH)
+)
+parallel_port_1
+(
+    .clk(clk),
+    .reset(reset),
+    .wr_en(wr_en_parallel),
+    .data_in(spi_data_in[18:0]),
+    .data_out(parallel_out)
     );
 
 endmodule

@@ -65,7 +65,7 @@ assign busy_error = busy_error_state;
 always @(posedge CLK100MHZ) begin
     if( reset == 1'b1 ) begin
         override_en_state <= 1'b0;
-        selected_state <= ~1'b0;
+        selected_state <= 1'b0;
         busy_error_state <= 1'b0;
         overrided_state <= 1'b0;
         gpo_out_buffer[127:0] <= 128'h0;
