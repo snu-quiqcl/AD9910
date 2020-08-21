@@ -42,7 +42,7 @@ module spi_single_output
 IOBUF #(
     .DRIVE(12), // Specify the output drive strength
     .IBUF_LOW_PWR("FALSE"),             // Low Power - "TRUE", High Performance = "FALSE"
-    .IOSTANDARD("DEFAULT"),           // Specify the I/O standard
+    .IOSTANDARD("LVCMOS33"),           // Specify the I/O standard
     .SLEW("SLOW")                      // Specify the output slew rate
 ) IOBUF_inst (
     .O(sdi),                            // Buffer output

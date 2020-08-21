@@ -68,14 +68,15 @@ set rc [catch {
   create_project -in_memory -part xc7s50csga324-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.cache/wt [current_project]
-  set_property parent.project_path C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.xpr [current_project]
-  set_property ip_output_repo C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.cache/ip [current_project]
+  set_property webtalk.parent_dir D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.cache/wt [current_project]
+  set_property parent.project_path D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.xpr [current_project]
+  set_property ip_output_repo D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
-  add_files -quiet C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/main.dcp
-  read_ip -quiet C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xci
-  read_xdc C:/M-Labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc
+  add_files -quiet D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/main.dcp
+  read_ip -quiet D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.xci
+  read_ip -quiet D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xci
+  read_xdc D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc
   link_design -top main -part xc7s50csga324-1
   close_msg_db -file init_design.pb
 } RESULT]
@@ -161,25 +162,6 @@ if {$rc} {
   return -code error $RESULT
 } else {
   end_step route_design
-  unset ACTIVE_STEP 
-}
-
-start_step write_bitstream
-set ACTIVE_STEP write_bitstream
-set rc [catch {
-  create_msg_db write_bitstream.pb
-  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
-  catch { write_mem_info -force main.mmi }
-  write_bitstream -force main.bit 
-  catch {write_debug_probes -quiet -force main}
-  catch {file copy -force main.ltx debug_nets.ltx}
-  close_msg_db -file write_bitstream.pb
-} RESULT]
-if {$rc} {
-  step_failed write_bitstream
-  return -code error $RESULT
-} else {
-  end_step write_bitstream
   unset ACTIVE_STEP 
 }
 

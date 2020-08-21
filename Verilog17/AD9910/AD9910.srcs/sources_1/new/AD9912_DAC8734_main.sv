@@ -57,6 +57,22 @@ module main(
     input jb_5,
     input jb_6,
     input jb_7,
+    output jc_0,
+    output jc_1,
+    output jc_2,
+    output jc_3,
+    output jc_4,
+    output jc_5,
+    output jc_6,
+    output jc_7,
+    output jd_0,
+    output jd_1,
+    output jd_2,
+    output jd_3,
+    output jd_4,
+    output jd_5,
+    output jd_6,
+    output jd_7,
     output [5:2] led,
     output led0_r,
     output led0_g,
@@ -209,67 +225,140 @@ module main(
     ////
     //****parameter added for AD9910****
     ////
-    parameter CMD_IOUPDATE_DDS_REG = "DDS IO UPDATE"; // 13 characters. this was added for IO UPDATE 
+    parameter CMD_RESET_DRIVER = "RESET DRIVER";        //12 characters. this reset ad9910 driver. notice that 
+                                                        //fifo_generator IP requires 6 cycles to work properly at least
+                                                        //after reset 
+    parameter CMD_SET_COUNTER = "SET COUNTER";      // 13 characters. this sets auto mode of FPGA
+    parameter CMD_AUTO_START = "AUTO START";            // 10 characters. this start auto mode of FPGA
+    parameter CMD_AUTO_STOP = "AUTO STOP";              // 9 characters. this stop auto mode of FPGA
+    parameter CMD_SET_DDS_PIN = "SET DDS PIN";          // 11 characters. this sets DDS profile, parallel, io_update pin
+    parameter CMD_WRITE_FIFO = "WRITE FIFO";            // 10 characters. this store data to FIFO. FIFO depth is set to 512
+    parameter CMD_READ_RTI_FIFO = "READ RTI FIFO";      // 13 characters. this read rti_core_prime FIFO
+    parameter CMD_OVERRIDE_EN = "OVERRIDE EN";       // 12 characters. this sets FPGA to manula mode
+    parameter CMD_OVERRIDE_DIS = "OVERRIDE DIS";       // 13 characters. this sets FPGA to manula mode
+    parameter CMD_IOUPDATE_DDS_REG = "DDS IO UPDATE";   // 13 characters. this makes IO_UPDATE pulse
 
     ////
     //****parameter changeded for AD9910****
     ////
-    parameter DDS_MAX_LENGTH = 9;
-    parameter DDS_WIDTH = DDS_MAX_LENGTH * 8;
+    parameter INST_LENGTH = 8'h10;
+    parameter INST_WIDTH = INST_LENGTH * 8;
+    parameter OVERRIDE_LENGTH = 8'h8;
+    parameter OVERRIDE_WIDTH = OVERRIDE_LENGTH * 8;
     
-    reg dds_data_ready_1, dds_data_ready_2;
-    initial begin
-        dds_data_ready_1 <= 1'b0;
-        dds_data_ready_2 <= 1'b0;
-    end
-
-    reg [DDS_WIDTH+8:1] DDS_buffer; // Buffer to capture BTF_Buffer
-    wire DDS1_update, DDS2_update;
-    assign {DDS1_update, DDS2_update} = BTF_Buffer[DDS_WIDTH+6:DDS_WIDTH+5]; // This wire should probe BTF_Buffer directly because until BTF_Buffer will be captured, the data won't be correct
+    parameter NUM_CS = 8'h2;        // number SPI slave
+    parameter DEST_VAL = 12'h1;     // destination number of ad9910
+    parameter CHANNEL_LENGTH = 12;  // length of channel in destination
     
-    wire [3:0] data_length;
-    assign data_length = DDS_buffer[DDS_WIDTH+4:DDS_WIDTH+1];
-    wire [DDS_WIDTH-1:0] DDS_data;
-    assign DDS_data = DDS_buffer[DDS_WIDTH:1];
-        
-    reg [3:0] DDS_slow_clock;
-    initial DDS_slow_clock <= 'd0;
+    reg auto_start;
+    reg reset_driver;
+    reg flush_rto_fifo;
+    reg write_rto_fifo;
+    reg[INST_WIDTH - 1:0] rto_fifo_din;
+    wire[63:0] counter;
+    reg flush_rti_fifo;
+    reg read_rti_fifo;
+    reg gpo_override_en;
+    reg gpo_selected_en;
+    reg[OVERRIDE_WIDTH - 1:0] gpo_override_value;
+    reg[INST_WIDTH - 1:0] rto_timestamp_error_data;
+    reg rto_overflow_error_data;
+    reg rto_timestamp_error;
+    reg rto_overflow_error;
+    reg rto_fifo_full;
+    reg rto_fifo_empty;
+    reg[INST_WIDTH - 1:0] rti_out;         
+    reg[INST_WIDTH - 1:0] rti_overflow_error_data;
+    reg rti_overflow_error;
+    reg rti_underflow_error;
+    reg rti_fifo_full;
+    reg rti_fifo_empty;
+    reg spi_busy;
+    reg[INST_WIDTH - 1:0] gpo_error_data;
+    reg gpo_overrided;
+    reg gpo_busy_error;
+    reg gpi_data_ready;
+    wire[INST_WIDTH - 1:0] gpi_out;
+    wire io;
+    wire sck;
+    wire[NUM_CS-1:0] cs;
+    wire io_update1;
+    wire io_update2;
+    wire [2:0] profile1;
+    wire [2:0] profile2;
+    wire [18:0] parallel_out;   
+    reg[4:0] io_update_count;
     
-    always @ (posedge CLK100MHZ) DDS_slow_clock <= DDS_slow_clock + 'd1;
-    wire DDS_clock;
-    assign DDS_clock = DDS_slow_clock[3];
+    //AD9910 driver
+    AD9910_driver
+    #(
+        .NUM_CS(NUM_CS),
+        .DEST_VAL(DEST_VAL),
+        .CHANNEL_LENGTH(CHANNEL_LENGTH)
+    )
+    AD9910_driver_0
+    (
+        .clk(CLK100MHZ),
+        .reset(reset_driver),
+        .auto_start(auto_start),
+        .flush_rto_fifo(flush_rto_fifo),
+        .write_rto_fifo(write_rto_fifo),
+        .rto_fifo_din(rto_fifo_din),
+        .counter(counter),
+        .flush_rti_fifo(flush_rti_fifo),
+        .read_rti_fifo(read_rti_fifo),
+        .gpo_override_en(gpo_override_en),
+        .gpo_selected_en(gpo_selected_en),
+        .gpo_override_value(gpo_override_value),
+        .rto_timestamp_error_data(rto_timestamp_error_data),
+        .rto_overflow_error_data(rto_overflow_error_data),
+        .rto_timestamp_error(rto_timestamp_error),
+        .rto_overflow_error(rto_overflow_error),
+        .rto_fifo_full(rto_fifo_full),
+        .rto_fifo_empty(rto_fifo_empty),
+        .rti_out(rti_out),
+        .rti_overflow_error_data(rti_overflow_error_data),
+        .rti_overflow_error(rti_overflow_error),
+        .rti_underflow_error(rti_underflow_error),
+        .rti_fifo_full(rti_fifo_full),
+        .rti_fifo_empty(rti_fifo_empty),
+        .busy(spi_busy),
+        .gpo_error_data(gpo_error_data),
+        .gpo_overrided(gpo_overrided),
+        .gpo_busy_error(gpo_busy_error),
+        .gpi_data_ready(gpi_data_ready),
+        .gpi_out(gpi_out),
+        .io(io),
+        .sck(sck),
+        .cs(cs),
+        .io_update1(io_update1),
+        .io_update2(io_update2),
+        .profile1(profile1),
+        .profile2(profile2),
+        .parallel_out(parallel_out)
+        );
     
-    wire DDS_busy_1, DDS_busy_2;
-    wire rcsbar_1, rcsbar_2;
-    wire rsdio_1, rsdio_2;
-    wire rsclk;
-    assign rsclk = DDS_clock & (~rcsbar_1 | ~rcsbar_2);
-
-    WriteToRegister WTR1(.DDS_clock(DDS_clock), .dataLength(data_length[3:0]), .registerData(DDS_data), .registerDataReady(dds_data_ready_1), .busy(DDS_busy_1),
-                                .wr_rcsbar(rcsbar_1), /*.rsclk(rsclk00),*/ .rsdio(rsdio_1) ); //, .extendedDataReady(extendedDataReady00));   //, .countmonitor(monitor00), .registerDataReadymonitor(RDataReadymonitor00)
-                                //);
-
-    WriteToRegister WTR2(.DDS_clock(DDS_clock), .dataLength(data_length[3:0]), .registerData(DDS_data), .registerDataReady(dds_data_ready_2), .busy(DDS_busy_2),
-                                .wr_rcsbar(rcsbar_2), /*.rsclk(rsclk00),*/ .rsdio(rsdio_2) ); //, .extendedDataReady(extendedDataReady00));   //, .countmonitor(monitor00), .registerDataReadymonitor(RDataReadymonitor00)
-                                //);
+    reg reset_counter;
+    reg start_counter;
+    reg[63:0] counter_offset;
+    reg counter_offset_en;
+    timestamp_counter timestamp_counter_0(
+        .clk(CLK100MHZ),
+        .reset(reset_counter),
+        .start(start_counter),
+        .counter_offset(counter_offset),
+        .offset_en(counter_offset_en),
+        .counter(counter)
+        );
 
     ////
     //****code modified for AD9910****
     ////
-    //reg DDS1_powerdown, DDS2_powerdown, DDS_reset;    // powerdown pins were replaced to IO UPDATE pin becuase powerdoen was not used
-    //initial {DDS1_powerdown, DDS2_powerdown, DDS_reset} <= 3'h0;
-                                      
-    //assign {ja_7, ja_6, ja_5, ja_4, ja_3, ja_2, ja_1, ja_0}  = {DDS1_powerdown, rsdio_1, rcsbar_1, DDS_reset, rsclk, DDS2_powerdown, rsdio_2, rcsbar_2};
-    
-    reg DDS1_ioupdate, DDS2_ioupdate, DDS_reset;    // powerdown pins were replaced to IO UPDATE pin becuase powerdoen was not used
-    parameter IO_UPDATE_COUNT_LENGTH = 3;
-    reg[IO_UPDATE_COUNT_LENGTH-1:0] io_update_count;   // to make io update duration sufficienlt long
-    initial {DDS1_ioupdate, DDS2_ioupdate, DDS_reset} <= 3'h0;
-                                      
-    assign {ja_7, ja_6, ja_5, ja_4, ja_3, ja_2, ja_1, ja_0}  = {DDS1_ioupdate, rsdio_1, rcsbar_1, DDS_reset, rsclk, DDS2_ioupdate, rsdio_2, rcsbar_2};
-
-
-
+                     
+    assign {ja_7, ja_6, ja_5, ja_4, ja_3, ja_2, ja_1, ja_0}  = {io_update1, io, cs[0], parallel_out[18], sck, io_update2, /*io*/1'b0, cs[1]};
+    assign {jb_7, jb_6, jb_5, jb_4, jb_3, jb_2, jb_1, jb_0}  = {profile1[2], profile1[1], profile1[0], profile2[1], profile2[1], profile2[0], parallel_out[17], parallel_out[16]};
+    assign {jc_7, jc_6, jc_5, jc_4, jc_3, jc_2, jc_1, jc_0}  = parallel_out[15:8];
+    assign {jd_7, jd_6, jd_5, jd_4, jd_3, jd_2, jd_1, jd_0}  = parallel_out[7:0];
 
     /////////////////////////////////////////////////////////////////
     // Command definition for DAC
@@ -393,8 +482,13 @@ module main(
     ////
     //****parameter added for AD9910**** this if statement is for IO UPDATE of AD9910
     ////
-    parameter MAIN_DDS_IOUPDATE_OUT = 4'h7;
-    parameter MAIN_DDS_IOUPDATE_END = 4'h8;
+    parameter MAIN_DRIVER_RESET = 4'h7;
+    parameter MAIN_SET_COUNTER = 4'h8;
+    parameter MAIN_SET_DDS_PIN = 4'ha;
+    parameter MAIN_WRITE_FIFO = 4'hb;
+    parameter MAIN_READ_RTI_FIFO = 4'hc;
+    parameter MAIN_DDS_IOUPDATE_OUT = 4'hd;
+    parameter MAIN_DDS_IOUPDATE_END = 4'he;
 
 
     parameter MAIN_UNKNOWN_CMD =4'hf;
@@ -428,16 +522,15 @@ module main(
 
 
                         else if ((CMD_Length == $bits(CMD_WRITE_DDS_REG)/8) && (CMD_Buffer[$bits(CMD_WRITE_DDS_REG):1] == CMD_WRITE_DDS_REG)) begin
-                            if (BTF_Length != (DDS_MAX_LENGTH+1)) begin
+                            if (BTF_Length != OVERRIDE_LENGTH) begin
                                 TX_buffer1[1:13*8] <= {"Wrong length", BTF_Length[7:0]}; // Assuming that BTF_Length is less than 256
                                 TX_buffer1_length[TX_BUFFER1_LENGTH_WIDTH-1:0] <= 'd13;
                                 TX_buffer1_ready <= 1'b1;
                             end
-                            else if ((DDS1_update != 0) || (DDS2_update != 0)) begin
-                                DDS_buffer <=  BTF_Buffer[DDS_WIDTH+8:1]; // Buffer to capture BTF_Buffer
+                            else begin
                                 main_state <= MAIN_DDS_WAIT_FOR_BUSY_ON;
-                                dds_data_ready_1 <= DDS1_update;
-                                dds_data_ready_2 <= DDS2_update;
+                                gpo_selected_en <= 1'b1;
+                                gpo_override_value[OVERRIDE_WIDTH - 1:0] <= BTF_Buffer[OVERRIDE_WIDTH:1];
                             end
                         end
                         
@@ -445,16 +538,96 @@ module main(
                         //****code added for AD9910**** this if statement is for IO UPDATE of AD9910
                         ////
                         else if ((CMD_Length == $bits(CMD_IOUPDATE_DDS_REG)/8) && (CMD_Buffer[$bits(CMD_IOUPDATE_DDS_REG):1] == CMD_IOUPDATE_DDS_REG)) begin
-                            if (BTF_Length != (DDS_MAX_LENGTH+1)) begin
+                            if (BTF_Length != OVERRIDE_LENGTH) begin
                                 TX_buffer1[1:13*8] <= {"Wrong length", BTF_Length[7:0]}; // Assuming that BTF_Length is less than 256
                                 TX_buffer1_length[TX_BUFFER1_LENGTH_WIDTH-1:0] <= 'd13;
                                 TX_buffer1_ready <= 1'b1;
                             end
-                            else if ((DDS1_update != 0) || (DDS2_update != 0)) begin
+                            else begin
+                                io_update_count <= 5'h5;
                                 main_state <= MAIN_DDS_IOUPDATE_OUT;
-                                io_update_count <= 'd5;
+                                gpo_selected_en <= 1'b1;
+                                gpo_override_value[OVERRIDE_WIDTH - 1:0] <= BTF_Buffer[OVERRIDE_WIDTH:1];
                             end
                         end
+                        
+                        else if ((CMD_Length == $bits(CMD_RESET_DRIVER)/8) && (CMD_Buffer[$bits(CMD_RESET_DRIVER):1] == CMD_RESET_DRIVER)) begin
+                            begin
+                                main_state <= MAIN_DRIVER_RESET;
+                                reset_driver <= 1'b1;
+                            end
+                        end
+                        
+                        else if ((CMD_Length == $bits(CMD_SET_COUNTER)/8) && (CMD_Buffer[$bits(CMD_SET_COUNTER):1] == CMD_SET_COUNTER)) begin
+                            if (BTF_Length != 64) begin
+                                TX_buffer1[1:13*8] <= {"Wrong length", BTF_Length[7:0]}; // Assuming that BTF_Length is less than 256
+                                TX_buffer1_length[TX_BUFFER1_LENGTH_WIDTH-1:0] <= 'd13;
+                                TX_buffer1_ready <= 1'b1;
+                            end
+                            else begin
+                                main_state <= MAIN_SET_COUNTER;
+                                counter_offset_en <= 1'b1;
+                                counter_offset[63:0] <= BTF_Buffer[64:1];
+                            end
+                        end
+                        
+                        else if ((CMD_Length == $bits(CMD_AUTO_START)/8) && (CMD_Buffer[$bits(CMD_AUTO_START):1] == CMD_AUTO_START)) begin
+                            auto_start <= 1'b1;
+                        end
+                        
+                        else if ((CMD_Length == $bits(CMD_AUTO_STOP)/8) && (CMD_Buffer[$bits(CMD_AUTO_STOP):1] == CMD_AUTO_STOP)) begin
+                            auto_start <= 1'b0;
+                        end
+                        
+                        else if ((CMD_Length == $bits(CMD_SET_DDS_PIN)/8) && (CMD_Buffer[$bits(CMD_SET_DDS_PIN):1] == CMD_SET_DDS_PIN)) begin
+                            if (BTF_Length != OVERRIDE_LENGTH) begin
+                                TX_buffer1[1:13*8] <= {"Wrong length", BTF_Length[7:0]}; // Assuming that BTF_Length is less than 256
+                                TX_buffer1_length[TX_BUFFER1_LENGTH_WIDTH-1:0] <= 'd13;
+                                TX_buffer1_ready <= 1'b1;
+                            end
+                            else begin
+                                main_state <= MAIN_SET_DDS_PIN;
+                                gpo_selected_en <= 1'b1;
+                                gpo_override_value[OVERRIDE_WIDTH - 1:0] <= BTF_Buffer[OVERRIDE_WIDTH:1];
+                            end
+                        end
+                        
+                        else if ((CMD_Length == $bits(CMD_WRITE_FIFO)/8) && (CMD_Buffer[$bits(CMD_WRITE_FIFO):1] == CMD_WRITE_FIFO)) begin
+                            if (BTF_Length != INST_LENGTH) begin
+                                TX_buffer1[1:13*8] <= {"Wrong length", BTF_Length[7:0]}; // Assuming that BTF_Length is less than 256
+                                TX_buffer1_length[TX_BUFFER1_LENGTH_WIDTH-1:0] <= 'd13;
+                                TX_buffer1_ready <= 1'b1;
+                            end
+                            else begin
+                                main_state <= MAIN_WRITE_FIFO;
+                                write_rto_fifo <= 1'b1;
+                                rto_fifo_din[INST_WIDTH - 1:0] <= BTF_Buffer[INST_WIDTH:1];
+                            end
+                        end
+                        
+                        else if ((CMD_Length == $bits(CMD_READ_RTI_FIFO)/8) && (CMD_Buffer[$bits(CMD_READ_RTI_FIFO):1] == CMD_READ_RTI_FIFO)) begin
+                            if( rti_fifo_empty == 1'b1 ) begin
+                                TX_buffer2[1:( INST_LENGTH + 1 )*8] <= {8'hf,"  RTI FIFO Empty"}; // Assuming that BTF_Length is less than 256
+                                TX_buffer2_length[TX_BUFFER2_LENGTH_WIDTH-1:0] <= 'd17;
+                                TX_buffer2_ready <= 1'b1;
+                            end
+                            else begin
+                                TX_buffer2[1:( INST_LENGTH + 1 )*8] <= {8'hf, rti_out[INST_WIDTH-1:0] }; // Assuming that BTF_Length is less than 256
+                                TX_buffer2_length[TX_BUFFER2_LENGTH_WIDTH-1:0] <= 'd17;
+                                TX_buffer2_ready <= 1'b1;
+                                main_state <= MAIN_READ_RTI_FIFO;
+                                read_rti_fifo <= 1'b1;
+                            end
+                        end
+                        
+                        else if ((CMD_Length == $bits(CMD_OVERRIDE_EN)/8) && (CMD_Buffer[$bits(CMD_OVERRIDE_EN):1] == CMD_OVERRIDE_EN)) begin
+                            gpo_override_en <= 1'b1;
+                        end
+                        
+                        else if ((CMD_Length == $bits(CMD_OVERRIDE_DIS)/8) && (CMD_Buffer[$bits(CMD_OVERRIDE_DIS):1] == CMD_OVERRIDE_DIS)) begin
+                            gpo_override_en <= 1'b0;
+                        end
+                        
 
 
 
@@ -550,15 +723,14 @@ module main(
 
 
                 MAIN_DDS_WAIT_FOR_BUSY_ON: begin
-                        if ((DDS_busy_1 | DDS_busy_2) == 1) begin
-                            main_state <= MAIN_DDS_WAIT_FOR_BUSY_OFF;
-                            dds_data_ready_1 <= 1'b0;
-                            dds_data_ready_2 <= 1'b0;
+                        gpo_selected_en <= 1'b0;
+                        if( spi_busy == 1'b1 ) begin
+                            main_state <= MAIN_DDS_WAIT_FOR_BUSY_OFF;;
                         end
                     end
 
                 MAIN_DDS_WAIT_FOR_BUSY_OFF: begin
-                        if ((DDS_busy_1 & DDS_busy_2) == 0) main_state <= MAIN_IDLE;
+                        if( spi_busy == 1'b0 ) main_state <= MAIN_IDLE;
                     end
 
 
@@ -587,19 +759,45 @@ module main(
                 //****code added for AD9910**** this if statement is for IO UPDATE of AD9910
                 ////
                 MAIN_DDS_IOUPDATE_OUT: begin
-                    DDS1_ioupdate <= 1'b1;
-                    DDS2_ioupdate <= 1'b1;
-                    io_update_count <= io_update_count - 'd1;
-                    if( io_update_count == 0 ) begin
+                    gpo_selected_en <= 1'b0;
+                    io_update_count <= io_update_count - 5'd1;
+                    if( io_update_count == 5'd0 ) begin
                         main_state <= MAIN_DDS_IOUPDATE_END;
+                        gpo_selected_en <= 1'b1;
+                        gpo_override_value[OVERRIDE_WIDTH - 1:0] <= 'h0 | 'h2 << (32 + CHANNEL_LENGTH);
                         end
                     end
                     
                 MAIN_DDS_IOUPDATE_END: begin
-                        DDS1_ioupdate <= 1'b0;
-                        DDS2_ioupdate <= 1'b0;
+                        gpo_selected_en <= 1'b0;
+                        io_update_count <= 5'h0;
                         main_state <= MAIN_IDLE;
-                        io_update_count = 0;
+                    end
+                    
+                MAIN_DRIVER_RESET: begin
+                        main_state <= MAIN_IDLE;
+                        reset_driver <= 1'b0;
+                    end
+                    
+                MAIN_SET_COUNTER: begin
+                        main_state <= MAIN_IDLE;
+                        counter_offset_en <= 1'b0;
+                        counter_offset[63:0] <= 64'h0;
+                    end
+                    
+                MAIN_SET_DDS_PIN: begin
+                        gpo_selected_en <= 1'b0;
+                        main_state <= MAIN_IDLE;
+                    end
+                    
+                MAIN_WRITE_FIFO: begin
+                        main_state <= MAIN_IDLE;
+                        write_rto_fifo <= 1'b0;
+                    end
+                    
+                MAIN_READ_RTI_FIFO: begin
+                        main_state <= MAIN_IDLE;
+                        read_rti_fifo <= 1'b0;
                     end
 
 
