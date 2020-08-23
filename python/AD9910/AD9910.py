@@ -33,6 +33,15 @@ PROFILE6_ADDR           = 0x14
 PROFILE7_ADDR           = 0x15
 RAM_ADDR                = 0x16
 
+DEFAULT_CFR1 = (1 << 16) 
+DEFAULT_CFR2 = ( ( 1 << 24 ) 
+            | ( 1 << 16 ) 
+            | ( 1 << 5 ) )
+DEFAULT_CFR3 = ( ( 1 << 27)
+            | ( 7 << 16 )
+            | ( 1 << 15 )
+            | ( 1 << 14 ) )
+
 PI                      = 3.1415926535897931
 
 DEST_SPI_DATA           = 0x00
@@ -42,8 +51,6 @@ DEST_DDS_PROFILE        = 0x03
 DEST_DDS_PARALLEL       = 0x04
 
 CHANNEL_LENGTH          = 12
-
-TEST                    = 1
 
 SPI_CONFIG_WRITE        = 0 << 31 \
                         | 0 << 30 \
@@ -95,8 +102,12 @@ class AD9910:
         self.dest_val = dest_val
         self.code_list = []
         self.time = 0
+        self.fm_gain = 0
         self.spi_config_write = SPI_CONFIG_WRITE
         self.spi_config_read = SPI_CONFIG_READ
+        self.cfr1 = [DEFAULT_CFR1, DEFAULT_CFR1]
+        self.cfr2 = [DEFAULT_CFR2, DEFAULT_CFR2]
+        self.cfr3 = [DEFAULT_CFR3, DEFAULT_CFR3]
         
         if(unit == 'Hz' or unit == 'hz'):
             self.max_freq = max_freq
@@ -143,7 +154,7 @@ class AD9910:
                   '\'ns\',\'mu\'' % unit)
             raise ValueError(shift_time)
     
-    def write16(self, register_addr, register_data, ch1, ch2, end_spi = 1):
+    def write16(self, ch1, ch2, register_addr, register_data, end_spi = 1):
         """
         register_addr   : address of register in DDS. this is int type.
         register_data   : data to be input. this is int type and length in
@@ -156,7 +167,7 @@ class AD9910:
                         | end_spi << 29 \
                         | ( ch1 << 16 ) \
                         | ( ch2 << 17 ) \
-                        | 7 << 11)
+                        | ( 7 << 11 ) )
         addr_to_send = 0
         addr_to_send = ( ( DEST_SPI_DATA  << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 )
@@ -168,7 +179,7 @@ class AD9910:
                         | end_spi << 29 \
                         | ( ch1 << 16 ) \
                         | ( ch2 << 17 ) \
-                        | 15 << 11)
+                        | ( 15 << 11 ) )
         data_to_send = 0
         data_to_send = ( ( DEST_SPI_DATA  << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 ) \
@@ -179,41 +190,16 @@ class AD9910:
         config_int_list2 = self.make_9_int_list(config_to_send2)
         data_int_list = self.make_9_int_list(data_to_send)
         
-        if(TEST != 1):
-            self.fpga.send_mod_BTF_int_list(config_int_list1)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(addr_int_list)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(config_int_list2)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(data_int_list)
-            self.fpga.send_command('WRITE DDS REG')
-        else:
-            print('config1 to send')
-            for i in range(config_int_list1):
-                print(bin(i << 1 + 1)[2:].zfill(10), end = '')
-                
-            print('')
-            
-            print('addr to send')
-            for i in range(addr_int_list):
-                print(bin(i << 1 + 1)[2:].zfill(10), end = '')
-                
-            print('')
-            
-            print('config2 to send')
-            for i in range(config_int_list2):
-                print(bin(i << 1 + 1)[2:].zfill(10), end = '')
-                
-            print('')
-            
-            print('data to send')
-            for i in range(data_int_list):
-                print(bin(i << 1 + 1)[2:].zfill(10), end = '')
-            
-            print('')
+        self.fpga.send_mod_BTF_int_list(config_int_list1)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(addr_int_list)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(config_int_list2)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(data_int_list)
+        self.fpga.send_command('WRITE DDS REG')
     
-    def write32(self, register_addr, register_data, ch1, ch2, end_spi):
+    def write32(self, ch1, ch2, register_addr, register_data, end_spi):
         """
         register_addr   : address of register in DDS. this is int type.
         register_data   : data to be input. this is int type and length in
@@ -226,7 +212,7 @@ class AD9910:
                         | end_spi << 29 \
                         | ( ch1 << 16 ) \
                         | ( ch2 << 17 ) \
-                        | 7 << 11)
+                        | ( 7 << 11 ) )
         addr_to_send = 0
         addr_to_send = ( ( DEST_SPI_DATA  << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 )
@@ -238,7 +224,7 @@ class AD9910:
                         | end_spi << 29 \
                         | ( ch1 << 16 ) \
                         | ( ch2 << 17 ) \
-                        | 31 << 11)
+                        | ( 31 << 11 ) )
         data_to_send = 0
         data_to_send = ( ( DEST_SPI_DATA  << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 ) \
@@ -249,41 +235,16 @@ class AD9910:
         config_int_list2 = self.make_9_int_list(config_to_send2)
         data_int_list = self.make_9_int_list(data_to_send)
         
-        if(TEST != 1):
-            self.fpga.send_mod_BTF_int_list(config_int_list1)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(addr_int_list)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(config_int_list2)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(data_int_list)
-            self.fpga.send_command('WRITE DDS REG')
-        else:
-            print('config1 to send')
-            for i in range(config_int_list1):
-                print(bin(i << 1 + 1)[2:].zfill(10), end = '')
-                
-            print('')
-            
-            print('addr to send')
-            for i in range(addr_int_list):
-                print(bin(i << 1 + 1)[2:].zfill(10), end = '')
-                
-            print('')
-            
-            print('config2 to send')
-            for i in range(config_int_list2):
-                print(bin(i << 1 + 1)[2:].zfill(10), end = '')
-                
-            print('')
-            
-            print('data to send')
-            for i in range(data_int_list):
-                print(bin(i << 1 + 1)[2:].zfill(10), end = '')
-            
-            print('')
+        self.fpga.send_mod_BTF_int_list(config_int_list1)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(addr_int_list)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(config_int_list2)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(data_int_list)
+        self.fpga.send_command('WRITE DDS REG')
     
-    def write64(self, register_addr, register_data, ch1, ch2, end_spi = 1):
+    def write64(self, ch1, ch2, register_addr, register_data, end_spi = 1):
         """
         register_addr   : address of register in DDS. this is int type.
         register_data   : data to be input. this is int type and length in
@@ -296,7 +257,7 @@ class AD9910:
                         | 0 << 29 \
                         | ( ch1 << 16 ) \
                         | ( ch2 << 17 ) \
-                        | 7 << 11)
+                        | ( 7 << 11 ) )
         addr_to_send = 0
         addr_to_send = ( ( DEST_SPI_DATA  << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 )
@@ -308,7 +269,7 @@ class AD9910:
                         | end_spi << 29 \
                         | ( ch1 << 16 ) \
                         | ( ch2 << 17 ) \
-                        | 15 << 11)
+                        | ( 15 << 11 ) )
         data_to_send1 = 0
         data_to_send1 = ( ( DEST_SPI_DATA  << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 )
@@ -324,48 +285,16 @@ class AD9910:
         data_int_list1 = self.make_9_int_list(data_to_send1)
         data_int_list2 = self.make_9_int_list(data_to_send2)
         
-        if(TEST != 1):
-            self.fpga.send_mod_BTF_int_list(config_int_list1)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(addr_int_list)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(config_int_list2)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(data_int_list1)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(data_int_list2)
-            self.fpga.send_command('WRITE DDS REG')
-        else:
-            print('config1 to send')
-            for i in range(config_int_list1):
-                print(bin(i << 1 + 1)[2:].zfill(10), end = '')
-                
-            print('')
-            
-            print('addr to send')
-            for i in range(addr_int_list):
-                print(bin(i << 1 + 1)[2:].zfill(10), end = '')
-                
-            print('')
-            
-            print('config2 to send')
-            for i in range(config_int_list2):
-                print(bin(i << 1 + 1)[2:].zfill(10), end = '')
-                
-            print('')
-            
-            print('data to send')
-            for i in range(data_int_list1):
-                print(bin(i << 1 + 1)[2:].zfill(10), end = '')
-            
-            print('')
-            
-            print('data to send')
-            for i in range(data_int_list2):
-                print(bin(i << 1 + 1)[2:].zfill(10), end = '')
-            
-            print('')
-        
+        self.fpga.send_mod_BTF_int_list(config_int_list1)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(addr_int_list)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(config_int_list2)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(data_int_list1)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(data_int_list2)
+        self.fpga.send_command('WRITE DDS REG')
     
     def frequency_to_FTW(self, freq, unit = 'MHz'):
         """
@@ -408,7 +337,7 @@ class AD9910:
         ASF = int( amplitude_frac * ( 0x3fff ) )
         return ASF
         
-    def set_frequency(self, freq, ch1, ch2, unit = 'MHz'):
+    def set_frequency(self, ch1, ch2, freq, unit = 'MHz'):
         """
         freq            : frequency user want to set
         unit            : unit of frequency. default is MHz
@@ -437,7 +366,7 @@ class AD9910:
         self.write32(FTW_ADDR, self.frequency_to_FTW(freq_in_Hz, unit = 'Hz'), 
                      ch1, ch2)
         
-    def set_phase(self, phase, ch1, ch2, unit = 'FRAC'):
+    def set_phase(self, ch1, ch2, phase, unit = 'FRAC'):
         """
         phase           : phase user want to set
         unit            : unit of phase. defualt is fraction of 2 pi
@@ -457,7 +386,7 @@ class AD9910:
         self.write16(POW_ADDR, self.phase_to_POW(phase_in_frac, unit = 'FRAC'),
                      ch1, ch2)
         
-    def set_amplitude(self, amplitude_frac, ch1, ch2):
+    def set_amplitude(self, ch1, ch2, amplitude_frac):
         if(amplitude_frac > 1 or amplitude_frac < 0):
             print('Error in amplitude_to_ASF: ampltiude range error (%s).'\
                   % amplitude_frac, 'ampltiude should be in 0 to 1')
@@ -465,9 +394,9 @@ class AD9910:
                      ch1, ch2)
         
     def initialize(self):
-        self.set_CFR1()
-        self.set_CFR2()
-        self.set_CFR3()
+        self.set_CFR1(1,1)
+        self.set_CFR2(1,1)
+        self.set_CFR3(1,1)
         
     def set_CFR1(self, ch1, ch2, ram_en = 0, ram_playback = 0, manual_OSK = 0, 
                  inverse_sinc_filter = 0, internal_porfile = 0, sine = 1,
@@ -499,6 +428,10 @@ class AD9910:
             | (external_power_down_ctrl << 3) 
             | (SDIO_in_only << 1) 
             | (LSB_first << 0) )
+        if( ch1 == 1 ):
+            self.cfr1[0] = CFR1_setting
+        if( ch2 == 1 ):
+            self.cfr1[1] = CFR1_setting
         self.write32(CFR1_ADDR, CFR1_setting, ch1, ch2)
         
     def set_CFR2(self, ch1, ch2, amp_en_single_tone = 1, internal_IO_update = 0, 
@@ -525,6 +458,11 @@ class AD9910:
             | ( sync_val_dis << 5 ) 
             | ( parallel_port << 4 ) 
             | ( FM_gain << 0 ) )
+        
+        if( ch1 == 1 ):
+            self.cfr2[0] = CFR2_setting
+        if( ch2 == 1 ):
+            self.cfr2[1] = CFR2_setting
         self.write32(CFR2_ADDR, CFR2_setting, ch1, ch2)
         
     def set_CFR3(self, ch1, ch2, DRV0 = 0, PLL_VCO = 0, I_CP = 0, 
@@ -541,6 +479,11 @@ class AD9910:
             | ( PFD_reset << 10 )
             | ( PLL_en << 8 )
             | ( N << 1 ) )
+        
+        if( ch1 == 1 ):
+            self.cfr3[0] = CFR3_setting
+        if( ch2 == 1 ):
+            self.cfr3[1] = CFR3_setting
         self.write32(CFR3_ADDR, CFR3_setting, ch1, ch2)
     
     def set_profile_register(self, freq, phase, amplitude, ch1, ch2, profile = 0, 
@@ -587,32 +530,138 @@ class AD9910:
         data = ( ASF << 48 ) | ( POW << 32 ) | ( FTW << 0 )
         self.write64(PROFILE0_ADDR + profile,data, ch1, ch2)
         
-    def set_profile(self, profile1, profile2):
-        inst_to_send = 0
-        inst_to_send = ( ( DEST_DDS_PROFILE << (CHANNEL_LENGTH + 32) ) \
+    def set_profile_pin(self, profile1, profile2):
+        data_to_send = 0
+        data_to_send = ( ( DEST_DDS_PROFILE << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 ) \
-                        | ( profile1 & 0xff  ) \
-                        | ( ( profile2 << 3 ) & 0xff ))
-        inst_int_list = self.make_9_int_list(inst_to_send)
+                        | ( profile1 & 0b111  ) \
+                        | ( ( profile2 << 3 ) & 0b111000 ))
+        data_int_list = self.make_9_int_list(data_to_send)
         
-        if(TEST != 1):
-            self.fpga.send_mod_BTF_int_list(config_int_list1)
-            self.fpga.send_command('****')
-        else:
-            print('inst to send')
-            for i in range(config_int_list1):
-                print(bin(i << 1 + 1)[2:].zfill(10), end = '')
-                
-            print('')
+        self.fpga.send_mod_BTF_int_list(data_int_list)
+        self.fpga.send_command('SET DDS PIN')
+            
+    def bits_to_represent(self, num):
+        val = num
+        count = 0
+        while(val > 0):
+            count = count + 1
+            val = val >> 1
+            
+        return count
     
-    def set_parallel_frequency(self, frequency, parallel_en = 1, unit = 'MHz'):
-        inst_to_send = 0
+    def set_fm_gain(self, fm_gain):
+        self.fm_gain = fm_gain & 0xf
+        self.cfr1 = self.cfr1 - ( self.cfr1 & 0xf )
+        self.cfr1 = self.cfr1 + fm_gain & 0xf
+        self.write32(CFR1_ADDR, self.cfr1, 1, 0)
+    
+    def minimum_fm_gain(self, frequency, unit = 'MHz'):
+        return max(min(self.bits_to_represent(\
+                        self.frequency_to_FTW(frequency, unit)) - 16, 15),0)
+    
+    def set_parallel_frequency(self, frequency, set_fm_gain = True, \
+                               parallel_en = 1, unit = 'MHz'):
+        """
+        frequency : frequency to set
+        set_fm_gain : whether to set fm_gain dynamically 
+        parallel_en : whether to set TxEnable high
+        """
+        
+        data_to_send = 0
+        
+        fm_gain = self.minimum_fm_gain(frequency, unit)
+        
+        FTW_16bit = int(self.frequency_to_FTW(frequency, unit) // \
+                        ( 2 ** fm_gain ))
+        
+        if( fm_gain != self.fm_gain and set_fm_gain == True ):
+            self.set_fm_gain(fm_gain)
+        
+        data_to_send = ( ( DEST_DDS_PARALLEL << (CHANNEL_LENGTH + 32) ) \
+                        | ( self.dest_val << 32 ) \
+                        | ( parallel_en << 18  ) \
+                        | ( 0b10 << 16 ) \
+                        | ( FTW_16bit & 0xffff ))
+        data_int_list = self.make_9_int_list(data_to_send)
+        
+        self.fpga.send_mod_BTF_int_list(data_int_list)
+        self.fpga.send_command('SET DDS PIN')
     
     def set_parallel_amplitude(self, amplitude, parallel_en = 1):
-        inst_to_send = 0
+        """
+        amplitude : frequency to set
+        parallel_en : whether to set TxEnable high
+        """
+        
+        data_to_send = 0
+        
+        ASF_14bit = self.amplitude_to_ASF(amplitude)
+            
+        data_to_send = ( ( DEST_DDS_PARALLEL << (CHANNEL_LENGTH + 32) ) \
+                        | ( self.dest_val << 32 ) \
+                        | ( parallel_en << 18  ) \
+                        | ( 0b00 << 16 ) \
+                        | ( ( ASF_14bit & 0x3fff ) << 2 ) )
+        data_int_list = self.make_9_int_list(data_to_send)
+        
+        self.fpga.send_mod_BTF_int_list(data_int_list)
+        self.fpga.send_command('SET DDS PIN')
     
     def set_parallel_phase(self, phase, parallel_en = 1, unit = 'FRAC'):
-        inst_to_send = 0
+        """
+        phase : phase to set
+        parallel_en : whether to set TxEnable high
+        """
+        
+        data_to_send = 0
+        
+        POW_16bit = self.phase_to_POW(phase)
+            
+        data_to_send = ( ( DEST_DDS_PARALLEL << (CHANNEL_LENGTH + 32) ) \
+                        | ( self.dest_val << 32 ) \
+                        | ( parallel_en << 18  ) \
+                        | ( 0b00 << 16 ) \
+                        | ( POW_16bit & 0xffff ))
+        data_int_list = self.make_9_int_list(data_to_send)
+        
+        self.fpga.send_mod_BTF_int_list(data_int_list)
+        self.fpga.send_command('SET DDS PIN')
+    
+    def set_parallel_phasor(self, amplitude, phase, set_amplitude_lsb = False,\
+                            set_phase_lsb = False, parallel_en = 1, \
+                            phase_unit = 'FRAC'):
+        """
+        amplitude : amplitude to set
+        phase : phase to set
+        set_amplitude_lsb : whether to set amplitude lsb using ASF register
+        set_phase_lsb : whether to set phase lsb using POW register
+        parallel_en : whether to set TxEnable high
+        """
+        
+        data_to_send = 0
+        
+        ASF = self.amplitude_to_ASF(amplitude)
+        ASF_8bit = ( ASF >> 6 ) & 0xff
+        
+        POW = self.phase_to_POW(phase, phase_unit)
+        POW_8bit = ( POW >> 8 ) & 0xff
+        
+        if( set_amplitude_lsb == True ):
+            self.set_amplitude(1, 0, amplitude)
+        if( set_phase_lsb == True):
+            self.set_phase(1, 0, phase, phase_unit)
+            
+        data_to_send = ( ( DEST_DDS_PARALLEL << (CHANNEL_LENGTH + 32) ) \
+                        | ( self.dest_val << 32 ) \
+                        | ( parallel_en << 18  ) \
+                        | ( 0b11 << 16 ) \
+                        | ( ASF_8bit << 8 ) \
+                        | ( POW_8bit ) )
+        data_int_list = self.make_9_int_list(data_to_send)
+        
+        self.fpga.send_mod_BTF_int_list(data_int_list)
+        self.fpga.send_command('SET DDS PIN')
     
     def io_update(self, ch1, ch2):
         self.fpga.send_command('DDS IO UPDATE')
