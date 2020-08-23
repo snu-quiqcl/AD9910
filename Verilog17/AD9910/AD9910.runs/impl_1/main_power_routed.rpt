@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
-| Date             : Fri Aug 21 10:44:12 2020
-| Host             : DESKTOP-9UKB43H running 64-bit major release  (build 9200)
+| Date             : Sun Aug 23 19:58:03 2020
+| Host             : DESKTOP-DKK2GQK running 64-bit major release  (build 9200)
 | Command          : report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb -rpx main_power_routed.rpx
 | Design           : main
 | Device           : xc7s50csga324-1
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.210        |
+| Total On-Chip Power (W)  | 0.154        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.136        |
-| Device Static (W)        | 0.074        |
+| Dynamic (W)              | 0.082        |
+| Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 4.9          |
-| Max Ambient (C)          | 84.0         |
-| Junction Temperature (C) | 26.0         |
+| Max Ambient (C)          | 84.2         |
+| Junction Temperature (C) | 25.8         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,19 +52,18 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.069 |        3 |       --- |             --- |
-| Slice Logic             |     0.023 |    28751 |       --- |             --- |
-|   LUT as Logic          |     0.023 |    16418 |     32600 |           50.36 |
-|   Register              |    <0.001 |    12029 |     65200 |           18.45 |
-|   BUFG                  |    <0.001 |        1 |        32 |            3.13 |
-|   CARRY4                |    <0.001 |      192 |      8150 |            2.36 |
-|   Others                |     0.000 |       57 |       --- |             --- |
+| Clocks                  |     0.056 |        3 |       --- |             --- |
+| Slice Logic             |     0.006 |    26268 |       --- |             --- |
+|   LUT as Logic          |     0.006 |    14107 |     32600 |           43.27 |
+|   Register              |    <0.001 |    11879 |     65200 |           18.22 |
+|   CARRY4                |    <0.001 |      175 |      8150 |            2.15 |
+|   Others                |     0.000 |       53 |       --- |             --- |
 |   LUT as Shift Register |     0.000 |        3 |      9600 |            0.03 |
-| Signals                 |     0.024 |    19248 |       --- |             --- |
-| Block RAM               |     0.014 |        6 |        75 |            8.00 |
-| I/O                     |     0.006 |       50 |       210 |           23.81 |
-| Static Power            |     0.074 |          |           |                 |
-| Total                   |     0.210 |          |           |                 |
+| Signals                 |     0.006 |    16937 |       --- |             --- |
+| Block RAM               |     0.012 |        6 |        75 |            8.00 |
+| I/O                     |     0.002 |       43 |       210 |           20.48 |
+| Static Power            |     0.072 |          |           |                 |
+| Total                   |     0.154 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,11 +73,11 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.139 |       0.129 |      0.010 |
+| Vccint    |       1.000 |     0.089 |       0.079 |      0.010 |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
-| Vcco33    |       3.300 |     0.002 |       0.001 |      0.001 |
+| Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
-| Vcco18    |       1.800 |     0.003 |       0.002 |      0.001 |
+| Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
@@ -141,8 +140,8 @@ Table of Contents
 +------------------------------------------------+-----------+
 | Name                                           | Power (W) |
 +------------------------------------------------+-----------+
-| main                                           |     0.136 |
-|   AD9910_driver_0                              |     0.010 |
+| main                                           |     0.082 |
+|   AD9910_driver_0                              |     0.009 |
 |     gpi_core_prime_0                           |    <0.001 |
 |     gpo_core_prime_0                           |    <0.001 |
 |     io_update_port                             |    <0.001 |
@@ -159,39 +158,38 @@ Table of Contents
 |                     gonep.inst_prim            |     0.002 |
 |                   gextw[2].gnll_fifo.inst_extd |     0.002 |
 |                     gonep.inst_prim            |     0.002 |
-|     rto_core_prime_0                           |     0.004 |
-|       rto_core_FIFO                            |     0.004 |
-|         U0                                     |     0.004 |
-|           inst_fifo_gen                        |     0.004 |
-|             gconvfifo.rf                       |     0.004 |
-|               gbi.bi                           |     0.004 |
+|     rto_core_prime_0                           |     0.003 |
+|       rto_core_FIFO                            |     0.003 |
+|         U0                                     |     0.003 |
+|           inst_fifo_gen                        |     0.003 |
+|             gconvfifo.rf                       |     0.003 |
+|               gbi.bi                           |     0.003 |
 |                 g7ser_birst.rstbt              |    <0.001 |
 |                 v7_bi_fifo.fblk                |     0.003 |
 |                   gextw[1].gnll_fifo.inst_extd |     0.001 |
 |                     gonep.inst_prim            |     0.001 |
 |                   gextw[2].gnll_fifo.inst_extd |     0.002 |
 |                     gonep.inst_prim            |     0.002 |
-|     spi_fsm_module_0                           |     0.001 |
+|     spi_fsm_module_0                           |    <0.001 |
 |       clock_divider_0                          |    <0.001 |
 |       shift_register_in_0                      |    <0.001 |
 |       shift_register_out_0                     |    <0.001 |
-|     spi_single_output_0                        |    <0.001 |
-|       IOBUF_inst                               |    <0.001 |
+|     spi_multiple_single_output_0               |    <0.001 |
+|       IOBUF_ios[0].IOBUF_io                    |    <0.001 |
+|       IOBUF_ios[1].IOBUF_io                    |    <0.001 |
 |   device_DNA_inst                              |    <0.001 |
-|   genblk1[0].dac                               |    <0.001 |
-|   genblk1[1].dac                               |    <0.001 |
 |   led_intensity_modulator                      |    <0.001 |
-|   receiver                                     |     0.039 |
+|   receiver                                     |     0.023 |
 |     RXUSB                                      |    <0.001 |
-|   sender                                       |     0.041 |
+|   sender                                       |     0.024 |
 |     TXUSB                                      |    <0.001 |
-|     transmitter_FIFO                           |     0.006 |
-|       U0                                       |     0.006 |
-|         inst_fifo_gen                          |     0.006 |
-|           gconvfifo.rf                         |     0.006 |
-|             gbi.bi                             |     0.006 |
+|     transmitter_FIFO                           |     0.005 |
+|       U0                                       |     0.005 |
+|         inst_fifo_gen                          |     0.005 |
+|           gconvfifo.rf                         |     0.005 |
+|             gbi.bi                             |     0.005 |
 |               g7ser_birst.rstbt                |    <0.001 |
-|               v7_bi_fifo.fblk                  |     0.006 |
+|               v7_bi_fifo.fblk                  |     0.005 |
 |                 gextw[1].gnll_fifo.inst_extd   |     0.003 |
 |                   gonep.inst_prim              |     0.003 |
 |                 gextw[2].gnll_fifo.inst_extd   |     0.003 |

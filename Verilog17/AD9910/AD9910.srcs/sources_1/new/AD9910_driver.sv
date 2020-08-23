@@ -57,7 +57,7 @@ module AD9910_driver
     output wire gpo_busy_error,
     output wire gpi_data_ready,
     output wire [127:0] gpi_out,
-    inout wire io,
+    inout wire [NUM_CS - 1:0] io,
     output wire sck,
     output wire [NUM_CS - 1:0] cs,
     output wire io_update1,
@@ -206,11 +206,11 @@ spi_fsm_module_0
     .cs_val(cs_val_wire)
     );
     
-spi_single_output 
+spi_multiple_single_output 
 #(
     .NUM_CS(NUM_CS)
 )
-spi_single_output_0
+spi_multiple_single_output_0
 (
     .CLK100MHZ(clk),
     .cpol(cpol_wire),

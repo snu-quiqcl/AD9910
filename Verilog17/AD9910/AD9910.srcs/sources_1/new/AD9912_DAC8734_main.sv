@@ -37,9 +37,10 @@ module main(
     input BTN0,
     input BTN1,
     input BTN2,
-    output ck_io_39, ck_io_38, ck_io_37, // DAC0 
+    /*output ck_io_39, ck_io_38, ck_io_37, // DAC0 
     output ck_io_36, ck_io_35, ck_io_34, // DAC1
     output ck_io_6, // LDAC
+    */
 
     output ja_7, //powerdown
     inout ja_6, //sdio
@@ -279,7 +280,7 @@ module main(
     reg gpo_busy_error;
     reg gpi_data_ready;
     wire[INST_WIDTH - 1:0] gpi_out;
-    wire io;
+    wire[ NUM_CS - 1:0] io;
     wire sck;
     wire[NUM_CS-1:0] cs;
     wire io_update1;
@@ -355,14 +356,15 @@ module main(
     //****code modified for AD9910****
     ////
                      
-    assign {ja_7, ja_6, ja_5, ja_4, ja_3, ja_2, ja_1, ja_0}  = {io_update1, io, cs[0], parallel_out[18], sck, io_update2, /*io*/1'b0, cs[1]};
-    assign {jb_7, jb_6, jb_5, jb_4, jb_3, jb_2, jb_1, jb_0}  = {profile1[2], profile1[1], profile1[0], profile2[1], profile2[1], profile2[0], parallel_out[17], parallel_out[16]};
+    assign {ja_7, ja_6, ja_5, ja_4, ja_3, ja_2, ja_1, ja_0}  = {io_update1, io[0], cs[0], parallel_out[18], sck, io_update2, io[1], cs[1]};
+    assign {jb_7, jb_6, jb_5, jb_4, jb_3, jb_2, jb_1, jb_0}  = {profile1[2], profile1[1], profile1[0], profile2[2], profile2[1], profile2[0], parallel_out[17], parallel_out[16]};
     assign {jc_7, jc_6, jc_5, jc_4, jc_3, jc_2, jc_1, jc_0}  = parallel_out[15:8];
     assign {jd_7, jd_6, jd_5, jd_4, jd_3, jd_2, jd_1, jd_0}  = parallel_out[7:0];
 
     /////////////////////////////////////////////////////////////////
     // Command definition for DAC
     /////////////////////////////////////////////////////////////////
+    /*
     parameter CMD_WRITE_DAC_REG = "WRITE DAC REG"; // 13 characters
     parameter DAC_DATA_WIDTH = 24;
     
@@ -410,7 +412,7 @@ module main(
 
 
 
-
+    */
     /////////////////////////////////////////////////////////////////
     // Command definition for DNA_PORT command
     /////////////////////////////////////////////////////////////////
@@ -474,11 +476,12 @@ module main(
     parameter MAIN_DDS_WAIT_FOR_BUSY_ON = 4'h1;
     parameter MAIN_DDS_WAIT_FOR_BUSY_OFF = 4'h2;
     
+    /*
     parameter MAIN_DAC_WAIT_FOR_BUSY_ON = 4'h3;
     parameter MAIN_DAC_WAIT_FOR_BUSY_OFF = 4'h4;
     parameter MAIN_DAC_LDAC_PAUSE = 4'h5;
     parameter MAIN_DAC_LDAC_OFF = 4'h6;
-   
+   */
     ////
     //****parameter added for AD9910**** this if statement is for IO UPDATE of AD9910
     ////
@@ -631,6 +634,7 @@ module main(
 
 
 
+                        /*
                         else if ((CMD_Length == $bits(CMD_WRITE_DAC_REG)/8) && (CMD_Buffer[$bits(CMD_WRITE_DAC_REG):1] == CMD_WRITE_DAC_REG)) begin
                             if (BTF_Length != ((DAC_DATA_WIDTH+8)/8)) begin
                                 TX_buffer1[1:13*8] <= {"Wrong length", BTF_Length[7:0]}; // Assuming that BTF_Length is less than 256
@@ -654,6 +658,7 @@ module main(
                         else if ((CMD_Length == $bits(CMD_UPDATE_LDAC_LENGTH)/8) && (CMD_Buffer[$bits(CMD_UPDATE_LDAC_LENGTH):1] == CMD_UPDATE_LDAC_LENGTH)) begin
                             ldac_length[7:0] <= BTF_Buffer[8:1];
                         end
+                        */
 
 
 
@@ -734,6 +739,7 @@ module main(
                     end
 
 
+                /*
                 MAIN_DAC_WAIT_FOR_BUSY_ON: begin
                         if (DAC_busy != 'd0) begin
                             main_state <= MAIN_DAC_WAIT_FOR_BUSY_OFF;
@@ -755,6 +761,8 @@ module main(
                         ldac_bar <= 1'b1;
                         main_state <= MAIN_IDLE;
                     end
+                */
+                
                 ////
                 //****code added for AD9910**** this if statement is for IO UPDATE of AD9910
                 ////

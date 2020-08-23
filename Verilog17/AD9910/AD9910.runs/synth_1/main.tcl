@@ -22,48 +22,44 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.cache/wt [current_project]
-set_property parent.project_path D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.xpr [current_project]
+set_property webtalk.parent_dir C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.cache/wt [current_project]
+set_property parent.project_path C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo d:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.cache/ip [current_project]
+set_property ip_output_repo c:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib -sv {
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/spi_fsm_module.sv
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/shift_register_out.sv
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/shift_register_in.sv
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/clock_divider.sv
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/spi_single_output.sv
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/rto_core_prime.sv
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/gpo_core_prime.sv
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/gpo_core_prime_addr.sv
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/timestamp_counter.sv
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/gpi_core_prime.sv
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/rti_core_prime.sv
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9910_driver.sv
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/single_output_port.sv
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/spi_fsm_module.sv
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/shift_register_out.sv
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/shift_register_in.sv
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/clock_divider.sv
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/rto_core_prime.sv
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/gpo_core_prime.sv
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/timestamp_counter.sv
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/gpi_core_prime.sv
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/rti_core_prime.sv
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9910_driver.sv
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/single_output_port.sv
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/spi_multiple_single_output.sv
 }
 read_verilog -library xil_defaultlib {
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/WriteToRegister.v
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/ascii2decimal.v
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/ascii2hex.v
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/async_receiver.v
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/async_transmitter.v
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/hex2ascii.v
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/led_intensity_adjust.v
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/imports/new/DAC8734.v
-  D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/imports/new/device_DNA.v
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/ascii2hex.v
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/async_receiver.v
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/async_transmitter.v
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/hex2ascii.v
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/led_intensity_adjust.v
+  C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/imports/new/device_DNA.v
 }
-read_ip -quiet D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.xci
-set_property used_in_implementation false [get_files -all d:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.xdc]
+read_ip -quiet C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.xci
+set_property used_in_implementation false [get_files -all c:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.xdc]
 
-read_ip -quiet D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xci
-set_property used_in_implementation false [get_files -all d:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xdc]
-set_property used_in_implementation false [get_files -all d:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0_ooc.xdc]
+read_ip -quiet C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xci
+set_property used_in_implementation false [get_files -all c:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xdc]
+set_property used_in_implementation false [get_files -all c:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -73,8 +69,8 @@ set_property used_in_implementation false [get_files -all d:/GIT/AD9910_CODE/Ver
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc
-set_property used_in_implementation false [get_files D:/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc]
+read_xdc C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc
+set_property used_in_implementation false [get_files C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
