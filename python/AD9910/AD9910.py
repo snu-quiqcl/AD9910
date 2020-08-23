@@ -621,7 +621,7 @@ class AD9910:
         data_to_send = ( ( DEST_DDS_PARALLEL << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 ) \
                         | ( parallel_en << 18  ) \
-                        | ( 0b00 << 16 ) \
+                        | ( 0b10 << 16 ) \
                         | ( POW_16bit & 0xffff ))
         data_int_list = self.make_9_int_list(data_to_send)
         
@@ -665,6 +665,16 @@ class AD9910:
     
     def io_update(self, ch1, ch2):
         self.fpga.send_command('DDS IO UPDATE')
+        
+    #def read32
+    #def read64
+    #def auto_start
+    #def auto_stop
+    #def write_fifo
+    #def read_rti_fifo
+    #def set_counter
+    #def override_enable
+    #def override_disable
         
 
 if __name__ == "__main__":
