@@ -39,9 +39,9 @@ def create_sim_file():
             print('verilog converting end')
             return
         wf.write('    #1000\n')
-        wf.write('    TEMP =((2**512 - 1) - (2**' + str(len(line)) + '- 1)) + 256\'b')
-        wf.write(line)
-        wf.write('\n')
+        wf.write('    TEMP =((2**256 - 1) - (2**' + str(len(line)-1) + '- 1)) + 256\'b')
+        wf.write(line[:-1])
+        wf.write(';\n')
         wf.write('    for( i = 0; i <= MAX_LENGTH - 1 ; i++ ) begin\n')
         wf.write('        #17361\n')
         wf.write('        Uart_RXD = TEMP[i];\n')

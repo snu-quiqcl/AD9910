@@ -50,14 +50,14 @@ module main(
     output ja_2, // powerdown2
     inout ja_1, //sdio2
     output ja_0, // csb2
-    input jb_0,
-    input jb_1,
-    input jb_2,
-    input jb_3,
-    input jb_4,
-    input jb_5,
-    input jb_6,
-    input jb_7,
+    output jb_0,
+    output jb_1,
+    output jb_2,
+    output jb_3,
+    output jb_4,
+    output jb_5,
+    output jb_6,
+    output jb_7,
     output jc_0,
     output jc_1,
     output jc_2,
@@ -558,6 +558,7 @@ module main(
                             begin
                                 main_state <= MAIN_DRIVER_RESET;
                                 reset_driver <= 1'b1;
+                                reset_counter <= 1'b1;
                             end
                         end
                         
@@ -576,10 +577,12 @@ module main(
                         
                         else if ((CMD_Length == $bits(CMD_AUTO_START)/8) && (CMD_Buffer[$bits(CMD_AUTO_START):1] == CMD_AUTO_START)) begin
                             auto_start <= 1'b1;
+                            start_counter <= 1'b1;
                         end
                         
                         else if ((CMD_Length == $bits(CMD_AUTO_STOP)/8) && (CMD_Buffer[$bits(CMD_AUTO_STOP):1] == CMD_AUTO_STOP)) begin
                             auto_start <= 1'b0;
+                            start_counter <= 1'b0;
                         end
                         
                         else if ((CMD_Length == $bits(CMD_SET_DDS_PIN)/8) && (CMD_Buffer[$bits(CMD_SET_DDS_PIN):1] == CMD_SET_DDS_PIN)) begin
@@ -785,6 +788,10 @@ module main(
                 MAIN_DRIVER_RESET: begin
                         main_state <= MAIN_IDLE;
                         reset_driver <= 1'b0;
+                        reset_counter <= 1'b0;
+                        gpo_selected_en <= 1'b0;
+                        gpo_override_value[OVERRIDE_WIDTH - 1:0] <= 'h0;
+                        gpo_override_en <= 1'b0;
                     end
                     
                 MAIN_SET_COUNTER: begin
