@@ -84,7 +84,7 @@ GENERAL INST
 """
 
 class AD9910:
-    def __init__(self, fpga, min_freq = 10, max_freq = 400, sys_clk = 1000, 
+    def __init__(self, fpga, min_freq = 10 * MHz, max_freq = 400 * MHz, sys_clk = 1000, 
                  dest_val = 1, auto_en = False):                        
         #default min_freq, max_freq should be checked.
         """
@@ -544,9 +544,20 @@ class AD9910:
                      ch1, ch2)
         
     def initialize(self, ch1, ch2):
+        delayed_cycle = 0
         self.set_CFR1(ch1,ch2)
+        if self.auto_en == True: 
+            self.delay_cycle(500)
+            delayed_cycle += 500
         self.set_CFR2(ch1,ch2)
+        if self.auto_en == True: 
+            self.delay_cycle(500)
+            delayed_cycle += 500
         self.set_CFR3(ch1,ch2)
+        if self.auto_en == True: 
+            self.delay_cycle(500)
+            delayed_cycle += 500
+        self.delay_cycle(-delayed_cycle)
         
     def set_CFR1(self, ch1, ch2, ram_en = 0, ram_playback = 0, manual_OSK = 0, 
                  inverse_sinc_filter = 0, internal_porfile = 0, sine = 1,
@@ -837,13 +848,39 @@ class AD9910:
             self.fpga.send_mod_BTF_int_list(data_int_list)
             self.fpga.send_command('DDS IO UPDATE')
     
-    #def auto_start
-    #def auto_stop
+    def auto_mode(self):
+        self.auto_en = True
+        
+    def auto_mode_disable(self):
+        self.auto_en = False
+    
+    def auto_start(self):
+        self.fpga.send_command('AUTO START')
+        
+    def auto_stop(self):
+        self.fpga.send_command('AUTO STOP')
+        
     #def write_fifo
-    #def read_rti_fifo
+    
+    def read_rti_fifo(self):
+        self.fpga.send_command('READ RTI FIFO')
+        
     #def set_counter
-    #def override_enable
-    #def override_disable
+    
+    def override_enable(self):
+        self.fpga.send_command('OVERRIDE EN')
+        
+    def override_disable(self):
+        self.fpga.send_command('OVERRIDE DIS')
+        
+    def now(self):
+        return self.time
+    
+    def set_now_cycle(self, time):
+        self.time = time
+    
+    def reset_driver(self):
+        self.fpga.send_command('RESET DRIVER')
         
 
 if __name__ == "__main__":
