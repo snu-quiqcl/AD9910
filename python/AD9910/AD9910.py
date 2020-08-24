@@ -7,6 +7,7 @@ Created on Thu Aug  6 05:08:40 2020
 
 from Arty_S7_v1_01 import ArtyS7
 #This ArtyS7 is in the AD9912 folder
+from unit_set import *
 
 """
 register address of AD9910 is defined here
@@ -33,16 +34,14 @@ PROFILE6_ADDR           = 0x14
 PROFILE7_ADDR           = 0x15
 RAM_ADDR                = 0x16
 
-DEFAULT_CFR1 = (1 << 16) 
-DEFAULT_CFR2 = ( ( 1 << 24 ) 
-            | ( 1 << 16 ) 
-            | ( 1 << 5 ) )
-DEFAULT_CFR3 = ( ( 1 << 27)
-            | ( 7 << 16 )
-            | ( 1 << 15 )
-            | ( 1 << 14 ) )
-
-PI                      = 3.1415926535897931
+DEFAULT_CFR1            = (1 << 16) 
+DEFAULT_CFR2            = ( ( 1 << 24 ) 
+                        | ( 1 << 16 ) 
+                        | ( 1 << 5 ) )
+DEFAULT_CFR3            = ( ( 1 << 27)
+                        | ( 7 << 16 )
+                        | ( 1 << 15 )
+                        | ( 1 << 14 ) )
 
 DEST_SPI_DATA           = 0x00
 DEST_SPI_CONFIG         = 0x01
@@ -52,16 +51,16 @@ DEST_DDS_PARALLEL       = 0x04
 
 CHANNEL_LENGTH          = 12
 
-SPI_CONFIG_WRITE        = 0 << 31 \
-                        | 0 << 30 \
-                        | 0 << 29 \
-                        | 0b00000000 << 16 \
-                        | 16 << 0
-SPI_CONFIG_READ         = 0 << 31 \
-                        | 1 << 30 \
-                        | 0 << 29 \
-                        | 0b00000000 << 16 \
-                        | 16 << 0
+SPI_CONFIG_WRITE        = ( ( 0 << 31 ) \
+                        | ( 0 << 30 ) \
+                        | ( 0 << 29 ) \
+                        | ( 0b00000000 << 16 ) \
+                        | ( 16 << 0 ) )
+SPI_CONFIG_READ         = ( ( 0 << 31 ) \
+                        | ( 1 << 30 ) \
+                        | ( 0 << 29 ) \
+                        | ( 0b00000000 << 16 ) \
+                        | ( 16 << 0 ) )
                         
 """
 SPI CONFIG
@@ -86,7 +85,7 @@ GENERAL INST
 
 class AD9910:
     def __init__(self, fpga, min_freq = 10, max_freq = 400, sys_clk = 1000, 
-                 unit = 'MHz', dest_val = 1, auto_en = False):                        
+                 dest_val = 1, auto_en = False):                        
         #default min_freq, max_freq should be checked.
         """
         fpga            : ArtyS7
@@ -103,300 +102,451 @@ class AD9910:
         self.code_list = []
         self.time = 0
         self.fm_gain = 0
-        self.spi_config_write = SPI_CONFIG_WRITE
-        self.spi_config_read = SPI_CONFIG_READ
+        self.spi_config = 0
+        self.spi_config_int_list = self.set_config()
         self.cfr1 = [DEFAULT_CFR1, DEFAULT_CFR1]
         self.cfr2 = [DEFAULT_CFR2, DEFAULT_CFR2]
         self.cfr3 = [DEFAULT_CFR3, DEFAULT_CFR3]
+        self.max_freq = max_freq
+        self.min_freq = min_freq
+        self.sys_clk = sys_clk
         
-        if(unit == 'Hz' or unit == 'hz'):
-            self.max_freq = max_freq
-            self.min_freq = min_freq
-            self.sys_clk = sys_clk
-            
-        elif(unit == 'kHz' or unit == 'KHz' or unit == 'Khz' or unit == 'khz'):
-            self.max_freq = max_freq * (10**3)
-            self.min_freq = min_freq * (10**3)
-            self.sys_clk = sys_clk * (10**3)
-            
-        elif(unit == 'mHz' or unit == 'MHz' or unit == 'Mhz' or unit == 'mhz'):
-            self.max_freq = max_freq * (10**6)
-            self.min_freq = min_freq * (10**6)
-            self.sys_clk = sys_clk * (10**6)
-            
-        elif(unit == 'gHz' or unit == 'GHz' or unit == 'Ghz' or unit == 'ghz'):
-            self.max_freq = max_freq * (10**9)
-            self.min_freq = min_freq * (10**9)
-            self.sys_clk = sys_clk * (10**9)
-        else:
-            print('Error in AD9912 constructor: not suitable unit (%s).'\
-                  % unit, 'unit should be \'Hz\', \'kHz\', \'MHz\', \'GHz\'')
+        
     def make_9_int_list(self, data):
         int_list = [ 8 ]
-        int_list.append( ( data // (2 ** 56)) & 0xff )
-        int_list.append( ( data // (2 ** 48)) & 0xff )
-        int_list.append( ( data // (2 ** 40)) & 0xff )
-        int_list.append( ( data // (2 ** 32)) & 0xff )
-        int_list.append( ( data // (2 ** 24)) & 0xff )
-        int_list.append( ( data // (2 ** 16)) & 0xff )
-        int_list.append( ( data // (2 ** 8)) & 0xff )
-        int_list.append( ( data // (2 ** 0)) & 0xff )
+        int_list.append( ( data >> 0  ) & 0xff )
+        int_list.append( ( data >> 8  ) & 0xff )
+        int_list.append( ( data >> 16 ) & 0xff )
+        int_list.append( ( data >> 24 ) & 0xff )
+        int_list.append( ( data >> 32 ) & 0xff )
+        int_list.append( ( data >> 40 ) & 0xff )
+        int_list.append( ( data >> 48 ) & 0xff )
+        int_list.append( ( data >> 56 ) & 0xff )
         
         return int_list
     
-    def delay(self, shift_time, unit = 'ns'):
-        if( unit == 'ns' ):
-            self.time = self.time + (shift_time // 10)
-        elif(unit == 'mu' or unit == 'Mu' or unit == 'mU' or unit == 'MU'):
-            self.time = self.time + shift_time
-        else:
-            print('Error in delay: not suitable unit (%s). unit should be' \
-                  '\'ns\',\'mu\'' % unit)
-            raise ValueError(shift_time)
+    def convert_to_17_int_list(self, data_list):
+        if( len(data_list) != 9 ):
+            print('Error in covert_to_17_int_list : length of data_list'\
+                  ' should be 9')
+            raise ValueError(data_list)
+        
+        int_list = [ 16 ]
+        int_list.append(data_list[0])
+        int_list.append(data_list[1])
+        int_list.append(data_list[2])
+        int_list.append(data_list[3])
+        
+        int_list.append( ( self.time >> 0  ) & 0xff )
+        int_list.append( ( self.time >> 8  ) & 0xff )
+        int_list.append( ( self.time >> 16 ) & 0xff )
+        int_list.append( ( self.time >> 24 ) & 0xff )
+        int_list.append( ( self.time >> 32 ) & 0xff )
+        int_list.append( ( self.time >> 40 ) & 0xff )
+        int_list.append( ( self.time >> 48 ) & 0xff )
+        int_list.append( ( self.time >> 56 ) & 0xff )
+        
+        int_list.append(data_list[4])
+        int_list.append(data_list[5])
+        int_list.append(data_list[6])
+        int_list.append(data_list[7])
+        
+        return int_list
+        
+    def delay_cycle(self, shift_cycle):
+        if(str(type(shift_cycle)) != '<class \'int\'>'):
+            print('Error in delay_cycle : shift_cycle unit should be \'int\'')
+            raise TypeError(shift_cycle)
+            
+        self.time = self.time + shift_cycle
     
-    def write16(self, ch1, ch2, register_addr, register_data, end_spi = 1):
+    def delay(self, shift_second):
+        self.time = self.time + int( shift_second * ( 100000000 ) )
+    
+    def set_config(self, cs = 0, length = 8, end_spi = 0, slave_en = 0, 
+                   lsb_first = 0, dummy = 0, cspol = 0, cpol = 0, cpha = 0, 
+                   clk_div = 16):
+        config = ( ( DEST_SPI_CONFIG  << (CHANNEL_LENGTH + 32) ) \
+                        | ( self.dest_val << 32 )
+                        | ( lsb_first << 31 ) \
+                        | ( slave_en << 30 ) \
+                        | ( end_spi << 29 ) \
+                        | ( dummy << 24 ) \
+                        | ( cs << 16 ) \
+                        | ( ( length - 1 ) << 11 ) \
+                        | ( cspol << 10 ) \
+                        | ( cpol << 9 ) \
+                        | ( cpha << 8 ) \
+                        | ( clk_div << 0 ) )
+            
+        config_int_list = self.make_9_int_list(config)
+        self.spi_config = config
+        self.spi_config_int_list = config_int_list
+        return config_int_list
+    
+    def make_write_list(self, data, length = 8):
+        data_to_send = ( ( DEST_SPI_DATA  << (CHANNEL_LENGTH + 32) ) \
+                        | ( self.dest_val << 32 )
+                        | ( data & 0xffffffff ) )
+        data_int_list = self.make_9_int_list(data_to_send)
+        return data_int_list
+    
+    def write(self, ch1, ch2, register_addr, register_data_list, last_length):
         """
         register_addr   : address of register in DDS. this is int type.
         register_data   : data to be input. this is int type and length in
                         binary should be equal to 16.
         """
-        config_to_send1 = 0
-        config_to_send1 = ( ( DEST_SPI_CONFIG  << (CHANNEL_LENGTH + 32) ) \
-                        | ( self.dest_val << 32 )
-                        | self.config_write \
-                        | end_spi << 29 \
-                        | ( ch1 << 16 ) \
-                        | ( ch2 << 17 ) \
-                        | ( 7 << 11 ) )
-        addr_to_send = 0
-        addr_to_send = ( ( DEST_SPI_DATA  << (CHANNEL_LENGTH + 32) ) \
-                        | ( self.dest_val << 32 )
-                        | register_addr )
-        config_to_send2 = 0
-        config_to_send2 = ( ( DEST_SPI_CONFIG  << (CHANNEL_LENGTH + 32) ) \
-                        | ( self.dest_val << 32 )
-                        | self.config_write \
-                        | end_spi << 29 \
-                        | ( ch1 << 16 ) \
-                        | ( ch2 << 17 ) \
-                        | ( 15 << 11 ) )
-        data_to_send = 0
-        data_to_send = ( ( DEST_SPI_DATA  << (CHANNEL_LENGTH + 32) ) \
-                        | ( self.dest_val << 32 ) \
-                        | register_data )
+        delayed_cycle = 0
+        config_int_list1 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
+                                           length = 8)
         
-        config_int_list1 = self.make_9_int_list(config_to_send1)
-        addr_int_list = self.make_9_int_list(addr_to_send)
-        config_int_list2 = self.make_9_int_list(config_to_send2)
-        data_int_list = self.make_9_int_list(data_to_send)
+        addr_int_list = self.make_write_list(register_addr)
         
-        self.fpga.send_mod_BTF_int_list(config_int_list1)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(addr_int_list)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(config_int_list2)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(data_int_list)
-        self.fpga.send_command('WRITE DDS REG')
-    
-    def write32(self, ch1, ch2, register_addr, register_data, end_spi):
+        if( self.auto_en ):
+            fifo_config_int_list1 = self.convert_to_17_int_list(config_int_list1)
+            self.delay_cycle(1)
+            fifo_addr_int_list = self.convert_to_17_int_list(addr_int_list)
+            self.delay_cycle(600)
+            self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_addr_int_list)
+            self.fpga.send_command('WRITE FIFO')
+            
+            delayed_cycle += 601
+        else:
+            self.fpga.send_mod_BTF_int_list(config_int_list1)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(addr_int_list)
+            self.fpga.send_command('WRITE DDS REG')
+        
+        for i in range(len(register_data_list) - 1):
+            if ( i == 0 ):
+                config_int_list2 = self.set_config( cs =((ch2 << 1)|(ch1 << 0)), 
+                                                   length = 32)
+                if( self.auto_en ):
+                    fifo_config_int_list2 = self.convert_to_17_int_list(config_int_list2)
+                    self.delay_cycle(1)
+                    self.fpga.send_mod_BTF_int_list(fifo_config_int_list2)
+                    self.fpga.send_command('WRITE FIFO')
+                    
+                    delayed_cycle += 1
+                else:
+                    self.fpga.send_mod_BTF_int_list(config_int_list2)
+                    self.fpga.send_command('WRITE FIFO')
+                
+            data_int_list = self.make_write_list(register_data_list[i])
+            if( self.auto_en ):
+                fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
+                self.delay_cycle(600)
+                self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
+                self.fpga.send_command('WRITE FIFO')
+                
+                delayed_cycle += 600
+            else:
+                self.fpga.send_mod_BTF_int_list(data_int_list)
+                self.fpga.send_command('WRITE DDS REG')
+        
+        config_int_list3 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
+                                           length = last_length,
+                                           end_spi = 1 )
+        
+        last_int_list = self.make_write_list(register_data_list[-1] << ( 32 - last_length ) )
+        
+        if( self.auto_en ):
+            fifo_config_int_list3 = self.convert_to_17_int_list(config_int_list3)
+            self.delay_cycle(1)
+            fifo_last_int_list = self.convert_to_17_int_list(last_int_list)
+            self.delay_cycle(600)
+            self.fpga.send_mod_BTF_int_list(fifo_config_int_list3)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_last_int_list)
+            self.fpga.send_command('WRITE FIFO')
+            
+            delayed_cycle += 601
+        else:
+            self.fpga.send_mod_BTF_int_list(config_int_list3)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(last_int_list)
+            self.fpga.send_command('WRITE DDS REG')
+        
+        self.delay_cycle(-delayed_cycle)
+        
+    def write32(self, ch1, ch2, register_addr, register_data):
         """
         register_addr   : address of register in DDS. this is int type.
         register_data   : data to be input. this is int type and length in
                         binary should be equal to 32.
         """
-        config_to_send1 = 0
-        config_to_send1 = ( ( DEST_SPI_CONFIG  << (CHANNEL_LENGTH + 32) ) \
-                        | ( self.dest_val << 32 )
-                        | self.config_write \
-                        | end_spi << 29 \
-                        | ( ch1 << 16 ) \
-                        | ( ch2 << 17 ) \
-                        | ( 7 << 11 ) )
-        addr_to_send = 0
-        addr_to_send = ( ( DEST_SPI_DATA  << (CHANNEL_LENGTH + 32) ) \
-                        | ( self.dest_val << 32 )
-                        | register_addr )
-        config_to_send2 = 0
-        config_to_send2 = ( ( DEST_SPI_CONFIG  << (CHANNEL_LENGTH + 32) ) \
-                        | ( self.dest_val << 32 )
-                        | self.config_write \
-                        | end_spi << 29 \
-                        | ( ch1 << 16 ) \
-                        | ( ch2 << 17 ) \
-                        | ( 31 << 11 ) )
-        data_to_send = 0
-        data_to_send = ( ( DEST_SPI_DATA  << (CHANNEL_LENGTH + 32) ) \
-                        | ( self.dest_val << 32 ) \
-                        | register_data )
+        delayed_cycle = 0
+        config_int_list1 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
+                                           length = 8)
+        addr_int_list = self.make_write_list(register_addr)
+        config_int_list2 = self.set_config( cs = ((ch2 << 1)|(ch1 << 0)), 
+                                           length = 32, end_spi = 1 )
+        data_int_list = self.make_write_list(register_data)
         
-        config_int_list1 = self.make_9_int_list(config_to_send1)
-        addr_int_list = self.make_9_int_list(addr_to_send)
-        config_int_list2 = self.make_9_int_list(config_to_send2)
-        data_int_list = self.make_9_int_list(data_to_send)
+        if( self.auto_en ):
+            fifo_config_int_list1 = self.convert_to_17_int_list(config_int_list1)
+            self.delay_cycle(1)
+            fifo_addr_int_list = self.convert_to_17_int_list(addr_int_list)
+            self.delay_cycle(600)
+            fifo_config_int_list2 = self.convert_to_17_int_list(config_int_list2)
+            self.delay_cycle(1)
+            fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
+            self.delay_cycle(600)
+            self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_addr_int_list)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_config_int_list2)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
+            self.fpga.send_command('WRITE FIFO')
+            
+            delayed_cycle += 1202
+        else:
+            self.fpga.send_mod_BTF_int_list(config_int_list1)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(addr_int_list)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(config_int_list2)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(data_int_list)
+            self.fpga.send_command('WRITE DDS REG')
         
-        self.fpga.send_mod_BTF_int_list(config_int_list1)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(addr_int_list)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(config_int_list2)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(data_int_list)
-        self.fpga.send_command('WRITE DDS REG')
+        self.delay_cycle(-delayed_cycle)
     
-    def write64(self, ch1, ch2, register_addr, register_data, end_spi = 1):
+    def write64(self, ch1, ch2, register_addr, register_data):
         """
         register_addr   : address of register in DDS. this is int type.
         register_data   : data to be input. this is int type and length in
                         binary should be equal to 32.
         """
-        config_to_send1 = 0
-        config_to_send1 = ( ( DEST_SPI_CONFIG  << (CHANNEL_LENGTH + 32) ) \
-                        | ( self.dest_val << 32 )
-                        | self.config_write \
-                        | 0 << 29 \
-                        | ( ch1 << 16 ) \
-                        | ( ch2 << 17 ) \
-                        | ( 7 << 11 ) )
-        addr_to_send = 0
-        addr_to_send = ( ( DEST_SPI_DATA  << (CHANNEL_LENGTH + 32) ) \
-                        | ( self.dest_val << 32 )
-                        | register_addr )
-        config_to_send2 = 0
-        config_to_send2 = ( ( DEST_SPI_CONFIG  << (CHANNEL_LENGTH + 32) ) \
-                        | ( self.dest_val << 32 )
-                        | self.config_write \
-                        | end_spi << 29 \
-                        | ( ch1 << 16 ) \
-                        | ( ch2 << 17 ) \
-                        | ( 15 << 11 ) )
-        data_to_send1 = 0
-        data_to_send1 = ( ( DEST_SPI_DATA  << (CHANNEL_LENGTH + 32) ) \
-                        | ( self.dest_val << 32 )
-                        | ( ( register_data // ( 2 ** 32 )) & 0xff  ) )
-        data_to_send2 = 0
-        data_to_send2 = ( ( DEST_SPI_DATA  << (CHANNEL_LENGTH + 32) ) \
-                        | ( self.dest_val << 32 ) \
-                        | ( register_data & 0xff  ) )
+        delayed_cycle = 0
+        config_int_list1 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
+                                           length = 8)
+        addr_int_list = self.make_write_list(register_addr)
+        config_int_list2 = self.set_config( cs = ((ch2 << 1)|(ch1 << 0)), 
+                                           length = 32 )
+        data_int_list1 = self.make_write_list(register_data >> 32)
+        config_int_list3 = self.set_config( cs = ((ch2 << 1)|(ch1 << 0)), 
+                                           length = 32, end_spi = 1 )
+        data_int_list2 = self.make_write_list(register_data)
         
-        config_int_list1 = self.make_9_int_list(config_to_send1)
-        addr_int_list = self.make_9_int_list(addr_to_send)
-        config_int_list2 = self.make_9_int_list(config_to_send2)
-        data_int_list1 = self.make_9_int_list(data_to_send1)
-        data_int_list2 = self.make_9_int_list(data_to_send2)
+        if( self.auto_en ):
+            fifo_config_int_list1 = self.convert_to_17_int_list(config_int_list1)
+            self.delay_cycle(1)
+            fifo_addr_int_list = self.convert_to_17_int_list(addr_int_list)
+            self.delay_cycle(600)
+            fifo_config_int_list2 = self.convert_to_17_int_list(config_int_list2)
+            self.delay_cycle(1)
+            fifo_data_int_list1 = self.convert_to_17_int_list(data_int_list1)
+            self.delay_cycle(600)
+            fifo_config_int_list3 = self.convert_to_17_int_list(config_int_list3)
+            self.delay_cycle(1)
+            fifo_data_int_list2 = self.convert_to_17_int_list(data_int_list2)
+            self.delay_cycle(600)
+            self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_addr_int_list)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_config_int_list2)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_data_int_list1)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_config_int_list3)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_data_int_list2)
+            self.fpga.send_command('WRITE FIFO')
+            
+            delayed_cycle += 1803
+        else:
+            self.fpga.send_mod_BTF_int_list(config_int_list1)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(addr_int_list)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(config_int_list2)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(data_int_list1)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(config_int_list3)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(data_int_list2)
+            self.fpga.send_command('WRITE DDS REG')
+            
+        self.delay_cycle(-delayed_cycle)
         
-        self.fpga.send_mod_BTF_int_list(config_int_list1)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(addr_int_list)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(config_int_list2)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(data_int_list1)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(data_int_list2)
-        self.fpga.send_command('WRITE DDS REG')
+    def read32(self, ch1, ch2, register_addr):
+        """
+        register_addr   : address of register in DDS. this is int type.
+        """
+        delayed_cycle = 0
+        if( ch1 == ch2 ):
+            print('Error in read32 : only one channel should be selected or'\
+                  'not selected')
+            raise ValueError( bin( ch2 << 1 | ch1 ) )
+        
+        config_int_list1 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
+                                           length = 8, end_spi = 0, 
+                                           slave_en = 0 )
+        addr_int_list = self.make_write_list(register_addr)
+        config_int_list2 = self.set_config( cs = ((ch2 << 1)|(ch1 << 0)), 
+                                           length = 32, end_spi = 1,
+                                           slave_en = 1 )
+        data_int_list = self.make_write_list(0)
+        
+        if( self.auto_en ):
+            fifo_config_int_list1 = self.convert_to_17_int_list(config_int_list1)
+            self.delay_cycle(1)
+            fifo_addr_int_list = self.convert_to_17_int_list(addr_int_list)
+            self.delay_cycle(600)
+            fifo_config_int_list2 = self.convert_to_17_int_list(config_int_list2)
+            self.delay_cycle(1)
+            fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
+            self.delay_cycle(600)
+            self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_addr_int_list)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_config_int_list2)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
+            self.fpga.send_command('WRITE FIFO')
+            
+            delayed_cycle += 1202
+        else:
+            self.fpga.send_mod_BTF_int_list(config_int_list1)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(addr_int_list)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(config_int_list2)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(data_int_list)
+            self.fpga.send_command('WRITE DDS REG')
+            
+        self.delay_cycle(-delayed_cycle)
+        
+    def read64(self, ch1, ch2, register_addr, end_spi = 1):
+        """
+        register_addr   : address of register in DDS. this is int type.
+        """
+        delayed_cycle = 0
+        if( ch1 == ch2 ):
+            print('Error in read32 : only one channel should be selected or'\
+                  'not selected')
+            raise ValueError( bin( ch2 << 1 | ch1 ) )
+        
+        config_int_list1 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
+                                           length = 8)
+        addr_int_list = self.make_write_list(register_addr)
+        config_int_list2 = self.set_config( cs = ((ch2 << 1)|(ch1 << 0)), 
+                                           length = 32, end_spi = 0, 
+                                           slave_en = 1 )
+        data_int_list = self.make_write_list(0)
+        config_int_list3 = self.set_config( cs = ((ch2 << 1)|(ch1 << 0)), 
+                                           length = 32, end_spi = 1,
+                                           slave_en = 1 )
+        data_int_list = self.make_write_list(0)
+        
+        if( self.auto_en ):
+            fifo_config_int_list1 = self.convert_to_17_int_list(config_int_list1)
+            self.delay_cycle(1)
+            fifo_addr_int_list = self.convert_to_17_int_list(addr_int_list)
+            self.delay_cycle(600)
+            fifo_config_int_list2 = self.convert_to_17_int_list(config_int_list2)
+            self.delay_cycle(1)
+            fifo_data_int_list1 = self.convert_to_17_int_list(data_int_list)
+            self.delay_cycle(600)
+            fifo_config_int_list3 = self.convert_to_17_int_list(config_int_list3)
+            self.delay_cycle(1)
+            fifo_data_int_list2 = self.convert_to_17_int_list(data_int_list)
+            self.delay_cycle(600)
+            self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_addr_int_list)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_config_int_list2)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_data_int_list1)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_config_int_list3)
+            self.fpga.send_command('WRITE FIFO')
+            self.fpga.send_mod_BTF_int_list(fifo_data_int_list2)
+            self.fpga.send_command('WRITE FIFO')
+            
+            delayed_cycle += 1803
+        else:
+            self.fpga.send_mod_BTF_int_list(config_int_list1)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(addr_int_list)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(config_int_list2)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(data_int_list)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(config_int_list3)
+            self.fpga.send_command('WRITE DDS REG')
+            self.fpga.send_mod_BTF_int_list(data_int_list)
+            self.fpga.send_command('WRITE DDS REG')
+            
+        self.delay_cycle(-delayed_cycle)
     
-    def frequency_to_FTW(self, freq, unit = 'MHz'):
+    def frequency_to_FTW(self, freq):
         """
         makes frequency to FTW of DDS. Not need to consider sys_clk.
         Note that FTW is 32 bits in AD9910
         """
-        if(unit == 'Hz' or unit == 'hz'):
-            FTW = int((2**32)*(freq*(10**0)/(self.sys_clk)))
-        elif(unit == 'kHz' or unit == 'KHz' or unit == 'Khz' or unit == 'khz'):
-            FTW = int((2**32)*(freq*(10**3)/(self.sys_clk)))
-        elif(unit == 'mHz' or unit == 'MHz' or unit == 'Mhz' or unit == 'mhz'):
-            FTW = int((2**32)*(freq*(10**6)/(self.sys_clk)))
-        elif(unit == 'gHz' or unit == 'GHz' or unit == 'Ghz' or unit == 'ghz'):
-            FTW = int((2**32)*(freq*(10**9)/(self.sys_clk)))
-        else:
-            print('Error in frequency_to_FTW: not suitable unit (%s).'\
-                  % unit, 'unit should be \'Hz\', \'kHz\', \'MHz\', \'GHz\'')
+        FTW = int((2**32)*(freq*(10**0)/(self.sys_clk))) & 0xffffffff
+        
         return FTW
     
-    def phase_to_POW(self, phase, unit = 'FRAC'):
-        if (unit == 'FRAC' or unit == 'frac'):
-            phase_in_frac = phase
-            
-        elif(unit == 'RAD' or unit == 'rad' ):
-            phase_in_frac = phase/(2*PI)
-            
-        elif(unit == 'DEG' or unit == 'deg'):
-            phase_in_frac = phase/(360)
-            
-        else:
-            print('Error in set_phase: not suitable unit (%s).'\
-                  % unit, 'unit should be \'FRAC\', \'RAD\', \'DEG\'')
-        POW = int( phase_in_frac * (2**16) )
+    def phase_to_POW(self, phase):
+        """
+        notice that defulat unit is radian
+        """
+        POW = int( phase * (2**16) / (2*PI) ) & 0xffff
+        
         return POW
     
     def amplitude_to_ASF(self, amplitude_frac):
         if(amplitude_frac > 1 or amplitude_frac < 0):
             print('Error in amplitude_to_ASF: ampltiude range error (%s).'\
                   % amplitude_frac, 'ampltiude should be in 0 to 1')
-        ASF = int( amplitude_frac * ( 0x3fff ) )
+                
+        ASF = int( amplitude_frac * ( 0x3fff ) ) & 0x3fff
+        
         return ASF
         
-    def set_frequency(self, ch1, ch2, freq, unit = 'MHz'):
+    def set_frequency(self, ch1, ch2, freq):
         """
         freq            : frequency user want to set
         unit            : unit of frequency. default is MHz
         """
-        if (unit == 'Hz' or unit == 'hz'):
-            freq_in_Hz = freq
-            
-        elif(unit == 'kHz' or unit == 'KHz' or unit == 'Khz' or unit == 'khz'):
-            freq_in_Hz = freq * (10**3)
-            
-        elif(unit == 'mHz' or unit == 'MHz' or unit == 'Mhz' or unit == 'mhz'):
-            freq_in_Hz = freq * (10**6)
-            
-        elif(unit == 'gHz' or unit == 'GHz' or unit == 'Ghz' or unit == 'ghz'):
-            freq_in_Hz = freq * (10**9) 
-            
-        else:
-            print('Error in set_frequency: not suitable unit (%s).'\
-                  % unit, 'unit should be \'Hz\', \'kHz\', \'MHz\', \'GHz\'')
-                
-        if( freq_in_Hz < self.min_freq or freq_in_Hz > self.max_freq ):
-            print('Error in set_frequency: frequency should be between %d'\
-                  'and %d' % (self.min_freq, self.max_freq))
-            raise ValueError(freq_in_Hz)
+        freq_in_Hz = freq  
         
         self.write32(FTW_ADDR, self.frequency_to_FTW(freq_in_Hz, unit = 'Hz'), 
                      ch1, ch2)
         
-    def set_phase(self, ch1, ch2, phase, unit = 'FRAC'):
+    def set_phase(self, ch1, ch2, phase):
         """
         phase           : phase user want to set
         unit            : unit of phase. defualt is fraction of 2 pi
         """
-        if (unit == 'FRAC' or unit == 'frac'):
-            phase_in_frac = phase
-            
-        elif(unit == 'RAD' or unit == 'rad' ):
-            phase_in_frac = phase/(2*PI)
-            
-        elif(unit == 'DEG' or unit == 'deg'):
-            phase_in_frac = phase/(360)
-            
-        else:
-            print('Error in set_phase: not suitable unit (%s).'\
-                  % unit, 'unit should be \'FRAC\', \'RAD\', \'DEG\'')
-        self.write16(POW_ADDR, self.phase_to_POW(phase_in_frac, unit = 'FRAC'),
-                     ch1, ch2)
+        self.write16(POW_ADDR, self.phase_to_POW(phase),ch1, ch2)
         
     def set_amplitude(self, ch1, ch2, amplitude_frac):
         if(amplitude_frac > 1 or amplitude_frac < 0):
             print('Error in amplitude_to_ASF: ampltiude range error (%s).'\
                   % amplitude_frac, 'ampltiude should be in 0 to 1')
+                
         self.write32(ASF_ADDR, ( self.amplitude_to_ASF(amplitude_frac) << 2 ), 
                      ch1, ch2)
         
-    def initialize(self):
-        self.set_CFR1(1,1)
-        self.set_CFR2(1,1)
-        self.set_CFR3(1,1)
+    def initialize(self, ch1, ch2):
+        self.set_CFR1(ch1,ch2)
+        self.set_CFR2(ch1,ch2)
+        self.set_CFR3(ch1,ch2)
         
     def set_CFR1(self, ch1, ch2, ram_en = 0, ram_playback = 0, manual_OSK = 0, 
                  inverse_sinc_filter = 0, internal_porfile = 0, sine = 1,
@@ -432,7 +582,7 @@ class AD9910:
             self.cfr1[0] = CFR1_setting
         if( ch2 == 1 ):
             self.cfr1[1] = CFR1_setting
-        self.write32(CFR1_ADDR, CFR1_setting, ch1, ch2)
+        self.write32(ch1, ch2, CFR1_ADDR, CFR1_setting)
         
     def set_CFR2(self, ch1, ch2, amp_en_single_tone = 1, internal_IO_update = 0, 
                  SYNC_CLK_en = 0, DRG_dest = 0, DRG_en = 0, 
@@ -463,7 +613,7 @@ class AD9910:
             self.cfr2[0] = CFR2_setting
         if( ch2 == 1 ):
             self.cfr2[1] = CFR2_setting
-        self.write32(CFR2_ADDR, CFR2_setting, ch1, ch2)
+        self.write32(ch1, ch2, CFR2_ADDR, CFR2_setting)
         
     def set_CFR3(self, ch1, ch2, DRV0 = 0, PLL_VCO = 0, I_CP = 0, 
                  REFCLK_div_bypass = 1, REFCLK_input_div_reset = 1, 
@@ -484,62 +634,39 @@ class AD9910:
             self.cfr3[0] = CFR3_setting
         if( ch2 == 1 ):
             self.cfr3[1] = CFR3_setting
-        self.write32(CFR3_ADDR, CFR3_setting, ch1, ch2)
+        self.write32(ch1, ch2, CFR3_ADDR, CFR3_setting)
     
-    def set_profile_register(self, freq, phase, amplitude, ch1, ch2, profile = 0, 
-                    unit_freq = 'MHz', unit_phase = 'FRAC'):
-        if (unit_freq == 'Hz' or unit_freq == 'hz'):
-            freq_in_Hz = freq
-            
-        elif(unit_freq == 'kHz' or unit_freq == 'KHz' or 
-             unit_freq == 'Khz' or unit_freq == 'khz'):
-            freq_in_Hz = freq * (10**3)
-            
-        elif(unit_freq == 'mHz' or unit_freq == 'MHz' or 
-             unit_freq == 'Mhz' or unit_freq == 'mhz'):
-            freq_in_Hz = freq * (10**6)
-            
-        elif(unit_freq == 'gHz' or unit_freq == 'GHz' or 
-             unit_freq == 'Ghz' or unit_freq == 'ghz'):
-            freq_in_Hz = freq * (10**9) 
-            
-        else:
-            print('Error in set_frequency: not suitable unit (%s).'\
-                  % unit_freq,'unit should be \'Hz\', \'kHz\', \'MHz\','\
-                  ' \'GHz\'')
+    def set_profile_register(self, ch1, ch2, freq, phase, amplitude, 
+                             profile = 0 ):
+        freq_in_Hz = freq
                 
         if( freq_in_Hz < self.min_freq or freq_in_Hz > self.max_freq ):
             print('Error in set_frequency: frequency should be between %d'\
                   'and %d' % (self.min_freq, self.max_freq))
                 
-        if (unit_phase == 'FRAC' or unit_phase == 'frac'):
-            phase_in_frac = phase
+        phase_in_rad = phase
             
-        elif(unit_phase == 'RAD' or unit_phase == 'rad' ):
-            phase_in_frac = phase/(2*PI)
-            
-        elif(unit_phase == 'DEG' or unit_phase == 'deg'):
-            phase_in_frac = phase/(360)
-            
-        else:
-            print('Error in set_phase: not suitable unit (%s).'\
-                  % unit_phase, 'unit should be \'FRAC\', \'RAD\', \'DEG\'')
-        FTW = self.frequency_to_FTW(freq_in_Hz, unit = 'Hz')
-        POW = self.phase_to_POW(phase_in_frac, unit = 'FRAC')
+        FTW = self.frequency_to_FTW(freq_in_Hz)
+        POW = self.phase_to_POW(phase_in_rad)
         ASF = self.amplitude_to_ASF(amplitude)
         data = ( ASF << 48 ) | ( POW << 32 ) | ( FTW << 0 )
-        self.write64(PROFILE0_ADDR + profile,data, ch1, ch2)
+        self.write64(ch1, ch2, PROFILE0_ADDR + profile, data)
         
     def set_profile_pin(self, profile1, profile2):
         data_to_send = 0
         data_to_send = ( ( DEST_DDS_PROFILE << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 ) \
                         | ( profile1 & 0b111  ) \
-                        | ( ( profile2 << 3 ) & 0b111000 ))
+                        | ( ( profile2 << 3 ) & 0b111000 ) )
         data_int_list = self.make_9_int_list(data_to_send)
         
-        self.fpga.send_mod_BTF_int_list(data_int_list)
-        self.fpga.send_command('SET DDS PIN')
+        if( self.auto_en ):
+            fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
+            self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
+            self.fpga.send_command('WRITE FIFO')
+        else:
+            self.fpga.send_mod_BTF_int_list(data_int_list)
+            self.fpga.send_command('SET DDS PIN')
             
     def bits_to_represent(self, num):
         val = num
@@ -552,16 +679,16 @@ class AD9910:
     
     def set_fm_gain(self, fm_gain):
         self.fm_gain = fm_gain & 0xf
-        self.cfr1 = self.cfr1 - ( self.cfr1 & 0xf )
-        self.cfr1 = self.cfr1 + fm_gain & 0xf
-        self.write32(CFR1_ADDR, self.cfr1, 1, 0)
+        self.cfr1[0] = self.cfr1[0] - ( self.cfr1[0] & 0xf )
+        self.cfr1[0] = self.cfr1[0] + fm_gain & 0xf
+        self.write32(1, 0, CFR1_ADDR, self.cfr1[0])
     
-    def minimum_fm_gain(self, frequency, unit = 'MHz'):
+    def minimum_fm_gain(self, frequency):
         return max(min(self.bits_to_represent(\
-                        self.frequency_to_FTW(frequency, unit)) - 16, 15),0)
+                        self.frequency_to_FTW(frequency)) - 16, 15),0)
     
     def set_parallel_frequency(self, frequency, set_fm_gain = True, \
-                               parallel_en = 1, unit = 'MHz'):
+                               parallel_en = 1):
         """
         frequency : frequency to set
         set_fm_gain : whether to set fm_gain dynamically 
@@ -569,14 +696,17 @@ class AD9910:
         """
         
         data_to_send = 0
+        delayed_cycle = 0
         
-        fm_gain = self.minimum_fm_gain(frequency, unit)
+        fm_gain = self.minimum_fm_gain(frequency)
         
-        FTW_16bit = int(self.frequency_to_FTW(frequency, unit) // \
+        FTW_16bit = int(self.frequency_to_FTW(frequency) // \
                         ( 2 ** fm_gain ))
         
         if( fm_gain != self.fm_gain and set_fm_gain == True ):
             self.set_fm_gain(fm_gain)
+            self.delay_cycle(1000)
+            delayed_cycle += 1000
         
         data_to_send = ( ( DEST_DDS_PARALLEL << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 ) \
@@ -585,9 +715,16 @@ class AD9910:
                         | ( FTW_16bit & 0xffff ))
         data_int_list = self.make_9_int_list(data_to_send)
         
-        self.fpga.send_mod_BTF_int_list(data_int_list)
-        self.fpga.send_command('SET DDS PIN')
-    
+        if( self.auto_en ):
+            fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
+            self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
+            self.fpga.send_command('WRITE FIFO')
+        else:
+            self.fpga.send_mod_BTF_int_list(data_int_list)
+            self.fpga.send_command('SET DDS PIN')
+            
+        self.delay_cycle(-delayed_cycle)
+        
     def set_parallel_amplitude(self, amplitude, parallel_en = 1):
         """
         amplitude : frequency to set
@@ -605,10 +742,15 @@ class AD9910:
                         | ( ( ASF_14bit & 0x3fff ) << 2 ) )
         data_int_list = self.make_9_int_list(data_to_send)
         
-        self.fpga.send_mod_BTF_int_list(data_int_list)
-        self.fpga.send_command('SET DDS PIN')
+        if( self.auto_en ):
+            fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
+            self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
+            self.fpga.send_command('WRITE FIFO')
+        else:
+            self.fpga.send_mod_BTF_int_list(data_int_list)
+            self.fpga.send_command('SET DDS PIN')
     
-    def set_parallel_phase(self, phase, parallel_en = 1, unit = 'FRAC'):
+    def set_parallel_phase(self, phase, parallel_en = 1):
         """
         phase : phase to set
         parallel_en : whether to set TxEnable high
@@ -621,16 +763,20 @@ class AD9910:
         data_to_send = ( ( DEST_DDS_PARALLEL << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 ) \
                         | ( parallel_en << 18  ) \
-                        | ( 0b10 << 16 ) \
+                        | ( 0b01 << 16 ) \
                         | ( POW_16bit & 0xffff ))
         data_int_list = self.make_9_int_list(data_to_send)
         
-        self.fpga.send_mod_BTF_int_list(data_int_list)
-        self.fpga.send_command('SET DDS PIN')
+        if( self.auto_en ):
+            fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
+            self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
+            self.fpga.send_command('WRITE FIFO')
+        else:
+            self.fpga.send_mod_BTF_int_list(data_int_list)
+            self.fpga.send_command('SET DDS PIN')
     
     def set_parallel_phasor(self, amplitude, phase, set_amplitude_lsb = False,\
-                            set_phase_lsb = False, parallel_en = 1, \
-                            phase_unit = 'FRAC'):
+                            set_phase_lsb = False, parallel_en = 1):
         """
         amplitude : amplitude to set
         phase : phase to set
@@ -640,17 +786,22 @@ class AD9910:
         """
         
         data_to_send = 0
+        delayed_cycle = 0
         
         ASF = self.amplitude_to_ASF(amplitude)
         ASF_8bit = ( ASF >> 6 ) & 0xff
         
-        POW = self.phase_to_POW(phase, phase_unit)
+        POW = self.phase_to_POW(phase)
         POW_8bit = ( POW >> 8 ) & 0xff
         
         if( set_amplitude_lsb == True ):
             self.set_amplitude(1, 0, amplitude)
+            self.delay_cycle(1000)
+            delayed_cycle += 1000
         if( set_phase_lsb == True):
-            self.set_phase(1, 0, phase, phase_unit)
+            self.set_phase(1, 0, phase)
+            self.delay_cycle(1000)
+            delayed_cycle += 1000
             
         data_to_send = ( ( DEST_DDS_PARALLEL << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 ) \
@@ -660,14 +811,32 @@ class AD9910:
                         | ( POW_8bit ) )
         data_int_list = self.make_9_int_list(data_to_send)
         
-        self.fpga.send_mod_BTF_int_list(data_int_list)
-        self.fpga.send_command('SET DDS PIN')
+        if( self.auto_en ):
+            fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
+            self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
+            self.fpga.send_command('WRITE FIFO')
+        else:
+            self.fpga.send_mod_BTF_int_list(data_int_list)
+            self.fpga.send_command('SET DDS PIN')
+            
+        self.delay_cycle(-delayed_cycle)
     
     def io_update(self, ch1, ch2):
-        self.fpga.send_command('DDS IO UPDATE')
+        data_to_send = 0
+        data_to_send = ( ( DEST_DDS_IO_UPDATE << (CHANNEL_LENGTH + 32) ) \
+                        | ( self.dest_val << 32 ) \
+                        | ( ( ch2 & 0b1 ) << 1 ) \
+                        | ( ch1 & 0b1 ) )
+        data_int_list = self.make_9_int_list(data_to_send)
         
-    #def read32
-    #def read64
+        if( self.auto_en ):
+            fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
+            self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
+            self.fpga.send_command('WRITE FIFO')
+        else:
+            self.fpga.send_mod_BTF_int_list(data_int_list)
+            self.fpga.send_command('DDS IO UPDATE')
+    
     #def auto_start
     #def auto_stop
     #def write_fifo
@@ -678,5 +847,10 @@ class AD9910:
         
 
 if __name__ == "__main__":
-    dds = AD9910(None)
-    print(dds.make_header_string(0x11, direction = 'R'))
+    dds = AD9910(ArtyS7(None))
+    #dds.io_update(1,1)
+    dds.auto_en = True
+    dds.io_update(1,1)
+    dds.set_profile_pin(1,1)
+    dds.set_profile_register(1,1,100*MHz,0*RAD,1.0,0)
+    dds.fpga.close()

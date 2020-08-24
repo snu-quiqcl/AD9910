@@ -9,9 +9,10 @@ v1_01: Added read_DNA(), print_idn() methods
 """
 
 import serial
+import os
 
 TEST = 1
-
+    
 class escapeSequenceDetected(Exception):
     def __init__(self, escape_char):
         self.escape_char = escape_char
@@ -27,13 +28,17 @@ class ArtyS7:
     def __init__(self, serialPort):
         if TEST:
             self.com = None
+            self.test_output_file = open(os.getcwd() + '/test_output.txt', 'w')
+            self.test_output_file.write('output of python file\n')
         else:
             self.com = serial.Serial(serialPort, baudrate=57600, timeout=1, \
                 parity='N', bytesize=8, stopbits=2, xonxoff=False, \
                 rtscts=False, dsrdtr=False, writeTimeout = 0 )
         
     def close(self):
-        if TEST != 1:
+        if TEST:
+            self.test_output_file.close()
+        else:
             self.com.close()
 
 
@@ -53,8 +58,13 @@ class ArtyS7:
             string_to_send = string_to_send.encode('latin-1')
             if TEST:
                 print(string_to_send)
-                binary_string = bin(int.from_bytes(string_to_send,'little'))[2:].zfill(8)
+                binary_string = bin(int.from_bytes(string_to_send,'little'))[2:].zfill(8*len(string_to_send))
                 print(binary_string)
+                
+                self.test_output_file.write(str(string_to_send))
+                self.test_output_file.write('\n')
+                self.test_output_file.write(str(binary_string))
+                self.test_output_file.write('\n')
             else:
                 self.com.write(string_to_send)
 
@@ -75,9 +85,15 @@ class ArtyS7:
             data_to_send += '\r\n'
             data_to_send = data_to_send.encode('latin-1')
             if TEST:
+                print(modified_BTF)
                 print(data_to_send)
-                binary_string = bin(int.from_bytes(data_to_send,'little'))[2:].zfill(8)
+                binary_string = bin(int.from_bytes(data_to_send,'little'))[2:].zfill(8*len(data_to_send))
                 print(binary_string)
+                
+                self.test_output_file.write(str(data_to_send))
+                self.test_output_file.write('\n')
+                self.test_output_file.write(str(binary_string))
+                self.test_output_file.write('\n')
             else:
                 self.com.write(data_to_send)
 
@@ -98,9 +114,15 @@ class ArtyS7:
             data_to_send += '\r\n'
             data_to_send = data_to_send.encode('latin-1')
             if TEST:
+                print(modified_BTF)
                 print(data_to_send)
-                binary_string = bin(int.from_bytes(data_to_send,'little'))[2:].zfill(8)
+                binary_string = bin(int.from_bytes(data_to_send,'little'))[2:].zfill(8*len(data_to_send))
                 print(binary_string)
+                
+                self.test_output_file.write(str(data_to_send))
+                self.test_output_file.write('\n')
+                self.test_output_file.write(str(binary_string))
+                self.test_output_file.write('\n')
             else:
                 self.com.write(data_to_send)
 
