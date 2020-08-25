@@ -111,13 +111,12 @@ class AD9910:
         self.min_freq = min_freq
         self.sys_clk = sys_clk
         self.write_32_duration = 1000
-        self.write_64_duration = 2000
+        self.write_64_duration = 4000
         self.read_32_duration  = 1000
-        self.read_64_duration  = 2000
+        self.read_64_duration  = 4000
         
         
-    def make_9_int_list(self, data):
-        #int_list = [ 8 ]
+    def make_8_int_list(self, data):
         int_list = []
         int_list.append( ( data >> 56 ) & 0xff )
         int_list.append( ( data >> 48 ) & 0xff )
@@ -130,16 +129,12 @@ class AD9910:
         
         return int_list
     
-    def convert_to_17_int_list(self, data_list):
-        #if( len(data_list) != 9 ):
+    def convert_to_16_int_list(self, data_list):
         if( len(data_list) != 8 ):
             print('Error in covert_to_17_int_list : length of data_list'\
                   ' should be 8')
             raise ValueError(data_list)
         
-        #int_list = [ 16 ]
-        print('time:', end = '')
-        print(self.time)
         int_list = []
         int_list.append(data_list[0])
         int_list.append(data_list[1])
@@ -190,7 +185,7 @@ class AD9910:
                         | ( cpha << 8 ) \
                         | ( clk_div << 0 ) )
             
-        config_int_list = self.make_9_int_list(config)
+        config_int_list = self.make_8_int_list(config)
         self.spi_config = config
         self.spi_config_int_list = config_int_list
         return config_int_list
@@ -199,7 +194,7 @@ class AD9910:
         data_to_send = ( ( DEST_SPI_DATA  << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 )
                         | ( data & 0xffffffff ) )
-        data_int_list = self.make_9_int_list(data_to_send)
+        data_int_list = self.make_8_int_list(data_to_send)
         return data_int_list
     
     def write(self, ch1, ch2, register_addr, register_data_list, last_length):
@@ -212,12 +207,12 @@ class AD9910:
         config_int_list1 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
                                            length = 8)
         
-        addr_int_list = self.make_write_list(register_addr)
+        addr_int_list = self.make_write_list(register_addr << 24)
         
         if( self.auto_en ):
-            fifo_config_int_list1 = self.convert_to_17_int_list(config_int_list1)
+            fifo_config_int_list1 = self.convert_to_16_int_list(config_int_list1)
             self.delay_cycle(1)
-            fifo_addr_int_list = self.convert_to_17_int_list(addr_int_list)
+            fifo_addr_int_list = self.convert_to_16_int_list(addr_int_list)
             self.delay_cycle(self.write_32_duration)
             self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
             self.fpga.send_command('WRITE FIFO')
@@ -236,7 +231,7 @@ class AD9910:
                 config_int_list2 = self.set_config( cs =((ch2 << 1)|(ch1 << 0)), 
                                                    length = 32)
                 if( self.auto_en ):
-                    fifo_config_int_list2 = self.convert_to_17_int_list(config_int_list2)
+                    fifo_config_int_list2 = self.convert_to_16_int_list(config_int_list2)
                     self.delay_cycle(1)
                     self.fpga.send_mod_BTF_int_list(fifo_config_int_list2)
                     self.fpga.send_command('WRITE FIFO')
@@ -248,7 +243,7 @@ class AD9910:
                 
             data_int_list = self.make_write_list(register_data_list[i])
             if( self.auto_en ):
-                fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
+                fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
                 self.delay_cycle(self.write_32_duration)
                 self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
                 self.fpga.send_command('WRITE FIFO')
@@ -265,9 +260,9 @@ class AD9910:
         last_int_list = self.make_write_list(register_data_list[-1] << ( 32 - last_length ) )
         
         if( self.auto_en ):
-            fifo_config_int_list3 = self.convert_to_17_int_list(config_int_list3)
+            fifo_config_int_list3 = self.convert_to_16_int_list(config_int_list3)
             self.delay_cycle(1)
-            fifo_last_int_list = self.convert_to_17_int_list(last_int_list)
+            fifo_last_int_list = self.convert_to_16_int_list(last_int_list)
             self.delay_cycle(self.write_32_duration)
             self.fpga.send_mod_BTF_int_list(fifo_config_int_list3)
             self.fpga.send_command('WRITE FIFO')
@@ -292,19 +287,19 @@ class AD9910:
         delayed_cycle = 0
         config_int_list1 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
                                            length = 8)
-        addr_int_list = self.make_write_list(register_addr)
+        addr_int_list = self.make_write_list(register_addr << 24)
         config_int_list2 = self.set_config( cs = ((ch2 << 1)|(ch1 << 0)), 
                                            length = 32, end_spi = 1 )
         data_int_list = self.make_write_list(register_data)
         
         if( self.auto_en ):
-            fifo_config_int_list1 = self.convert_to_17_int_list(config_int_list1)
+            fifo_config_int_list1 = self.convert_to_16_int_list(config_int_list1)
             self.delay_cycle(1)
-            fifo_addr_int_list = self.convert_to_17_int_list(addr_int_list)
+            fifo_addr_int_list = self.convert_to_16_int_list(addr_int_list)
             self.delay_cycle(self.write_32_duration)
-            fifo_config_int_list2 = self.convert_to_17_int_list(config_int_list2)
+            fifo_config_int_list2 = self.convert_to_16_int_list(config_int_list2)
             self.delay_cycle(1)
-            fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
+            fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
             self.delay_cycle(self.write_32_duration)
             self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
             self.fpga.send_command('WRITE FIFO')
@@ -337,7 +332,7 @@ class AD9910:
         delayed_cycle = 0
         config_int_list1 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
                                            length = 8)
-        addr_int_list = self.make_write_list(register_addr)
+        addr_int_list = self.make_write_list(register_addr << 24)
         config_int_list2 = self.set_config( cs = ((ch2 << 1)|(ch1 << 0)), 
                                            length = 32 )
         data_int_list1 = self.make_write_list(register_data >> 32)
@@ -346,17 +341,17 @@ class AD9910:
         data_int_list2 = self.make_write_list(register_data)
         
         if( self.auto_en ):
-            fifo_config_int_list1 = self.convert_to_17_int_list(config_int_list1)
+            fifo_config_int_list1 = self.convert_to_16_int_list(config_int_list1)
             self.delay_cycle(1)
-            fifo_addr_int_list = self.convert_to_17_int_list(addr_int_list)
+            fifo_addr_int_list = self.convert_to_16_int_list(addr_int_list)
             self.delay_cycle(self.write_32_duration)
-            fifo_config_int_list2 = self.convert_to_17_int_list(config_int_list2)
+            fifo_config_int_list2 = self.convert_to_16_int_list(config_int_list2)
             self.delay_cycle(1)
-            fifo_data_int_list1 = self.convert_to_17_int_list(data_int_list1)
+            fifo_data_int_list1 = self.convert_to_16_int_list(data_int_list1)
             self.delay_cycle(self.write_32_duration)
-            fifo_config_int_list3 = self.convert_to_17_int_list(config_int_list3)
+            fifo_config_int_list3 = self.convert_to_16_int_list(config_int_list3)
             self.delay_cycle(1)
-            fifo_data_int_list2 = self.convert_to_17_int_list(data_int_list2)
+            fifo_data_int_list2 = self.convert_to_16_int_list(data_int_list2)
             self.delay_cycle(self.write_32_duration)
             self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
             self.fpga.send_command('WRITE FIFO')
@@ -401,20 +396,20 @@ class AD9910:
         config_int_list1 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
                                            length = 8, end_spi = 0, 
                                            slave_en = 0 )
-        addr_int_list = self.make_write_list(register_addr)
+        addr_int_list = self.make_write_list(register_addr << 24)
         config_int_list2 = self.set_config( cs = ((ch2 << 1)|(ch1 << 0)), 
                                            length = 32, end_spi = 1,
                                            slave_en = 1 )
         data_int_list = self.make_write_list(0)
         
         if( self.auto_en ):
-            fifo_config_int_list1 = self.convert_to_17_int_list(config_int_list1)
+            fifo_config_int_list1 = self.convert_to_16_int_list(config_int_list1)
             self.delay_cycle(1)
-            fifo_addr_int_list = self.convert_to_17_int_list(addr_int_list)
+            fifo_addr_int_list = self.convert_to_16_int_list(addr_int_list)
             self.delay_cycle(self.read_32_duration)
-            fifo_config_int_list2 = self.convert_to_17_int_list(config_int_list2)
+            fifo_config_int_list2 = self.convert_to_16_int_list(config_int_list2)
             self.delay_cycle(1)
-            fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
+            fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
             self.delay_cycle(self.read_32_duration)
             self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
             self.fpga.send_command('WRITE FIFO')
@@ -450,7 +445,7 @@ class AD9910:
         
         config_int_list1 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
                                            length = 8)
-        addr_int_list = self.make_write_list(register_addr)
+        addr_int_list = self.make_write_list(register_addr << 24)
         config_int_list2 = self.set_config( cs = ((ch2 << 1)|(ch1 << 0)), 
                                            length = 32, end_spi = 0, 
                                            slave_en = 1 )
@@ -461,17 +456,17 @@ class AD9910:
         data_int_list = self.make_write_list(0)
         
         if( self.auto_en ):
-            fifo_config_int_list1 = self.convert_to_17_int_list(config_int_list1)
+            fifo_config_int_list1 = self.convert_to_16_int_list(config_int_list1)
             self.delay_cycle(1)
-            fifo_addr_int_list = self.convert_to_17_int_list(addr_int_list)
+            fifo_addr_int_list = self.convert_to_16_int_list(addr_int_list)
             self.delay_cycle(self.read_32_duration)
-            fifo_config_int_list2 = self.convert_to_17_int_list(config_int_list2)
+            fifo_config_int_list2 = self.convert_to_16_int_list(config_int_list2)
             self.delay_cycle(1)
-            fifo_data_int_list1 = self.convert_to_17_int_list(data_int_list)
+            fifo_data_int_list1 = self.convert_to_16_int_list(data_int_list)
             self.delay_cycle(self.read_32_duration)
-            fifo_config_int_list3 = self.convert_to_17_int_list(config_int_list3)
+            fifo_config_int_list3 = self.convert_to_16_int_list(config_int_list3)
             self.delay_cycle(1)
-            fifo_data_int_list2 = self.convert_to_17_int_list(data_int_list)
+            fifo_data_int_list2 = self.convert_to_16_int_list(data_int_list)
             self.delay_cycle(self.read_32_duration)
             self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
             self.fpga.send_command('WRITE FIFO')
@@ -680,10 +675,10 @@ class AD9910:
                         | ( self.dest_val << 32 ) \
                         | ( profile1 & 0b111  ) \
                         | ( ( profile2 << 3 ) & 0b111000 ) )
-        data_int_list = self.make_9_int_list(data_to_send)
+        data_int_list = self.make_8_int_list(data_to_send)
         
         if( self.auto_en ):
-            fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
+            fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
             self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
             self.fpga.send_command('WRITE FIFO')
         else:
@@ -727,18 +722,18 @@ class AD9910:
         
         if( fm_gain != self.fm_gain and set_fm_gain == True ):
             self.set_fm_gain(fm_gain)
-            self.delay_cycle(1000)
-            delayed_cycle += 1000
+            self.delay_cycle(self.write_32_duration)
+            delayed_cycle += self.write_32_duration
         
         data_to_send = ( ( DEST_DDS_PARALLEL << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 ) \
                         | ( parallel_en << 18  ) \
                         | ( 0b10 << 16 ) \
                         | ( FTW_16bit & 0xffff ))
-        data_int_list = self.make_9_int_list(data_to_send)
+        data_int_list = self.make_8_int_list(data_to_send)
         
         if( self.auto_en ):
-            fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
+            fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
             self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
             self.fpga.send_command('WRITE FIFO')
         else:
@@ -762,10 +757,10 @@ class AD9910:
                         | ( parallel_en << 18  ) \
                         | ( 0b00 << 16 ) \
                         | ( ( ASF_14bit & 0x3fff ) << 2 ) )
-        data_int_list = self.make_9_int_list(data_to_send)
+        data_int_list = self.make_8_int_list(data_to_send)
         
         if( self.auto_en ):
-            fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
+            fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
             self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
             self.fpga.send_command('WRITE FIFO')
         else:
@@ -787,10 +782,10 @@ class AD9910:
                         | ( parallel_en << 18  ) \
                         | ( 0b01 << 16 ) \
                         | ( POW_16bit & 0xffff ))
-        data_int_list = self.make_9_int_list(data_to_send)
+        data_int_list = self.make_8_int_list(data_to_send)
         
         if( self.auto_en ):
-            fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
+            fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
             self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
             self.fpga.send_command('WRITE FIFO')
         else:
@@ -831,10 +826,10 @@ class AD9910:
                         | ( 0b11 << 16 ) \
                         | ( ASF_8bit << 8 ) \
                         | ( POW_8bit ) )
-        data_int_list = self.make_9_int_list(data_to_send)
+        data_int_list = self.make_8_int_list(data_to_send)
         
         if( self.auto_en ):
-            fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
+            fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
             self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
             self.fpga.send_command('WRITE FIFO')
         else:
@@ -844,16 +839,29 @@ class AD9910:
         self.delay_cycle(-delayed_cycle)
     
     def io_update(self, ch1, ch2):
-        data_to_send = 0
-        data_to_send = ( ( DEST_DDS_IO_UPDATE << (CHANNEL_LENGTH + 32) ) \
+        data_to_send1 = 0
+        data_to_send1 = ( ( DEST_DDS_IO_UPDATE << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 ) \
                         | ( ( ch2 & 0b1 ) << 1 ) \
                         | ( ch1 & 0b1 ) )
-        data_int_list = self.make_9_int_list(data_to_send)
+        data_int_list1 = self.make_8_int_list(data_to_send1)
+        
+        self.delay_cycle(5)
+        
+        data_to_send2 = 0
+        data_to_send2 = ( ( DEST_DDS_IO_UPDATE << (CHANNEL_LENGTH + 32) ) \
+                        | ( self.dest_val << 32 ) \
+                        | ( ( 0 ) << 1 ) \
+                        | ( 0 ) )
+        data_int_list2 = self.make_8_int_list(data_to_send2)
         
         if( self.auto_en ):
-            fifo_data_int_list = self.convert_to_17_int_list(data_int_list)
-            self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
+            fifo_data_int_list1 = self.convert_to_16_int_list(data_int_list1)
+            self.fpga.send_mod_BTF_int_list(fifo_data_int_list1)
+            self.fpga.send_command('WRITE FIFO')
+            
+            fifo_data_int_list2 = self.convert_to_16_int_list(data_int_list2)
+            self.fpga.send_mod_BTF_int_list(fifo_data_int_list2)
             self.fpga.send_command('WRITE FIFO')
         else:
             self.fpga.send_mod_BTF_int_list(data_int_list)
@@ -871,12 +879,20 @@ class AD9910:
     def auto_stop(self):
         self.fpga.send_command('AUTO STOP')
         
-    #def write_fifo
+    def write_fifo(self, data):
+        data_to_send = ( data & 0xffffffffffffffffffffffffffffffff )
+        data_int_list = self.make_8_int_list(data_to_send)
+        self.fpga.send_mod_BTF_int_list(data_int_list)
+        self.fpga.send_command('WRITE FIFO')
     
     def read_rti_fifo(self):
         self.fpga.send_command('READ RTI FIFO')
         
-    #def set_counter
+    def set_counter(self, counter_offset):
+        data_to_send = ( counter_offset & 0xffffffffffffffff )
+        data_int_list = self.make_8_int_list(data_to_send)
+        self.fpga.send_mod_BTF_int_list(data_int_list)
+        self.fpga.send_command('SET COUNTER')
     
     def override_enable(self):
         self.fpga.send_command('OVERRIDE EN')

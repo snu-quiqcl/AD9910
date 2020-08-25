@@ -16,10 +16,10 @@ def exp1():
     dds.auto_mode()
     dds.set_profile_register(ch1 = 1, ch2 = 1, freq = 50*MHz, phase = 0 * RAD, 
                              amplitude = 1.0, profile = 0)
-    dds.delay_cycle(dds.write_64_duration)
-    dds.set_profile_register(ch1 = 1, ch2 = 1, freq = 100*MHz, phase = 0 * RAD, 
-                             amplitude = 1.0, profile = 1)
-    dds.delay_cycle(dds.write_64_duration)
+    dds.delay_cycle(10000)
+    #dds.set_profile_register(ch1 = 1, ch2 = 1, freq = 100*MHz, phase = 0 * RAD, 
+    #                         amplitude = 1.0, profile = 1)
+    dds.delay_cycle(10000)
     dds.set_profile_pin(profile1 = 1, profile2 = 0)
     while True:
         print('[1] auto start')
@@ -68,9 +68,54 @@ def exp3():
     dds.set_profile_pin(profile1 = 1, profile2 = 0)
     dds.set_parallel_amplitude(amplitude = 1.0, parallel_en = 1)
     dds.initialize(1,1)
-    dds.read64(1,0,0x00)
-    dds.read64(0,1,0x01)
-    dds.read64(1,0,0x02)
+    dds.read32(1,0,0x00)
+    dds.read32(0,1,0x01)
+    dds.read32(1,0,0x02)
+    dds.read_rti_fifo()
+    dds.read_rti_fifo()
+    dds.read_rti_fifo()
+    dds.read_rti_fifo()
+    dds.read_rti_fifo()
+    dds.read_rti_fifo()
+    dds.read_rti_fifo()
+    dds.read_rti_fifo()
+    dds.read_rti_fifo()
+    dds.read_rti_fifo()
+    dds.read_rti_fifo()
+    dds.read_rti_fifo()
+    
+    while True:
+        print('[1] auto start')
+        print('[2] auto stop')
+        print('[q] exit')
+        s = input()
+        if( s == '1' ):
+            dds.auto_start()
+        elif( s == '2'):
+            dds.auto_stop()
+        elif( s == 'q'):
+            print('exit exp1')
+            dds.fpga.close()
+            return
+    
+def exp4():
+    dds = AD9910(ArtyS7('COM12'))
+    dds.reset_driver()
+    dds.auto_mode()
+    dds.set_profile_register(ch1 = 1, ch2 = 1, freq = 50*MHz, phase = 0 * RAD, 
+                             amplitude = 1.0, profile = 0)
+    dds.delay_cycle(10000)
+    dds.set_profile_register(ch1 = 1, ch2 = 1, freq = 100*MHz, phase = 0 * RAD, 
+                             amplitude = 1.0, profile = 1)
+    dds.delay_cycle(10000)
+    dds.set_profile_pin(profile1 = 1, profile2 = 0)
+    dds.read32(1,0,0x00)
+    dds.read32(0,1,0x01)
+    dds.read32(1,0,0x02)
+    dds.read_rti_fifo()
+    dds.read_rti_fifo()
+    dds.read_rti_fifo()
+    dds.read_rti_fifo()
     dds.read_rti_fifo()
     dds.read_rti_fifo()
     dds.read_rti_fifo()
@@ -88,12 +133,13 @@ def exp3():
             print('exit exp1')
             dds.fpga.close()
             return
-    
+
 if __name__ == '__main__':
     while True:
         print('[1] exp1')
         print('[2] exp2')
         print('[3] exp3')
+        print('[4] exp4')
         print('[c] convert')
         print('[q] exit')
         s = input()
@@ -103,6 +149,8 @@ if __name__ == '__main__':
             exp2()
         elif( s == '3'):
             exp3()
+        elif( s == '4'):
+            exp4()
         elif( s == 'c'):
             convertor_chain()
         elif( s == 'q'):
