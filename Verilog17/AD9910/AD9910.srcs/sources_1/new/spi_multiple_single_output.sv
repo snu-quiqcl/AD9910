@@ -39,7 +39,8 @@ module spi_multiple_single_output
     output wire [NUM_CS - 1:0] cs
 );
 wire[NUM_CS - 1:0] sdi_dummy;
-assign sdi = sdi_dummy[0];
+
+assign sdi = | (sdi_dummy & cs_val);
 
 genvar j;
 

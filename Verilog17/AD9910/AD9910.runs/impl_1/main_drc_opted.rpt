@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
-| Date         : Sun Aug 23 19:55:30 2020
+| Date         : Tue Aug 25 22:35:31 2020
 | Host         : DESKTOP-DKK2GQK running 64-bit major release  (build 9200)
 | Command      : report_drc -file main_drc_opted.rpt -pb main_drc_opted.pb -rpx main_drc_opted.rpx
 | Design       : main
@@ -24,18 +24,12 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 1
-+--------+----------+--------------------------+------------+
-| Rule   | Severity | Description              | Violations |
-+--------+----------+--------------------------+------------+
-| BUFC-1 | Warning  | Input Buffer Connections | 1          |
-+--------+----------+--------------------------+------------+
+             Violations found: 0
++------+----------+-------------+------------+
+| Rule | Severity | Description | Violations |
++------+----------+-------------+------------+
++------+----------+-------------+------------+
 
 2. REPORT DETAILS
 -----------------
-BUFC-1#1 Warning
-Input Buffer Connections  
-Input buffer AD9910_driver_0/spi_multiple_single_output_0/IOBUF_ios[1].IOBUF_io/IBUF (in AD9910_driver_0/spi_multiple_single_output_0/IOBUF_ios[1].IOBUF_io macro) has no loads. It is recommended to have an input buffer drive an internal load.
-Related violations: <none>
-
 

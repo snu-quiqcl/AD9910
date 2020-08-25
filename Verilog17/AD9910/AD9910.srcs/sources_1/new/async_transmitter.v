@@ -34,6 +34,11 @@ reg [7:0] TxD_dataReg;
 always @(posedge clk) if(TxD_ready & TxD_start) TxD_dataReg <= TxD_data;
 wire [7:0] TxD_dataD = RegisterInputData ? TxD_dataReg : TxD_data;
 
+initial begin
+    BaudGeneratorAcc[BaudGeneratorAccWidth:0] <= 'h0;
+    state <= 1'b0;
+end
+
 always @(posedge clk)
 case(state)
 	4'b0000: if(TxD_start) state <= 4'b0001;

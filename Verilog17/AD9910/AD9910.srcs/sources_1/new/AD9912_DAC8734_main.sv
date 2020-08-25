@@ -279,6 +279,8 @@ module main(
     reg gpo_overrided;
     reg gpo_busy_error;
     reg gpi_data_ready;
+    reg [2:0]busy_wait_counter;
+    
     wire[INST_WIDTH - 1:0] gpi_out;
     wire[ NUM_CS - 1:0] io;
     wire sck;
@@ -329,7 +331,7 @@ module main(
         .gpo_busy_error(gpo_busy_error),
         .gpi_data_ready(gpi_data_ready),
         .gpi_out(gpi_out),
-        .io(io),
+        .io({ja_6, ja_1}),
         .sck(sck),
         .cs(cs),
         .io_update1(io_update1),
@@ -356,7 +358,7 @@ module main(
     //****code modified for AD9910****
     ////
                      
-    assign {ja_7, ja_6, ja_5, ja_4, ja_3, ja_2, ja_1, ja_0}  = {io_update1, io[0], cs[0], parallel_out[18], sck, io_update2, io[1], cs[1]};
+    assign {ja_7, /*ja_6, */ja_5, ja_4, ja_3, ja_2, /*ja_1, */ja_0}  = {io_update1, /*io[0], */cs[0], parallel_out[18], sck, io_update2, /*io[1], */cs[1]};
     assign {jb_7, jb_6, jb_5, jb_4, jb_3, jb_2, jb_1, jb_0}  = {profile1[2], profile1[1], profile1[0], profile2[2], profile2[1], profile2[0], parallel_out[17], parallel_out[16]};
     assign {jc_7, jc_6, jc_5, jc_4, jc_3, jc_2, jc_1, jc_0}  = parallel_out[15:8];
     assign {jd_7, jd_6, jd_5, jd_4, jd_3, jd_2, jd_1, jd_0}  = parallel_out[7:0];
@@ -533,6 +535,7 @@ module main(
                             else begin
                                 main_state <= MAIN_DDS_WAIT_FOR_BUSY_ON;
                                 gpo_selected_en <= 1'b1;
+                                busy_wait_counter[2:0] <= 3'h4;
                                 gpo_override_value[OVERRIDE_WIDTH - 1:0] <= BTF_Buffer[OVERRIDE_WIDTH:1];
                             end
                         end
@@ -732,7 +735,9 @@ module main(
 
                 MAIN_DDS_WAIT_FOR_BUSY_ON: begin
                         gpo_selected_en <= 1'b0;
-                        if( spi_busy == 1'b1 ) begin
+                        busy_wait_counter[2:0] <= {3'h0,busy_wait_counter[2:1]};
+                        if( busy_wait_counter[2:0] == 3'h1) begin
+                        busy_wait_counter[2:0] <= 3'h0;
                             main_state <= MAIN_DDS_WAIT_FOR_BUSY_OFF;;
                         end
                     end

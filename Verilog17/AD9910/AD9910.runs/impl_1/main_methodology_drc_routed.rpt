@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
-| Date         : Sun Aug 23 19:57:54 2020
+| Date         : Tue Aug 25 22:38:09 2020
 | Host         : DESKTOP-DKK2GQK running 64-bit major release  (build 9200)
 | Command      : report_methodology -file main_methodology_drc_routed.rpt -pb main_methodology_drc_routed.pb -rpx main_methodology_drc_routed.rpx
 | Design       : main
@@ -23,24 +23,24 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 38
+             Violations found: 46
 +-----------+----------+-------------------------------+------------+
 | Rule      | Severity | Description                   | Violations |
 +-----------+----------+-------------------------------+------------+
 | TIMING-16 | Warning  | Large setup violation         | 2          |
-| TIMING-18 | Warning  | Missing input or output delay | 36         |
+| TIMING-18 | Warning  | Missing input or output delay | 44         |
 +-----------+----------+-------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
 TIMING-16#1 Warning
 Large setup violation  
-There is a large setup violation of -1.177 ns between device_DNA_inst/DNA_PORT_read_reg/C (clocked by sys_clk_pin) and device_DNA_inst/DNA_PORT_inst/READ (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.169 ns between device_DNA_inst/DNA_PORT_shift_reg_replica/C (clocked by sys_clk_pin) and device_DNA_inst/DNA_PORT_inst/SHIFT (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#2 Warning
 Large setup violation  
-There is a large setup violation of -1.178 ns between device_DNA_inst/DNA_PORT_shift_reg/C (clocked by sys_clk_pin) and device_DNA_inst/DNA_PORT_inst/SHIFT (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.177 ns between device_DNA_inst/DNA_PORT_read_reg/C (clocked by sys_clk_pin) and device_DNA_inst/DNA_PORT_inst/READ (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-18#1 Warning
@@ -95,130 +95,170 @@ Related violations: <none>
 
 TIMING-18#11 Warning
 Missing input or output delay  
-An output delay is missing on jc_0 relative to clock(s) sys_clk_pin
+An output delay is missing on jb_0 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#12 Warning
 Missing input or output delay  
-An output delay is missing on jc_1 relative to clock(s) sys_clk_pin
+An output delay is missing on jb_1 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#13 Warning
 Missing input or output delay  
-An output delay is missing on jc_2 relative to clock(s) sys_clk_pin
+An output delay is missing on jb_2 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#14 Warning
 Missing input or output delay  
-An output delay is missing on jc_3 relative to clock(s) sys_clk_pin
+An output delay is missing on jb_3 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#15 Warning
 Missing input or output delay  
-An output delay is missing on jc_4 relative to clock(s) sys_clk_pin
+An output delay is missing on jb_4 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#16 Warning
 Missing input or output delay  
-An output delay is missing on jc_5 relative to clock(s) sys_clk_pin
+An output delay is missing on jb_5 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#17 Warning
 Missing input or output delay  
-An output delay is missing on jc_6 relative to clock(s) sys_clk_pin
+An output delay is missing on jb_6 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#18 Warning
 Missing input or output delay  
-An output delay is missing on jc_7 relative to clock(s) sys_clk_pin
+An output delay is missing on jb_7 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#19 Warning
 Missing input or output delay  
-An output delay is missing on jd_0 relative to clock(s) sys_clk_pin
+An output delay is missing on jc_0 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#20 Warning
 Missing input or output delay  
-An output delay is missing on jd_1 relative to clock(s) sys_clk_pin
+An output delay is missing on jc_1 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#21 Warning
 Missing input or output delay  
-An output delay is missing on jd_2 relative to clock(s) sys_clk_pin
+An output delay is missing on jc_2 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#22 Warning
 Missing input or output delay  
-An output delay is missing on jd_3 relative to clock(s) sys_clk_pin
+An output delay is missing on jc_3 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#23 Warning
 Missing input or output delay  
-An output delay is missing on jd_4 relative to clock(s) sys_clk_pin
+An output delay is missing on jc_4 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#24 Warning
 Missing input or output delay  
-An output delay is missing on jd_5 relative to clock(s) sys_clk_pin
+An output delay is missing on jc_5 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#25 Warning
 Missing input or output delay  
-An output delay is missing on jd_6 relative to clock(s) sys_clk_pin
+An output delay is missing on jc_6 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#26 Warning
 Missing input or output delay  
-An output delay is missing on jd_7 relative to clock(s) sys_clk_pin
+An output delay is missing on jc_7 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#27 Warning
 Missing input or output delay  
-An output delay is missing on led0_b relative to clock(s) sys_clk_pin
+An output delay is missing on jd_0 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#28 Warning
 Missing input or output delay  
-An output delay is missing on led0_g relative to clock(s) sys_clk_pin
+An output delay is missing on jd_1 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#29 Warning
 Missing input or output delay  
-An output delay is missing on led0_r relative to clock(s) sys_clk_pin
+An output delay is missing on jd_2 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#30 Warning
 Missing input or output delay  
-An output delay is missing on led1_b relative to clock(s) sys_clk_pin
+An output delay is missing on jd_3 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#31 Warning
 Missing input or output delay  
-An output delay is missing on led1_g relative to clock(s) sys_clk_pin
+An output delay is missing on jd_4 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#32 Warning
 Missing input or output delay  
-An output delay is missing on led1_r relative to clock(s) sys_clk_pin
+An output delay is missing on jd_5 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#33 Warning
 Missing input or output delay  
-An output delay is missing on led[2] relative to clock(s) sys_clk_pin
+An output delay is missing on jd_6 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#34 Warning
 Missing input or output delay  
-An output delay is missing on led[3] relative to clock(s) sys_clk_pin
+An output delay is missing on jd_7 relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#35 Warning
 Missing input or output delay  
-An output delay is missing on led[4] relative to clock(s) sys_clk_pin
+An output delay is missing on led0_b relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#36 Warning
+Missing input or output delay  
+An output delay is missing on led0_g relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#37 Warning
+Missing input or output delay  
+An output delay is missing on led0_r relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#38 Warning
+Missing input or output delay  
+An output delay is missing on led1_b relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#39 Warning
+Missing input or output delay  
+An output delay is missing on led1_g relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#40 Warning
+Missing input or output delay  
+An output delay is missing on led1_r relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#41 Warning
+Missing input or output delay  
+An output delay is missing on led[2] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#42 Warning
+Missing input or output delay  
+An output delay is missing on led[3] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#43 Warning
+Missing input or output delay  
+An output delay is missing on led[4] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#44 Warning
 Missing input or output delay  
 An output delay is missing on led[5] relative to clock(s) sys_clk_pin
 Related violations: <none>
