@@ -32,7 +32,7 @@
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSABoardId" Val="arty-s7-50"/>
     <Option Name="DSANumComputeUnits" Val="16"/>
-    <Option Name="WTXSimLaunchSim" Val="686"/>
+    <Option Name="WTXSimLaunchSim" Val="687"/>
     <Option Name="WTModelSimLaunchSim" Val="1"/>
     <Option Name="WTQuestaLaunchSim" Val="3"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -420,7 +420,7 @@
         <Option Name="XSimWcfgFile" Val="Q:/Users/thkim/Arty_S7/DDS/v1_00/testbench_behav.wcfg"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/../AD9912_DAC8734/v1_01/testbench_main_behav.wcfg"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/../../../../../Users/ECE/Desktop/testbench_main1_behav.wcfg"/>
-        <Option Name="xsim.simulate.runtime" Val="1500ms"/>
+        <Option Name="xsim.simulate.runtime" Val="1000ms"/>
         <Option Name="xsim.simulate.log_all_signals" Val="true"/>
         <Option Name="questa.simulate.runtime" Val="100ns"/>
       </Config>
@@ -468,9 +468,9 @@
         <Step Id="synth_design">
           <Option Id="ResourceSharing">2</Option>
           <Option Id="FsmExtraction">1</Option>
+          <Option Id="ShregMinSize">5</Option>
           <Option Id="NoCombineLuts">1</Option>
           <Option Id="KeepEquivalentRegisters">1</Option>
-          <Option Id="ShregMinSize">5</Option>
           <Option Id="RepFanoutThreshold">400</Option>
         </Step>
       </Strategy>
