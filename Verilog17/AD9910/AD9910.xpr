@@ -32,7 +32,7 @@
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSABoardId" Val="arty-s7-50"/>
     <Option Name="DSANumComputeUnits" Val="16"/>
-    <Option Name="WTXSimLaunchSim" Val="683"/>
+    <Option Name="WTXSimLaunchSim" Val="684"/>
     <Option Name="WTModelSimLaunchSim" Val="1"/>
     <Option Name="WTQuestaLaunchSim" Val="3"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -413,7 +413,7 @@
         <Option Name="XSimWcfgFile" Val="Q:/Users/thkim/Arty_S7/DDS/v1_00/testbench_behav.wcfg"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/../AD9912_DAC8734/v1_01/testbench_main_behav.wcfg"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/../../../../../Users/ECE/Desktop/testbench_main1_behav.wcfg"/>
-        <Option Name="xsim.simulate.runtime" Val="500ms"/>
+        <Option Name="xsim.simulate.runtime" Val="2000ms"/>
         <Option Name="xsim.simulate.log_all_signals" Val="true"/>
         <Option Name="questa.simulate.runtime" Val="100ns"/>
       </Config>

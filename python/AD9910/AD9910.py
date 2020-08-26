@@ -343,14 +343,19 @@ class AD9910:
         if( self.auto_en ):
             fifo_config_int_list1 = self.convert_to_16_int_list(config_int_list1)
             self.delay_cycle(1)
+            
             fifo_addr_int_list = self.convert_to_16_int_list(addr_int_list)
             self.delay_cycle(self.write_32_duration)
+            
             fifo_config_int_list2 = self.convert_to_16_int_list(config_int_list2)
             self.delay_cycle(1)
+            
             fifo_data_int_list1 = self.convert_to_16_int_list(data_int_list1)
             self.delay_cycle(self.write_32_duration)
+            
             fifo_config_int_list3 = self.convert_to_16_int_list(config_int_list3)
             self.delay_cycle(1)
+            
             fifo_data_int_list2 = self.convert_to_16_int_list(data_int_list2)
             self.delay_cycle(self.write_32_duration)
             self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
