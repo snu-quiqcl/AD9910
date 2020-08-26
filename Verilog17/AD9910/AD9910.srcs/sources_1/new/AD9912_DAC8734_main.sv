@@ -238,6 +238,7 @@ module main(
     parameter CMD_OVERRIDE_EN = "OVERRIDE EN";       // 12 characters. this sets FPGA to manula mode
     parameter CMD_OVERRIDE_DIS = "OVERRIDE DIS";       // 13 characters. this sets FPGA to manula mode
     parameter CMD_IOUPDATE_DDS_REG = "DDS IO UPDATE";   // 13 characters. this makes IO_UPDATE pulse
+    parameter CMD_EXCEPTION_LOG = "EXCEPTION LOG"; // 13 characters. report exceptions occured
 
     ////
     //****parameter changeded for AD9910****
@@ -263,7 +264,7 @@ module main(
     reg gpo_selected_en;
     reg[OVERRIDE_WIDTH - 1:0] gpo_override_value;
     reg[INST_WIDTH - 1:0] rto_timestamp_error_data;
-    reg rto_overflow_error_data;
+    reg[INST_WIDTH - 1:0] rto_overflow_error_data;
     reg rto_timestamp_error;
     reg rto_overflow_error;
     reg rto_fifo_full;
@@ -340,6 +341,57 @@ module main(
         .profile2(profile2),
         .parallel_out(parallel_out)
         );
+    reg rto_timestamp_error_buffer;
+    reg[INST_WIDTH - 1:0] rto_timestamp_error_data_buffer;
+    reg rto_overflow_error_buffer;
+    reg[INST_WIDTH - 1:0] rto_overflow_error_data_buffer;
+    reg gpo_overrided_buffer;
+    reg gpo_busy_error_buffer;
+    reg[INST_WIDTH - 1:0] gpo_error_data_buffer;
+    reg rti_overflow_error_buffer;
+    reg[INST_WIDTH - 1:0] rti_overflow_error_data_buffer;
+    reg reset_error;
+    
+    always @(posedge CLK100MHZ) begin
+        if(reset_driver == 1'b1 | reset_error == 1'b1) begin
+            rto_timestamp_error_buffer <= 1'b0;
+            rto_overflow_error_buffer <= 1'b0;
+            gpo_busy_error_buffer <= 1'b0;
+            gpo_overrided_buffer <= 1'b0;
+            rti_overflow_error_buffer <= 1'b0;
+            rto_timestamp_error_data_buffer <= 'h0;
+            rto_overflow_error_data_buffer <= 'h0;
+            gpo_error_data_buffer <= 'h0;
+            rti_overflow_error_data_buffer <= 'h0;
+            reset_error <= 1'b0;
+        end
+        else begin
+            if( rto_timestamp_error == 1'b1 ) begin
+                if( rto_timestamp_error ) begin
+                    rto_timestamp_error_buffer <= 1'b1;
+                    rto_timestamp_error_data_buffer[INST_WIDTH - 1:0]  <= rto_timestamp_error_data[INST_WIDTH - 1:0];
+                end
+                if( rto_overflow_error ) begin
+                    rto_overflow_error_buffer <= 1'b1;
+                    rto_overflow_error_data_buffer[INST_WIDTH - 1:0]  <= rto_overflow_error_data[INST_WIDTH - 1:0];
+                end
+                
+                if( gpo_busy_error ) begin
+                    gpo_busy_error_buffer <= 1'b1;
+                    gpo_error_data_buffer [INST_WIDTH - 1:0] <= gpo_error_data [INST_WIDTH - 1:0];
+                end
+                else if( gpo_overrided ) begin
+                    gpo_overrided_buffer <= 1'b1;
+                    gpo_error_data_buffer [INST_WIDTH - 1:0] <= gpo_error_data [INST_WIDTH - 1:0];
+                end
+                
+                if ( rti_overflow_error ) begin
+                    rti_overflow_error_buffer <= 1'b1;
+                    rti_overflow_error_data_buffer[INST_WIDTH - 1:0] <= rti_overflow_error_data[INST_WIDTH - 1:0];
+                end
+            end
+        end
+    end
     
     reg reset_counter;
     reg start_counter;
@@ -616,12 +668,12 @@ module main(
                         
                         else if ((CMD_Length == $bits(CMD_READ_RTI_FIFO)/8) && (CMD_Buffer[$bits(CMD_READ_RTI_FIFO):1] == CMD_READ_RTI_FIFO)) begin
                             if( rti_fifo_empty == 1'b1 ) begin
-                                TX_buffer2[1:( INST_LENGTH + 1 )*8] <= {8'hf,"  RTI FIFO Empty"}; // Assuming that BTF_Length is less than 256
+                                TX_buffer2[1:( INST_LENGTH + 1 )*8] <= {8'hff,"  RTI FIFO Empty"}; // Assuming that BTF_Length is less than 256
                                 TX_buffer2_length[TX_BUFFER2_LENGTH_WIDTH-1:0] <= 'd17;
                                 TX_buffer2_ready <= 1'b1;
                             end
                             else begin
-                                TX_buffer2[1:( INST_LENGTH + 1 )*8] <= {8'hf, rti_out[INST_WIDTH-1:0] }; // Assuming that BTF_Length is less than 256
+                                TX_buffer2[1:( INST_LENGTH + 1 )*8] <= {8'h00, rti_out[INST_WIDTH-1:0] }; // Assuming that BTF_Length is less than 256
                                 TX_buffer2_length[TX_BUFFER2_LENGTH_WIDTH-1:0] <= 'd17;
                                 TX_buffer2_ready <= 1'b1;
                                 main_state <= MAIN_READ_RTI_FIFO;
@@ -629,12 +681,26 @@ module main(
                             end
                         end
                         
+                        else if ((CMD_Length == $bits(CMD_EXCEPTION_LOG)/8) && (CMD_Buffer[$bits(CMD_EXCEPTION_LOG):1] == CMD_EXCEPTION_LOG)) begin
+                            TX_buffer2[1:( INST_LENGTH * 4 + 1 )*8] <= {3'h0,{rto_timestamp_error_buffer, rto_overflow_error_buffer, gpo_overrided_buffer, gpo_busy_error_buffer, rti_overflow_error_buffer},
+                                                                        rto_timestamp_error_data_buffer[INST_WIDTH-1:0],
+                                                                        rto_overflow_error_data_buffer[INST_WIDTH-1:0],
+                                                                        gpo_error_data_buffer[INST_WIDTH-1:0],
+                                                                        rti_overflow_error_data_buffer[INST_WIDTH-1:0] }; // Assuming that BTF_Length is less than 256
+                            TX_buffer2_length[TX_BUFFER2_LENGTH_WIDTH-1:0] <= 'd65;
+                            TX_buffer2_ready <= 1'b1;
+                            reset_error <= 1'b1;
+                            main_state <= MAIN_IDLE;
+                        end
+                        
                         else if ((CMD_Length == $bits(CMD_OVERRIDE_EN)/8) && (CMD_Buffer[$bits(CMD_OVERRIDE_EN):1] == CMD_OVERRIDE_EN)) begin
                             gpo_override_en <= 1'b1;
+                            main_state <= MAIN_IDLE;
                         end
                         
                         else if ((CMD_Length == $bits(CMD_OVERRIDE_DIS)/8) && (CMD_Buffer[$bits(CMD_OVERRIDE_DIS):1] == CMD_OVERRIDE_DIS)) begin
                             gpo_override_en <= 1'b0;
+                            main_state <= MAIN_IDLE;
                         end
                         
 

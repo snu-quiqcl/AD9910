@@ -2,8 +2,8 @@
 # Vivado v2017.3 (64-bit)
 # SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
 # IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
-# Start of session at: Tue Aug 25 22:31:26 2020
-# Process ID: 5564
+# Start of session at: Wed Aug 26 21:41:38 2020
+# Process ID: 2168
 # Current directory: C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1
 # Command line: vivado.exe -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
 # Log file: C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/main.vds
@@ -15,7 +15,7 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 9740 
+INFO: Helper process launched with PID 7012 
 WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:131]
 WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:148]
 WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:149]
@@ -65,7 +65,7 @@ WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver wit
 WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:261]
 WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:264]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 405.348 ; gain = 102.313
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 405.449 ; gain = 102.449
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'main' [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:33]
 	Parameter ClkFreq bound to: 100000000 - type: integer 
@@ -97,6 +97,7 @@ INFO: [Synth 8-638] synthesizing module 'main' [C:/M-labs/GIT/AD9910_CODE/Verilo
 	Parameter CMD_OVERRIDE_EN bound to: OVERRIDE EN - type: string 
 	Parameter CMD_OVERRIDE_DIS bound to: OVERRIDE DIS - type: string 
 	Parameter CMD_IOUPDATE_DDS_REG bound to: DDS IO UPDATE - type: string 
+	Parameter CMD_EXCEPTION_LOG bound to: EXCEPTION LOG - type: string 
 	Parameter INST_LENGTH bound to: 8'b00010000 
 	Parameter INST_WIDTH bound to: 128 - type: integer 
 	Parameter OVERRIDE_LENGTH bound to: 8'b00001000 
@@ -205,8 +206,8 @@ INFO: [Synth 8-638] synthesizing module 'data_sender' [C:/M-labs/GIT/AD9910_CODE
 	Parameter TX_WAIT2 bound to: 4'b0010 
 INFO: [Synth 8-638] synthesizing module 'hex2ascii' [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/hex2ascii.v:21]
 INFO: [Synth 8-256] done synthesizing module 'hex2ascii' (4#1) [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/hex2ascii.v:21]
-INFO: [Synth 8-638] synthesizing module 'fifo_generator_0' [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-5564-DESKTOP-DKK2GQK/realtime/fifo_generator_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'fifo_generator_0' (5#1) [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-5564-DESKTOP-DKK2GQK/realtime/fifo_generator_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'fifo_generator_0' [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-2168-DESKTOP-DKK2GQK/realtime/fifo_generator_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'fifo_generator_0' (5#1) [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-2168-DESKTOP-DKK2GQK/realtime/fifo_generator_0_stub.v:6]
 INFO: [Synth 8-638] synthesizing module 'async_transmitter' [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/async_transmitter.v:6]
 	Parameter ClkFrequency bound to: 100000000 - type: integer 
 	Parameter Baud bound to: 57600 - type: integer 
@@ -481,7 +482,6 @@ INFO: [Synth 8-638] synthesizing module 'single_output_port__parameterized1' [C:
 	Parameter CHANNEL_LENGTH bound to: 12 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'single_output_port__parameterized1' (30#1) [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/single_output_port.sv:23]
 INFO: [Synth 8-256] done synthesizing module 'AD9910_driver' (31#1) [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9910_driver.sv:23]
-WARNING: [Synth 8-689] width (1) of port connection 'rto_overflow_error_data' does not match port width (128) of module 'AD9910_driver' [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:317]
 INFO: [Synth 8-638] synthesizing module 'timestamp_counter' [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/timestamp_counter.sv:23]
 INFO: [Synth 8-256] done synthesizing module 'timestamp_counter' (32#1) [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/timestamp_counter.sv:23]
 INFO: [Synth 8-638] synthesizing module 'device_DNA' [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/imports/new/device_DNA.v:23]
@@ -493,9 +493,9 @@ INFO: [Synth 8-638] synthesizing module 'DNA_PORT' [C:/Xilinx/Vivado/2017.3/scri
 	Parameter SIM_DNA_VALUE bound to: 57'b000000000000000000000000000000000000000000000000000000000 
 INFO: [Synth 8-256] done synthesizing module 'DNA_PORT' (33#1) [C:/Xilinx/Vivado/2017.3/scripts/rt/data/unisim_comp.v:3032]
 INFO: [Synth 8-256] done synthesizing module 'device_DNA' (34#1) [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/imports/new/device_DNA.v:23]
-WARNING: [Synth 8-6014] Unused sequential element BTN0Delay_reg was removed.  [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:856]
-WARNING: [Synth 8-3848] Net flush_rto_fifo in module/entity main does not have driver. [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:256]
-WARNING: [Synth 8-3848] Net flush_rti_fifo in module/entity main does not have driver. [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:260]
+WARNING: [Synth 8-6014] Unused sequential element BTN0Delay_reg was removed.  [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:919]
+WARNING: [Synth 8-3848] Net flush_rto_fifo in module/entity main does not have driver. [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:257]
+WARNING: [Synth 8-3848] Net flush_rti_fifo in module/entity main does not have driver. [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:261]
 INFO: [Synth 8-256] done synthesizing module 'main' (35#1) [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:33]
 WARNING: [Synth 8-3917] design main has port d5 driven by constant 0
 WARNING: [Synth 8-3917] design main has port d4 driven by constant 0
@@ -605,7 +605,7 @@ WARNING: [Synth 8-3331] design output_blk has unconnected port RD_DATA_COUNT_I[1
 WARNING: [Synth 8-3331] design output_blk has unconnected port RD_DATA_COUNT_I[0]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 615.375 ; gain = 312.340
+Finished RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 621.492 ; gain = 318.492
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -716,7 +716,7 @@ WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[99] to cons
 WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[100] to constant 0 [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:164]
 INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 615.375 ; gain = 312.340
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 621.492 ; gain = 318.492
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -725,8 +725,8 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-5564-DESKTOP-DKK2GQK/dcp3/fifo_generator_0_in_context.xdc] for cell 'sender/transmitter_FIFO'
-Finished Parsing XDC File [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-5564-DESKTOP-DKK2GQK/dcp3/fifo_generator_0_in_context.xdc] for cell 'sender/transmitter_FIFO'
+Parsing XDC File [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-2168-DESKTOP-DKK2GQK/dcp3/fifo_generator_0_in_context.xdc] for cell 'sender/transmitter_FIFO'
+Finished Parsing XDC File [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-2168-DESKTOP-DKK2GQK/dcp3/fifo_generator_0_in_context.xdc] for cell 'sender/transmitter_FIFO'
 Parsing XDC File [c:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.xdc] for cell 'AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0'
 Finished Parsing XDC File [c:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.xdc] for cell 'AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0'
 Parsing XDC File [c:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.xdc] for cell 'AD9910_driver_0/rto_core_prime_0/rto_core_FIFO/U0'
@@ -745,16 +745,16 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 2 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 958.176 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 967.500 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 958.176 ; gain = 655.141
+Finished Constraint Validation : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 967.500 ; gain = 664.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 958.176 ; gain = 655.141
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 967.500 ; gain = 664.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -765,7 +765,7 @@ Applied set_property DONT_TOUCH = true for AD9910_driver_0/rti_core_prime_0/rti_
 Applied set_property DONT_TOUCH = true for AD9910_driver_0/rto_core_prime_0/rto_core_FIFO. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for sender/transmitter_FIFO. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 958.176 ; gain = 655.141
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 967.500 ; gain = 664.500
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'async_receiver'
 INFO: [Synth 8-5544] ROM "RxD_bit_inv" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
@@ -960,7 +960,7 @@ MAIN_DDS_WAIT_FOR_BUSY_OFF |                      00000000100 |                 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'main_state_reg' using encoding 'one-hot' in module 'main'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 958.176 ; gain = 655.141
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 967.500 ; gain = 664.500
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -969,19 +969,19 @@ Report RTL Partitions:
 +------+--------------------------------+------------+----------+
 |1     |spi_multiple_single_output__GC0 |           1|        13|
 |2     |AD9910_driver__GC0              |           1|      2712|
-|3     |main__GCB0                      |           1|     52117|
-|4     |main__GCB1                      |           1|     34816|
-|5     |main__GCB2                      |           1|     22438|
-|6     |main__GCB3                      |           1|         2|
-|7     |main__GCB4                      |           1|     31104|
+|3     |main__GCB0                      |           1|     36865|
+|4     |main__GCB1                      |           1|     24785|
+|5     |main__GCB2                      |           1|     12699|
+|6     |data_sender                     |           1|     38706|
+|7     |main__GCB4                      |           1|     33158|
 +------+--------------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3538] Detected potentially large (wide) register TX_buffer2_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:175]
 INFO: [Synth 8-3538] Detected potentially large (wide) register TX_full_buffer2_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:244]
 INFO: [Synth 8-3538] Detected potentially large (wide) register TX_full_waveform_buffer_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:252]
-INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_capture_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:686]
+INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_capture_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:749]
+INFO: [Synth 8-3538] Detected potentially large (wide) register TX_buffer2_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:175]
 INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_RXBuffer_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:359]
 INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_Buffer_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:394]
 Detailed RTL Component Info : 
@@ -1004,7 +1004,7 @@ Detailed RTL Component Info :
 	             2048 Bit    Registers := 4     
 	             1056 Bit    Registers := 1     
 	              136 Bit    Registers := 1     
-	              128 Bit    Registers := 8     
+	              128 Bit    Registers := 12    
 	              120 Bit    Registers := 3     
 	               64 Bit    Registers := 4     
 	               34 Bit    Registers := 1     
@@ -1020,27 +1020,28 @@ Detailed RTL Component Info :
 	                4 Bit    Registers := 7     
 	                3 Bit    Registers := 1     
 	                2 Bit    Registers := 4     
-	                1 Bit    Registers := 91    
+	                1 Bit    Registers := 96    
 +---Muxes : 
 	   2 Input   2088 Bit        Muxes := 3     
 	   3 Input   2088 Bit        Muxes := 1     
 	  10 Input   2088 Bit        Muxes := 2     
-	   2 Input   2048 Bit        Muxes := 6     
+	  18 Input   2048 Bit        Muxes := 1     
+	   2 Input   2048 Bit        Muxes := 7     
 	  11 Input   2048 Bit        Muxes := 2     
-	  17 Input   2048 Bit        Muxes := 1     
-	  15 Input   2048 Bit        Muxes := 2     
+	  15 Input   2048 Bit        Muxes := 1     
+	  16 Input   2048 Bit        Muxes := 1     
 	   2 Input   1056 Bit        Muxes := 4     
 	   3 Input   1056 Bit        Muxes := 1     
 	  10 Input   1056 Bit        Muxes := 2     
 	   2 Input    136 Bit        Muxes := 4     
 	   3 Input    136 Bit        Muxes := 1     
 	  10 Input    136 Bit        Muxes := 2     
-	   2 Input    128 Bit        Muxes := 2     
+	   2 Input    128 Bit        Muxes := 6     
 	   2 Input    124 Bit        Muxes := 1     
-	  11 Input    120 Bit        Muxes := 2     
-	  20 Input    120 Bit        Muxes := 1     
 	   2 Input    120 Bit        Muxes := 3     
+	  11 Input    120 Bit        Muxes := 2     
 	  15 Input    120 Bit        Muxes := 1     
+	  21 Input    120 Bit        Muxes := 1     
 	   2 Input     64 Bit        Muxes := 3     
 	  11 Input     64 Bit        Muxes := 2     
 	   4 Input     64 Bit        Muxes := 2     
@@ -1056,42 +1057,42 @@ Detailed RTL Component Info :
 	  11 Input     10 Bit        Muxes := 1     
 	  10 Input      9 Bit        Muxes := 1     
 	  11 Input      9 Bit        Muxes := 2     
-	  17 Input      9 Bit        Muxes := 1     
-	   2 Input      9 Bit        Muxes := 7     
-	  16 Input      9 Bit        Muxes := 1     
+	  18 Input      9 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 8     
 	  15 Input      9 Bit        Muxes := 4     
+	  17 Input      9 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 7     
 	  10 Input      8 Bit        Muxes := 1     
 	  11 Input      8 Bit        Muxes := 1     
-	  13 Input      8 Bit        Muxes := 1     
 	   4 Input      8 Bit        Muxes := 1     
+	  14 Input      8 Bit        Muxes := 1     
 	  12 Input      7 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 5     
-	   4 Input      6 Bit        Muxes := 1     
 	  13 Input      6 Bit        Muxes := 1     
-	   7 Input      5 Bit        Muxes := 2     
+	   4 Input      6 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 2     
 	  10 Input      5 Bit        Muxes := 1     
 	  11 Input      5 Bit        Muxes := 2     
+	   7 Input      5 Bit        Muxes := 2     
 	  13 Input      4 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 8     
 	  10 Input      4 Bit        Muxes := 2     
 	   4 Input      4 Bit        Muxes := 1     
 	   5 Input      4 Bit        Muxes := 1     
 	  11 Input      4 Bit        Muxes := 1     
-	   9 Input      4 Bit        Muxes := 1     
 	  15 Input      4 Bit        Muxes := 5     
+	   9 Input      4 Bit        Muxes := 1     
 	  11 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 6     
 	  10 Input      2 Bit        Muxes := 1     
 	   6 Input      2 Bit        Muxes := 2     
-	   3 Input      1 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 71    
-	   7 Input      1 Bit        Muxes := 13    
 	  13 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 73    
 	  10 Input      1 Bit        Muxes := 15    
 	   4 Input      1 Bit        Muxes := 9     
-	  11 Input      1 Bit        Muxes := 24    
+	   3 Input      1 Bit        Muxes := 3     
+	   7 Input      1 Bit        Muxes := 13    
+	  11 Input      1 Bit        Muxes := 25    
 	   5 Input      1 Bit        Muxes := 2     
 	   6 Input      1 Bit        Muxes := 5     
 	  15 Input      1 Bit        Muxes := 11    
@@ -1101,10 +1102,10 @@ Finished RTL Component Statistics
 ---------------------------------------------------------------------------------
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3538] Detected potentially large (wide) register TX_buffer2_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:175]
 INFO: [Synth 8-3538] Detected potentially large (wide) register TX_full_buffer2_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:244]
 INFO: [Synth 8-3538] Detected potentially large (wide) register TX_full_waveform_buffer_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:252]
-INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_capture_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:686]
+INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_capture_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:749]
+INFO: [Synth 8-3538] Detected potentially large (wide) register TX_buffer2_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:175]
 INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_RXBuffer_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:359]
 INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_Buffer_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:394]
 Hierarchical RTL Component report 
@@ -1114,7 +1115,7 @@ Detailed RTL Component Info :
 	   2 Input      5 Bit       Adders := 1     
 +---Registers : 
 	             2048 Bit    Registers := 2     
-	              128 Bit    Registers := 1     
+	              128 Bit    Registers := 5     
 	              120 Bit    Registers := 1     
 	               64 Bit    Registers := 2     
 	               32 Bit    Registers := 1     
@@ -1123,34 +1124,119 @@ Detailed RTL Component Info :
 	                5 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 	                3 Bit    Registers := 1     
-	                1 Bit    Registers := 11    
+	                1 Bit    Registers := 16    
 +---Muxes : 
-	   2 Input   2048 Bit        Muxes := 5     
+	  18 Input   2048 Bit        Muxes := 1     
+	   2 Input   2048 Bit        Muxes := 6     
 	  11 Input   2048 Bit        Muxes := 2     
-	  17 Input   2048 Bit        Muxes := 1     
-	  15 Input   2048 Bit        Muxes := 1     
+	  16 Input   2048 Bit        Muxes := 1     
 	   2 Input    136 Bit        Muxes := 1     
-	  11 Input    120 Bit        Muxes := 2     
-	  20 Input    120 Bit        Muxes := 1     
+	   2 Input    128 Bit        Muxes := 4     
 	   2 Input    120 Bit        Muxes := 2     
+	  11 Input    120 Bit        Muxes := 2     
+	  21 Input    120 Bit        Muxes := 1     
 	  11 Input     64 Bit        Muxes := 2     
 	  26 Input     11 Bit        Muxes := 1     
 	  11 Input      9 Bit        Muxes := 2     
+	  18 Input      9 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 6     
 	  17 Input      9 Bit        Muxes := 1     
-	   2 Input      9 Bit        Muxes := 5     
-	  16 Input      9 Bit        Muxes := 1     
 	  11 Input      8 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 2     
-	  13 Input      8 Bit        Muxes := 1     
+	  14 Input      8 Bit        Muxes := 1     
 	  11 Input      5 Bit        Muxes := 1     
 	  11 Input      4 Bit        Muxes := 1     
 	   9 Input      4 Bit        Muxes := 1     
 	  11 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 1     
-	  11 Input      1 Bit        Muxes := 24    
-	   2 Input      1 Bit        Muxes := 31    
-	   4 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 33    
+	  11 Input      1 Bit        Muxes := 25    
 	   5 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+Module hex2ascii__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+Module hex2ascii__2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+Module hex2ascii__3 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+Module hex2ascii 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+Module async_transmitter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	  14 Input     13 Bit        Muxes := 1     
+	  13 Input      4 Bit        Muxes := 1     
+	  13 Input      1 Bit        Muxes := 1     
+Module data_sender 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 2     
+	   2 Input      9 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	             2088 Bit    Registers := 1     
+	             1056 Bit    Registers := 1     
+	              136 Bit    Registers := 1     
+	               10 Bit    Registers := 1     
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 9     
++---Muxes : 
+	   2 Input   2088 Bit        Muxes := 3     
+	   3 Input   2088 Bit        Muxes := 1     
+	  10 Input   2088 Bit        Muxes := 2     
+	   2 Input   1056 Bit        Muxes := 4     
+	   3 Input   1056 Bit        Muxes := 1     
+	  10 Input   1056 Bit        Muxes := 2     
+	   2 Input    136 Bit        Muxes := 3     
+	   3 Input    136 Bit        Muxes := 1     
+	  10 Input    136 Bit        Muxes := 2     
+	   2 Input     40 Bit        Muxes := 1     
+	  10 Input     10 Bit        Muxes := 1     
+	  15 Input     10 Bit        Muxes := 1     
+	  10 Input      9 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 3     
+	  10 Input      8 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+	  10 Input      5 Bit        Muxes := 1     
+	  11 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 3     
+	  10 Input      4 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 4     
+	  10 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 12    
+	  10 Input      1 Bit        Muxes := 14    
+	   4 Input      1 Bit        Muxes := 4     
 Module spi_multiple_single_output 
 Detailed RTL Component Info : 
 +---XORs : 
@@ -1272,100 +1358,6 @@ Module single_output_port__parameterized1
 Detailed RTL Component Info : 
 +---Registers : 
 	               19 Bit    Registers := 1     
-Module hex2ascii__1 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      7 Bit       Adders := 1     
-+---Muxes : 
-	   2 Input      6 Bit        Muxes := 1     
-Module hex2ascii__2 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      7 Bit       Adders := 1     
-+---Muxes : 
-	   2 Input      6 Bit        Muxes := 1     
-Module hex2ascii__3 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      7 Bit       Adders := 1     
-+---Muxes : 
-	   2 Input      6 Bit        Muxes := 1     
-Module hex2ascii 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      7 Bit       Adders := 1     
-+---Muxes : 
-	   2 Input      6 Bit        Muxes := 1     
-Module async_transmitter 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     17 Bit       Adders := 1     
-+---Registers : 
-	               17 Bit    Registers := 1     
-	                8 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	  14 Input     13 Bit        Muxes := 1     
-	  13 Input      4 Bit        Muxes := 1     
-	  13 Input      1 Bit        Muxes := 1     
-Module data_sender 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     10 Bit       Adders := 2     
-	   2 Input      9 Bit       Adders := 1     
-	   2 Input      5 Bit       Adders := 2     
-	   2 Input      4 Bit       Adders := 1     
-	   2 Input      2 Bit       Adders := 1     
-+---Registers : 
-	             2088 Bit    Registers := 1     
-	             1056 Bit    Registers := 1     
-	              136 Bit    Registers := 1     
-	               10 Bit    Registers := 1     
-	                9 Bit    Registers := 1     
-	                8 Bit    Registers := 2     
-	                6 Bit    Registers := 1     
-	                5 Bit    Registers := 1     
-	                4 Bit    Registers := 1     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 9     
-+---Muxes : 
-	   2 Input   2088 Bit        Muxes := 3     
-	   3 Input   2088 Bit        Muxes := 1     
-	  10 Input   2088 Bit        Muxes := 2     
-	   2 Input   1056 Bit        Muxes := 4     
-	   3 Input   1056 Bit        Muxes := 1     
-	  10 Input   1056 Bit        Muxes := 2     
-	   2 Input    136 Bit        Muxes := 3     
-	   3 Input    136 Bit        Muxes := 1     
-	  10 Input    136 Bit        Muxes := 2     
-	   2 Input     40 Bit        Muxes := 1     
-	  10 Input     10 Bit        Muxes := 1     
-	  15 Input     10 Bit        Muxes := 1     
-	  10 Input      9 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 3     
-	  10 Input      8 Bit        Muxes := 1     
-	   2 Input      5 Bit        Muxes := 2     
-	  10 Input      5 Bit        Muxes := 1     
-	  11 Input      5 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 3     
-	  10 Input      4 Bit        Muxes := 1     
-	   4 Input      4 Bit        Muxes := 1     
-	   5 Input      4 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 4     
-	  10 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 12    
-	  10 Input      1 Bit        Muxes := 14    
-	   4 Input      1 Bit        Muxes := 4     
-Module device_DNA 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      6 Bit       Adders := 1     
-+---Muxes : 
-	   4 Input     64 Bit        Muxes := 2     
-	   2 Input      6 Bit        Muxes := 1     
-	   4 Input      6 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 4     
 Module led_intensity_adjust 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -1433,6 +1425,16 @@ Detailed RTL Component Info :
 	   5 Input      1 Bit        Muxes := 1     
 	   6 Input      1 Bit        Muxes := 5     
 	  15 Input      1 Bit        Muxes := 11    
+Module device_DNA 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Muxes : 
+	   4 Input     64 Bit        Muxes := 2     
+	   2 Input      6 Bit        Muxes := 1     
+	   4 Input      6 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 4     
 Module timestamp_counter 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -1453,20 +1455,10 @@ BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5546] ROM "TX_full_buffer1_length" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "TX_full_buffer1" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/led_intensity_adjust.v:47]
-WARNING: [Synth 8-6014] Unused sequential element gap_count_reg was removed.  [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/async_receiver.v:89]
-INFO: [Synth 8-5546] ROM "esc_char_detected" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "escape_state" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "TERMINATOR_CURRENT_CHAR_POINTER" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "TX_buffer1_ready" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-3917] design main has port d5 driven by constant 0
 WARNING: [Synth 8-3917] design main has port d4 driven by constant 0
 WARNING: [Synth 8-3917] design main has port d3 driven by constant 0
@@ -1504,179 +1496,91 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (AD9910_dr
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (AD9910_driver_0i_1/\gpi_core_prime_0/gpi_out_buffer_reg[125] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (AD9910_driver_0i_1/\gpi_core_prime_0/gpi_out_buffer_reg[126] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (AD9910_driver_0i_1/\gpi_core_prime_0/gpi_out_buffer_reg[127] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1056] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1055] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1054] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1053] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1052] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1051] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1050] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1049] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/TX_waveform_buffer_ready_delay_reg)
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1048] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1047] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1046] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1045] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1044] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1043] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1042] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1041] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1040] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1039] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1038] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1037] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1036] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1035] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1034] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1033] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1032] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1031] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1030] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1029] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1028] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1027] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1026] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1025] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1024] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1023] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1022] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1021] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1020] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1019] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1018] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1017] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1016] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1015] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1014] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1013] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1012] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1011] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1010] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1009] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1008] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1007] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1006] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1005] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1004] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1003] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1002] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1001] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[1000] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[999] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[998] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[997] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[996] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[995] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[994] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[993] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[992] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[991] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[990] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/sender/\TX_full_waveform_buffer_reg[989] )
-INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[1]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[2]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[6]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[9]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[10]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[14]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[16]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[17]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[18]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[22]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[23]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[24]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[25]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[26]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[29]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[30]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[31]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[32]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[33]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[34]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[35]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[36]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[37]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[38]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[39]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[40]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[41]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[42]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[43]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[44]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[45]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[46]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[47]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[48]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[49]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[50]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[51]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[52]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[53]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[54]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[55]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[56]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[57]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[58]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[59]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[60]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[61]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[62]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[63]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[64]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[65]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[66]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[67]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[68]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[69]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[70]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[71]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[72]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[73]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[74]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[75]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[76]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[77]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[78]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[79]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[80]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[81]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[82]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[83]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[84]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[85]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[86]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[87]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[88]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[89]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[90]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[91]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[92]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[93]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[94]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[95]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[96]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[97]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[98]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[99]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[100]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[101]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[102]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[103]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[104]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[105]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[106]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[107]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[108]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[109]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[110]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[111]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[112]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[113]) is unused and will be removed from module data_sender.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[114]) is unused and will be removed from module data_sender.
-INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/led_intensity_adjust.v:47]
+WARNING: [Synth 8-6014] Unused sequential element gap_count_reg was removed.  [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/async_receiver.v:89]
+INFO: [Synth 8-5546] ROM "esc_char_detected" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "escape_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TERMINATOR_CURRENT_CHAR_POINTER" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TX_buffer1_ready" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3332] Sequential element (RXUSB/gap_count_reg[4]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (RXUSB/gap_count_reg[3]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (RXUSB/gap_count_reg[2]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (RXUSB/gap_count_reg[1]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (RXUSB/gap_count_reg[0]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (RXUSB/RxD_endofpacket_reg) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_RXBuffer_reg[119]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_RXBuffer_reg[118]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_RXBuffer_reg[117]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_RXBuffer_reg[116]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_RXBuffer_reg[115]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_RXBuffer_reg[114]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_RXBuffer_reg[113]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_RXBuffer_reg[112]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_Buffer_reg[119]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_Buffer_reg[118]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_Buffer_reg[117]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_Buffer_reg[116]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_Buffer_reg[115]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_Buffer_reg[114]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_Buffer_reg[113]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (CMD_Buffer_reg[112]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (BTF_Ready_reg) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[15]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[14]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[13]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[12]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[11]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[10]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[9]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[8]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[7]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[6]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[5]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[4]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[3]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[2]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[1]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_mask_reg[0]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[15]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[14]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[13]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[12]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[11]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[10]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[9]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[8]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[7]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[6]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[5]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[4]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[3]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[2]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[1]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (trigger_pattern_reg[0]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[9]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[8]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[7]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[6]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[5]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[4]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[3]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[2]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[1]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[0]) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (debug1_reg) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (debug2_reg) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-3332] Sequential element (debug3_reg) is unused and will be removed from module data_receiver.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'reset_error_reg__0/Q' [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:356]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:356]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:356]
+INFO: [Synth 8-5546] ROM "TX_full_buffer1_length" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TX_full_buffer1" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\main_state_reg[5] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:33 ; elapsed = 00:02:35 . Memory (MB): peak = 1262.074 ; gain = 959.039
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:53 ; elapsed = 00:01:14 . Memory (MB): peak = 967.500 ; gain = 664.500
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1684,24 +1588,58 @@ Report RTL Partitions:
 |      |RTL Partition                   |Replication |Instances |
 +------+--------------------------------+------------+----------+
 |1     |spi_multiple_single_output__GC0 |           1|        13|
-|2     |AD9910_driver__GC0              |           1|      1467|
-|3     |main__GCB0                      |           1|     43605|
-|4     |main__GCB1                      |           1|      3977|
-|5     |main__GCB2                      |           1|     13845|
-|6     |main__GCB3                      |           1|         2|
-|7     |main__GCB4                      |           1|      2338|
+|2     |AD9910_driver__GC0              |           1|      2151|
+|3     |main__GCB0                      |           1|      1551|
+|4     |main__GCB1                      |           1|     27956|
+|5     |main__GCB2                      |           1|      3054|
+|6     |data_sender                     |           1|     38122|
+|7     |main__GCB4                      |           1|      2343|
 +------+--------------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:41 ; elapsed = 00:02:44 . Memory (MB): peak = 1353.441 ; gain = 1050.406
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:01 ; elapsed = 00:01:22 . Memory (MB): peak = 1090.137 ; gain = 787.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (sender/TX_waveform_buffer_ready_delay_reg)
+WARNING: [Synth 8-3332] Sequential element (TX_waveform_buffer_ready_delay_reg) is unused and will be removed from module data_sender.
+WARNING: [Synth 8-3332] Sequential element (TX_FIFO_busy_reg) is unused and will be removed from module data_sender.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[97] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[98] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[99] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[100] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[101] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[102] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[103] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[104] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[105] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[106] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[107] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[108] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[109] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[110] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[111] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[112] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[113] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[114] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[115] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[116] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[117] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[118] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[119] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[120] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[121] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[122] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[123] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[124] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[125] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[126] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[127] )
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:48 ; elapsed = 00:02:50 . Memory (MB): peak = 1402.660 ; gain = 1099.625
+Finished Timing Optimization : Time (s): cpu = 00:01:18 ; elapsed = 00:01:39 . Memory (MB): peak = 1210.184 ; gain = 907.184
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1709,25 +1647,57 @@ Report RTL Partitions:
 |      |RTL Partition                   |Replication |Instances |
 +------+--------------------------------+------------+----------+
 |1     |spi_multiple_single_output__GC0 |           1|        13|
-|2     |AD9910_driver__GC0              |           1|      1467|
-|3     |main__GCB0                      |           1|     43200|
-|4     |main__GCB1                      |           1|      3842|
-|5     |main__GCB2                      |           1|     13845|
-|6     |main__GCB3                      |           1|         2|
-|7     |main__GCB4                      |           1|      2338|
+|2     |AD9910_driver__GC0              |           1|      2151|
+|3     |main__GCB0                      |           1|      1551|
+|4     |data_sender                     |           1|     32841|
+|5     |main_GT0                        |           1|     31477|
 +------+--------------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[1]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[2]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[6]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[9]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[10]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[14]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[16]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[17]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[18]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[22]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[23]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[24]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[25]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[26]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[29]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[30]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[31]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[32]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[33]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[34]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[35]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[36]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[37]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[38]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[39]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[40]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[41]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[42]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[43]) is unused and will be removed from module data_sender_tempName.
+WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[44]) is unused and will be removed from module data_sender_tempName.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:03:02 ; elapsed = 00:03:05 . Memory (MB): peak = 1451.633 ; gain = 1148.598
+Finished Technology Mapping : Time (s): cpu = 00:01:23 ; elapsed = 00:01:57 . Memory (MB): peak = 1210.184 ; gain = 907.184
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |data_sender   |           1|      8992|
+|2     |main_GT0      |           1|     17222|
++------+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -1740,15 +1710,23 @@ Finished Flattening Before IO Insertion
 ---------------------------------------------------------------------------------
 Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5777] Ignored max_fanout on net \receiver/FSM_onehot_main_state_reg_n_0_[4]  because some of its loads are not in same hierarchy as its driver   
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sender/TX_full_buffer1_reg[134] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sender/TX_full_buffer1_reg[133] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sender/TX_full_buffer1_reg[136] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sender/TX_full_buffer1_reg[135] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sender/TX_full_buffer1_reg[132] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sender/TX_full_buffer1_reg[131] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sender/TX_full_buffer1_reg[130] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sender/TX_full_buffer1_reg[129] )
 INFO: [Synth 8-5777] Ignored max_fanout on net \FSM_onehot_main_state_reg_n_0_[0]  because some of its loads are not in same hierarchy as its driver   
+INFO: [Synth 8-5777] Ignored max_fanout on net \receiver/FSM_onehot_main_state_reg_n_0_[4]  because some of its loads are not in same hierarchy as its driver   
 INFO: [Synth 8-5777] Ignored max_fanout on net \sender/FSM_onehot_main_state_reg_n_0_[5]  because some of its loads are not in same hierarchy as its driver   
 INFO: [Synth 8-5777] Ignored max_fanout on net \sender/FSM_onehot_main_state_reg_n_0_[7]  because some of its loads are not in same hierarchy as its driver   
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:03:06 ; elapsed = 00:03:08 . Memory (MB): peak = 1451.633 ; gain = 1148.598
+Finished IO Insertion : Time (s): cpu = 00:01:28 ; elapsed = 00:02:03 . Memory (MB): peak = 1210.184 ; gain = 907.184
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1761,7 +1739,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:03:06 ; elapsed = 00:03:08 . Memory (MB): peak = 1451.633 ; gain = 1148.598
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:28 ; elapsed = 00:02:03 . Memory (MB): peak = 1210.184 ; gain = 907.184
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1773,25 +1751,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:07 ; elapsed = 00:03:09 . Memory (MB): peak = 1451.633 ; gain = 1148.598
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:29 ; elapsed = 00:02:04 . Memory (MB): peak = 1210.184 ; gain = 907.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:03:07 ; elapsed = 00:03:10 . Memory (MB): peak = 1451.633 ; gain = 1148.598
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:29 ; elapsed = 00:02:04 . Memory (MB): peak = 1210.184 ; gain = 907.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:03:07 ; elapsed = 00:03:10 . Memory (MB): peak = 1451.633 ; gain = 1148.598
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:29 ; elapsed = 00:02:04 . Memory (MB): peak = 1210.184 ; gain = 907.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:03:07 ; elapsed = 00:03:10 . Memory (MB): peak = 1451.633 ; gain = 1148.598
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:29 ; elapsed = 00:02:04 . Memory (MB): peak = 1210.184 ; gain = 907.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1824,20 +1802,20 @@ Report Cell Usage:
 +------+-----------------+------+
 |1     |fifo_generator_0 |     1|
 |2     |BUFG             |     1|
-|3     |CARRY4           |   191|
+|3     |CARRY4           |   200|
 |4     |DNA_PORT         |     1|
 |5     |FIFO36E1         |     4|
-|6     |LUT1             |    55|
-|7     |LUT2             |   224|
-|8     |LUT3             |  2740|
-|9     |LUT4             |   420|
-|10    |LUT5             |  4281|
-|11    |LUT6             |  6534|
+|6     |LUT1             |    56|
+|7     |LUT2             |   237|
+|8     |LUT3             |  1279|
+|9     |LUT4             |  3948|
+|10    |LUT5             |  5976|
+|11    |LUT6             |  4611|
 |12    |SRL16E           |     2|
 |13    |FDE_1            |     4|
 |14    |FDPE             |    14|
-|15    |FDRE             | 11762|
-|16    |FDSE             |   101|
+|15    |FDRE             | 12776|
+|16    |FDSE             |   187|
 |17    |IBUF             |     2|
 |18    |IOBUF            |     2|
 |19    |OBUF             |    47|
@@ -1847,14 +1825,14 @@ Report Instance Areas:
 +------+-------------------------------------------------+-----------------------------------+------+
 |      |Instance                                         |Module                             |Cells |
 +------+-------------------------------------------------+-----------------------------------+------+
-|1     |top                                              |                                   | 26397|
-|2     |  AD9910_driver_0                                |AD9910_driver                      |   832|
-|3     |    gpi_core_prime_0                             |gpi_core_prime                     |   100|
-|4     |    gpo_core_prime_0                             |gpo_core_prime                     |   116|
+|1     |top                                              |                                   | 29359|
+|2     |  AD9910_driver_0                                |AD9910_driver                      |  1406|
+|3     |    gpi_core_prime_0                             |gpi_core_prime                     |   101|
+|4     |    gpo_core_prime_0                             |gpo_core_prime                     |   249|
 |5     |    io_update_port                               |single_output_port                 |     2|
 |6     |    parallel_port_1                              |single_output_port__parameterized1 |    19|
 |7     |    profile_port                                 |single_output_port__parameterized0 |     6|
-|8     |    rti_core_prime_0                             |rti_core_prime                     |   170|
+|8     |    rti_core_prime_0                             |rti_core_prime                     |   140|
 |9     |      rti_core_FIFO                              |fifo_generator_1__xdcDup__1        |    41|
 |10    |        U0                                       |fifo_generator_v13_2_0__2          |    41|
 |11    |          inst_fifo_gen                          |fifo_generator_v13_2_0_synth_2     |    41|
@@ -1866,7 +1844,7 @@ Report Instance Areas:
 |17    |                    \gonep.inst_prim             |builtin_prim_v6_10                 |     6|
 |18    |                  \gextw[2].gnll_fifo.inst_extd  |builtin_extdepth_v6_8              |     9|
 |19    |                    \gonep.inst_prim             |builtin_prim_v6_9                  |     5|
-|20    |    rto_core_prime_0                             |rto_core_prime                     |   133|
+|20    |    rto_core_prime_0                             |rto_core_prime                     |   604|
 |21    |      rto_core_FIFO                              |fifo_generator_1                   |    41|
 |22    |        U0                                       |fifo_generator_v13_2_0             |    41|
 |23    |          inst_fifo_gen                          |fifo_generator_v13_2_0_synth       |    41|
@@ -1878,28 +1856,28 @@ Report Instance Areas:
 |29    |                    \gonep.inst_prim             |builtin_prim_v6_1                  |     6|
 |30    |                  \gextw[2].gnll_fifo.inst_extd  |builtin_extdepth_v6_0              |     9|
 |31    |                    \gonep.inst_prim             |builtin_prim_v6                    |     5|
-|32    |    spi_fsm_module_0                             |spi_fsm_module                     |   281|
+|32    |    spi_fsm_module_0                             |spi_fsm_module                     |   280|
 |33    |      clock_divider_0                            |clock_divider                      |    44|
 |34    |      shift_register_in_0                        |shift_register_in                  |    65|
 |35    |      shift_register_out_0                       |shift_register_out                 |    70|
 |36    |    spi_multiple_single_output_0                 |spi_multiple_single_output         |     5|
 |37    |  device_DNA_inst                                |device_DNA                         |   153|
 |38    |  led_intensity_modulator                        |led_intensity_adjust               |    33|
-|39    |  receiver                                       |data_receiver                      | 13715|
-|40    |    RXUSB                                        |async_receiver                     |  2254|
-|41    |  sender                                         |data_sender                        |  6879|
+|39    |  receiver                                       |data_receiver                      | 13474|
+|40    |    RXUSB                                        |async_receiver                     |  2265|
+|41    |  sender                                         |data_sender                        |  8993|
 |42    |    TXUSB                                        |async_transmitter                  |    78|
-|43    |  timestamp_counter_0                            |timestamp_counter                  |   210|
+|43    |  timestamp_counter_0                            |timestamp_counter                  |   211|
 +------+-------------------------------------------------+-----------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:03:07 ; elapsed = 00:03:10 . Memory (MB): peak = 1451.633 ; gain = 1148.598
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:30 ; elapsed = 00:02:04 . Memory (MB): peak = 1210.184 ; gain = 907.184
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 1151 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:41 ; elapsed = 00:02:58 . Memory (MB): peak = 1451.633 ; gain = 805.797
-Synthesis Optimization Complete : Time (s): cpu = 00:03:08 ; elapsed = 00:03:10 . Memory (MB): peak = 1451.633 ; gain = 1148.598
+Synthesis finished with 0 errors, 3 critical warnings and 191 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:03 ; elapsed = 00:01:53 . Memory (MB): peak = 1210.184 ; gain = 561.176
+Synthesis Optimization Complete : Time (s): cpu = 00:01:30 ; elapsed = 00:02:05 . Memory (MB): peak = 1210.184 ; gain = 907.184
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 203 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Netlist 29-17] Analyzing 212 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
@@ -1908,10 +1886,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   IOBUF => IOBUF (IBUF, OBUFT): 2 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-274 Infos, 373 Warnings, 0 Critical Warnings and 0 Errors encountered.
+247 Infos, 372 Warnings, 3 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:03:12 ; elapsed = 00:03:15 . Memory (MB): peak = 1451.633 ; gain = 1159.180
+synth_design: Time (s): cpu = 00:01:34 ; elapsed = 00:02:10 . Memory (MB): peak = 1210.184 ; gain = 917.645
 INFO: [Common 17-1381] The checkpoint 'C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/main.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.116 . Memory (MB): peak = 1451.633 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue Aug 25 22:34:54 2020...
+report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.117 . Memory (MB): peak = 1210.184 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Aug 26 21:43:59 2020...
