@@ -193,7 +193,7 @@ def exp5():
     dds.set_profile_register(ch1 = 1, ch2 = 1, freq = 240*MHz, phase = 0 * RAD, 
                              amplitude = 0.8, profile = 7)
     
-    dds.delay_cycle(50)
+    dds.delay_cycle(10000)
     dds.set_profile_pin(profile1 = 1, profile2 = 0)
     dds.delay_cycle(50)
     dds.set_profile_pin(profile1 = 2, profile2 = 0)
