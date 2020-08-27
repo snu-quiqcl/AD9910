@@ -260,7 +260,7 @@ class AD9910:
                     delayed_cycle += 1
                 else:
                     self.fpga.send_mod_BTF_int_list(config_int_list2)
-                    self.fpga.send_command('WRITE FIFO')
+                    self.fpga.send_command('WRITE DDS REG')
                 
             data_int_list = self.make_write_list(register_data_list[i])
             if( self.auto_en ):
@@ -430,7 +430,8 @@ class AD9910:
         config_int_list1 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
                                            length = 8, end_spi = 0, 
                                            slave_en = 0 )
-        addr_int_list = self.make_write_list(register_addr << 24)
+        addr_int_list = self.make_write_list( ( register_addr << 24 ) \
+                                             | ( 1 << 31 ) )
         config_int_list2 = self.set_config( cs = ((ch2 << 1)|(ch1 << 0)), 
                                            length = 32, end_spi = 1,
                                            slave_en = 1 )
@@ -439,12 +440,16 @@ class AD9910:
         if( self.auto_en ):
             fifo_config_int_list1 = self.convert_to_16_int_list(config_int_list1)
             self.delay_cycle(1)
+            
             fifo_addr_int_list = self.convert_to_16_int_list(addr_int_list)
             self.delay_cycle(self.read_32_duration)
+            
             fifo_config_int_list2 = self.convert_to_16_int_list(config_int_list2)
             self.delay_cycle(1)
+            
             fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
             self.delay_cycle(self.read_32_duration)
+            
             self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
             self.fpga.send_command('WRITE FIFO')
             self.fpga.send_mod_BTF_int_list(fifo_addr_int_list)
@@ -479,7 +484,9 @@ class AD9910:
         
         config_int_list1 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
                                            length = 8)
-        addr_int_list = self.make_write_list(register_addr << 24)
+        addr_int_list = self.make_write_list( ( register_addr << 24 ) \
+                                             | ( 1 << 31 ) )
+            
         config_int_list2 = self.set_config( cs = ((ch2 << 1)|(ch1 << 0)), 
                                            length = 32, end_spi = 0, 
                                            slave_en = 1 )
@@ -492,16 +499,22 @@ class AD9910:
         if( self.auto_en ):
             fifo_config_int_list1 = self.convert_to_16_int_list(config_int_list1)
             self.delay_cycle(1)
+            
             fifo_addr_int_list = self.convert_to_16_int_list(addr_int_list)
             self.delay_cycle(self.read_32_duration)
+            
             fifo_config_int_list2 = self.convert_to_16_int_list(config_int_list2)
             self.delay_cycle(1)
+            
             fifo_data_int_list1 = self.convert_to_16_int_list(data_int_list)
             self.delay_cycle(self.read_32_duration)
+            
             fifo_config_int_list3 = self.convert_to_16_int_list(config_int_list3)
             self.delay_cycle(1)
+            
             fifo_data_int_list2 = self.convert_to_16_int_list(data_int_list)
             self.delay_cycle(self.read_32_duration)
+            
             self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
             self.fpga.send_command('WRITE FIFO')
             self.fpga.send_mod_BTF_int_list(fifo_addr_int_list)
@@ -565,23 +578,22 @@ class AD9910:
         """
         freq_in_Hz = freq  
         
-        self.write32(FTW_ADDR, self.frequency_to_FTW(freq_in_Hz, unit = 'Hz'), 
-                     ch1, ch2)
+        self.write32(ch1, ch2, FTW_ADDR, self.frequency_to_FTW(freq_in_Hz) )
         
     def set_phase(self, ch1, ch2, phase):
         """
         phase           : phase user want to set
         unit            : unit of phase. defualt is fraction of 2 pi
         """
-        self.write16(POW_ADDR, self.phase_to_POW(phase),ch1, ch2)
+        self.write(ch1, ch2, POW_ADDR, [self.phase_to_POW(phase)], 
+                   last_length = 16 )
         
     def set_amplitude(self, ch1, ch2, amplitude_frac):
         if(amplitude_frac > 1 or amplitude_frac < 0):
             print('Error in amplitude_to_ASF: ampltiude range error (%s).'\
                   % amplitude_frac, 'ampltiude should be in 0 to 1')
                 
-        self.write32(ASF_ADDR, ( self.amplitude_to_ASF(amplitude_frac) << 2 ), 
-                     ch1, ch2)
+        self.write32(ch1, ch2, ASF_ADDR, ( self.amplitude_to_ASF(amplitude_frac) << 2 ) )
         
     def initialize(self, ch1, ch2):
         delayed_cycle = 0
@@ -826,7 +838,7 @@ class AD9910:
             self.fpga.send_mod_BTF_int_list(data_int_list)
             self.fpga.send_command('SET DDS PIN')
     
-    def set_parallel_phasor(self, amplitude, phase, set_amplitude_lsb = False,\
+    def set_parallel_polar(self, amplitude, phase, set_amplitude_lsb = False,\
                             set_phase_lsb = False, parallel_en = 1):
         """
         amplitude : amplitude to set
@@ -900,7 +912,9 @@ class AD9910:
             self.fpga.send_mod_BTF_int_list(fifo_data_int_list2)
             self.fpga.send_command('WRITE FIFO')
         else:
-            self.fpga.send_mod_BTF_int_list(data_int_list)
+            self.fpga.send_mod_BTF_int_list(data_int_list1)
+            self.fpga.send_command('DDS IO UPDATE')
+            self.fpga.send_mod_BTF_int_list(data_int_list2)
             self.fpga.send_command('DDS IO UPDATE')
         
         self.delay_cycle(-delayed_cycle)
@@ -953,6 +967,31 @@ class AD9910:
         
     def ram_write(self, ch1, ch2, data_list):
         self.write(ch1, ch2, RAM_ADDR, data_list, 32)
+    
+    def ram_write_frequency(self, ch1, ch2, data_list):
+        frequency_list = []
+        for data_each in data_list:
+            frequency_list.append(self.frequency_to_FTW(data_each))
+        self.ram_write(ch1, ch2, frequency_list)
+    
+    def ram_write_amplitude(self, ch1, ch2, data_list):
+        amplitude_list = []
+        for data_each in data_list:
+            amplitude_list.append(self.amplitude_to_ASF(data_each) << 18)
+        self.ram_write(amplitude_list)
+        
+    def ram_write_phase(self, ch1, ch2, data_list):
+        phase_list = []
+        for data_each in data_list:
+            phase_list.append(self.phase_to_POW(data_each) << 16)
+        self.ram_write(ch1, ch2, phase_list)
+    
+    def ram_write_polar(self, ch1, ch2, data_list):
+        polar_list = []
+        for data_each in data_list:
+            polar_list.append( ( self.phase_to_POW(data_each[0]) << 16 )\
+                              | ( self.amplitude_to_ASF(data_each[1]) << 2 ) )
+        self.ram_write(ch1, ch2, polar_list)
     
     def set_ram_profile_register(self,ch1, ch2, addr_step_rate, end_addr, 
                                  start_addr, no_dwell_high, zero_crossing, 
