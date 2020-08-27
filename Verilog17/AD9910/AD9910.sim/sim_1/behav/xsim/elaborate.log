@@ -1,6 +1,6 @@
 Vivado Simulator 2017.3
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: D:/Xilinx/Vivado/2017.3/bin/unwrapped/win64.o/xelab.exe -wto c410dce74b084c639dc5e6e81cac80b5 --incr --debug typical --relax --mt 2 -L fifo_generator_v13_2_0 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot testbench_main5_behav xil_defaultlib.testbench_main5 xil_defaultlib.glbl -log elaborate.log 
+Running: D:/Xilinx/Vivado/2017.3/bin/unwrapped/win64.o/xelab.exe -wto c410dce74b084c639dc5e6e81cac80b5 --incr --debug typical --relax --mt 2 -L fifo_generator_v13_2_0 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot testbench_main6_behav xil_defaultlib.testbench_main6 xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -70,6 +70,6 @@ Compiling module xil_defaultlib.timestamp_counter
 Compiling module unisims_ver.DNA_PORT_default
 Compiling module xil_defaultlib.device_DNA
 Compiling module xil_defaultlib.main_default
-Compiling module xil_defaultlib.testbench_main5
+Compiling module xil_defaultlib.testbench_main6
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot testbench_main5_behav
+Built simulation snapshot testbench_main6_behav
