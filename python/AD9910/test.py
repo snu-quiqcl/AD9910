@@ -18,8 +18,8 @@ def exp1():
     dds.set_profile_register(ch1 = 1, ch2 = 1, freq = 50*MHz, phase = 0 * RAD, 
                              amplitude = 1.0, profile = 0)
     dds.delay_cycle(10000)
-    #dds.set_profile_register(ch1 = 1, ch2 = 1, freq = 100*MHz, phase = 0 * RAD, 
-    #                         amplitude = 1.0, profile = 1)
+    dds.set_profile_register(ch1 = 1, ch2 = 1, freq = 100*MHz, phase = 0 * RAD, 
+                             amplitude = 1.0, profile = 1)
     dds.delay_cycle(10000)
     dds.set_profile_pin(profile1 = 1, profile2 = 0)
     while True:
@@ -41,20 +41,43 @@ def exp2():
     dds.reset_driver()
     dds.auto_mode()
     dds.delay_cycle(500)
-    #dds.set_profile_register(ch1 = 1, ch2 = 1, freq = 50*MHz, phase = 0 * RAD, 
-    #                         amplitude = 1.0, profile = 0)
+    dds.set_profile_register(ch1 = 1, ch2 = 1, freq = 50*MHz, phase = 0 * RAD, 
+                             amplitude = 1.0, profile = 0)
     dds.set_parallel_amplitude(amplitude = 1.0, parallel_en = 1)
+    dds.auto_start()
+    time.sleep(10)
+    dds.read_exception_log()
     while True:
         print('[1] auto start')
         print('[2] auto stop')
+        print('[3] exception log')
+        print('[4] rti value')
+        print('[r] read next')
         print('[q] exit')
         order_in = input()
         if( order_in == '1' ):
             dds.auto_start()
         elif( order_in == '2'):
             dds.auto_stop()
+        elif( order_in == '3'):
+            dds.read_exception_log()
+            print('EXCEPTION LOG : ',end = '')
+            print(dds.read_int_list(65))
+        elif( order_in == '4'):
+            dds.read_rti_fifo()
+            print('RTI FIFO LIST : ',end = '')
+            received_int_list = dds.read_17_int_list()
+            if( received_int_list == 0xff ):
+                print('EMPTY')
+            else:
+                print(dds.read_17_int_list())
+        
+        elif( order_in == 'r'):
+            print('next_val : ',end = '')
+            print(dds.fpga.read_next())
+        
         elif( order_in == 'q'):
-            print('exit exp2')
+            print('exit real_exp1')
             dds.fpga.close()
             return
 
