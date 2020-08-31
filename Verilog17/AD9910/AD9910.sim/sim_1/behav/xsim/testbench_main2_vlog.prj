@@ -43,6 +43,11 @@ sv xil_defaultlib  --include "C:/Xilinx/Vivado/2017.3/data/xilinx_vip/include" \
 "../../../../AD9910.srcs/sim_1/new/testbench_ad9910_driver.sv" \
 "../../../../AD9910.srcs/sim_1/new/testbench_ad9910_override.sv" \
 "../../../../AD9910.srcs/sim_1/new/testbench_main2.sv" \
+"../../../../AD9910.srcs/sim_1/new/testbench_main1.sv" \
+"../../../../AD9910.srcs/sim_1/new/testbench_main3.sv" \
+"../../../../AD9910.srcs/sim_1/new/testbench_main4.sv" \
+"../../../../AD9910.srcs/sim_1/new/testbench_main5.sv" \
+"../../../../AD9910.srcs/sim_1/new/testbench_main6.sv" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"
