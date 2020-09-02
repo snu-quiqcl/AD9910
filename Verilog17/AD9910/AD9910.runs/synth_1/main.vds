@@ -2,8 +2,8 @@
 # Vivado v2017.3 (64-bit)
 # SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
 # IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
-# Start of session at: Wed Aug 26 21:41:38 2020
-# Process ID: 2168
+# Start of session at: Wed Sep  2 21:21:41 2020
+# Process ID: 6344
 # Current directory: C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1
 # Command line: vivado.exe -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
 # Log file: C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/main.vds
@@ -15,7 +15,7 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7012 
+INFO: Helper process launched with PID 384 
 WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:131]
 WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:148]
 WARNING: [Synth 8-2507] parameter declaration becomes local in data_sender with formal parameter declaration list [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:149]
@@ -65,7 +65,7 @@ WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver wit
 WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:261]
 WARNING: [Synth 8-2507] parameter declaration becomes local in data_receiver with formal parameter declaration list [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:264]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 405.449 ; gain = 102.449
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 404.871 ; gain = 101.875
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'main' [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:33]
 	Parameter ClkFreq bound to: 100000000 - type: integer 
@@ -206,8 +206,8 @@ INFO: [Synth 8-638] synthesizing module 'data_sender' [C:/M-labs/GIT/AD9910_CODE
 	Parameter TX_WAIT2 bound to: 4'b0010 
 INFO: [Synth 8-638] synthesizing module 'hex2ascii' [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/hex2ascii.v:21]
 INFO: [Synth 8-256] done synthesizing module 'hex2ascii' (4#1) [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/hex2ascii.v:21]
-INFO: [Synth 8-638] synthesizing module 'fifo_generator_0' [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-2168-DESKTOP-DKK2GQK/realtime/fifo_generator_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'fifo_generator_0' (5#1) [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-2168-DESKTOP-DKK2GQK/realtime/fifo_generator_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'fifo_generator_0' [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-6344-DESKTOP-DKK2GQK/realtime/fifo_generator_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'fifo_generator_0' (5#1) [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-6344-DESKTOP-DKK2GQK/realtime/fifo_generator_0_stub.v:6]
 INFO: [Synth 8-638] synthesizing module 'async_transmitter' [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/async_transmitter.v:6]
 	Parameter ClkFrequency bound to: 100000000 - type: integer 
 	Parameter Baud bound to: 57600 - type: integer 
@@ -493,7 +493,7 @@ INFO: [Synth 8-638] synthesizing module 'DNA_PORT' [C:/Xilinx/Vivado/2017.3/scri
 	Parameter SIM_DNA_VALUE bound to: 57'b000000000000000000000000000000000000000000000000000000000 
 INFO: [Synth 8-256] done synthesizing module 'DNA_PORT' (33#1) [C:/Xilinx/Vivado/2017.3/scripts/rt/data/unisim_comp.v:3032]
 INFO: [Synth 8-256] done synthesizing module 'device_DNA' (34#1) [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/imports/new/device_DNA.v:23]
-WARNING: [Synth 8-6014] Unused sequential element BTN0Delay_reg was removed.  [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:919]
+WARNING: [Synth 8-6014] Unused sequential element BTN0Delay_reg was removed.  [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:922]
 WARNING: [Synth 8-3848] Net flush_rto_fifo in module/entity main does not have driver. [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:257]
 WARNING: [Synth 8-3848] Net flush_rti_fifo in module/entity main does not have driver. [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:261]
 INFO: [Synth 8-256] done synthesizing module 'main' (35#1) [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:33]
@@ -605,7 +605,7 @@ WARNING: [Synth 8-3331] design output_blk has unconnected port RD_DATA_COUNT_I[1
 WARNING: [Synth 8-3331] design output_blk has unconnected port RD_DATA_COUNT_I[0]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 621.492 ; gain = 318.492
+Finished RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 621.918 ; gain = 318.922
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -716,7 +716,7 @@ WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[99] to cons
 WARNING: [Synth 8-3295] tying undriven pin sender:TX_waveform_buffer[100] to constant 0 [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:164]
 INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 621.492 ; gain = 318.492
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 621.918 ; gain = 318.922
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -725,8 +725,8 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-2168-DESKTOP-DKK2GQK/dcp3/fifo_generator_0_in_context.xdc] for cell 'sender/transmitter_FIFO'
-Finished Parsing XDC File [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-2168-DESKTOP-DKK2GQK/dcp3/fifo_generator_0_in_context.xdc] for cell 'sender/transmitter_FIFO'
+Parsing XDC File [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-6344-DESKTOP-DKK2GQK/dcp3/fifo_generator_0_in_context.xdc] for cell 'sender/transmitter_FIFO'
+Finished Parsing XDC File [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/.Xil/Vivado-6344-DESKTOP-DKK2GQK/dcp3/fifo_generator_0_in_context.xdc] for cell 'sender/transmitter_FIFO'
 Parsing XDC File [c:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.xdc] for cell 'AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0'
 Finished Parsing XDC File [c:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.xdc] for cell 'AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0'
 Parsing XDC File [c:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.xdc] for cell 'AD9910_driver_0/rto_core_prime_0/rto_core_FIFO/U0'
@@ -745,16 +745,16 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 2 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 967.500 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 966.785 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 967.500 ; gain = 664.500
+Finished Constraint Validation : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 966.785 ; gain = 663.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 967.500 ; gain = 664.500
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 966.785 ; gain = 663.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -765,7 +765,7 @@ Applied set_property DONT_TOUCH = true for AD9910_driver_0/rti_core_prime_0/rti_
 Applied set_property DONT_TOUCH = true for AD9910_driver_0/rto_core_prime_0/rto_core_FIFO. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for sender/transmitter_FIFO. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 967.500 ; gain = 664.500
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 966.785 ; gain = 663.789
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'async_receiver'
 INFO: [Synth 8-5544] ROM "RxD_bit_inv" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
@@ -960,7 +960,7 @@ MAIN_DDS_WAIT_FOR_BUSY_OFF |                      00000000100 |                 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'main_state_reg' using encoding 'one-hot' in module 'main'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 967.500 ; gain = 664.500
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 966.785 ; gain = 663.789
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -969,21 +969,21 @@ Report RTL Partitions:
 +------+--------------------------------+------------+----------+
 |1     |spi_multiple_single_output__GC0 |           1|        13|
 |2     |AD9910_driver__GC0              |           1|      2712|
-|3     |main__GCB0                      |           1|     36865|
-|4     |main__GCB1                      |           1|     24785|
-|5     |main__GCB2                      |           1|     12699|
+|3     |main__GCB0                      |           1|     26808|
+|4     |muxpart__26                     |           1|     34817|
+|5     |main__GCB2                      |           1|     12760|
 |6     |data_sender                     |           1|     38706|
-|7     |main__GCB4                      |           1|     33158|
+|7     |main__GCB4                      |           1|     33153|
 +------+--------------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-3538] Detected potentially large (wide) register TX_full_buffer2_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:244]
 INFO: [Synth 8-3538] Detected potentially large (wide) register TX_full_waveform_buffer_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:252]
-INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_capture_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:749]
-INFO: [Synth 8-3538] Detected potentially large (wide) register TX_buffer2_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:175]
 INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_RXBuffer_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:359]
 INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_Buffer_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:394]
+INFO: [Synth 8-3538] Detected potentially large (wide) register TX_buffer2_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:175]
+INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_capture_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:752]
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     64 Bit       Adders := 1     
@@ -1026,9 +1026,9 @@ Detailed RTL Component Info :
 	   3 Input   2088 Bit        Muxes := 1     
 	  10 Input   2088 Bit        Muxes := 2     
 	  18 Input   2048 Bit        Muxes := 1     
+	  15 Input   2048 Bit        Muxes := 1     
 	   2 Input   2048 Bit        Muxes := 7     
 	  11 Input   2048 Bit        Muxes := 2     
-	  15 Input   2048 Bit        Muxes := 1     
 	  16 Input   2048 Bit        Muxes := 1     
 	   2 Input   1056 Bit        Muxes := 4     
 	   3 Input   1056 Bit        Muxes := 1     
@@ -1038,9 +1038,9 @@ Detailed RTL Component Info :
 	  10 Input    136 Bit        Muxes := 2     
 	   2 Input    128 Bit        Muxes := 6     
 	   2 Input    124 Bit        Muxes := 1     
+	  15 Input    120 Bit        Muxes := 1     
 	   2 Input    120 Bit        Muxes := 3     
 	  11 Input    120 Bit        Muxes := 2     
-	  15 Input    120 Bit        Muxes := 1     
 	  21 Input    120 Bit        Muxes := 1     
 	   2 Input     64 Bit        Muxes := 3     
 	  11 Input     64 Bit        Muxes := 2     
@@ -1051,20 +1051,20 @@ Detailed RTL Component Info :
 	   2 Input     32 Bit        Muxes := 1     
 	  31 Input     15 Bit        Muxes := 1     
 	  14 Input     13 Bit        Muxes := 1     
-	  26 Input     11 Bit        Muxes := 1     
+	  29 Input     11 Bit        Muxes := 1     
 	  10 Input     10 Bit        Muxes := 1     
 	  15 Input     10 Bit        Muxes := 1     
 	  11 Input     10 Bit        Muxes := 1     
 	  10 Input      9 Bit        Muxes := 1     
-	  11 Input      9 Bit        Muxes := 2     
-	  18 Input      9 Bit        Muxes := 1     
 	   2 Input      9 Bit        Muxes := 8     
 	  15 Input      9 Bit        Muxes := 4     
+	  11 Input      9 Bit        Muxes := 2     
+	  18 Input      9 Bit        Muxes := 1     
 	  17 Input      9 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 7     
 	  10 Input      8 Bit        Muxes := 1     
-	  11 Input      8 Bit        Muxes := 1     
 	   4 Input      8 Bit        Muxes := 1     
+	  11 Input      8 Bit        Muxes := 1     
 	  14 Input      8 Bit        Muxes := 1     
 	  12 Input      7 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 5     
@@ -1079,23 +1079,23 @@ Detailed RTL Component Info :
 	  10 Input      4 Bit        Muxes := 2     
 	   4 Input      4 Bit        Muxes := 1     
 	   5 Input      4 Bit        Muxes := 1     
-	  11 Input      4 Bit        Muxes := 1     
 	  15 Input      4 Bit        Muxes := 5     
+	  11 Input      4 Bit        Muxes := 1     
 	   9 Input      4 Bit        Muxes := 1     
 	  11 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 6     
 	  10 Input      2 Bit        Muxes := 1     
 	   6 Input      2 Bit        Muxes := 2     
 	  13 Input      1 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 73    
+	   2 Input      1 Bit        Muxes := 70    
 	  10 Input      1 Bit        Muxes := 15    
 	   4 Input      1 Bit        Muxes := 9     
 	   3 Input      1 Bit        Muxes := 3     
 	   7 Input      1 Bit        Muxes := 13    
-	  11 Input      1 Bit        Muxes := 25    
 	   5 Input      1 Bit        Muxes := 2     
 	   6 Input      1 Bit        Muxes := 5     
 	  15 Input      1 Bit        Muxes := 11    
+	  11 Input      1 Bit        Muxes := 25    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -1104,10 +1104,10 @@ Start RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-3538] Detected potentially large (wide) register TX_full_buffer2_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:244]
 INFO: [Synth 8-3538] Detected potentially large (wide) register TX_full_waveform_buffer_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_sender_v1_01.sv:252]
-INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_capture_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:749]
-INFO: [Synth 8-3538] Detected potentially large (wide) register TX_buffer2_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:175]
 INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_RXBuffer_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:359]
 INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_Buffer_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/data_receiver_v1_00.v:394]
+INFO: [Synth 8-3538] Detected potentially large (wide) register TX_buffer2_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:175]
+INFO: [Synth 8-3538] Detected potentially large (wide) register BTF_capture_reg [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:752]
 Hierarchical RTL Component report 
 Module main 
 Detailed RTL Component Info : 
@@ -1132,14 +1132,14 @@ Detailed RTL Component Info :
 	  16 Input   2048 Bit        Muxes := 1     
 	   2 Input    136 Bit        Muxes := 1     
 	   2 Input    128 Bit        Muxes := 4     
-	   2 Input    120 Bit        Muxes := 2     
 	  11 Input    120 Bit        Muxes := 2     
+	   2 Input    120 Bit        Muxes := 2     
 	  21 Input    120 Bit        Muxes := 1     
 	  11 Input     64 Bit        Muxes := 2     
-	  26 Input     11 Bit        Muxes := 1     
+	  29 Input     11 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 6     
 	  11 Input      9 Bit        Muxes := 2     
 	  18 Input      9 Bit        Muxes := 1     
-	   2 Input      9 Bit        Muxes := 6     
 	  17 Input      9 Bit        Muxes := 1     
 	  11 Input      8 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 2     
@@ -1149,10 +1149,10 @@ Detailed RTL Component Info :
 	   9 Input      4 Bit        Muxes := 1     
 	  11 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 33    
+	   2 Input      1 Bit        Muxes := 30    
 	  11 Input      1 Bit        Muxes := 25    
-	   5 Input      1 Bit        Muxes := 1     
 	   4 Input      1 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 1     
 Module hex2ascii__1 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -1358,13 +1358,6 @@ Module single_output_port__parameterized1
 Detailed RTL Component Info : 
 +---Registers : 
 	               19 Bit    Registers := 1     
-Module led_intensity_adjust 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      8 Bit       Adders := 1     
-+---Registers : 
-	                8 Bit    Registers := 1     
-	                1 Bit    Registers := 6     
 Module async_receiver 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -1435,6 +1428,13 @@ Detailed RTL Component Info :
 	   4 Input      6 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 1     
 	   4 Input      1 Bit        Muxes := 4     
+Module led_intensity_adjust 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 6     
 Module timestamp_counter 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -1496,14 +1496,12 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (AD9910_dr
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (AD9910_driver_0i_1/\gpi_core_prime_0/gpi_out_buffer_reg[125] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (AD9910_driver_0i_1/\gpi_core_prime_0/gpi_out_buffer_reg[126] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (AD9910_driver_0i_1/\gpi_core_prime_0/gpi_out_buffer_reg[127] )
-WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/led_intensity_adjust.v:47]
 WARNING: [Synth 8-6014] Unused sequential element gap_count_reg was removed.  [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/async_receiver.v:89]
 INFO: [Synth 8-5546] ROM "esc_char_detected" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "escape_state" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "TERMINATOR_CURRENT_CHAR_POINTER" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "TX_buffer1_ready" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-3332] Sequential element (RXUSB/gap_count_reg[4]) is unused and will be removed from module data_receiver.
 WARNING: [Synth 8-3332] Sequential element (RXUSB/gap_count_reg[3]) is unused and will be removed from module data_receiver.
 WARNING: [Synth 8-3332] Sequential element (RXUSB/gap_count_reg[2]) is unused and will be removed from module data_receiver.
@@ -1572,6 +1570,8 @@ WARNING: [Synth 8-3332] Sequential element (points_to_capture_after_trigger_reg[
 WARNING: [Synth 8-3332] Sequential element (debug1_reg) is unused and will be removed from module data_receiver.
 WARNING: [Synth 8-3332] Sequential element (debug2_reg) is unused and will be removed from module data_receiver.
 WARNING: [Synth 8-3332] Sequential element (debug3_reg) is unused and will be removed from module data_receiver.
+WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/led_intensity_adjust.v:47]
+INFO: [Synth 8-5546] ROM "TX_buffer1_ready" won't be mapped to RAM because it is too sparse
 CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'reset_error_reg__0/Q' [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:356]
 CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:356]
 CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.srcs/sources_1/new/AD9912_DAC8734_main.sv:356]
@@ -1580,7 +1580,7 @@ INFO: [Synth 8-5546] ROM "TX_full_buffer1" won't be mapped to RAM because it is 
 INFO: [Synth 8-5546] ROM "main_state" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\main_state_reg[5] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:53 ; elapsed = 00:01:14 . Memory (MB): peak = 967.500 ; gain = 664.500
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:53 ; elapsed = 00:01:14 . Memory (MB): peak = 966.785 ; gain = 663.789
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1589,17 +1589,17 @@ Report RTL Partitions:
 +------+--------------------------------+------------+----------+
 |1     |spi_multiple_single_output__GC0 |           1|        13|
 |2     |AD9910_driver__GC0              |           1|      2151|
-|3     |main__GCB0                      |           1|      1551|
-|4     |main__GCB1                      |           1|     27956|
-|5     |main__GCB2                      |           1|      3054|
+|3     |main__GCB0                      |           1|     30032|
+|4     |muxpart__26                     |           1|      1550|
+|5     |main__GCB2                      |           1|      3147|
 |6     |data_sender                     |           1|     38122|
-|7     |main__GCB4                      |           1|      2343|
+|7     |main__GCB4                      |           1|      2338|
 +------+--------------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:01 ; elapsed = 00:01:22 . Memory (MB): peak = 1090.137 ; gain = 787.137
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:02 ; elapsed = 00:01:22 . Memory (MB): peak = 1072.352 ; gain = 769.355
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
@@ -1639,7 +1639,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[126] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\rti_overflow_error_data_buffer_reg[127] )
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:18 ; elapsed = 00:01:39 . Memory (MB): peak = 1210.184 ; gain = 907.184
+Finished Timing Optimization : Time (s): cpu = 00:01:08 ; elapsed = 00:01:29 . Memory (MB): peak = 1154.813 ; gain = 851.816
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1648,13 +1648,18 @@ Report RTL Partitions:
 +------+--------------------------------+------------+----------+
 |1     |spi_multiple_single_output__GC0 |           1|        13|
 |2     |AD9910_driver__GC0              |           1|      2151|
-|3     |main__GCB0                      |           1|      1551|
-|4     |data_sender                     |           1|     32841|
-|5     |main_GT0                        |           1|     31477|
+|3     |main__GCB0                      |           1|     28097|
+|4     |muxpart__26                     |           1|      1550|
+|5     |main__GCB2                      |           1|      2580|
+|6     |data_sender                     |           1|     32841|
+|7     |main__GCB4                      |           1|      2338|
 +------+--------------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (device_DNA_inst/DNA_PORT_value_reg[63]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (device_DNA_inst/DNA_PORT_value_reg[62]) is unused and will be removed from module main.
+WARNING: [Synth 8-3332] Sequential element (device_DNA_inst/DNA_PORT_value_reg[61]) is unused and will be removed from module main.
 WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[1]) is unused and will be removed from module data_sender_tempName.
 WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[2]) is unused and will be removed from module data_sender_tempName.
 WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[6]) is unused and will be removed from module data_sender_tempName.
@@ -1682,21 +1687,18 @@ WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[38]) is 
 WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[39]) is unused and will be removed from module data_sender_tempName.
 WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[40]) is unused and will be removed from module data_sender_tempName.
 WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[41]) is unused and will be removed from module data_sender_tempName.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[42]) is unused and will be removed from module data_sender_tempName.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[43]) is unused and will be removed from module data_sender_tempName.
-WARNING: [Synth 8-3332] Sequential element (TX_full_waveform_buffer_reg[44]) is unused and will be removed from module data_sender_tempName.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:23 ; elapsed = 00:01:57 . Memory (MB): peak = 1210.184 ; gain = 907.184
+Finished Technology Mapping : Time (s): cpu = 00:01:17 ; elapsed = 00:01:49 . Memory (MB): peak = 1154.813 ; gain = 851.816
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+--------------+------------+----------+
 |      |RTL Partition |Replication |Instances |
 +------+--------------+------------+----------+
-|1     |data_sender   |           1|      8992|
-|2     |main_GT0      |           1|     17222|
+|1     |main__GCB0    |           1|     15527|
+|2     |data_sender   |           1|      8992|
 +------+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -1718,6 +1720,13 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sender/T
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sender/TX_full_buffer1_reg[131] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sender/TX_full_buffer1_reg[130] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\sender/TX_full_buffer1_reg[129] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\TX_buffer1_reg[94] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\TX_buffer1_reg[96] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\TX_buffer1_reg[95] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\TX_buffer1_reg[89] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\TX_buffer1_reg[81] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\TX_buffer1_reg[73] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\TX_buffer1_reg[65] )
 INFO: [Synth 8-5777] Ignored max_fanout on net \FSM_onehot_main_state_reg_n_0_[0]  because some of its loads are not in same hierarchy as its driver   
 INFO: [Synth 8-5777] Ignored max_fanout on net \receiver/FSM_onehot_main_state_reg_n_0_[4]  because some of its loads are not in same hierarchy as its driver   
 INFO: [Synth 8-5777] Ignored max_fanout on net \sender/FSM_onehot_main_state_reg_n_0_[5]  because some of its loads are not in same hierarchy as its driver   
@@ -1726,7 +1735,7 @@ INFO: [Synth 8-5777] Ignored max_fanout on net \sender/FSM_onehot_main_state_reg
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:28 ; elapsed = 00:02:03 . Memory (MB): peak = 1210.184 ; gain = 907.184
+Finished IO Insertion : Time (s): cpu = 00:01:23 ; elapsed = 00:01:56 . Memory (MB): peak = 1154.813 ; gain = 851.816
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1739,7 +1748,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:28 ; elapsed = 00:02:03 . Memory (MB): peak = 1210.184 ; gain = 907.184
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:24 ; elapsed = 00:01:56 . Memory (MB): peak = 1154.813 ; gain = 851.816
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1751,25 +1760,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:29 ; elapsed = 00:02:04 . Memory (MB): peak = 1210.184 ; gain = 907.184
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:25 ; elapsed = 00:01:57 . Memory (MB): peak = 1154.813 ; gain = 851.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:29 ; elapsed = 00:02:04 . Memory (MB): peak = 1210.184 ; gain = 907.184
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:25 ; elapsed = 00:01:57 . Memory (MB): peak = 1154.813 ; gain = 851.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:29 ; elapsed = 00:02:04 . Memory (MB): peak = 1210.184 ; gain = 907.184
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:25 ; elapsed = 00:01:58 . Memory (MB): peak = 1154.813 ; gain = 851.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:29 ; elapsed = 00:02:04 . Memory (MB): peak = 1210.184 ; gain = 907.184
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:25 ; elapsed = 00:01:58 . Memory (MB): peak = 1154.813 ; gain = 851.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1805,17 +1814,17 @@ Report Cell Usage:
 |3     |CARRY4           |   200|
 |4     |DNA_PORT         |     1|
 |5     |FIFO36E1         |     4|
-|6     |LUT1             |    56|
-|7     |LUT2             |   237|
-|8     |LUT3             |  1279|
-|9     |LUT4             |  3948|
-|10    |LUT5             |  5976|
-|11    |LUT6             |  4611|
+|6     |LUT1             |    55|
+|7     |LUT2             |  1770|
+|8     |LUT3             |  1285|
+|9     |LUT4             |  2419|
+|10    |LUT5             |  4461|
+|11    |LUT6             |  6132|
 |12    |SRL16E           |     2|
 |13    |FDE_1            |     4|
 |14    |FDPE             |    14|
-|15    |FDRE             | 12776|
-|16    |FDSE             |   187|
+|15    |FDRE             | 12885|
+|16    |FDSE             |    91|
 |17    |IBUF             |     2|
 |18    |IOBUF            |     2|
 |19    |OBUF             |    47|
@@ -1825,14 +1834,14 @@ Report Instance Areas:
 +------+-------------------------------------------------+-----------------------------------+------+
 |      |Instance                                         |Module                             |Cells |
 +------+-------------------------------------------------+-----------------------------------+------+
-|1     |top                                              |                                   | 29359|
-|2     |  AD9910_driver_0                                |AD9910_driver                      |  1406|
+|1     |top                                              |                                   | 29387|
+|2     |  AD9910_driver_0                                |AD9910_driver                      |  1538|
 |3     |    gpi_core_prime_0                             |gpi_core_prime                     |   101|
 |4     |    gpo_core_prime_0                             |gpo_core_prime                     |   249|
 |5     |    io_update_port                               |single_output_port                 |     2|
 |6     |    parallel_port_1                              |single_output_port__parameterized1 |    19|
 |7     |    profile_port                                 |single_output_port__parameterized0 |     6|
-|8     |    rti_core_prime_0                             |rti_core_prime                     |   140|
+|8     |    rti_core_prime_0                             |rti_core_prime                     |   269|
 |9     |      rti_core_FIFO                              |fifo_generator_1__xdcDup__1        |    41|
 |10    |        U0                                       |fifo_generator_v13_2_0__2          |    41|
 |11    |          inst_fifo_gen                          |fifo_generator_v13_2_0_synth_2     |    41|
@@ -1844,7 +1853,7 @@ Report Instance Areas:
 |17    |                    \gonep.inst_prim             |builtin_prim_v6_10                 |     6|
 |18    |                  \gextw[2].gnll_fifo.inst_extd  |builtin_extdepth_v6_8              |     9|
 |19    |                    \gonep.inst_prim             |builtin_prim_v6_9                  |     5|
-|20    |    rto_core_prime_0                             |rto_core_prime                     |   604|
+|20    |    rto_core_prime_0                             |rto_core_prime                     |   606|
 |21    |      rto_core_FIFO                              |fifo_generator_1                   |    41|
 |22    |        U0                                       |fifo_generator_v13_2_0             |    41|
 |23    |          inst_fifo_gen                          |fifo_generator_v13_2_0_synth       |    41|
@@ -1856,25 +1865,25 @@ Report Instance Areas:
 |29    |                    \gonep.inst_prim             |builtin_prim_v6_1                  |     6|
 |30    |                  \gextw[2].gnll_fifo.inst_extd  |builtin_extdepth_v6_0              |     9|
 |31    |                    \gonep.inst_prim             |builtin_prim_v6                    |     5|
-|32    |    spi_fsm_module_0                             |spi_fsm_module                     |   280|
-|33    |      clock_divider_0                            |clock_divider                      |    44|
+|32    |    spi_fsm_module_0                             |spi_fsm_module                     |   281|
+|33    |      clock_divider_0                            |clock_divider                      |    45|
 |34    |      shift_register_in_0                        |shift_register_in                  |    65|
 |35    |      shift_register_out_0                       |shift_register_out                 |    70|
 |36    |    spi_multiple_single_output_0                 |spi_multiple_single_output         |     5|
-|37    |  device_DNA_inst                                |device_DNA                         |   153|
+|37    |  device_DNA_inst                                |device_DNA                         |   152|
 |38    |  led_intensity_modulator                        |led_intensity_adjust               |    33|
-|39    |  receiver                                       |data_receiver                      | 13474|
-|40    |    RXUSB                                        |async_receiver                     |  2265|
+|39    |  receiver                                       |data_receiver                      | 13372|
+|40    |    RXUSB                                        |async_receiver                     |  2281|
 |41    |  sender                                         |data_sender                        |  8993|
 |42    |    TXUSB                                        |async_transmitter                  |    78|
 |43    |  timestamp_counter_0                            |timestamp_counter                  |   211|
 +------+-------------------------------------------------+-----------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:30 ; elapsed = 00:02:04 . Memory (MB): peak = 1210.184 ; gain = 907.184
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:25 ; elapsed = 00:01:58 . Memory (MB): peak = 1154.813 ; gain = 851.816
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 3 critical warnings and 191 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:03 ; elapsed = 00:01:53 . Memory (MB): peak = 1210.184 ; gain = 561.176
-Synthesis Optimization Complete : Time (s): cpu = 00:01:30 ; elapsed = 00:02:05 . Memory (MB): peak = 1210.184 ; gain = 907.184
+Synthesis finished with 0 errors, 3 critical warnings and 201 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:57 ; elapsed = 00:01:46 . Memory (MB): peak = 1154.813 ; gain = 506.949
+Synthesis Optimization Complete : Time (s): cpu = 00:01:25 ; elapsed = 00:01:59 . Memory (MB): peak = 1154.813 ; gain = 851.816
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 212 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -1886,10 +1895,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   IOBUF => IOBUF (IBUF, OBUFT): 2 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-247 Infos, 372 Warnings, 3 Critical Warnings and 0 Errors encountered.
+254 Infos, 372 Warnings, 3 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:34 ; elapsed = 00:02:10 . Memory (MB): peak = 1210.184 ; gain = 917.645
+synth_design: Time (s): cpu = 00:01:30 ; elapsed = 00:02:04 . Memory (MB): peak = 1154.813 ; gain = 862.336
 INFO: [Common 17-1381] The checkpoint 'C:/M-labs/GIT/AD9910_CODE/Verilog17/AD9910/AD9910.runs/synth_1/main.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.117 . Memory (MB): peak = 1210.184 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Wed Aug 26 21:43:59 2020...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.130 . Memory (MB): peak = 1154.813 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Sep  2 21:23:58 2020...

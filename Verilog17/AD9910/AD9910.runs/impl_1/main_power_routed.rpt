@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
-| Date             : Wed Aug 26 21:47:48 2020
+| Date             : Wed Sep  2 21:27:30 2020
 | Host             : DESKTOP-DKK2GQK running 64-bit major release  (build 9200)
 | Command          : report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb -rpx main_power_routed.rpx
 | Design           : main
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.173        |
+| Total On-Chip Power (W)  | 0.172        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.101        |
+| Dynamic (W)              | 0.100        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 4.9          |
-| Max Ambient (C)          | 84.1         |
-| Junction Temperature (C) | 25.9         |
+| Max Ambient (C)          | 84.2         |
+| Junction Temperature (C) | 25.8         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,18 +52,18 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.062 |        3 |       --- |             --- |
-| Slice Logic             |     0.011 |    29318 |       --- |             --- |
-|   LUT as Logic          |     0.010 |    16022 |     32600 |           49.15 |
-|   Register              |    <0.001 |    12984 |     65200 |           19.91 |
+| Clocks                  |     0.064 |        3 |       --- |             --- |
+| Slice Logic             |     0.009 |    29347 |       --- |             --- |
+|   LUT as Logic          |     0.009 |    15903 |     32600 |           48.78 |
+|   Register              |    <0.001 |    12997 |     65200 |           19.93 |
 |   CARRY4                |    <0.001 |      200 |      8150 |            2.45 |
 |   Others                |     0.000 |       54 |       --- |             --- |
 |   LUT as Shift Register |     0.000 |        3 |      9600 |            0.03 |
-| Signals                 |     0.012 |    19846 |       --- |             --- |
+| Signals                 |     0.010 |    19862 |       --- |             --- |
 | Block RAM               |     0.014 |        6 |        75 |            8.00 |
 | I/O                     |     0.003 |       51 |       210 |           24.29 |
 | Static Power            |     0.072 |          |           |                 |
-| Total                   |     0.173 |          |           |                 |
+| Total                   |     0.172 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.107 |       0.097 |      0.010 |
+| Vccint    |       1.000 |     0.106 |       0.096 |      0.010 |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
 | Vcco33    |       3.300 |     0.002 |       0.001 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -140,7 +140,7 @@ Table of Contents
 +------------------------------------------------+-----------+
 | Name                                           | Power (W) |
 +------------------------------------------------+-----------+
-| main                                           |     0.101 |
+| main                                           |     0.100 |
 |   AD9910_driver_0                              |     0.013 |
 |     gpi_core_prime_0                           |    <0.001 |
 |     gpo_core_prime_0                           |     0.001 |
@@ -180,9 +180,9 @@ Table of Contents
 |       IOBUF_ios[1].IOBUF_io                    |    <0.001 |
 |   device_DNA_inst                              |    <0.001 |
 |   led_intensity_modulator                      |    <0.001 |
-|   receiver                                     |     0.025 |
+|   receiver                                     |     0.026 |
 |     RXUSB                                      |    <0.001 |
-|   sender                                       |     0.032 |
+|   sender                                       |     0.029 |
 |     TXUSB                                      |    <0.001 |
 |     transmitter_FIFO                           |     0.006 |
 |       U0                                       |     0.006 |

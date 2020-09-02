@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
-| Date         : Wed Aug 26 21:47:38 2020
+| Date         : Wed Sep  2 21:27:19 2020
 | Host         : DESKTOP-DKK2GQK running 64-bit major release  (build 9200)
 | Command      : report_methodology -file main_methodology_drc_routed.rpt -pb main_methodology_drc_routed.pb -rpx main_methodology_drc_routed.rpx
 | Design       : main
@@ -35,12 +35,12 @@ Table of Contents
 -----------------
 TIMING-16#1 Warning
 Large setup violation  
-There is a large setup violation of -1.177 ns between device_DNA_inst/DNA_PORT_read_reg/C (clocked by sys_clk_pin) and device_DNA_inst/DNA_PORT_inst/READ (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.175 ns between device_DNA_inst/DNA_PORT_read_reg/C (clocked by sys_clk_pin) and device_DNA_inst/DNA_PORT_inst/READ (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#2 Warning
 Large setup violation  
-There is a large setup violation of -1.178 ns between device_DNA_inst/DNA_PORT_shift_reg/C (clocked by sys_clk_pin) and device_DNA_inst/DNA_PORT_inst/SHIFT (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -1.175 ns between device_DNA_inst/DNA_PORT_shift_reg/C (clocked by sys_clk_pin) and device_DNA_inst/DNA_PORT_inst/SHIFT (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-18#1 Warning

@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
-| Date         : Wed Aug 26 21:47:48 2020
+| Date         : Wed Sep  2 21:27:31 2020
 | Host         : DESKTOP-DKK2GQK running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -file main_timing_summary_routed.rpt -warn_on_violation -rpx main_timing_summary_routed.rpx
 | Design       : main
@@ -126,7 +126,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-     -1.178      -21.186                     54                20195        0.022        0.000                      0                20195        0.000        0.000                       0                 13001  
+     -1.175      -49.089                    139                20075        0.015        0.000                      0                20075        0.000        0.000                       0                 13014  
 
 
 Timing constraints are not met.
@@ -149,7 +149,7 @@ sys_clk_pin  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-sys_clk_pin        -1.178      -21.186                     54                20192        0.022        0.000                      0                20192        0.000        0.000                       0                 13001  
+sys_clk_pin        -1.175      -49.089                    139                20072        0.015        0.000                      0                20072        0.000        0.000                       0                 13014  
 
 
 ------------------------------------------------------------------------------------------------
@@ -168,7 +168,7 @@ From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS
 
 Path Group         From Clock         To Clock               WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
 ----------         ----------         --------               -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
-**async_default**  sys_clk_pin        sys_clk_pin              8.281        0.000                      0                    3        0.485        0.000                      0                    3  
+**async_default**  sys_clk_pin        sys_clk_pin              8.318        0.000                      0                    3        0.449        0.000                      0                    3  
 
 
 ------------------------------------------------------------------------------------------------
@@ -181,23 +181,23 @@ Path Group         From Clock         To Clock               WNS(ns)      TNS(ns
 From Clock:  sys_clk_pin
   To Clock:  sys_clk_pin
 
-Setup :           54  Failing Endpoints,  Worst Slack       -1.178ns,  Total Violation      -21.186ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.022ns,  Total Violation        0.000ns
+Setup :          139  Failing Endpoints,  Worst Slack       -1.175ns,  Total Violation      -49.089ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.015ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        0.000ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (VIOLATED) :        -1.178ns  (required time - arrival time)
-  Source:                 device_DNA_inst/DNA_PORT_shift_reg/C
+Slack (VIOLATED) :        -1.175ns  (required time - arrival time)
+  Source:                 device_DNA_inst/DNA_PORT_read_reg/C
                             (falling edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            device_DNA_inst/DNA_PORT_inst/SHIFT
+  Destination:            device_DNA_inst/DNA_PORT_inst/READ
                             (rising edge-triggered cell DNA_PORT clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            5.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin fall@5.000ns)
-  Data Path Delay:        0.800ns  (logic 0.459ns (57.346%)  route 0.341ns (42.654%))
+  Data Path Delay:        0.798ns  (logic 0.459ns (57.551%)  route 0.339ns (42.449%))
   Logic Levels:           0  
   Clock Path Skew:        0.014ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.253ns = ( 14.253 - 10.000 ) 
@@ -218,12 +218,12 @@ Slack (VIOLATED) :        -1.178ns  (required time - arrival time)
     R2                   IBUF (Prop_ibuf_I_O)         0.854     5.854 f  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           1.967     7.821    CLK100MHZ_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     7.917 f  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=13000, routed)       1.566     9.483    device_DNA_inst/CLK100MHZ_IBUF_BUFG
-    SLICE_X28Y45         FDRE                                         r  device_DNA_inst/DNA_PORT_shift_reg/C  (IS_INVERTED)
+                         net (fo=13013, routed)       1.566     9.483    device_DNA_inst/CLK100MHZ_IBUF_BUFG
+    SLICE_X29Y45         FDRE                                         r  device_DNA_inst/DNA_PORT_read_reg/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X28Y45         FDRE (Prop_fdre_C_Q)         0.459     9.942 r  device_DNA_inst/DNA_PORT_shift_reg/Q
-                         net (fo=2, routed)           0.341    10.284    device_DNA_inst/DNA_PORT_shift
-    DNA_PORT_X0Y0        DNA_PORT                                     r  device_DNA_inst/DNA_PORT_inst/SHIFT
+    SLICE_X29Y45         FDRE (Prop_fdre_C_Q)         0.459     9.942 r  device_DNA_inst/DNA_PORT_read_reg/Q
+                         net (fo=2, routed)           0.339    10.281    device_DNA_inst/DNA_PORT_read
+    DNA_PORT_X0Y0        DNA_PORT                                     r  device_DNA_inst/DNA_PORT_inst/READ
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -233,17 +233,17 @@ Slack (VIOLATED) :        -1.178ns  (required time - arrival time)
     R2                   IBUF (Prop_ibuf_I_O)         0.814    10.814 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           1.862    12.676    CLK100MHZ_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    12.767 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=13000, routed)       1.486    14.253    device_DNA_inst/CLK100MHZ_IBUF_BUFG
+                         net (fo=13013, routed)       1.486    14.253    device_DNA_inst/CLK100MHZ_IBUF_BUFG
     DNA_PORT_X0Y0        DNA_PORT                                     r  device_DNA_inst/DNA_PORT_inst/CLK
                          clock pessimism              0.244    14.497    
                          clock uncertainty           -0.035    14.462    
-    DNA_PORT_X0Y0        DNA_PORT (Setup_dna_port_CLK_SHIFT)
+    DNA_PORT_X0Y0        DNA_PORT (Setup_dna_port_CLK_READ)
                                                      -5.356     9.106    device_DNA_inst/DNA_PORT_inst
   -------------------------------------------------------------------
                          required time                          9.106    
-                         arrival time                         -10.284    
+                         arrival time                         -10.281    
   -------------------------------------------------------------------
-                         slack                                 -1.178    
+                         slack                                 -1.175    
 
 
 
@@ -251,19 +251,19 @@ Slack (VIOLATED) :        -1.178ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.022ns  (arrival time - required time)
-  Source:                 AD9910_driver_0/rto_core_prime_0/timestamp_error_data_buffer_reg[85]/C
+Slack (MET) :             0.015ns  (arrival time - required time)
+  Source:                 receiver/BTF_Buffer_reg[397]/C
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            rto_timestamp_error_data_buffer_reg[85]/D
+  Destination:            BTF_capture_reg[398]/D
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.305ns  (logic 0.148ns (48.484%)  route 0.157ns (51.516%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.265ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.894ns
-    Source Clock Delay      (SCD):    1.537ns
+  Data Path Delay:        0.318ns  (logic 0.186ns (58.557%)  route 0.132ns (41.443%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.182ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.926ns
+    Source Clock Delay      (SCD):    1.652ns
     Clock Pessimism Removal (CPR):    0.092ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -275,12 +275,14 @@ Slack (MET) :             0.022ns  (arrival time - required time)
     R2                   IBUF (Prop_ibuf_I_O)         0.320     0.320 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           0.631     0.951    CLK100MHZ_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.977 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=13000, routed)       0.561     1.537    AD9910_driver_0/rto_core_prime_0/CLK100MHZ_IBUF_BUFG
-    SLICE_X34Y41         FDRE                                         r  AD9910_driver_0/rto_core_prime_0/timestamp_error_data_buffer_reg[85]/C
+                         net (fo=13013, routed)       0.675     1.652    receiver/CLK100MHZ_IBUF_BUFG
+    SLICE_X5Y100         FDRE                                         r  receiver/BTF_Buffer_reg[397]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X34Y41         FDRE (Prop_fdre_C_Q)         0.148     1.685 r  AD9910_driver_0/rto_core_prime_0/timestamp_error_data_buffer_reg[85]/Q
-                         net (fo=1, routed)           0.157     1.843    rto_timestamp_error_data[85]
-    SLICE_X36Y40         FDRE                                         r  rto_timestamp_error_data_buffer_reg[85]/D
+    SLICE_X5Y100         FDRE (Prop_fdre_C_Q)         0.141     1.793 r  receiver/BTF_Buffer_reg[397]/Q
+                         net (fo=1, routed)           0.132     1.924    receiver/BTF_Buffer_reg_n_0_[397]
+    SLICE_X6Y99          LUT6 (Prop_lut6_I2_O)        0.045     1.969 r  receiver/BTF_capture[398]_i_1/O
+                         net (fo=1, routed)           0.000     1.969    receiver_n_2198
+    SLICE_X6Y99          FDRE                                         r  BTF_capture_reg[398]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -290,15 +292,15 @@ Slack (MET) :             0.022ns  (arrival time - required time)
     R2                   IBUF (Prop_ibuf_I_O)         0.350     0.350 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           0.685     1.035    CLK100MHZ_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.064 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=13000, routed)       0.831     1.894    CLK100MHZ_IBUF_BUFG
-    SLICE_X36Y40         FDRE                                         r  rto_timestamp_error_data_buffer_reg[85]/C
-                         clock pessimism             -0.092     1.802    
-    SLICE_X36Y40         FDRE (Hold_fdre_C_D)         0.018     1.820    rto_timestamp_error_data_buffer_reg[85]
+                         net (fo=13013, routed)       0.863     1.926    CLK100MHZ_IBUF_BUFG
+    SLICE_X6Y99          FDRE                                         r  BTF_capture_reg[398]/C
+                         clock pessimism             -0.092     1.834    
+    SLICE_X6Y99          FDRE (Hold_fdre_C_D)         0.120     1.954    BTF_capture_reg[398]
   -------------------------------------------------------------------
-                         required time                         -1.820    
-                         arrival time                           1.843    
+                         required time                         -1.954    
+                         arrival time                           1.969    
   -------------------------------------------------------------------
-                         slack                                  0.022    
+                         slack                                  0.015    
 
 
 
@@ -313,8 +315,8 @@ Sources:            { CLK100MHZ }
 
 Check Type        Corner  Lib Pin       Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location       Pin
 Min Period        n/a     DNA_PORT/CLK  n/a            10.000        10.000      0.000      DNA_PORT_X0Y0  device_DNA_inst/DNA_PORT_inst/CLK
-Low Pulse Width   Fast    SRL16E/CLK    n/a            0.980         5.000       4.020      SLICE_X38Y45   AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_fb_reg[1]_srl4/CLK
-High Pulse Width  Slow    SRL16E/CLK    n/a            0.980         5.000       4.020      SLICE_X38Y45   AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_fb_reg[1]_srl4/CLK
+Low Pulse Width   Fast    SRL16E/CLK    n/a            0.980         5.000       4.020      SLICE_X14Y72   sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_fb_reg[1]_srl4/CLK
+High Pulse Width  Slow    SRL16E/CLK    n/a            0.980         5.000       4.020      SLICE_X46Y48   AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_fb_reg[1]_srl4/CLK
 
 
 
@@ -323,26 +325,26 @@ Path Group:  **async_default**
 From Clock:  sys_clk_pin
   To Clock:  sys_clk_pin
 
-Setup :            0  Failing Endpoints,  Worst Slack        8.281ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.485ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        8.318ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.449ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             8.281ns  (required time - arrival time)
-  Source:                 sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg2_reg/C
+Slack (MET) :             8.318ns  (required time - arrival time)
+  Source:                 AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg2_reg/C
                             (rising edge-triggered cell FDPE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg_reg/PRE
+  Destination:            AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg_reg/PRE
                             (recovery check against rising-edge clock sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             **async_default**
   Path Type:              Recovery (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        1.181ns  (logic 0.478ns (40.467%)  route 0.703ns (59.533%))
+  Data Path Delay:        1.071ns  (logic 0.478ns (44.622%)  route 0.593ns (55.378%))
   Logic Levels:           0  
-  Clock Path Skew:        0.028ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.286ns = ( 14.286 - 10.000 ) 
-    Source Clock Delay      (SCD):    4.487ns
+  Clock Path Skew:        -0.043ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.217ns = ( 14.217 - 10.000 ) 
+    Source Clock Delay      (SCD):    4.489ns
     Clock Pessimism Removal (CPR):    0.230ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -359,12 +361,12 @@ Slack (MET) :             8.281ns  (required time - arrival time)
     R2                   IBUF (Prop_ibuf_I_O)         0.854     0.854 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           1.967     2.821    CLK100MHZ_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     2.917 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=13000, routed)       1.570     4.487    sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/clk
-    SLICE_X8Y0           FDPE                                         r  sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg2_reg/C
+                         net (fo=13013, routed)       1.572     4.489    AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/clk
+    SLICE_X50Y49         FDPE                                         r  AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg2_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X8Y0           FDPE (Prop_fdpe_C_Q)         0.478     4.965 f  sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg2_reg/Q
-                         net (fo=1, routed)           0.703     5.668    sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/wr_rst_reg2
-    SLICE_X7Y1           FDPE                                         f  sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg_reg/PRE
+    SLICE_X50Y49         FDPE (Prop_fdpe_C_Q)         0.478     4.967 f  AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg2_reg/Q
+                         net (fo=1, routed)           0.593     5.560    AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/wr_rst_reg2
+    SLICE_X46Y49         FDPE                                         f  AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg_reg/PRE
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -374,16 +376,16 @@ Slack (MET) :             8.281ns  (required time - arrival time)
     R2                   IBUF (Prop_ibuf_I_O)         0.814    10.814 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           1.862    12.676    CLK100MHZ_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    12.767 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=13000, routed)       1.518    14.286    sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/clk
-    SLICE_X7Y1           FDPE                                         r  sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg_reg/C
-                         clock pessimism              0.230    14.515    
-                         clock uncertainty           -0.035    14.480    
-    SLICE_X7Y1           FDPE (Recov_fdpe_C_PRE)     -0.530    13.950    sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg_reg
+                         net (fo=13013, routed)       1.449    14.217    AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/clk
+    SLICE_X46Y49         FDPE                                         r  AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg_reg/C
+                         clock pessimism              0.230    14.446    
+                         clock uncertainty           -0.035    14.411    
+    SLICE_X46Y49         FDPE (Recov_fdpe_C_PRE)     -0.532    13.879    AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg_reg
   -------------------------------------------------------------------
-                         required time                         13.950    
-                         arrival time                          -5.668    
+                         required time                         13.879    
+                         arrival time                          -5.560    
   -------------------------------------------------------------------
-                         slack                                  8.281    
+                         slack                                  8.318    
 
 
 
@@ -391,20 +393,20 @@ Slack (MET) :             8.281ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.485ns  (arrival time - required time)
-  Source:                 AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg2_reg/C
+Slack (MET) :             0.449ns  (arrival time - required time)
+  Source:                 sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg2_reg/C
                             (rising edge-triggered cell FDPE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg_reg/PRE
+  Destination:            sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg_reg/PRE
                             (removal check against rising-edge clock sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             **async_default**
   Path Type:              Removal (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.372ns  (logic 0.128ns (34.385%)  route 0.244ns (65.615%))
+  Data Path Delay:        0.310ns  (logic 0.128ns (41.252%)  route 0.182ns (58.748%))
   Logic Levels:           0  
-  Clock Path Skew:        0.036ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.896ns
-    Source Clock Delay      (SCD):    1.539ns
-    Clock Pessimism Removal (CPR):    0.321ns
+  Clock Path Skew:        0.010ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.881ns
+    Source Clock Delay      (SCD):    1.530ns
+    Clock Pessimism Removal (CPR):    0.341ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -415,12 +417,12 @@ Slack (MET) :             0.485ns  (arrival time - required time)
     R2                   IBUF (Prop_ibuf_I_O)         0.320     0.320 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           0.631     0.951    CLK100MHZ_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.977 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=13000, routed)       0.563     1.539    AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/clk
-    SLICE_X39Y46         FDPE                                         r  AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg2_reg/C
+                         net (fo=13013, routed)       0.554     1.530    sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/clk
+    SLICE_X15Y77         FDPE                                         r  sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg2_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X39Y46         FDPE (Prop_fdpe_C_Q)         0.128     1.667 f  AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg2_reg/Q
-                         net (fo=1, routed)           0.244     1.911    AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/wr_rst_reg2
-    SLICE_X40Y45         FDPE                                         f  AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg_reg/PRE
+    SLICE_X15Y77         FDPE (Prop_fdpe_C_Q)         0.128     1.658 f  sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg2_reg/Q
+                         net (fo=1, routed)           0.182     1.841    sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/wr_rst_reg2
+    SLICE_X15Y75         FDPE                                         f  sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg_reg/PRE
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -430,15 +432,15 @@ Slack (MET) :             0.485ns  (arrival time - required time)
     R2                   IBUF (Prop_ibuf_I_O)         0.350     0.350 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           0.685     1.035    CLK100MHZ_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.064 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=13000, routed)       0.833     1.896    AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/clk
-    SLICE_X40Y45         FDPE                                         r  AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg_reg/C
-                         clock pessimism             -0.321     1.575    
-    SLICE_X40Y45         FDPE (Remov_fdpe_C_PRE)     -0.149     1.426    AD9910_driver_0/rti_core_prime_0/rti_core_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg_reg
+                         net (fo=13013, routed)       0.817     1.881    sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/clk
+    SLICE_X15Y75         FDPE                                         r  sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg_reg/C
+                         clock pessimism             -0.341     1.540    
+    SLICE_X15Y75         FDPE (Remov_fdpe_C_PRE)     -0.149     1.391    sender/transmitter_FIFO/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rsync.rcc.wr_rst_reg_reg
   -------------------------------------------------------------------
-                         required time                         -1.426    
-                         arrival time                           1.911    
+                         required time                         -1.391    
+                         arrival time                           1.841    
   -------------------------------------------------------------------
-                         slack                                  0.485    
+                         slack                                  0.449    
 
 
 
