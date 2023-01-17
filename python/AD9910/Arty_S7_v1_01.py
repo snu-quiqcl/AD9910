@@ -114,9 +114,12 @@ class ArtyS7:
             data_to_send += '\r\n'
             data_to_send = data_to_send.encode('latin-1')
             if TEST:
+                print('modified BTF')
                 print(modified_BTF)
+                print('data to send')
                 print(data_to_send)
                 binary_string = bin(int.from_bytes(data_to_send,'little'))[2:].zfill(8*len(data_to_send))
+                print('binary string')
                 print(binary_string)
                 
                 self.test_output_file.write(str(data_to_send))

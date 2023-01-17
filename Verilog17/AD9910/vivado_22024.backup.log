@@ -1,0 +1,32 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed Jul 21 10:29:21 2021
+# Process ID: 22024
+# Current directory: Q:/Users/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17844 Q:\Users\JeonghyunPark\AD9910_CODE-AD9910V1_1\Verilog17\AD9910\AD9910.xpr
+# Log file: Q:/Users/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910/vivado.log
+# Journal file: Q:/Users/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project -read_only Q:/Users/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910/AD9910.xpr
+INFO: [Project 1-313] Project file moved from 'D:/GIT/AD9910_CODE/Verilog17/AD9910' since last save.
+CRITICAL WARNING: [Project 1-311] Could not find the file 'Q:/Users/ECE/Desktop/testbench_main1_behav.wcfg', nor could it be found using path 'D:/../Users/ECE/Desktop/testbench_main1_behav.wcfg'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Xilinx/Vivado/2018.3/data/ip'.
+WARNING: [IP_Flow 19-2162] IP 'fifo_generator_1' is locked:
+* Project containing IP 'fifo_generator_1' is read-only.
+* IP definition 'FIFO Generator (13.2)' for IP 'fifo_generator_1' (customized with software release 2017.3) has a different revision in the IP Catalog.
+Please select 'Report IP Status' from the 'Tools/Report' menu or run Tcl command 'report_ip_status' for more information.
+WARNING: [IP_Flow 19-2162] IP 'fifo_generator_0' is locked:
+* Project containing IP 'fifo_generator_0' is read-only.
+* IP definition 'FIFO Generator (13.2)' for IP 'fifo_generator_0' (customized with software release 2017.3) has a different revision in the IP Catalog.
+Please select 'Report IP Status' from the 'Tools/Report' menu or run Tcl command 'report_ip_status' for more information.
+WARNING: [Project 1-229] Project 'AD9910.xpr' is read-only and therefore could not be upgraded for this version of Vivado.  Use 'File | Save Project As...' if you wish to save an upgraded copy.
+open_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:17 . Memory (MB): peak = 857.258 ; gain = 0.000
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Jul 21 10:32:25 2021...

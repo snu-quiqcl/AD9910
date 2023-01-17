@@ -110,10 +110,11 @@ class AD9910:
         self.max_freq = max_freq
         self.min_freq = min_freq
         self.sys_clk = sys_clk
-        self.write_32_duration = 1000
-        self.write_64_duration = 4000
-        self.read_32_duration  = 1000
-        self.read_64_duration  = 4000
+        self.write_addr_duration = 150
+        self.write_32_duration = 600
+        self.write_64_duration = 1200
+        self.read_32_duration  = 600
+        self.read_64_duration  = 1200
         
         
     def make_8_int_list(self, data):
@@ -321,7 +322,7 @@ class AD9910:
             self.delay_cycle(1)
             
             fifo_addr_int_list = self.convert_to_16_int_list(addr_int_list)
-            self.delay_cycle(self.write_32_duration)
+            self.delay_cycle(self.write_addr_duration)
             
             fifo_config_int_list2 = self.convert_to_16_int_list(config_int_list2)
             self.delay_cycle(1)
@@ -338,7 +339,7 @@ class AD9910:
             self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
             self.fpga.send_command('WRITE FIFO')
             
-            delayed_cycle += 2 * ( self.write_32_duration + 1 )
+            delayed_cycle += self.write_addr_duration + self.write_32_duration + 1*2
         else:
             self.fpga.send_mod_BTF_int_list(config_int_list1)
             self.fpga.send_command('WRITE DDS REG')
@@ -373,7 +374,7 @@ class AD9910:
             self.delay_cycle(1)
             
             fifo_addr_int_list = self.convert_to_16_int_list(addr_int_list)
-            self.delay_cycle(self.write_32_duration)
+            self.delay_cycle(self.write_addr_duration)
             
             fifo_config_int_list2 = self.convert_to_16_int_list(config_int_list2)
             self.delay_cycle(1)
@@ -400,7 +401,7 @@ class AD9910:
             self.fpga.send_mod_BTF_int_list(fifo_data_int_list2)
             self.fpga.send_command('WRITE FIFO')
             
-            delayed_cycle += 3*( self.write_32_duration + 1 )
+            delayed_cycle += self.write_addr_duration + 1 + 2*( self.write_32_duration + 1 )
         else:
             self.fpga.send_mod_BTF_int_list(config_int_list1)
             self.fpga.send_command('WRITE DDS REG')
@@ -442,7 +443,7 @@ class AD9910:
             self.delay_cycle(1)
             
             fifo_addr_int_list = self.convert_to_16_int_list(addr_int_list)
-            self.delay_cycle(self.read_32_duration)
+            self.delay_cycle(self.write_addr_duration)
             
             fifo_config_int_list2 = self.convert_to_16_int_list(config_int_list2)
             self.delay_cycle(1)
@@ -459,7 +460,7 @@ class AD9910:
             self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
             self.fpga.send_command('WRITE FIFO')
             
-            delayed_cycle += 2 * ( self.read_32_duration + 1 )
+            delayed_cycle += self.write_addr_duration + 1 + ( self.read_32_duration + 1 )
         else:
             self.fpga.send_mod_BTF_int_list(config_int_list1)
             self.fpga.send_command('WRITE DDS REG')
@@ -501,7 +502,7 @@ class AD9910:
             self.delay_cycle(1)
             
             fifo_addr_int_list = self.convert_to_16_int_list(addr_int_list)
-            self.delay_cycle(self.read_32_duration)
+            self.delay_cycle(self.write_addr_duration)
             
             fifo_config_int_list2 = self.convert_to_16_int_list(config_int_list2)
             self.delay_cycle(1)
@@ -528,7 +529,7 @@ class AD9910:
             self.fpga.send_mod_BTF_int_list(fifo_data_int_list2)
             self.fpga.send_command('WRITE FIFO')
             
-            delayed_cycle += 3 * ( self.read_32_duration + 1 )
+            delayed_cycle += self.write_addr_duration + 1 + 2 * ( self.read_32_duration + 1 )
         else:
             self.fpga.send_mod_BTF_int_list(config_int_list1)
             self.fpga.send_command('WRITE DDS REG')
@@ -593,6 +594,7 @@ class AD9910:
             print('Error in amplitude_to_ASF: ampltiude range error (%s).'\
                   % amplitude_frac, 'ampltiude should be in 0 to 1')
                 
+        print('set amplitude')
         self.write32(ch1, ch2, ASF_ADDR, ( self.amplitude_to_ASF(amplitude_frac) << 2 ) )
         
     def initialize(self, ch1, ch2):
@@ -710,9 +712,15 @@ class AD9910:
         phase_in_rad = phase
             
         FTW = self.frequency_to_FTW(freq_in_Hz)
+        print('freq : %d' % (freq) + 'FTW : ' + "{0:b}".format(FTW))
         POW = self.phase_to_POW(phase_in_rad)
+        print('phase : %f' % (phase) + 'POW : ' + "{0:b}".format(POW))
         ASF = self.amplitude_to_ASF(amplitude)
+        print('amp : %f' % (amplitude) + 'ASF : ' + "{0:b}".format(ASF))
+        
         data = ( ASF << 48 ) | ( POW << 32 ) | ( FTW << 0 )
+        
+        print('SPI : '+ bin(data)[2:].zfill(64))
         self.write64(ch1, ch2, PROFILE0_ADDR + profile, data)
         
     def set_profile_pin(self, profile1, profile2):
@@ -905,8 +913,10 @@ class AD9910:
             self.fpga.send_mod_BTF_int_list(fifo_data_int_list1)
             self.fpga.send_command('WRITE FIFO')
             
-            self.delay_cycle(5)
-            delayed_cycle += 5
+            #self.delay_cycle(5)
+            #delayed_cycle += 5
+            self.delay_cycle(100) # temporaly changed for PLL usagement (25MHz->1GHz)
+            delayed_cycle += 100
             
             fifo_data_int_list2 = self.convert_to_16_int_list(data_int_list2)
             self.fpga.send_mod_BTF_int_list(fifo_data_int_list2)

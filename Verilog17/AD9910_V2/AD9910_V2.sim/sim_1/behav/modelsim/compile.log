@@ -1,0 +1,113 @@
+# do {new_testbench_fifo_generator_compile.do}
+# Model Technology ModelSim PE vmap 10.4a Lib Mapping Utility 2015.03 Apr  7 2015
+# vmap -modelsim_quiet xil_defaultlib modelsim_lib/msim/xil_defaultlib 
+# Copying C:/Modeltech_pe_edu_10.4a/win32pe_edu/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:/Modeltech_pe_edu_10.4a/win32pe_edu/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# Model Technology ModelSim PE vmap 10.4a Lib Mapping Utility 2015.03 Apr  7 2015
+# vmap -modelsim_quiet xpm modelsim_lib/msim/xpm 
+# Modifying modelsim.ini
+# Model Technology ModelSim PE vmap 10.4a Lib Mapping Utility 2015.03 Apr  7 2015
+# vmap -modelsim_quiet fifo_generator_v13_2_0 modelsim_lib/msim/fifo_generator_v13_2_0 
+# Modifying modelsim.ini
+# ** Warning: (vlog-159) Mode option -64 is not supported in this context and will be ignored.
+# 
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 15:55:11 on Aug 19,2020
+# vlog -64 -incr -sv -L xil_defaultlib -work xil_defaultlib "+incdir+C:/Xilinx/Vivado/2017.3/data/xilinx_vip/include" C:/Xilinx/Vivado/2017.3/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv C:/Xilinx/Vivado/2017.3/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv 
+# -- Compiling module xpm_cdc_single
+# ** Warning: C:/Xilinx/Vivado/2017.3/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv(284): (vlog-2186) SystemVerilog testbench feature
+# 
+# (randomization, coverage or assertion) detected in the design.
+# 
+# These features are only supported in Questasim.
+# 
+# ** Warning: C:/Xilinx/Vivado/2017.3/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv(282): (vlog-2186) SystemVerilog testbench feature
+# 
+# (randomization, coverage or assertion) detected in the design.
+# 
+# These features are only supported in Questasim.
+# 
+# ** Warning: C:/Xilinx/Vivado/2017.3/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv(153): (vlog-2186) SystemVerilog testbench feature
+# 
+# (randomization, coverage or assertion) detected in the design.
+# 
+# These features are only supported in Questasim.
+# 
+# -- Compiling module xpm_cdc_gray
+# -- Compiling module xpm_cdc_handshake
+# -- Compiling module xpm_cdc_pulse
+# -- Compiling module xpm_cdc_array_single
+# -- Compiling module xpm_cdc_sync_rst
+# -- Compiling module xpm_cdc_async_rst
+# -- Compiling module xpm_memory_base
+# -- Compiling module asym_bwe_bb
+# -- Compiling module xpm_memory_dpdistram
+# -- Compiling module xpm_memory_dprom
+# -- Compiling module xpm_memory_sdpram
+# -- Compiling module xpm_memory_spram
+# -- Compiling module xpm_memory_sprom
+# -- Compiling module xpm_memory_tdpram
+# 
+# Top level modules:
+# 	xpm_cdc_gray
+# 	xpm_cdc_handshake
+# 	xpm_cdc_pulse
+# 	xpm_cdc_array_single
+# 	xpm_cdc_sync_rst
+# 	xpm_cdc_async_rst
+# 	xpm_memory_dpdistram
+# 	xpm_memory_dprom
+# 	xpm_memory_sdpram
+# 	xpm_memory_spram
+# 	xpm_memory_sprom
+# 	xpm_memory_tdpram
+# End time: 15:55:12 on Aug 19,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 4
+# ** Warning: (vcom-159) Mode option -64 is not supported in this context and will be ignored.
+# 
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 15:55:12 on Aug 19,2020
+# vcom -64 -93 -work xpm C:/Xilinx/Vivado/2017.3/data/ip/xpm/xpm_VCOMP.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package VCOMPONENTS
+# End time: 15:55:12 on Aug 19,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# ** Warning: (vlog-159) Mode option -64 is not supported in this context and will be ignored.
+# 
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 15:55:12 on Aug 19,2020
+# vlog -64 -incr -work fifo_generator_v13_2_0 "+incdir+C:/Xilinx/Vivado/2017.3/data/xilinx_vip/include" ../../../../AD9910.ip_user_files/ipstatic/simulation/fifo_generator_vlog_beh.v 
+# -- Compiling module fifo_generator_vlog_beh
+# -- Compiling module fifo_generator_v13_2_0_CONV_VER
+# -- Compiling module fifo_generator_v13_2_0_sync_stage
+# -- Compiling module fifo_generator_v13_2_0_bhv_ver_as
+# -- Compiling module fifo_generator_v13_2_0_beh_ver_ll_afifo
+# -- Compiling module fifo_generator_v13_2_0_bhv_ver_ss
+# -- Compiling module fifo_generator_v13_2_0_bhv_ver_preload0
+# -- Compiling module fifo_generator_v13_2_0_axic_reg_slice
+# 
+# Top level modules:
+# 	fifo_generator_vlog_beh
+# End time: 15:55:12 on Aug 19,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# ** Warning: (vcom-159) Mode option -64 is not supported in this context and will be ignored.
+# 
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 15:55:12 on Aug 19,2020
+# vcom -64 -93 -work fifo_generator_v13_2_0 ../../../../AD9910.ip_user_files/ipstatic/hdl/fifo_generator_v13_2_rfs.vhd 
+# -- Loading package STANDARD
+# ** Error: ../../../../AD9910.ip_user_files/ipstatic/hdl/fifo_generator_v13_2_rfs.vhd(61): near "AES128-CBC": Unknown session key in protected region
+# ** Error: ../../../../AD9910.ip_user_files/ipstatic/hdl/fifo_generator_v13_2_rfs.vhd(62): VHDL Compiler exiting
+# End time: 15:55:12 on Aug 19,2020, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 1
+# ** Error: C:/Modeltech_pe_edu_10.4a/win32pe_edu/vcom failed.
+# Error in macro ./new_testbench_fifo_generator_compile.do line 32
+# C:/Modeltech_pe_edu_10.4a/win32pe_edu/vcom failed.
+#     while executing
+# "vcom -64 -93 -work fifo_generator_v13_2_0  \
+# "../../../../AD9910.ip_user_files/ipstatic/hdl/fifo_generator_v13_2_rfs.vhd" \
+# "
