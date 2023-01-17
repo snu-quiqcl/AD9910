@@ -979,6 +979,7 @@ def real_exp1(port):
     dds = AD9910(ArtyS7(port))
     dds.reset_driver()
     dds.auto_mode()
+    dds.set_now_cycle(0)
     
     dds.initialize(1,1)
     dds.delay_cycle(100000)
@@ -1091,6 +1092,7 @@ def real_exp2(port):
     dds = AD9910(ArtyS7(port))
     
     dds.reset_driver()
+    dds.set_now_cycle(0)
     dds.auto_mode_disable()
     dds.override_enable()
     
@@ -1166,6 +1168,7 @@ def real_exp3(port):
     dds = AD9910(ArtyS7(port))
     dds.reset_driver()
     dds.auto_mode()
+    dds.set_now_cycle(0)
     dds.delay_cycle(500)
     #dds.set_profile_register(ch1 = 1, ch2 = 1, freq = 50*MHz, phase = 0 * RAD, 
     #                         amplitude = 1.0, profile = 0)
@@ -1213,6 +1216,7 @@ def real_exp4(port):
     """
     dds = AD9910(ArtyS7(port))
     dds.auto_mode()
+    dds.set_now_cycle(0)
     
     dds.reset_driver()
     dds.delay_cycle(100000)
@@ -1371,6 +1375,7 @@ def real_exp4(port):
 def real_exp5(port):
     dds = AD9910(ArtyS7(port))
     dds.auto_mode()
+    dds.set_now_cycle(0)
     
     dds.reset_driver()
     
@@ -1493,6 +1498,7 @@ def real_exp6(port):
     dds = AD9910(ArtyS7(port))
     dds.reset_driver()
     dds.auto_mode()
+    dds.set_now_cycle(0)
     
     dds.read32(ch1 = 1, ch2 = 0, register_addr = 0x09)
     dds.delay_cycle(20000)
@@ -1545,6 +1551,7 @@ def real_exp7(port):
     #For Ram input, set ram_en = 0, and set auto mode disable & override enabled
     dds.auto_mode_disable()
     dds.override_enable()
+    dds.set_now_cycle(0)
     
     freq_list = [ 10*MHz, 12*MHz, 14*MHz, 16*MHz, 18*MHz, 20*MHz, 22*MHz, 24*MHz,
                  26*MHz, 28*MHz, 30*MHz, 32*MHz, 34*MHz, 36*MHz, 38*MHz, 40*MHz]
@@ -1631,6 +1638,232 @@ def real_exp7(port):
             print('exit real_exp5')
             dds.fpga.close()
             return
+        
+def manual_mode(port):
+    """
+    manual mode for real time control
+    """
+    dds = AD9910(ArtyS7(port))
+    #should reset driver before using override enable!!!!
+    dds.reset_driver()
+    
+    while True:
+        cont_ch1 = 1
+        cont_ch2 = 2
+        print('[1] CFR1 setting')
+        print('[2] CFR2 setting')
+        print('[3] CFR3 setting')
+        print('[pf]profile')
+        print('[pp]profile pin')
+        print('[a] Set amplitude')
+        print('[f] Set frequency')
+        print('[p] Set phase')
+        print('[q] exit')
+        
+        cmd = input()
+        
+        if(cmd == 'f' or cmd == 'F'):
+            print('frequency value(control channel 1,2) : ')
+            freq = input()
+            freq_unit = 1
+            
+            if ('K' in freq) or ('k' in freq):
+                freq_unit = 1000
+            
+            if ('M' in freq) or ('m' in freq):
+                freq_unit = 1000000
+            
+            if ('G' in freq) or ('g' in freq):
+                freq_unit = 1000000000
+                
+            if ('T' in freq) or ('t' in freq):
+                freq_unit = 1000000000000
+            
+            num_len = 0
+            while num_len < len(freq):
+                if freq[num_len] > '9' or freq[num_len] <'0':
+                    break
+                num_len += 1
+            
+            if num_len < 1:
+                raise Exception('No number enetered')
+                
+            freq_num = int(freq[0:num_len])
+            freq_num = freq_num * freq_unit
+            print(str(freq_num) + 'Hz')
+            
+            dds.auto_stop()
+            dds.set_now_cycle(0)
+            dds.reset_driver()
+            dds.auto_mode()
+            dds.set_frequency(ch1=cont_ch1, ch2=cont_ch2, freq = freq_num)
+            dds.delay_cycle(1500)
+            dds.io_update(ch1 = cont_ch1, ch2 = cont_ch2)
+            dds.auto_start()
+            
+        elif(cmd == 'a' or cmd == 'A'):
+            print('amplitude_frac value(control channel 1,2) : ')
+            amp = input()
+            amp_frac_num = float(amp)
+            if amp_frac_num < 0 or amp_frac_num > 1:
+                raise Exception('wrong amplitude number')
+            
+            print(amp)
+            
+            dds.auto_stop()
+            dds.set_now_cycle(0)
+            dds.reset_driver()
+            dds.auto_mode()
+            dds.set_amplitude(ch1 = cont_ch1, ch2 = cont_ch2, amplitude_frac_num = amp_frac)
+            dds.delay_cycle(1500)
+            dds.io_update(ch1 = cont_ch1, ch2 = cont_ch2)
+            dds.auto_start()
+        
+        elif(cmd == 'p' or cmd == 'P'):
+            print('phase value(control channel 1,2) (unit is radian): ')
+            phase = input()
+            phase_unit = 1
+            
+            phase_num = float(phase) * phase_unit
+            if phase_num < 0 or phase_num > 2*PI:
+                raise Exception('wrong phase number')
+                
+            print(phase)
+            
+            dds.auto_stop()
+            dds.set_now_cycle(0)
+            dds.reset_driver()
+            dds.auto_mode()
+            dds.set_phase(ch1 = cont_ch1, ch2 = cont_ch2, phase = phase_num)
+            dds.delay_cycle(1500)
+            dds.io_update(ch1 = cont_ch1, ch2 = cont_ch2)
+            dds.auto_start()
+        
+        elif(cmd == 'pf' or cmd == 'PF'):
+            print('profile (0~7) : ')
+            profile_num = int(input())
+            if(profile_num < 0 or profile_num > 7):
+                raise Exception('wrong profile number')
+            
+            print(str(profile_num))
+            
+            print('frequency value(control channel 1,2) : ')
+            freq = input()
+            freq_unit = 1
+            
+            if ('K' in freq) or ('k' in freq):
+                freq_unit = 1000
+            
+            if ('M' in freq) or ('m' in freq):
+                freq_unit = 1000000
+            
+            if ('G' in freq) or ('g' in freq):
+                freq_unit = 1000000000
+                
+            if ('T' in freq) or ('t' in freq):
+                freq_unit = 1000000000000
+            
+            num_len = 0
+            while num_len < len(freq):
+                if freq[num_len] > '9' or freq[num_len] <'0':
+                    break
+                num_len += 1
+            
+            if num_len < 1:
+                raise Exception('No number enetered')
+                
+            freq_num = int(freq[0:num_len])
+            freq_num = freq_num * freq_unit
+            print(str(freq_num) + 'Hz')
+            
+            print('amplitude_frac value(control channel 1,2) : ')
+            amp = input()
+            amp_frac_num = float(amp)
+            if amp_frac_num < 0 or amp_frac_num > 1:
+                raise Exception('wrong amplitude number')
+            
+            print(amp)
+            
+            print('phase value(control channel 1,2) (unit is radian): ')
+            phase = input()
+            phase_unit = 1
+            
+            phase_num = float(phase) * phase_unit
+            if phase_num < 0 or phase_num > 2*PI:
+                raise Exception('wrong phase number')
+                
+            print(phase)
+            
+            dds.auto_stop()
+            dds.set_now_cycle(0)
+            dds.reset_driver()
+            dds.auto_mode()
+            dds.set_profile_register(ch1 = cont_ch1, ch2 = cont_ch2, freq = freq_num, phase = phase_num, 
+                                     amplitude = amp_frac_num, profile = profile_num)
+            dds.delay_cycle(3000)
+            dds.io_update(ch1 = cont_ch1, ch2 = cont_ch2)
+            dds.auto_start()
+            
+        elif( cmd == 'pp' or cmd == 'PP'):
+            print('profile (change ch1, ch2 simultaneously )(0~7) : ')
+            profile_num = int(input())
+            if(profile_num < 0 or profile_num > 7):
+                raise Exception('wrong profile number')
+            
+            print(str(profile_num))
+            
+            dds.auto_stop()
+            dds.set_now_cycle(0)
+            dds.reset_driver()
+            dds.auto_mode()
+            dds.set_profile_pin(profile1 = profile_num, profile2 = profile_num)
+            dds.delay_cycle(3000)
+            dds.io_update(ch1 = cont_ch1, ch2 = cont_ch2)
+            dds.auto_start()
+            
+        elif( cmd == '1'):
+            print('CFR1 setting')
+            
+            dds.auto_stop()
+            dds.set_now_cycle(0)
+            dds.reset_driver()
+            dds.auto_mode()
+            dds.set_CFR1(ch1 = cont_ch1, ch2 = cont_ch2)
+            dds.delay_cycle(3000)
+            dds.io_update(ch1 = cont_ch1, ch2 = cont_ch2)
+            dds.auto_start()
+        
+        elif( cmd == '2'):
+            print('CFR2 setting')
+            
+            dds.auto_stop()
+            dds.set_now_cycle(0)
+            dds.reset_driver()
+            dds.auto_mode()
+            dds.set_CFR2(ch1 = cont_ch1, ch2 = cont_ch2)
+            dds.delay_cycle(3000)
+            dds.io_update(ch1 = cont_ch1, ch2 = cont_ch2)
+            dds.auto_start()
+            
+        elif( cmd == '3'):
+            print('CFR3 setting')
+            
+            dds.auto_stop()
+            dds.set_now_cycle(0)
+            dds.reset_driver()
+            dds.auto_mode()
+            dds.set_CFR3(ch1 = cont_ch1, ch2 = cont_ch2)
+            dds.delay_cycle(3000)
+            dds.io_update(ch1 = cont_ch1, ch2 = cont_ch2)
+            dds.auto_start()
+            
+        elif(cmd == 'q'):
+            print('exit manual mode')
+            dds.fpga.close()
+            return
+        
+        else:
+            print('Wrong command')
 
 if __name__ == '__main__':
     while True:
@@ -1652,6 +1885,7 @@ if __name__ == '__main__':
         print('[r5] real_exp5')
         print('[r6] real_exp6')
         print('[r7] real_exp7')
+        print('[m] manual mode')
         print('[c] convert')
         print('[q] exit')
         order_in = input()
@@ -1697,6 +1931,9 @@ if __name__ == '__main__':
         elif( order_in == 'r7'):
             port = input('PORT : ')
             real_exp7(port)
+        elif( order_in == 'm'):
+            port = input('PORT : ')
+            manual_mode(port)
         elif( order_in == 'c'):
             convertor_chain()
         elif( order_in == 'q'):
