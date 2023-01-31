@@ -1381,8 +1381,8 @@ def real_exp5(port):
     
     dds.delay_cycle(20000)
     
-    dds.set_profile_pin(profile1 = 4, profile2 = 0)
-    dds.delay_cycle(200000)
+    #dds.set_profile_pin(profile1 = 4, profile2 = 0)
+    #dds.delay_cycle(200000)
     
     dds.set_profile_pin(profile1 = 0, profile2 = 0)
     dds.delay_cycle(200000)
@@ -1444,13 +1444,13 @@ def real_exp5(port):
     dds.io_update(1,0)
     dds.delay_cycle(1000)
     
-    #dds.read32(ch1 = 1, ch2 = 0, register_addr = 0x00)
+    dds.read32(ch1 = 1, ch2 = 0, register_addr = 0x00)
     dds.delay_cycle(10000)
     #dds.read32(ch1 = 1, ch2 = 0, register_addr = 0x01)
     dds.delay_cycle(10000)
     #dds.read32(ch1 = 1, ch2 = 0, register_addr = 0x02)
     dds.delay_cycle(10000)
-    dds.read32(ch1 = 1, ch2 = 0, register_addr = 0x07)
+    #dds.read32(ch1 = 1, ch2 = 0, register_addr = 0x07)
     dds.delay_cycle(10000)
     #dds.read32(ch1 = 1, ch2 = 0, register_addr = 0x08)
     dds.delay_cycle(10000)
@@ -1553,8 +1553,10 @@ def real_exp7(port):
     dds.override_enable()
     dds.set_now_cycle(0)
     
-    freq_list = [ 10*MHz, 12*MHz, 14*MHz, 16*MHz, 18*MHz, 20*MHz, 22*MHz, 24*MHz,
-                 26*MHz, 28*MHz, 30*MHz, 32*MHz, 34*MHz, 36*MHz, 38*MHz, 40*MHz]
+    dds.set_profile_pin(profile1 = 0, profile2 = 0)
+    
+    freq_list = [ 100*MHz, 120*MHz, 140*MHz, 160*MHz, 180*MHz, 200*MHz, 220*MHz, 240*MHz,
+                 260*MHz, 280*MHz, 300*MHz, 320*MHz, 340*MHz, 360*MHz, 400*MHz, 420*MHz]
     
     
     dds.set_CFR1(ch1=1,ch2=0, ram_en = 0, ram_playback = 0, manual_OSK = 0, 
@@ -1566,7 +1568,7 @@ def real_exp7(port):
                  external_power_down_ctrl = 0, SDIO_in_only = 0, 
                  LSB_first = 0)
     
-    dds.set_CFR2(ch1=1,ch2=0, amp_en_single_tone = 1, internal_IO_update = 0, 
+    dds.set_CFR2(ch1=1,ch2=0, amp_en_single_tone = 0, internal_IO_update = 0, 
                  SYNC_CLK_en = 0, DRG_dest = 0, DRG_en = 0, 
                  DRG_no_dwell_high = 0, DRG_no_dwell_low = 0, read_eff_FTW = 1, 
                  IO_update_rate = 0, PDCLK_en = 0, PDCLK_inv = 0, Tx_inv = 0, 
@@ -1603,6 +1605,8 @@ def real_exp7(port):
     
     
     dds.io_update(1,0)
+    
+    dds.override_disable()
     
     while True:
         print('[1] auto start')
@@ -1714,7 +1718,7 @@ def manual_mode(port):
             dds.set_now_cycle(0)
             dds.reset_driver()
             dds.auto_mode()
-            dds.set_amplitude(ch1 = cont_ch1, ch2 = cont_ch2, amplitude_frac_num = amp_frac)
+            dds.set_amplitude(ch1 = cont_ch1, ch2 = cont_ch2, amplitude_frac = amp_frac_num)
             dds.delay_cycle(1500)
             dds.io_update(ch1 = cont_ch1, ch2 = cont_ch2)
             dds.auto_start()

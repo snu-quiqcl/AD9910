@@ -260,6 +260,7 @@ class AD9910:
                     
                     delayed_cycle += 1
                 else:
+                    print('set config')
                     self.fpga.send_mod_BTF_int_list(config_int_list2)
                     self.fpga.send_command('WRITE DDS REG')
                 
