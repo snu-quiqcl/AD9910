@@ -1555,9 +1555,19 @@ def real_exp7(port):
     
     dds.set_profile_pin(profile1 = 0, profile2 = 0)
     
-    freq_list = [ 100*MHz, 120*MHz, 140*MHz, 160*MHz, 180*MHz, 200*MHz, 220*MHz, 240*MHz,
-                 260*MHz, 280*MHz, 300*MHz, 320*MHz, 340*MHz, 360*MHz, 400*MHz, 420*MHz]
+    #set frequency register
+    dds.set_frequency(ch1 = 1, ch2 = 0, freq = 100 * MHz)
     
+    #set phase register
+    dds.set_phase(ch1 = 1, ch2 = 0, phase = 0)
+    
+    #set amplitude register
+    dds.set_amplitude(ch1 = 1, ch2 = 0, amplitude_frac = 0.5)
+    
+    freq_list = [ 100*MHz, 120*MHz, 140*MHz, 160*MHz, 180*MHz, 200*MHz, 220*MHz, 240*MHz,
+                 260*MHz, 280*MHz, 300*MHz]
+    
+    #amplitude_list = [0.5, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.0]
     
     dds.set_CFR1(ch1=1,ch2=0, ram_en = 0, ram_playback = 0, manual_OSK = 0, 
                  inverse_sinc_filter = 0, internal_porfile = 0, sine = 1,
@@ -1578,22 +1588,111 @@ def real_exp7(port):
     
     dds.io_update(1,0)
     
-    #set ram profile to bidirectional ram mode with start address 0 to 
-    #end address 16 with step rate 20
-    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =20, 
-                                 end_addr= len(freq_list) - 1, 
-                                 start_addr=0, no_dwell_high=0, zero_crossing=0, 
-                                 ram_mode_ctrl=2, profile=0)
-    
     #set profile pin
     dds.set_profile_pin(profile1 = 0, profile2 = 0)
     
-    #send ram data
-    dds.ram_write_frequency(ch1=1,ch2=0,data_list = freq_list)
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =2000, 
+                                 end_addr= 10, 
+                                 start_addr=0, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=0)
     
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =2000, 
+                                 end_addr= 21, 
+                                 start_addr=11, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=1)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =2000, 
+                                 end_addr= 32, 
+                                 start_addr=22, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=2)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =2000, 
+                                 end_addr= 43, 
+                                 start_addr=33, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=3)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =2000, 
+                                 end_addr= 54, 
+                                 start_addr=44, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=4)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =2000, 
+                                 end_addr= 65, 
+                                 start_addr=55, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=5)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =2000, 
+                                 end_addr= 76, 
+                                 start_addr=66, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=6)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =2000, 
+                                 end_addr= 87, 
+                                 start_addr=77, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=7)
+        
+    #send ram data
+    #dds.ram_write_frequency(ch1=1,ch2=0,data_list = freq_list)
+    
+    dds.set_profile_pin(profile1 = 0, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_frequency(ch1 = 1, ch2 = 0, data_list = freq_list)
     dds.io_update(1,0)
     
+    dds.set_profile_pin(profile1 = 1, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_frequency(ch1 = 1, ch2 = 0, data_list = freq_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 2, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_frequency(ch1 = 1, ch2 = 0, data_list = freq_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 3, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_frequency(ch1 = 1, ch2 = 0, data_list = freq_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 4, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_frequency(ch1 = 1, ch2 = 0, data_list = freq_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 5, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_frequency(ch1 = 1, ch2 = 0, data_list = freq_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 6, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_frequency(ch1 = 1, ch2 = 0, data_list = freq_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 7, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_frequency(ch1 = 1, ch2 = 0, data_list = freq_list)
+    dds.io_update(1,0)
+    
+    ###########################################################################
     #set ram_en = 1
+    ###########################################################################
     dds.set_CFR1(ch1=1,ch2=0, ram_en = 1, ram_playback = 0, manual_OSK = 0, 
                  inverse_sinc_filter = 0, internal_porfile = 0, sine = 1,
                  load_LRR = 0, autoclear_DRG = 0, autoclear_phase = 0, 
@@ -1605,6 +1704,72 @@ def real_exp7(port):
     
     
     dds.io_update(1,0)
+    
+    dds.set_profile_pin(1,0)
+    dds.io_update(1,0)
+    print('set HIGH')
+    time.sleep(5)
+    
+    
+    dds.set_profile_pin(0,0)
+    dds.io_update(1,0)
+    print('set LOW')
+    time.sleep(5)
+    
+    dds.set_profile_pin(1,0)
+    dds.io_update(1,0)
+    print('set HIGH')
+    time.sleep(5)
+    
+    
+    dds.set_profile_pin(0,0)
+    dds.io_update(1,0)
+    print('set LOW')
+    time.sleep(5)
+    
+    dds.set_profile_pin(1,0)
+    dds.io_update(1,0)
+    print('set HIGH')
+    time.sleep(5)
+    
+    
+    dds.set_profile_pin(0,0)
+    dds.io_update(1,0)
+    print('set LOW')
+    time.sleep(5)
+    
+    dds.set_profile_pin(1,0)
+    dds.io_update(1,0)
+    print('set HIGH')
+    time.sleep(5)
+    
+    
+    dds.set_profile_pin(0,0)
+    dds.io_update(1,0)
+    print('set LOW')
+    time.sleep(5)
+    
+    dds.set_profile_pin(1,0)
+    dds.io_update(1,0)
+    print('set HIGH')
+    time.sleep(5)
+    
+    
+    dds.set_profile_pin(0,0)
+    dds.io_update(1,0)
+    print('set LOW')
+    time.sleep(5)
+    
+    dds.set_profile_pin(1,0)
+    dds.io_update(1,0)
+    print('set HIGH')
+    time.sleep(5)
+    
+    
+    dds.set_profile_pin(0,0)
+    dds.io_update(1,0)
+    print('set LOW')
+    time.sleep(5)
     
     dds.override_disable()
     
@@ -1642,6 +1807,505 @@ def real_exp7(port):
             print('exit real_exp5')
             dds.fpga.close()
             return
+        
+def real_exp8(port):
+    """
+    RAM mode simulation
+    """
+    dds = AD9910(ArtyS7(port))
+    #should reset driver before using override enable!!!!
+    dds.reset_driver()
+    #For Ram input, set ram_en = 0, and set auto mode disable & override enabled
+    dds.auto_mode_disable()
+    dds.override_enable()
+    dds.set_now_cycle(0)
+    
+    dds.set_profile_pin(profile1 = 0, profile2 = 0)
+    
+    #set frequency register
+    dds.set_frequency(ch1 = 1, ch2 = 0, freq = 100 * MHz)
+    
+    #set phase register
+    dds.set_phase(ch1 = 1, ch2 = 0, phase = 0)
+    
+    #set amplitude register
+    dds.set_amplitude(ch1 = 1, ch2 = 0, amplitude_frac = 0.0)
+    
+    #freq_list = [ 100*MHz, 120*MHz, 140*MHz, 160*MHz, 180*MHz, 200*MHz, 220*MHz, 240*MHz,
+    #             260*MHz, 280*MHz, 300*MHz]
+    
+    amplitude_list = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+    
+    dds.set_CFR1(ch1=1,ch2=0, ram_en = 0, ram_playback = 2, manual_OSK = 0, 
+                 inverse_sinc_filter = 0, internal_porfile = 0, sine = 1,
+                 load_LRR = 0, autoclear_DRG = 0, autoclear_phase = 0, 
+                 clear_DRG = 0, clear_phase = 0, load_ARR = 0, OSK_en = 0,
+                 auto_OSK = 0, digital_power_down = 0, DAC_power_down = 0, 
+                 REFCLK_powerdown = 0, aux_DAC_powerdown = 0, 
+                 external_power_down_ctrl = 0, SDIO_in_only = 0, 
+                 LSB_first = 0)
+    
+    dds.set_CFR2(ch1=1,ch2=0, amp_en_single_tone = 0, internal_IO_update = 0, 
+                 SYNC_CLK_en = 0, DRG_dest = 0, DRG_en = 0, 
+                 DRG_no_dwell_high = 0, DRG_no_dwell_low = 0, read_eff_FTW = 1, 
+                 IO_update_rate = 0, PDCLK_en = 0, PDCLK_inv = 0, Tx_inv = 0, 
+                 matched_latency_en = 0, data_ass_hold = 0, sync_val_dis = 1, 
+                 parallel_port = 0, FM_gain = 0)
+    dds.set_CFR3(ch1=1,ch2=0)
+    
+    dds.io_update(1,0)
+    
+    #set profile pin
+    dds.set_profile_pin(profile1 = 0, profile2 = 0)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =100, 
+                                 end_addr= 10, 
+                                 start_addr=0, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=0)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =100, 
+                                 end_addr= 21, 
+                                 start_addr=11, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=1)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =100, 
+                                 end_addr= 32, 
+                                 start_addr=22, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=2)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =100, 
+                                 end_addr= 43, 
+                                 start_addr=33, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=3)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =100, 
+                                 end_addr= 54, 
+                                 start_addr=44, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=4)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =100, 
+                                 end_addr= 65, 
+                                 start_addr=55, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=5)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =100, 
+                                 end_addr= 76, 
+                                 start_addr=66, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=6)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =100, 
+                                 end_addr= 87, 
+                                 start_addr=77, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=7)
+        
+    #send ram data
+    #dds.ram_write_frequency(ch1=1,ch2=0,data_list = freq_list)
+    
+    dds.set_profile_pin(profile1 = 0, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_amplitude(ch1 = 1, ch2 = 0, data_list = amplitude_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 1, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_amplitude(ch1 = 1, ch2 = 0, data_list = amplitude_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 2, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_amplitude(ch1 = 1, ch2 = 0, data_list = amplitude_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 3, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_amplitude(ch1 = 1, ch2 = 0, data_list = amplitude_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 4, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_amplitude(ch1 = 1, ch2 = 0, data_list = amplitude_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 5, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_amplitude(ch1 = 1, ch2 = 0, data_list = amplitude_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 6, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_amplitude(ch1 = 1, ch2 = 0, data_list = amplitude_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 7, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_amplitude(ch1 = 1, ch2 = 0, data_list = amplitude_list)
+    dds.io_update(1,0)
+    
+    
+    dds.set_profile_pin(profile1 = 0, profile2 = 0)
+    dds.io_update(1,0)
+    
+    ###########################################################################
+    #set ram_en = 1
+    ###########################################################################
+    dds.set_CFR1(ch1=1,ch2=0, ram_en = 1, ram_playback = 2, manual_OSK = 0, 
+                 inverse_sinc_filter = 0, internal_porfile = 0, sine = 1,
+                 load_LRR = 0, autoclear_DRG = 0, autoclear_phase = 0, 
+                 clear_DRG = 0, clear_phase = 0, load_ARR = 0, OSK_en = 0,
+                 auto_OSK = 0, digital_power_down = 0, DAC_power_down = 0, 
+                 REFCLK_powerdown = 0, aux_DAC_powerdown = 0, 
+                 external_power_down_ctrl = 0, SDIO_in_only = 0, 
+                 LSB_first = 0)
+    
+    
+    dds.io_update(1,0)
+    
+    dds.override_disable()
+    
+    ###########################################################################
+    #setting auto mode
+    ###########################################################################
+    dds.auto_stop()
+    dds.set_now_cycle(0)
+    dds.reset_driver()
+    dds.auto_mode()
+    
+    dds.delay_cycle(1000)
+    dds.io_update(1,1)
+    
+    dds.delay_cycle(1000)
+    dds.set_profile_pin(profile1 = 1, profile2 = 0)
+    
+    dds.delay_cycle(2000)
+    dds.set_profile_pin(profile1 = 0, profile2 = 0)
+    
+    dds.delay_cycle(2000)
+    dds.set_profile_pin(profile1 = 1, profile2 = 0)
+    
+    dds.delay_cycle(2000)
+    dds.set_profile_pin(profile1 = 0, profile2 = 0)
+    ###########################################################################
+    #start auto mode
+    ###########################################################################
+    dds.auto_start()
+    
+    while True:
+        print('[1] auto start')
+        print('[2] auto stop')
+        print('[3] exception log')
+        print('[4] rti value')
+        print('[r] read next')
+        print('[q] exit')
+        order_in = input()
+        if( order_in == '1' ):
+            dds.auto_start()
+        elif( order_in == '2'):
+            dds.auto_stop()
+        elif( order_in == '3'):
+            dds.read_exception_log()
+            print('EXCEPTION LOG : ',end = '')
+            print(dds.read_int_list(65 + 7))
+            # 7-> "#3 2 bit + length in 3 bit + \r\n 2bit"
+        elif( order_in == '4'):
+            dds.read_rti_fifo()
+            print('RTI FIFO LIST : ',end = '')
+            received_int_list = dds.read_int_list(17 + 7)
+            if( received_int_list[5] == 0xff ):
+                print('EMPTY')
+            else:
+                print(received_int_list)
+        
+        elif( order_in == 'r'):
+            print('next_val : ',end = '')
+            print(int.from_bytes(dds.fpga.read_next().encode('latin-1'),'little'))
+        
+        elif( order_in == 'q'):
+            print('exit real_exp5')
+            dds.fpga.close()
+            return    
+        
+def real_exp9(port):
+    """
+    RAM mode simulation
+    """
+    dds = AD9910(ArtyS7(port))
+    #should reset driver before using override enable!!!!
+    dds.reset_driver()
+    #For Ram input, set ram_en = 0, and set auto mode disable & override enabled
+    dds.auto_mode_disable()
+    dds.override_enable()
+    dds.set_now_cycle(0)
+    
+    dds.set_profile_pin(profile1 = 0, profile2 = 0)
+    
+    #set frequency register
+    dds.set_frequency(ch1 = 1, ch2 = 0, freq = 100 * MHz)
+    
+    #set phase register
+    dds.set_phase(ch1 = 1, ch2 = 0, phase = 0)
+    
+    #set amplitude register
+    dds.set_amplitude(ch1 = 1, ch2 = 0, amplitude_frac = 0.5)
+    
+    #freq_list = [ 100*MHz, 120*MHz, 140*MHz, 160*MHz, 180*MHz, 200*MHz, 220*MHz, 240*MHz,
+    #             260*MHz, 280*MHz, 300*MHz]
+    
+    amplitude_list = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+    
+    dds.set_CFR1(ch1=1,ch2=0, ram_en = 0, ram_playback = 2, manual_OSK = 0, 
+                 inverse_sinc_filter = 0, internal_porfile = 0, sine = 1,
+                 load_LRR = 0, autoclear_DRG = 0, autoclear_phase = 0, 
+                 clear_DRG = 0, clear_phase = 0, load_ARR = 0, OSK_en = 0,
+                 auto_OSK = 0, digital_power_down = 0, DAC_power_down = 0, 
+                 REFCLK_powerdown = 0, aux_DAC_powerdown = 0, 
+                 external_power_down_ctrl = 0, SDIO_in_only = 0, 
+                 LSB_first = 0)
+    
+    dds.set_CFR2(ch1=1,ch2=0, amp_en_single_tone = 0, internal_IO_update = 0, 
+                 SYNC_CLK_en = 0, DRG_dest = 0, DRG_en = 0, 
+                 DRG_no_dwell_high = 0, DRG_no_dwell_low = 0, read_eff_FTW = 1, 
+                 IO_update_rate = 0, PDCLK_en = 0, PDCLK_inv = 0, Tx_inv = 0, 
+                 matched_latency_en = 0, data_ass_hold = 0, sync_val_dis = 1, 
+                 parallel_port = 0, FM_gain = 0)
+    dds.set_CFR3(ch1=1,ch2=0)
+    
+    dds.io_update(1,0)
+    
+    #set profile pin
+    dds.set_profile_pin(profile1 = 0, profile2 = 0)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =2000, 
+                                 end_addr= 10, 
+                                 start_addr=0, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=0)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =2000, 
+                                 end_addr= 21, 
+                                 start_addr=11, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=1)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =2000, 
+                                 end_addr= 32, 
+                                 start_addr=22, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=2)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =2000, 
+                                 end_addr= 43, 
+                                 start_addr=33, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=3)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =2000, 
+                                 end_addr= 54, 
+                                 start_addr=44, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=4)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =2000, 
+                                 end_addr= 65, 
+                                 start_addr=55, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=5)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =2000, 
+                                 end_addr= 76, 
+                                 start_addr=66, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=6)
+    
+    #set ram profile to bidirectional ram mode with start address 0 to 
+    #end address 16 with step rate 20
+    dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =2000, 
+                                 end_addr= 87, 
+                                 start_addr=77, no_dwell_high=0, zero_crossing=0, 
+                                 ram_mode_ctrl=2, profile=7)
+        
+    #send ram data
+    #dds.ram_write_frequency(ch1=1,ch2=0,data_list = freq_list)
+    
+    dds.set_profile_pin(profile1 = 0, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_amplitude(ch1 = 1, ch2 = 0, data_list = amplitude_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 1, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_amplitude(ch1 = 1, ch2 = 0, data_list = amplitude_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 2, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_amplitude(ch1 = 1, ch2 = 0, data_list = amplitude_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 3, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_amplitude(ch1 = 1, ch2 = 0, data_list = amplitude_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 4, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_amplitude(ch1 = 1, ch2 = 0, data_list = amplitude_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 5, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_amplitude(ch1 = 1, ch2 = 0, data_list = amplitude_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 6, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_amplitude(ch1 = 1, ch2 = 0, data_list = amplitude_list)
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(profile1 = 7, profile2 = 0)
+    dds.io_update(1,0)
+    dds.ram_write_amplitude(ch1 = 1, ch2 = 0, data_list = amplitude_list)
+    dds.io_update(1,0)
+    
+    ###########################################################################
+    #set ram_en = 1
+    ###########################################################################
+    dds.set_CFR1(ch1=1,ch2=0, ram_en = 1, ram_playback = 2, manual_OSK = 0, 
+                 inverse_sinc_filter = 0, internal_porfile = 0, sine = 1,
+                 load_LRR = 0, autoclear_DRG = 0, autoclear_phase = 0, 
+                 clear_DRG = 0, clear_phase = 0, load_ARR = 0, OSK_en = 0,
+                 auto_OSK = 0, digital_power_down = 0, DAC_power_down = 0, 
+                 REFCLK_powerdown = 0, aux_DAC_powerdown = 0, 
+                 external_power_down_ctrl = 0, SDIO_in_only = 0, 
+                 LSB_first = 0)
+    
+    
+    dds.io_update(1,0)
+    
+    dds.set_profile_pin(1,0)
+    dds.io_update(1,0)
+    print('set HIGH')
+    time.sleep(5)
+    
+    
+    dds.set_profile_pin(0,0)
+    dds.io_update(1,0)
+    print('set LOW')
+    time.sleep(5)
+    
+    dds.set_profile_pin(1,0)
+    dds.io_update(1,0)
+    print('set HIGH')
+    time.sleep(5)
+    
+    
+    dds.set_profile_pin(0,0)
+    dds.io_update(1,0)
+    print('set LOW')
+    time.sleep(5)
+    
+    dds.set_profile_pin(1,0)
+    dds.io_update(1,0)
+    print('set HIGH')
+    time.sleep(5)
+    
+    
+    dds.set_profile_pin(0,0)
+    dds.io_update(1,0)
+    print('set LOW')
+    time.sleep(5)
+    
+    dds.set_profile_pin(1,0)
+    dds.io_update(1,0)
+    print('set HIGH')
+    time.sleep(5)
+    
+    
+    dds.set_profile_pin(0,0)
+    dds.io_update(1,0)
+    print('set LOW')
+    time.sleep(5)
+    
+    dds.set_profile_pin(1,0)
+    dds.io_update(1,0)
+    print('set HIGH')
+    time.sleep(5)
+    
+    
+    dds.set_profile_pin(0,0)
+    dds.io_update(1,0)
+    print('set LOW')
+    time.sleep(5)
+    
+    dds.set_profile_pin(1,0)
+    dds.io_update(1,0)
+    print('set HIGH')
+    time.sleep(5)
+    
+    
+    dds.set_profile_pin(0,0)
+    dds.io_update(1,0)
+    print('set LOW')
+    time.sleep(5)
+    
+    dds.override_disable()
+    
+    while True:
+        print('[1] auto start')
+        print('[2] auto stop')
+        print('[3] exception log')
+        print('[4] rti value')
+        print('[r] read next')
+        print('[q] exit')
+        order_in = input()
+        if( order_in == '1' ):
+            dds.auto_start()
+        elif( order_in == '2'):
+            dds.auto_stop()
+        elif( order_in == '3'):
+            dds.read_exception_log()
+            print('EXCEPTION LOG : ',end = '')
+            print(dds.read_int_list(65 + 7))
+            # 7-> "#3 2 bit + length in 3 bit + \r\n 2bit"
+        elif( order_in == '4'):
+            dds.read_rti_fifo()
+            print('RTI FIFO LIST : ',end = '')
+            received_int_list = dds.read_int_list(17 + 7)
+            if( received_int_list[5] == 0xff ):
+                print('EMPTY')
+            else:
+                print(received_int_list)
+        
+        elif( order_in == 'r'):
+            print('next_val : ',end = '')
+            print(int.from_bytes(dds.fpga.read_next().encode('latin-1'),'little'))
+        
+        elif( order_in == 'q'):
+            print('exit real_exp5')
+            dds.fpga.close()
+            return    
         
 def manual_mode(port):
     """
@@ -1889,6 +2553,8 @@ if __name__ == '__main__':
         print('[r5] real_exp5')
         print('[r6] real_exp6')
         print('[r7] real_exp7')
+        print('[r8] real_exp7')
+        print('[r9] real_exp7')
         print('[m] manual mode')
         print('[c] convert')
         print('[q] exit')
@@ -1935,6 +2601,12 @@ if __name__ == '__main__':
         elif( order_in == 'r7'):
             port = input('PORT : ')
             real_exp7(port)
+        elif( order_in == 'r8'):
+            port = input('PORT : ')
+            real_exp8(port)
+        elif( order_in == 'r9'):
+            port = input('PORT : ')
+            real_exp9(port)
         elif( order_in == 'm'):
             port = input('PORT : ')
             manual_mode(port)

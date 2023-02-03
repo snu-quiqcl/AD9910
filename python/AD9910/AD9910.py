@@ -989,7 +989,7 @@ class AD9910:
         amplitude_list = []
         for data_each in data_list:
             amplitude_list.append(self.amplitude_to_ASF(data_each) << 18)
-        self.ram_write(amplitude_list)
+        self.ram_write(ch1, ch2, amplitude_list)
         
     def ram_write_phase(self, ch1, ch2, data_list):
         phase_list = []
