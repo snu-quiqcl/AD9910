@@ -940,13 +940,9 @@ def exp12():
     dds.io_update(1,0)
     dds.delay_cycle(1000)
     
-    dds.set_frequency(1,0,100 * MHz)
+    dds.set_frequency(1,0,180 * MHz)
     dds.delay_cycle(10000)
     dds.io_update(1,0)
-    dds.delay_cycle(1000)
-    
-    dds.set_parallel_frequency(frequency = 10*MHz , set_fm_gain = True,
-                               parallel_en = 1)
     dds.delay_cycle(1000)
     
     dds.set_CFR2(ch1=1,ch2=0, amp_en_single_tone = 1, internal_IO_update = 0, 
@@ -958,21 +954,43 @@ def exp12():
     
     dds.delay_cycle(10000)
     
-    dds.set_parallel_frequency(frequency = 20*MHz , set_fm_gain = True,
+    dds.io_update(1,1)
+    
+    dds.delay_cycle(1000)
+    
+    dds.set_parallel_frequency(frequency = 20*MHz , set_fm_gain = False,
                                parallel_en = 1)
     dds.delay_cycle(1000)
     
-    dds.set_parallel_frequency(frequency = 30*MHz , set_fm_gain = True,
+    dds.set_parallel_frequency(frequency = 25*MHz , set_fm_gain = False,
                                parallel_en = 1)
     dds.delay_cycle(1000)
     
-    dds.set_parallel_frequency(frequency = 40*MHz , set_fm_gain = True,
+    dds.set_parallel_frequency(frequency = 30*MHz , set_fm_gain = False,
                                parallel_en = 1)
     dds.delay_cycle(1000)
     
-    dds.set_parallel_frequency(frequency = 50*MHz , set_fm_gain = True,
+    dds.set_parallel_frequency(frequency = 15*MHz , set_fm_gain = False,
                                parallel_en = 1)
     dds.delay_cycle(1000)
+    
+    
+    
+    while True:
+        print('[1] auto start')
+        print('[2] auto stop')
+        print('[q] exit')
+        order_in = input()
+        if( order_in == '1' ):
+            dds.auto_start()
+        elif( order_in == '2'):
+            dds.auto_stop()
+            dds.read_rti_fifo()
+            #dds.read_rti_fifo()
+        elif( order_in == 'q'):
+            print('exit exp11')
+            dds.fpga.close()
+            return
     
         
 def real_exp1(port):
@@ -2326,6 +2344,7 @@ def manual_mode(port):
         print('[a] Set amplitude')
         print('[f] Set frequency')
         print('[p] Set phase')
+        print('[i] IO_UPDATE')
         print('[q] exit')
         
         cmd = input()
@@ -2530,6 +2549,28 @@ def manual_mode(port):
             dds.fpga.close()
             return
         
+        if(cmd == 'i' or cmd == 'I'):
+            dds.auto_stop()
+            dds.set_now_cycle(0)
+            dds.reset_driver()
+            dds.delay_cycle(30)
+            dds.auto_mode()
+            dds.io_update(ch1 = 0, ch2 = 1)
+            dds.delay_cycle(200)
+            dds.io_update(ch1 = 1, ch2 = 0)
+            dds.auto_start()
+            
+            
+            dds.auto_stop()
+            dds.set_now_cycle(0)
+            dds.delay_cycle(30)
+            dds.auto_mode()
+            dds.io_update(ch1 = 0, ch2 = 1)
+            dds.delay_cycle(200)
+            dds.io_update(ch1 = 1, ch2 = 0)
+            dds.auto_start()
+            print('done')
+        
         else:
             print('Wrong command')
 
@@ -2546,6 +2587,7 @@ if __name__ == '__main__':
         print('[9] exp9')
         print('[10] exp10')
         print('[10] exp11')
+        print('[10] exp12')
         print('[r1] real_exp1')
         print('[r2] real_exp2')
         print('[r3] real_exp3')
@@ -2581,6 +2623,8 @@ if __name__ == '__main__':
             exp10()
         elif( order_in == '11'):
             exp11()
+        elif( order_in == '12'):
+            exp12()
         elif( order_in == 'r1'):
             port = input('PORT : ')
             real_exp1(port)

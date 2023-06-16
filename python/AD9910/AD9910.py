@@ -677,8 +677,10 @@ class AD9910:
         
         if( ch1 == 1 ):
             self.cfr2[0] = CFR2_setting
+            self.fm_gain = FM_gain
         if( ch2 == 1 ):
             self.cfr2[1] = CFR2_setting
+            self.fm_gain = FM_gain
         self.write32(ch1, ch2, CFR2_ADDR, CFR2_setting)
         
     def set_CFR3(self, ch1, ch2, DRV0 = 0, PLL_VCO = 0, I_CP = 0, 
@@ -771,9 +773,10 @@ class AD9910:
         delayed_cycle = 0
         
         fm_gain = self.minimum_fm_gain(frequency)
+        print("frequency : " + str(frequency) + " fm_gain :" + str(fm_gain))
         
         FTW_16bit = int(self.frequency_to_FTW(frequency) // \
-                        ( 2 ** fm_gain ))
+                        ( 2 ** self.fm_gain ))
         
         if( fm_gain != self.fm_gain and set_fm_gain == True ):
             self.set_fm_gain(fm_gain)

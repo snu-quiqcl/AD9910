@@ -11,7 +11,7 @@ v1_01: Added read_DNA(), print_idn() methods
 import serial
 import os
 
-TEST = 0
+TEST = 1
     
 class escapeSequenceDetected(Exception):
     def __init__(self, escape_char):
