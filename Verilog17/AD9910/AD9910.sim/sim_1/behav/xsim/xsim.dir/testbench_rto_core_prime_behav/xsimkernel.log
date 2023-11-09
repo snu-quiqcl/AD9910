@@ -1,7 +1,0 @@
-Running: xsim.dir/testbench_rto_core_prime_behav/xsimk.exe -simmode gui -wdb testbench_rto_core_prime_behav.wdb -simrunnum 0 -socket 54232
-Design successfully loaded
-Design Loading Memory Usage: 7396 KB (Peak: 7396 KB)
-Design Loading CPU Usage: 15 ms
-Simulation completed
-Simulation Memory Usage: 9204 KB (Peak: 9204 KB)
-Simulation CPU Usage: 62 ms

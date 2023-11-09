@@ -1,7 +1,0 @@
-Running: xsim.dir/testbench_gpi_core_behav/xsimk.exe -simmode gui -wdb testbench_gpi_core_behav.wdb -simrunnum 0 -socket 54342
-Design successfully loaded
-Design Loading Memory Usage: 6732 KB (Peak: 6732 KB)
-Design Loading CPU Usage: 61 ms
-Simulation completed
-Simulation Memory Usage: 7664 KB (Peak: 7664 KB)
-Simulation CPU Usage: 77 ms
