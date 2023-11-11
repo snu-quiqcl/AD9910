@@ -16,7 +16,7 @@ class Experiment:
         
     def ram_write_frequency_list(self, freq_list,addr_step_rate):
         """
-        RAM mode simulation
+        RAM Data Write
         """
         #should reset driver before using override enable!!!!
         self.dds.reset_driver()
@@ -77,13 +77,41 @@ class Experiment:
             self.dds.io_update(1,0)
             self.dds.ram_write_frequency(ch1 = 1, ch2 = 0, data_list = freq_list[i])
             self.dds.io_update(1,0)
+            
+        ###########################################################################
+        #set ram_en = 1
+        ###########################################################################
+        self.dds.set_CFR1(ch1=1,ch2=0, ram_en = 1, ram_playback = 0, manual_OSK = 0, 
+                      inverse_sinc_filter = 0, internal_porfile = 0, sine = 1,
+                      load_LRR = 0, autoclear_DRG = 0, autoclear_phase = 0, 
+                      clear_DRG = 0, clear_phase = 0, load_ARR = 0, OSK_en = 0,
+                      auto_OSK = 0, digital_power_down = 0, DAC_power_down = 0, 
+                      REFCLK_powerdown = 0, aux_DAC_powerdown = 0, 
+                      external_power_down_ctrl = 0, SDIO_in_only = 0, 
+                      LSB_first = 0)
+        
+        
+        self.dds.io_update(1,0)
+        
+        self.dds.override_disable()
+        
+        ###########################################################################
+        #setting auto mode
+        ###########################################################################
+        self.dds.reset_driver()
+        self.dds.auto_mode()
     
     def do_experiment(self):
-        self.dds.auto_mode()
         #Write Experiment code here
+        self.dds.delay_cycle(10)
+        self.dds.set_profile_pin(0,0)
+        self.dds.delay_cycle(100)
+        self.dds.set_profile_pin(1,7)
+        self.dds.delay_cycle(100)
+        self.dds.set_profile_pin(profile1 = 0, profile2 = 0)
         
         self.dds.auto_start()
-
+        
 if __name__ == '__main__':
     port = input()
     exp = Experiment(port)
@@ -91,13 +119,13 @@ if __name__ == '__main__':
     freq_list = []
     addr_step_rate = []
     
-    freq_list0 = [ 100*MHz ]
-    addr_step_rate0 =2000
+    freq_list0 = [ 10*MHz, 1*Hz, 30*MHz, 40*Hz, 50*MHz, 60*Hz ]
+    addr_step_rate0 =200
     
-    freq_list1 = [ 100*MHz ]
+    freq_list1 = [ 10*MHz ]
     addr_step_rate1 =2000
     
-    freq_list2 = [ 100*MHz ]
+    freq_list2 = [ 10*MHz ]
     addr_step_rate2 =2000
     
     freq_list3 = [ 100*MHz ]

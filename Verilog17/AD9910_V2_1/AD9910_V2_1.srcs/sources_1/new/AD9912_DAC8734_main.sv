@@ -812,35 +812,7 @@ module main(
                 MAIN_DDS_WAIT_FOR_BUSY_OFF: begin
                         if( spi_busy == 1'b0 ) main_state <= MAIN_IDLE;
                     end
-
-
-                /*
-                MAIN_DAC_WAIT_FOR_BUSY_ON: begin
-                        if (DAC_busy != 'd0) begin
-                            main_state <= MAIN_DAC_WAIT_FOR_BUSY_OFF;
-                            DAC_start[7:0] <= 8'd0;
-                        end
-                    end
-
-
-                MAIN_DAC_WAIT_FOR_BUSY_OFF: begin
-                        if (DAC_busy == 'd0) main_state <= MAIN_IDLE;
-                    end
-
-                MAIN_DAC_LDAC_PAUSE: begin // ldac should be low for at least 15ns
-                        if (ldac_pause_count == 0) main_state <= MAIN_DAC_LDAC_OFF;
-                        ldac_pause_count <= ldac_pause_count - 'd1;
-                    end
-
-                MAIN_DAC_LDAC_OFF: begin
-                        ldac_bar <= 1'b1;
-                        main_state <= MAIN_IDLE;
-                    end
-                */
-                
-                ////
-                //****code added for AD9910**** this if statement is for IO UPDATE of AD9910
-                ////
+                    
                 MAIN_DDS_IOUPDATE_OUT: begin
                     gpo_selected_en <= 1'b0;
                     io_update_count <= io_update_count - 5'd1;

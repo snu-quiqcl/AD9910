@@ -11,7 +11,7 @@ v1_01: Added read_DNA(), print_idn() methods
 import serial
 import os
 
-TEST = 0
+TEST = 1
     
 class escapeSequenceDetected(Exception):
     def __init__(self, escape_char):
@@ -28,7 +28,8 @@ class ArtyS7:
     def __init__(self, serialPort):
         if TEST:
             self.com = None
-            self.test_output_file = open(os.getcwd() + '/test_output.txt', 'w')
+            self.test_output_file = open(os.getcwd() + r'\test_output.txt', 'w')
+            print(self.test_output_file)
             self.test_output_file.write('output of python file\n')
         else:
             self.com = serial.Serial(serialPort, baudrate=57600, timeout=1, \

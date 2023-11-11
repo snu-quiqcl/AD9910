@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.runs/impl_1'
+HD_PWD='C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_1/AD9910_V2_1.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
