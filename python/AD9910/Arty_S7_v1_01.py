@@ -10,8 +10,9 @@ v1_01: Added read_DNA(), print_idn() methods
 
 import serial
 import os
+import shutil
 
-TEST = 1
+TEST = 0
     
 class escapeSequenceDetected(Exception):
     def __init__(self, escape_char):
@@ -28,7 +29,13 @@ class ArtyS7:
     def __init__(self, serialPort):
         if TEST:
             self.com = None
-            self.test_output_file = open(os.getcwd() + r'\test_output.txt', 'w')
+            if os.path.exists(os.path.join(os.getcwd(), 'simulation_files')):
+                shutil.rmtree(os.path.join(os.getcwd(), 'simulation_files'))
+                print('delete previous dir')
+                
+            os.mkdir(os.path.join(os.getcwd(), r'simulation_files'))
+            
+            self.test_output_file = open(os.path.join(os.getcwd(), 'simulation_files', 'test_output.txt'), 'w')
             print(self.test_output_file)
             self.test_output_file.write('output of python file\n')
         else:

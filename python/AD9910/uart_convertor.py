@@ -6,11 +6,12 @@ Created on Mon Aug 24 15:51:42 2020
 @author: parkjeonghyun
 """
 import os
+import shutil
 
     
 def convertor():
-    rf = open(os.getcwd() + r'\test_output.txt', 'r')
-    wf = open(os.getcwd() + r'\test_uart_output.txt', 'w')
+    rf = open(os.path.join(os.getcwd(),'simulation_files', 'test_output.txt'), 'r')
+    wf = open(os.path.join(os.getcwd(),'simulation_files',  r'test_uart_output.txt'), 'w')
     
     print(rf)
     print(wf)
@@ -32,8 +33,8 @@ def convertor():
             wf.write('\n')
 
 def create_sim_file():
-    rf = open(os.getcwd() + '/test_uart_output.txt', 'r')
-    wf = open(os.getcwd() + '/test_verilog_sim.sv', 'w')
+    rf = open(os.path.join(os.getcwd(),'simulation_files', 'test_uart_output.txt'), 'r')
+    wf = open(os.path.join(os.getcwd(),'simulation_files', 'test_verilog_sim.sv'), 'w')
     print('verilog converting start')
     
     wf.write("""`timescale 1ns / 1ps
