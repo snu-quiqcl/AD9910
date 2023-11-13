@@ -1,0 +1,78 @@
+LVSERIAL LICENCE
+----------------
+
+LVSERIAL is a library of functions and VIs to support serial port (RS232) 
+communication. It is distributed under the terms of the "BSD" licence, as
+specified below. Documentation is included in each VI (use Ctrl+H and move 
+the mouse over VI, controls and indicators).
+
+The basic library functions are written in C. The library uses major 
+parts of the PCRE (Perl Compatible Regular Expressions) library.
+
+
+THE "BSD" LICENCE
+-----------------
+
+Copyright 2004-2014 Martin Henz
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, 
+are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, 
+  this list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice, 
+  this list of conditions and the following disclaimer in the documentation 
+  and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS 
+OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT 
+SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR 
+BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING 
+IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
+OF SUCH DAMAGE.
+
+End
+
+To Windfreak Technologies from Martin Henz Systemtechnik (the author of lvserial):
+
+Hi David,
+
+originally I wanted to see the lvserial library "open source" and as free as possible from any restrictions. Thats one of the reasons why I didn't integrate it into the OpenG library, because the OpenG library is not really complete open source and they also used the GNU general public licence for a long time. Ok, in the meantime OpenG has partly or completely changed to the BSD licence.
+
+Anyway, the lvserial library also uses the PCRE library
+(http://www.pcre.org/) witch is under the BSD licence .
+
+For people/companies who wants to see a licence for lvserial I add the less restrictive BSD licence: The 2-Clause BSD License https://opensource.org/licenses/BSD-2-Clause
+
+For the lvserial itself: Make with it, whatever you want. On request, I'll send you the C-source code of the actual version. The actual version is nearly identical to the version you actually have.
+Distribute it with or without the lvserial BSD licence.
+
+
+Because  lvserial  uses the PCRE library you have to distribute a copy of  the PCRE licence (see attachment PCRE_LIBRARY.txt). You can either
+- make a hard copy in the documentation of your software or
+- copy it into the installation folder (subfolder) or
+- copy the PCRE_LICENCE on the distribution media (usb-stick, CD, zip-file)
+
+That's all.
+
+Because some other people wants to see a licence for lvserial, I also added the LVSERIAL_LICENCE.txt file to this E-Mail. Use it or not...
+If you want to add it to your software, then copy it in the same way as the PCRE_LIBRARY.txt file.
+
+
+--
+Regards
+Martin Henz
+
+Martin Henz Systemtechnik
+Dipl. Ing. (FH) Martin Henz
+Tälestr. 9
+74363 Güglingen
+Phone +49-7135-7189417
+Fax +49-7135-7189418
+http://www.mhst.de

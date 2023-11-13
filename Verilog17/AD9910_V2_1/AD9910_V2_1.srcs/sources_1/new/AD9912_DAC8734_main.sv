@@ -417,58 +417,6 @@ module main(
     assign {jd_7, jd_6, jd_5, jd_4, jd_3, jd_2, jd_1, jd_0}  = parallel_out[7:0];
 
     /////////////////////////////////////////////////////////////////
-    // Command definition for DAC
-    /////////////////////////////////////////////////////////////////
-    /*
-    parameter CMD_WRITE_DAC_REG = "WRITE DAC REG"; // 13 characters
-    parameter DAC_DATA_WIDTH = 24;
-    
-
-    reg [7:0] DAC_start;
-    initial DAC_start[7:0] <= 8'd0;
-
-    reg [DAC_DATA_WIDTH+8:1] DAC_buffer;
-    
-    wire [7:0] DAC_update;
-    assign DAC_update[7:0] = BTF_Buffer[DAC_DATA_WIDTH+8:DAC_DATA_WIDTH+1];
-    wire [DAC_DATA_WIDTH:1] DAC_data;
-    assign DAC_data = DAC_buffer[DAC_DATA_WIDTH:1];
-    
-    reg [1:0] DAC_slow_clock;
-    initial DAC_slow_clock <= 'd0;
-    always @ (posedge CLK100MHZ) DAC_slow_clock <= DAC_slow_clock + 'd1;
-    wire DAC_clock;
-    assign DAC_clock = DAC_slow_clock[0]; // DAC_slow_clock[1]: 25MHz, DAC_slow_clock[0]: 50MHz
-
-    wire [1:0] DAC_busy, DAC_sclk, DAC_cs_bar, DAC_sdi; 
-
-    genvar i;
-    generate
-        for (i=0; i<2; i=i+1) begin
-            DAC8734 dac(.clock(DAC_clock), .start_trigger(DAC_start[i]), 	.data(DAC_data),
-                .sclk(DAC_sclk[i]), .cs_bar(DAC_cs_bar[i]), .sdi(DAC_sdi[i]), .busy(DAC_busy[i]) );
-        end
-    endgenerate
-
-    reg ldac_bar; // Minimum 15ns for 3.6V < DV_DD ¡Â 5.5V, 2.7V ¡Â IOV_DD ¡Â DV_DD
-    initial ldac_bar = 1'b1;
-    assign ck_io_6 = ldac_bar;
-    
-    assign {ck_io_39, ck_io_38, ck_io_37} = {DAC_cs_bar[0], DAC_sclk[0], DAC_sdi[0]};
-    assign {ck_io_36, ck_io_35, ck_io_34} = {DAC_cs_bar[1], DAC_sclk[1], DAC_sdi[1]};
-
-
-    parameter CMD_LDAC = "LDAC"; // 4 characters
-    parameter CMD_UPDATE_LDAC_LENGTH = "LDAC LENGTH"; // 1 characters
-
-    reg [7:0] ldac_length;
-    initial ldac_length <= 40;
-    reg [7:0] ldac_pause_count; // (LDAC_length+2)*10ns. LDAC signal is distributed to 8 chips, so for the output to swing down enough, pulse should be longer than 200ns when 2 chips were populated   
-
-
-
-    */
-    /////////////////////////////////////////////////////////////////
     // Command definition for DNA_PORT command
     /////////////////////////////////////////////////////////////////
     parameter CMD_DNA_PORT = "DNA_PORT";
@@ -704,40 +652,6 @@ module main(
                             main_state <= MAIN_IDLE;
                         end
                         
-
-
-
-                        /*
-                        else if ((CMD_Length == $bits(CMD_WRITE_DAC_REG)/8) && (CMD_Buffer[$bits(CMD_WRITE_DAC_REG):1] == CMD_WRITE_DAC_REG)) begin
-                            if (BTF_Length != ((DAC_DATA_WIDTH+8)/8)) begin
-                                TX_buffer1[1:13*8] <= {"Wrong length", BTF_Length[7:0]}; // Assuming that BTF_Length is less than 256
-                                TX_buffer1_length[TX_BUFFER1_LENGTH_WIDTH-1:0] <= 'd13;
-                                TX_buffer1_ready <= 1'b1;
-                            end
-                            else if (DAC_update != 'd0) begin
-                                DAC_buffer <= BTF_Buffer[DAC_DATA_WIDTH+8:1];
-                                main_state <= MAIN_DAC_WAIT_FOR_BUSY_ON;
-                                DAC_start[7:0] <= DAC_update[7:0];
-                            end
-                        
-                        end
-
-                        else if ((CMD_Length == $bits(CMD_LDAC)/8) && (CMD_Buffer[$bits(CMD_LDAC):1] == CMD_LDAC)) begin
-                            ldac_bar <= 1'b0;
-                            ldac_pause_count <= ldac_length;
-                            main_state <= MAIN_DAC_LDAC_PAUSE;
-                        end
-
-                        else if ((CMD_Length == $bits(CMD_UPDATE_LDAC_LENGTH)/8) && (CMD_Buffer[$bits(CMD_UPDATE_LDAC_LENGTH):1] == CMD_UPDATE_LDAC_LENGTH)) begin
-                            ldac_length[7:0] <= BTF_Buffer[8:1];
-                        end
-                        */
-
-
-
-
-
-
                         else if ((CMD_Length == $bits(CMD_ADJUST_INTENSITY)/8) && (CMD_Buffer[$bits(CMD_ADJUST_INTENSITY):1] == CMD_ADJUST_INTENSITY)) begin
                             LED_intensity[7:0] <= BTF_Buffer[8:1];
                         end

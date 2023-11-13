@@ -1,0 +1,8 @@
+Windfreak LICENCE
+
+Windfreak software source code is only for users who have purchased Windfreak hardware.
+If this applies, use Windfreak software as you desire, in whole or in part, but only distribute the source code to those inside your organization who have a right to use the hardware.
+Please never post code to the public.
+Kind Regards,
+David Goins
+CTO - Windfreak Technologies, LLC.

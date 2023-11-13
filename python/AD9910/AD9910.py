@@ -265,6 +265,7 @@ class AD9910:
                     self.fpga.send_command('WRITE DDS REG')
                 
             data_int_list = self.make_write_list(register_data_list[i])
+            print(register_data_list[i])
             if( self.auto_en ):
                 fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
                 self.delay_cycle(self.write_32_duration)
@@ -919,8 +920,8 @@ class AD9910:
             
             #self.delay_cycle(5)
             #delayed_cycle += 5
-            self.delay_cycle(100) # temporaly changed for PLL usagement (25MHz->1GHz)
-            delayed_cycle += 100
+            self.delay_cycle(5) # temporaly changed for PLL usagement (25MHz->1GHz)
+            delayed_cycle += 5
             
             fifo_data_int_list2 = self.convert_to_16_int_list(data_int_list2)
             self.fpga.send_mod_BTF_int_list(fifo_data_int_list2)

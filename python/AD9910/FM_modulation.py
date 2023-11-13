@@ -9,6 +9,9 @@ from AD9910 import AD9910
 from Arty_S7_v1_01 import ArtyS7
 from uart_convertor import convertor_chain
 import time
+import math
+
+gray_code = [0b000, 0b001, 0b011, 0b010, 0b110, 0b111, 0b101, 0b100]
 
 class Experiment:
     def __init__(self, port):
@@ -19,6 +22,7 @@ class Experiment:
         RAM Data Write
         """
         #should reset driver before using override enable!!!!
+        self.dds.auto_stop()
         self.dds.reset_driver()
         #For Ram input, set ram_en = 0, and set auto mode disable & override enabled
         self.dds.auto_mode_disable()
@@ -30,13 +34,13 @@ class Experiment:
         self.dds.set_profile_pin(profile1 = 0, profile2 = 0)
         
         #set frequency register
-        self.dds.set_frequency(ch1 = 1, ch2 = 0, freq = 100 * MHz)
+        self.dds.set_frequency(ch1 = 1, ch2 = 0, freq = 10 * MHz)
         
         #set phase register
         self.dds.set_phase(ch1 = 1, ch2 = 0, phase = 0)
         
         #set amplitude register
-        self.dds.set_amplitude(ch1 = 1, ch2 = 0, amplitude_frac = 0.5)
+        self.dds.set_amplitude(ch1 = 1, ch2 = 0, amplitude_frac = 0.8)
         
         self.dds.set_CFR1(ch1=1,ch2=0, ram_en = 0, ram_playback = 0, manual_OSK = 0, 
                       inverse_sinc_filter = 0, internal_porfile = 0, sine = 1,
@@ -67,8 +71,9 @@ class Experiment:
             self.dds.set_ram_profile_register(ch1 = 1, ch2 = 0, addr_step_rate =addr_step_rate[i], 
                                       end_addr= last_addr + len(freq_list[i]) - 1, 
                                       start_addr = last_addr, no_dwell_high=0, zero_crossing=0, 
-                                      ram_mode_ctrl=0, profile=i)
+                                      ram_mode_ctrl=1, profile=i)
             last_addr = last_addr + len(freq_list[i])
+            print('last addr : ' + str(last_addr))
             
         #send ram data
         #dds.ram_write_frequency(ch1=1,ch2=0,data_list = freq_list)
@@ -77,6 +82,8 @@ class Experiment:
             self.dds.io_update(1,0)
             self.dds.ram_write_frequency(ch1 = 1, ch2 = 0, data_list = freq_list[i])
             self.dds.io_update(1,0)
+            print(f'freq {i}')
+            print(freq_list[i])
         
         ###########################################################################
         #set ram_en = 1
@@ -91,15 +98,11 @@ class Experiment:
                       LSB_first = 0)
         
         
-        self.dds.io_update(1,0)
-        
-        self.dds.override_disable()
         
         ###########################################################################
         #setting auto mode
         ###########################################################################
-        self.dds.reset_driver()
-        self.dds.auto_mode()
+        
         
         # For simulation, fpga should be closed at last code
         # self.dds.fpga.close()
@@ -108,72 +111,66 @@ class Experiment:
         """
         Exectue Experiment Code
         """
+        self.dds.override_disable()
+        self.dds.auto_stop()
+        self.dds.reset_driver()
+        self.dds.set_now_cycle(0)
+        
         #Write Experiment code here
+        # one cycle = 10 ns
+        self.dds.auto_mode()
+        
+        self.dds.delay_cycle(1000)
+                
+        self.dds.io_update(1,0)
         self.dds.delay_cycle(10)
-        self.dds.set_profile_pin(0,0)
-        self.dds.delay_cycle(100)
-        self.dds.set_profile_pin(1,7)
-        self.dds.delay_cycle(100)
+        self.dds.set_profile_pin(profile1 = 2, profile2 = 0)
+        self.dds.delay_cycle(10)
+        self.dds.io_update(1,0)
+        self.dds.delay_cycle(1000000000)
         self.dds.set_profile_pin(profile1 = 0, profile2 = 0)
+
+        self.dds.delay_cycle(int(len(freq_list[0])*4*addr_step_rate[0]/10))
+        self.dds.set_profile_pin(profile1 = 1, profile2 = 0)
+
+        self.dds.delay_cycle(int(len(freq_list[1])*4*addr_step_rate[1]/10))
+        self.dds.set_profile_pin(profile1 = 0, profile2 = 0)
+
+        self.dds.delay_cycle(int(len(freq_list[0])*4*addr_step_rate[0]/10))
+        self.dds.set_profile_pin(profile1 = 2, profile2 = 0)
         
         self.dds.auto_start()
-        
-        self.dds.fpga.close()
         
 if __name__ == '__main__':
     port = input()
     exp = Experiment(port)
     
-    freq_list = []
-    addr_step_rate = []
+    freq_list = [[],[],[],[],[],[],[],[]]
+    addr_step_rate = [1,1,1,1,1,1,1,1]
     
-    freq_list0 = [ 10*MHz, 1*Hz, 30*MHz, 40*Hz, 50*MHz, 60*Hz ]
-    addr_step_rate0 =200
+    freq_list[0] = [ 8*MHz, 16*MHz, 32*MHz, 48*MHz, 64*MHz, 80*MHz ]
+    addr_step_rate[0] =200
     
-    freq_list1 = [ 10*MHz ]
-    addr_step_rate1 =2000
+    freq_list[1] = [ 1*MHz, 2*MHz, 3*MHz, 4*MHz, 5*MHz, 6*MHz, 7*MHz, 8*MHz, 9*MHz, 10*MHz ]
+    addr_step_rate[1] =300
     
-    freq_list2 = [ 10*MHz ]
-    addr_step_rate2 =2000
+    freq_list[2] = [ 0*MHz ]
+    addr_step_rate[2] =2000
     
-    freq_list3 = [ 100*MHz ]
-    addr_step_rate3 =2000
+    freq_list[3] = [ 130*MHz ]
+    addr_step_rate[3] =2000
     
-    freq_list4 = [ 100*MHz ]
-    addr_step_rate4 =2000
+    freq_list[4] = [ 140*MHz ]
+    addr_step_rate[4] =2000
     
-    freq_list5 = [ 100*MHz ]
-    addr_step_rate5 =2000
+    freq_list[5] = [ 150*MHz ]
+    addr_step_rate[5] =2000
     
-    freq_list6 = [ 100*MHz ]
-    addr_step_rate6 =2000
+    freq_list[6] = [ 160*MHz ]
+    addr_step_rate[6] =2000
     
-    freq_list7 = [ 100*MHz ]
-    addr_step_rate7 =2000
-    
-    freq_list.append(freq_list0)
-    addr_step_rate.append(addr_step_rate0)
-    
-    freq_list.append(freq_list1)
-    addr_step_rate.append(addr_step_rate1)
-    
-    freq_list.append(freq_list2)
-    addr_step_rate.append(addr_step_rate2)
-    
-    freq_list.append(freq_list3)
-    addr_step_rate.append(addr_step_rate3)
-    
-    freq_list.append(freq_list4)
-    addr_step_rate.append(addr_step_rate4)
-    
-    freq_list.append(freq_list5)
-    addr_step_rate.append(addr_step_rate5)
-    
-    freq_list.append(freq_list6)
-    addr_step_rate.append(addr_step_rate6)
-    
-    freq_list.append(freq_list7)
-    addr_step_rate.append(addr_step_rate7)
+    freq_list[7] = [ 190*MHz ]
+    addr_step_rate[7] =2000
     
     while True:
         print('[1] Frequency RAM write')
