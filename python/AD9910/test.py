@@ -1128,22 +1128,14 @@ def real_exp2(port):
     dds.set_frequency(1,0,300 * MHz)
     dds.io_update(1,0)
     
-    dds.set_CFR2(1, 0, amp_en_single_tone = 0, internal_IO_update = 0, 
-                 SYNC_CLK_en = 0, DRG_dest = 0, DRG_en = 0, 
-                 DRG_no_dwell_high = 0, DRG_no_dwell_low = 0, read_eff_FTW = 1, 
-                 IO_update_rate = 0, PDCLK_en = 0, PDCLK_inv = 0, Tx_inv = 0, 
-                 matched_latency_en = 0, data_ass_hold = 0, sync_val_dis = 1, 
-                 parallel_port = 1, FM_gain = 15)
-    dds.io_update(1,0)
-    
     dds.set_amplitude(ch1 =1 ,ch2 = 0, amplitude_frac = 1.0)
     
     dds.io_update(1,0)
-    time.sleep(15)
+    time.sleep(5)
     dds.set_frequency(ch1 =1 ,ch2 = 0, freq = 200*MHz)
     
     dds.io_update(1,0)
-    time.sleep(15)
+    time.sleep(5)
     dds.set_frequency(ch1 =1 ,ch2 = 0, freq = 100*MHz)
     
     dds.io_update(1,0)
