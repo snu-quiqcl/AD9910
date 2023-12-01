@@ -1,0 +1,3954 @@
+\t (00:00:20) allegro 23.1 P001 Windows SPB 64-bit Edition
+\t (00:00:20)     Journal start - Tue Nov 28 22:23:44 2023
+\t (00:00:20)         Host=LAPTOP-ETOV1IS0 User=alexi Pid=23844 CPUs=20
+\t (00:00:20) CmdLine= C:\Cadence\OrCADX_23.1\tools\bin\allegro.exe
+\t (00:00:20) 
+\d (00:00:20) Design opened: C:/Users/alexi/Downloads/Eagle Environment/projects/AD9910/7.brd
+\i (00:00:20) generaledit 
+\i (00:00:23) save_as 
+\i (00:00:45) fillin "C:/Jeonghyun/GIT/RFSoC_FrontEnd/Documents/xilinx/xm500.brd"
+\i (00:00:45) cd "C:/Jeonghyun/GIT/RFSoC_FrontEnd/Documents/xilinx"
+\i (00:00:45) generaledit 
+\i (00:00:53) load photoplot 
+\i (00:00:54) setwindow form.load_photoplot
+\i (00:00:54) FORM load_photoplot browse  
+\i (00:00:59) fillin "C:/Jeonghyun/GIT/RFSoC_FrontEnd/Documents/xilinx/xm500-gerber-files-rdf0482/1281021_HW-FMC-XM500_Rev-1_0_FOR-FAB/1281021_HW-FMC-XM500-REV-1_0_L01_TOP.art"
+   (00:00:59) Loading mfg.cxt 
+\i (00:01:01) FORM load_photoplot loadfile  
+\t (00:01:01) Processing photoplot file C:/Jeonghyun/GIT/RFSoC_FrontEnd/Documents/xilinx/xm500-gerber-files-rdf0482/1281021_HW-FMC-XM500_Rev-1_0_FOR-FAB/1281021_HW-FMC-XM500-REV-1_0_L01_TOP.art ...
+\i (00:01:04) setwindow pcb
+\i (00:01:04) pick 0 0 
+\t (00:01:04) last pick:  0.0000 0.0000
+\t (00:01:04) Adding the film data on ETCH/TOP.
+\w (00:01:04) WARNING(SPMHAW-126): Coordinates have been rounded off.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:04) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) DRC errors detected.
+\t (00:01:05) Load Photoplot complete.
+\i (00:01:06) setwindow form.load_photoplot
+\i (00:01:06) FORM load_photoplot browse  
+\i (00:01:18) fillin "C:/Jeonghyun/GIT/RFSoC_FrontEnd/Documents/xilinx/xm500-gerber-files-rdf0482/1281021_HW-FMC-XM500_Rev-1_0_FOR-FAB/1281021_HW-FMC-XM500-REV-1_0_L08_SILKSCREEN_BOTTOM.art"
+\i (00:01:19) FORM load_photoplot reusevalues YES 
+\i (00:01:20) FORM load_photoplot loadfile  
+\t (00:01:20) Processing photoplot file C:/Jeonghyun/GIT/RFSoC_FrontEnd/Documents/xilinx/xm500-gerber-files-rdf0482/1281021_HW-FMC-XM500_Rev-1_0_FOR-FAB/1281021_HW-FMC-XM500-REV-1_0_L08_SILKSCREEN_BOTTOM.art ...
+\t (00:01:20) Adding the film data on ETCH/TOP.
+\w (00:01:20) WARNING(SPMHAW-126): Coordinates have been rounded off.
+\t (00:01:20) DRC errors detected.
+\t (00:01:20) Load Photoplot complete.
+\i (00:01:21) FORM load_photoplot done  
+\i (00:01:21) setwindow pcb
+\i (00:01:21) generaledit 
+\i (00:01:22) zoom in 1 
+\i (00:01:22) setwindow pcb
+\i (00:01:22) zoom in -49.6795 64.1026
+\i (00:01:22) trapsize 40064
+\i (00:01:22) zoom in 1 
+\i (00:01:22) setwindow pcb
+\i (00:01:22) zoom in -49.6794 64.1026
+\i (00:01:22) trapsize 20032
+\i (00:01:22) zoom in 1 
+\i (00:01:22) setwindow pcb
+\i (00:01:22) zoom in -49.2787 62.0994
+\i (00:01:22) trapsize 10016
+\i (00:01:23) roam start
+\i (00:01:23) roam x 16
+\i (00:01:23) roam x 48
+\i (00:01:23) roam y -16
+\i (00:01:23) roam x 16
+\i (00:01:23) roam x 16
+\i (00:01:23) roam x 16
+\i (00:01:23) roam end
+\i (00:01:23) prepopup -44.8718 67.1074
+\i (00:01:24) pick grid -62.5000 68.1090
+\t (00:01:24) last pick:  -62.0000 68.0000
+\i (00:01:25) zoom in 1 
+\i (00:01:25) setwindow pcb
+\i (00:01:25) zoom in -10.0160 38.6619
+\i (00:01:25) trapsize 5008
+\i (00:01:25) zoom in 1 
+\i (00:01:25) setwindow pcb
+\i (00:01:25) zoom in -12.7203 38.2613
+\i (00:01:25) trapsize 2504
+\i (00:01:26) roam start
+\i (00:01:26) roam x 16
+\i (00:01:26) roam x 96
+\i (00:01:26) roam y 144
+\i (00:01:26) roam x 48
+\i (00:01:26) roam y 96
+\i (00:01:26) roam x 48
+\i (00:01:26) roam y 96
+\i (00:01:26) roam x 32
+\i (00:01:26) roam y 192
+\i (00:01:27) roam y 16
+\i (00:01:27) roam y -48
+\i (00:01:27) roam x -16
+\i (00:01:27) roam y -80
+\i (00:01:27) roam y -16
+\i (00:01:27) roam x -16
+\i (00:01:27) roam y -48
+\i (00:01:27) roam end
+\i (00:01:29) setwindow form.find
+\i (00:01:29) FORM find all_off  
+\i (00:01:29) FORM find vias YES 
+\i (00:01:30) setwindow pcb
+\i (00:01:30) drag_start grid -13.5714 43.4199
+\i (00:01:30) drag_stop 7.5124 21.1843
+\i (00:01:33) setwindow form.find
+\i (00:01:33) FORM find vias NO 
+\i (00:01:34) FORM find pins YES 
+\i (00:01:34) setwindow pcb
+\i (00:01:34) drag_start grid -21.5842 42.6186
+\i (00:01:35) drag_stop 25.0905 19.2812
+\i (00:01:36) setwindow form.find
+\i (00:01:36) FORM find clines YES 
+\i (00:01:37) setwindow pcb
+\i (00:01:37) drag_start grid -21.5842 38.9127
+\i (00:01:37) drag_stop 16.1261 17.7788
+\i (00:01:38) drag_start grid -21.9348 40.3149
+\i (00:01:38) drag_stop 2.9050 16.1763
+\i (00:01:40) setwindow form.find
+\i (00:01:40) FORM find all_off  
+\i (00:01:41) FORM find shapes YES 
+\i (00:01:41) setwindow pcb
+\i (00:01:41) drag_start grid -28.0445 36.1082
+\i (00:01:41) drag_stop 20.6334 18.3297
+\i (00:01:42) pick grid -16.5762 28.3958
+\t (00:01:42) last pick:  -17.0000 28.0000
+\i (00:01:42) pick grid -0.6507 30.7496
+\t (00:01:42) last pick:  -1.0000 31.0000
+\i (00:01:43) drag_start grid -7.1110 38.2616
+\i (00:01:44) drag_stop 5.5592 23.9888
+\i (00:01:45) zoom in 1 
+\i (00:01:45) setwindow pcb
+\i (00:01:45) zoom in 2.8549 23.8886
+\i (00:01:45) trapsize 1252
+\i (00:01:45) zoom in 1 
+\i (00:01:45) setwindow pcb
+\i (00:01:45) zoom in 2.7548 23.5380
+\i (00:01:45) trapsize 626
+\i (00:01:45) zoom in 1 
+\i (00:01:45) setwindow pcb
+\i (00:01:45) zoom in 2.7173 23.5005
+\i (00:01:45) trapsize 313
+\i (00:01:45) zoom in 1 
+\i (00:01:45) setwindow pcb
+\i (00:01:45) zoom in 2.7173 23.5005
+\i (00:01:45) trapsize 156
+\i (00:01:46) zoom out 1 
+\i (00:01:46) setwindow pcb
+\i (00:01:46) zoom out 2.8582 23.6351
+\i (00:01:46) trapsize 313
+\i (00:01:46) zoom out 1 
+\i (00:01:46) setwindow pcb
+\i (00:01:46) zoom out 2.8581 23.6352
+\i (00:01:46) trapsize 626
+\i (00:01:47) zoom out 1 
+\i (00:01:47) setwindow pcb
+\i (00:01:47) zoom out 2.8582 23.6351
+\i (00:01:47) trapsize 1252
+\i (00:01:49) setwindow form.find
+\i (00:01:49) FORM find all_off  
+\i (00:01:49) FORM find all_off  
+\i (00:01:50) FORM find shapes YES 
+\i (00:01:51) setwindow pcb
+\i (00:01:51) zoom out 1 
+\i (00:01:51) setwindow pcb
+\i (00:01:51) zoom out -13.3676 23.8105
+\i (00:01:51) trapsize 2504
+\i (00:01:53) pick grid -6.0560 3.9288
+\t (00:01:53) last pick:  -6.0000 4.0000
+\i (00:01:53) prepopup -6.0560 3.9288
+\i (00:01:55) pop dyn_option_select @:@Delete 
+\i (00:01:55) delete 
+\i (00:01:56) generaledit 
+\i (00:01:57) zoom in 1 
+\i (00:01:57) setwindow pcb
+\i (00:01:57) zoom in -7.8589 22.8088
+\i (00:01:57) trapsize 1252
+\i (00:01:58) zoom in 1 
+\i (00:01:58) setwindow pcb
+\i (00:01:58) zoom in -7.4081 20.3550
+\i (00:01:58) trapsize 626
+\i (00:02:00) setwindow form.find
+\i (00:02:00) FORM find clines YES 
+\i (00:02:00) setwindow pcb
+\i (00:02:00) drag_start grid -7.9464 23.7605
+\i (00:02:01) drag_stop 1.6689 19.2533
+\i (00:02:01) zoom out 1 
+\i (00:02:01) setwindow pcb
+\i (00:02:01) zoom out -2.3125 19.6790
+\i (00:02:01) trapsize 1252
+\i (00:02:02) zoom out 1 
+\i (00:02:02) setwindow pcb
+\i (00:02:02) zoom out -2.5378 19.7540
+\i (00:02:02) trapsize 2504
+\i (00:02:03) roam start
+\i (00:02:03) roam y -16
+\i (00:02:03) roam y -48
+\i (00:02:03) roam y -16
+\i (00:02:03) roam y -16
+\i (00:02:03) roam end
+\i (00:02:03) zoom out 1 
+\i (00:02:03) setwindow pcb
+\i (00:02:03) zoom out -18.3629 31.5404
+\i (00:02:03) trapsize 5008
+\i (00:02:04) drag_start grid -15.6587 67.8983
+\i (00:02:06) drag_stop 11.2842 5.8997
+\i (00:02:06) prepopup -0.4344 36.2479
+\i (00:02:08) pop dyn_option_select @:@Delete 
+\i (00:02:08) delete 
+\i (00:02:08) generaledit 
+\i (00:02:09) roam start
+\i (00:02:09) roam y -16
+\i (00:02:09) roam y -192
+\i (00:02:09) roam x 16
+\i (00:02:09) roam y -80
+\i (00:02:09) roam x 32
+\i (00:02:09) roam y -80
+\i (00:02:09) roam x 16
+\i (00:02:09) roam y -48
+\i (00:02:09) roam y -32
+\i (00:02:09) roam y -32
+\i (00:02:09) roam y -48
+\i (00:02:09) roam x 16
+\i (00:02:09) roam y -64
+\i (00:02:09) roam y -16
+\i (00:02:09) roam y -16
+\i (00:02:09) roam end
+\i (00:02:10) drag_start grid -13.3310 137.3087
+\i (00:02:12) drag_stop 8.2033 87.4293
+\i (00:02:12) prepopup -0.0098 99.9493
+\i (00:02:13) pop dyn_option_select @:@Delete 
+\i (00:02:13) delete 
+\i (00:02:13) generaledit 
+\i (00:02:14) zoom out 1 
+\i (00:02:14) setwindow pcb
+\i (00:02:14) zoom out 22.5260 93.0383
+\i (00:02:14) trapsize 10016
+\i (00:02:15) zoom in 1 
+\i (00:02:15) setwindow pcb
+\i (00:02:15) zoom in 26.1319 40.9554
+\i (00:02:15) trapsize 5008
+\i (00:02:16) roam start
+\i (00:02:16) roam y 16
+\i (00:02:16) roam x -64
+\i (00:02:16) roam y 240
+\i (00:02:16) roam x -16
+\i (00:02:16) roam y 112
+\i (00:02:16) roam end
+\i (00:02:16) undo 
+\i (00:02:16) trapsize 5008
+\i (00:02:16) generaledit 
+\i (00:02:17) undo 
+\i (00:02:17) trapsize 5008
+\i (00:02:17) generaledit 
+\i (00:02:18) pick grid -19.9655 54.0763
+\t (00:02:18) last pick:  -20.0000 54.0000
+\i (00:02:19) drag_start grid -15.5585 60.1860
+\i (00:02:20) drag_stop 6.3764 13.1111
+\i (00:02:21) prepopup 0.4670 31.0397
+\i (00:02:22) pop dyn_option_select @:@Delete 
+\i (00:02:22) delete 
+\i (00:02:22) generaledit 
+\i (00:02:22) zoom in 1 
+\i (00:02:22) setwindow pcb
+\i (00:02:22) zoom in -10.2501 41.8569
+\i (00:02:22) trapsize 2504
+\i (00:02:23) drag_start grid -13.0545 15.8155
+\i (00:02:24) drag_stop 9.1808 12.7106
+\i (00:02:24) prepopup 3.3716 12.9610
+\i (00:02:25) pop dyn_option_select @:@Delete 
+\i (00:02:25) delete 
+\i (00:02:25) generaledit 
+\i (00:02:26) roam start
+\i (00:02:26) roam y -16
+\i (00:02:26) roam y -32
+\i (00:02:26) roam y -16
+\i (00:02:26) roam y -16
+\i (00:02:26) roam y -64
+\i (00:02:26) roam y -96
+\i (00:02:26) roam y -48
+\i (00:02:26) roam y -16
+\i (00:02:26) roam y -16
+\i (00:02:27) roam y -16
+\i (00:02:27) roam y -16
+\i (00:02:27) roam x 16
+\i (00:02:27) roam y -16
+\i (00:02:27) roam end
+\i (00:02:29) drag_start grid -16.2856 69.0000
+\i (00:02:30) drag_stop -1.1616 57.1311
+\i (00:02:31) drag_start grid ext -14.6831 62.7400
+\i (00:02:32) drag_stop ext 8.0030 56.9308
+\i (00:02:32) prepopup 1.4426 60.5365
+\i (00:02:34) prepopup -1.6123 61.1375
+\i (00:02:35) pop dyn_option_select @:@Delete 
+\i (00:02:35) delete 
+\i (00:02:35) generaledit 
+\i (00:02:35) roam start
+\i (00:02:35) roam x 16
+\i (00:02:35) roam y -32
+\i (00:02:35) roam x 128
+\i (00:02:35) roam y -272
+\i (00:02:35) roam x 48
+\i (00:02:35) roam y -208
+\i (00:02:35) roam x 16
+\i (00:02:35) roam y -224
+\i (00:02:35) roam x 16
+\i (00:02:35) roam y -64
+\i (00:02:35) roam y -64
+\i (00:02:35) roam y -112
+\i (00:02:35) roam y -80
+\i (00:02:36) roam x -16
+\i (00:02:36) roam y -16
+\i (00:02:36) roam y -16
+\i (00:02:36) roam x -16
+\i (00:02:36) roam end
+\i (00:02:37) drag_start grid -10.5765 86.9285
+\i (00:02:39) drag_stop 8.2534 137.7093
+\i (00:02:39) prepopup 0.2407 106.0089
+\i (00:02:40) prepopup -3.8658 105.0073
+\i (00:02:41) prepopup -4.4668 105.0073
+\i (00:02:42) prepopup -4.9175 105.5582
+\i (00:02:43) pop dyn_option_select @:@Delete 
+\i (00:02:43) delete 
+\i (00:02:43) generaledit 
+\i (00:02:44) zoom out 1 
+\i (00:02:44) setwindow pcb
+\i (00:02:44) zoom out -4.8674 102.8539
+\i (00:02:44) trapsize 5008
+\i (00:02:46) zoom out 1 
+\i (00:02:46) setwindow pcb
+\i (00:02:46) zoom out 93.6892 152.3325
+\i (00:02:46) trapsize 10016
+\i (00:02:46) roam start
+\i (00:02:46) roam x 16
+\i (00:02:46) roam x 64
+\i (00:02:46) roam y 64
+\i (00:02:46) roam x 48
+\i (00:02:46) roam y 32
+\i (00:02:46) roam x 16
+\i (00:02:47) roam y 16
+\i (00:02:47) roam x 16
+\i (00:02:47) roam x 16
+\i (00:02:47) roam x 112
+\i (00:02:47) roam x 80
+\i (00:02:47) roam y -16
+\i (00:02:47) roam y -16
+\i (00:02:47) roam y -16
+\i (00:02:47) roam end
+\i (00:02:48) drag_start grid 136.2072 178.0738
+\i (00:02:49) roam y 80
+\i (00:02:49) roam y 32
+\i (00:02:49) roam y 16
+\i (00:02:51) drag_stop 8.2036 -23.4467
+\i (00:02:52) prepopup 61.8890 72.7062
+\i (00:02:53) pop dyn_option_select @:@Delete 
+\i (00:02:53) delete 
+\i (00:02:53) generaledit 
+\i (00:02:54) zoom in 1 
+\i (00:02:54) setwindow pcb
+\i (00:02:54) zoom in 6.4007 21.0240
+\i (00:02:54) trapsize 5008
+\i (00:02:54) zoom in 1 
+\i (00:02:54) setwindow pcb
+\i (00:02:54) zoom in 6.0001 23.2275
+\i (00:02:54) trapsize 2504
+\i (00:02:55) roam start
+\i (00:02:55) roam y -16
+\i (00:02:55) roam y -192
+\i (00:02:55) roam y -240
+\i (00:02:55) roam y -176
+\i (00:02:55) roam y -96
+\i (00:02:55) roam y -16
+\i (00:02:55) roam y -16
+\i (00:02:55) roam end
+\i (00:02:56) drag_start grid 11.9596 68.3990
+\i (00:02:57) drag_stop 4.4477 46.2138
+\i (00:02:58) prepopup 6.5010 48.5174
+\i (00:02:59) prepopup 6.4008 51.5222
+\i (00:03:01) prepopup 6.7013 63.4912
+\i (00:03:02) pop dyn_option_select @:@Delete 
+\i (00:03:02) delete 
+\i (00:03:02) generaledit 
+\i (00:03:03) drag_start grid 12.6607 51.1716
+\i (00:03:03) drag_stop 7.0017 43.3091
+\i (00:03:04) drag_start grid 9.7060 48.2670
+\i (00:03:04) drag_stop 4.7982 43.5595
+\i (00:03:04) prepopup 6.7513 45.5627
+\i (00:03:05) pop dyn_option_select @:@Delete 
+\i (00:03:05) delete 
+\i (00:03:05) generaledit 
+\i (00:03:06) roam start
+\i (00:03:06) roam y -16
+\i (00:03:06) roam y -176
+\i (00:03:06) roam x -16
+\i (00:03:06) roam y -80
+\i (00:03:06) roam y -64
+\i (00:03:06) roam y -64
+\i (00:03:06) roam y -48
+\i (00:03:06) roam y -16
+\i (00:03:06) roam y -16
+\i (00:03:06) roam y -16
+\i (00:03:06) roam y -16
+\i (00:03:06) roam y -32
+\i (00:03:06) roam y -16
+\i (00:03:06) roam y -16
+\i (00:03:06) roam y -16
+\i (00:03:06) roam x 16
+\i (00:03:06) roam y -144
+\i (00:03:06) roam x 16
+\i (00:03:06) roam y -80
+\i (00:03:07) roam end
+\i (00:03:07) drag_start grid 12.3599 91.2354
+\i (00:03:07) drag_stop 6.2502 78.6654
+\i (00:03:08) prepopup 7.5022 84.6749
+\i (00:03:09) pop dyn_option_select @:@Delete 
+\i (00:03:09) delete 
+\i (00:03:09) generaledit 
+\i (00:03:10) roam start
+\i (00:03:10) roam y -16
+\i (00:03:10) roam y -176
+\i (00:03:10) roam x 16
+\i (00:03:10) roam y -112
+\i (00:03:10) roam y -80
+\i (00:03:10) roam x 16
+\i (00:03:10) roam y -64
+\i (00:03:10) roam y -16
+\i (00:03:10) roam y -48
+\i (00:03:10) roam y -16
+\i (00:03:10) roam y 16
+\i (00:03:10) roam x -16
+\i (00:03:10) roam y 144
+\i (00:03:10) roam y 80
+\i (00:03:10) roam end
+\i (00:03:11) zoom out 1 
+\i (00:03:11) setwindow pcb
+\i (00:03:11) zoom out 9.4553 103.1543
+\i (00:03:11) trapsize 5008
+\i (00:03:11) zoom out 1 
+\i (00:03:11) setwindow pcb
+\i (00:03:11) zoom out 9.4553 103.1543
+\i (00:03:11) trapsize 10016
+\i (00:03:11) zoom out 1 
+\i (00:03:11) setwindow pcb
+\i (00:03:11) zoom out 9.4553 103.1543
+\i (00:03:11) trapsize 20032
+\i (00:03:11) zoom out 1 
+\i (00:03:11) setwindow pcb
+\i (00:03:11) zoom out 9.4554 111.9683
+\i (00:03:11) trapsize 40064
+\i (00:03:11) roam start
+\i (00:03:11) roam y 16
+\i (00:03:11) roam y 240
+\i (00:03:11) roam end
+\i (00:03:12) zoom in 1 
+\i (00:03:12) setwindow pcb
+\i (00:03:12) zoom in 39.1025 -56.0987
+\i (00:03:12) trapsize 20032
+\i (00:03:12) zoom in 1 
+\i (00:03:12) setwindow pcb
+\i (00:03:12) zoom in 39.1026 -54.4961
+\i (00:03:12) trapsize 10016
+\i (00:03:12) zoom in 1 
+\i (00:03:12) setwindow pcb
+\i (00:03:12) zoom in 35.6972 -45.2814
+\i (00:03:12) trapsize 5008
+\i (00:03:12) zoom in 1 
+\i (00:03:12) setwindow pcb
+\i (00:03:12) zoom in 35.5970 -44.9809
+\i (00:03:12) trapsize 2504
+\i (00:03:12) zoom out 1 
+\i (00:03:12) setwindow pcb
+\i (00:03:12) zoom out 35.3466 -43.8791
+\i (00:03:12) trapsize 5008
+\i (00:03:13) save 
+\i (00:03:14) fillin yes 
+\i (00:03:14) generaledit 
+\i (00:03:16) drag_start grid 12.8108 22.9271
+\i (00:03:16) drag_stop 3.8966 14.1130
+\i (00:03:16) zoom in 1 
+\i (00:03:16) setwindow pcb
+\i (00:03:16) zoom in 4.3974 18.1194
+\i (00:03:16) trapsize 2504
+\i (00:03:16) zoom in 1 
+\i (00:03:16) setwindow pcb
+\i (00:03:16) zoom in 4.3974 18.1195
+\i (00:03:16) trapsize 1252
+\i (00:03:17) prepopup 6.9014 19.8723
+\i (00:03:18) pop dyn_option_select @:@Delete 
+\i (00:03:18) delete 
+\i (00:03:18) generaledit 
+\i (00:03:18) roam start
+\i (00:03:18) roam x -16
+\i (00:03:18) roam y 16
+\i (00:03:19) roam x -176
+\i (00:03:19) roam y 48
+\i (00:03:19) roam x -144
+\i (00:03:19) roam x -80
+\i (00:03:19) roam x -32
+\i (00:03:19) roam x -16
+\i (00:03:19) roam y -16
+\i (00:03:19) roam x -16
+\i (00:03:19) roam y -16
+\i (00:03:19) roam x -16
+\i (00:03:19) roam y -16
+\i (00:03:19) roam x -16
+\i (00:03:19) roam y -16
+\i (00:03:19) roam y -128
+\i (00:03:19) roam y -160
+\i (00:03:19) roam x 16
+\i (00:03:19) roam y -112
+\i (00:03:19) roam end
+\i (00:03:19) save 
+\i (00:03:20) fillin yes 
+\i (00:03:20) generaledit 
+\i (00:03:21) zoom out 1 
+\i (00:03:21) setwindow pcb
+\i (00:03:21) zoom out 5.1986 11.8090
+\i (00:03:21) trapsize 2504
+\i (00:03:23) pick grid 0.6413 0.6413
+\t (00:03:23) last pick:  1.0000 1.0000
+\i (00:03:23) pick grid -23.2968 22.6763
+\t (00:03:23) last pick:  -23.0000 23.0000
+\i (00:03:24) setwindow form.find
+\i (00:03:24) FORM find all_off  
+\i (00:03:24) FORM find shapes YES 
+\i (00:03:25) setwindow pcb
+\i (00:03:25) drag_start grid -3.3651 5.3988
+\i (00:03:25) drag_stop 4.7979 -2.4637
+\i (00:03:26) prepopup -0.2601 -0.3603
+\i (00:03:33) pop dyn_option_select '@:@Show element' 
+\i (00:03:33) show element 
+\i (00:03:33) generaledit 
+\i (00:03:36) setwindow text
+\i (00:03:36) close
+\i (00:03:36) setwindow pcb
+\i (00:03:36) zoom in 1 
+\i (00:03:36) setwindow pcb
+\i (00:03:36) zoom in -2.5137 30.0380
+\i (00:03:36) trapsize 1252
+\i (00:03:36) zoom in 1 
+\i (00:03:36) setwindow pcb
+\i (00:03:36) zoom in -2.5137 30.0130
+\i (00:03:36) trapsize 626
+\i (00:03:36) zoom in 1 
+\i (00:03:36) setwindow pcb
+\i (00:03:36) zoom in -2.5137 29.9254
+\i (00:03:36) trapsize 313
+\i (00:03:36) zoom in 1 
+\i (00:03:36) setwindow pcb
+\i (00:03:36) zoom in -2.5137 29.9004
+\i (00:03:36) trapsize 156
+\i (00:03:36) zoom out 1 
+\i (00:03:36) setwindow pcb
+\i (00:03:36) zoom out -2.5011 29.8034
+\i (00:03:36) trapsize 313
+\i (00:03:36) zoom out 1 
+\i (00:03:36) setwindow pcb
+\i (00:03:36) zoom out -2.5011 29.8033
+\i (00:03:36) trapsize 626
+\i (00:03:37) zoom out 1 
+\i (00:03:37) setwindow pcb
+\i (00:03:37) zoom out -2.5012 29.8034
+\i (00:03:37) trapsize 1252
+\i (00:03:37) zoom out 1 
+\i (00:03:37) setwindow pcb
+\i (00:03:37) zoom out -2.5012 29.8034
+\i (00:03:37) trapsize 2504
+\i (00:03:37) roam start
+\i (00:03:37) roam y -16
+\i (00:03:37) roam y -192
+\i (00:03:37) roam x 16
+\i (00:03:37) roam y -224
+\i (00:03:37) roam y -240
+\i (00:03:37) roam y -304
+\i (00:03:37) roam y -80
+\i (00:03:37) roam y -96
+\i (00:03:37) roam y -96
+\i (00:03:37) roam y -32
+\i (00:03:37) roam y 16
+\i (00:03:38) roam y 16
+\i (00:03:38) roam y 16
+\i (00:03:38) roam y 16
+\i (00:03:38) roam y 32
+\i (00:03:38) roam end
+\i (00:03:38) drag_start grid -6.4200 79.0159
+\i (00:03:39) drag_stop 4.1969 71.3036
+\i (00:03:40) setwindow form.find
+\i (00:03:40) FORM find all_off  
+\i (00:03:41) FORM find shapes YES 
+\i (00:03:41) setwindow pcb
+\i (00:03:41) pick grid -25.6506 80.5183
+\t (00:03:41) last pick:  -26.0000 81.0000
+\i (00:03:42) drag_start grid -3.4653 78.8156
+\i (00:03:42) drag_stop 3.5459 72.9062
+\i (00:03:42) prepopup 1.5928 74.5087
+\i (00:03:44) pop dyn_option_select '@:@Show element' 
+\i (00:03:44) show element 
+\i (00:03:44) generaledit 
+\i (00:03:49) setwindow text
+\i (00:03:49) close
+\i (00:03:50) setwindow pcb
+\i (00:03:50) roam start
+\i (00:03:50) roam y -16
+\i (00:03:50) roam y -16
+\i (00:03:50) roam y -32
+\i (00:03:50) roam y -48
+\i (00:03:50) roam y -32
+\i (00:03:50) roam y -32
+\i (00:03:50) roam y -16
+\i (00:03:50) roam y -16
+\i (00:03:50) roam y -16
+\i (00:03:50) roam y -144
+\i (00:03:50) roam y -160
+\i (00:03:50) roam y -192
+\i (00:03:50) roam y -240
+\i (00:03:50) roam x -16
+\i (00:03:50) roam y -96
+\i (00:03:50) roam y -96
+\i (00:03:51) roam y -96
+\i (00:03:51) roam end
+\i (00:03:51) pick grid 1.5928 149.6282
+\t (00:03:51) last pick:  2.0000 150.0000
+\i (00:03:52) drag_start grid -5.3682 152.8333
+\i (00:03:52) drag_stop 4.4975 145.9724
+\i (00:03:52) prepopup -0.9111 150.6298
+\i (00:03:55) pop dyn_option_select '@:@Show element' 
+\i (00:03:55) show element 
+\i (00:03:55) generaledit 
+\i (00:04:00) setwindow text
+\i (00:04:00) close
+\i (00:04:01) setwindow pcb
+\i (00:04:01) roam start
+\i (00:04:01) roam y 16
+\i (00:04:01) roam y 32
+\i (00:04:01) roam y 32
+\i (00:04:01) roam x 16
+\i (00:04:01) roam y 16
+\i (00:04:01) roam y 16
+\i (00:04:01) roam y 16
+\i (00:04:01) roam y 80
+\i (00:04:01) roam y 128
+\i (00:04:01) roam x 16
+\i (00:04:01) roam y 64
+\i (00:04:01) roam y 64
+\i (00:04:01) roam y 64
+\i (00:04:01) roam x 16
+\i (00:04:01) roam y 96
+\i (00:04:01) roam y 48
+\i (00:04:02) roam y 32
+\i (00:04:02) roam y 16
+\i (00:04:02) roam y 16
+\i (00:04:02) roam y 16
+\i (00:04:02) roam y 16
+\i (00:04:02) roam y 16
+\i (00:04:02) roam y 16
+\i (00:04:02) roam y 48
+\i (00:04:02) roam x -16
+\i (00:04:02) roam y 64
+\i (00:04:02) roam y 32
+\i (00:04:02) roam y 16
+\i (00:04:02) roam x -16
+\i (00:04:02) roam y 32
+\i (00:04:02) roam x -16
+\i (00:04:02) roam y 64
+\i (00:04:02) roam x -48
+\i (00:04:02) roam y 64
+\i (00:04:02) roam x -16
+\i (00:04:02) roam y 32
+\i (00:04:02) roam end
+\i (00:04:04) pick grid -0.3102 83.8737
+\t (00:04:04) last pick:  0.0000 84.0000
+\i (00:04:05) drag_start grid -3.2148 84.5748
+\i (00:04:05) drag_stop -0.8110 82.2210
+\i (00:04:05) pick grid -0.9612 84.0239
+\t (00:04:05) last pick:  -1.0000 84.0000
+\i (00:04:06) pick grid -1.0113 83.4730
+\t (00:04:06) last pick:  -1.0000 83.0000
+\i (00:04:07) setwindow form.find
+\i (00:04:07) FORM find all_off  
+\i (00:04:07) FORM find all_off  
+\i (00:04:07) FORM find all_off  
+\i (00:04:08) FORM find clines YES 
+\i (00:04:10) setwindow pcb
+\i (00:04:10) pick grid -4.5670 83.8236
+\t (00:04:10) last pick:  -5.0000 84.0000
+\i (00:04:11) setwindow form.find
+\i (00:04:11) FORM find clines NO 
+\i (00:04:11) FORM find lines YES 
+\i (00:04:13) setwindow pcb
+\i (00:04:13) pick grid 1.0920 83.6233
+\t (00:04:13) last pick:  1.0000 84.0000
+\i (00:04:13) roam start
+\i (00:04:13) roam y -16
+\i (00:04:13) roam x 16
+\i (00:04:13) roam y -240
+\i (00:04:13) roam x 16
+\i (00:04:13) roam y -128
+\i (00:04:13) roam y -16
+\i (00:04:14) roam y -80
+\i (00:04:14) roam end
+\i (00:04:15) prepopup -0.0098 141.0646
+\i (00:04:25) pop dyn_option_select '@:@Show element' 
+\i (00:04:25) show element 
+\i (00:04:25) generaledit 
+\i (00:05:08) setwindow text
+\i (00:05:08) close
+\i (00:05:09) setwindow pcb
+\i (00:05:09) roam start
+\i (00:05:09) roam x -16
+\i (00:05:09) roam y 16
+\i (00:05:09) roam x -16
+\i (00:05:09) roam y 16
+\i (00:05:09) roam y 32
+\i (00:05:09) roam y 64
+\i (00:05:09) roam y 96
+\i (00:05:09) roam y 144
+\i (00:05:09) roam y 128
+\i (00:05:09) roam x -32
+\i (00:05:09) roam y 144
+\i (00:05:09) roam x -32
+\i (00:05:09) roam y 160
+\i (00:05:09) roam x -32
+\i (00:05:09) roam y 176
+\i (00:05:09) roam x -32
+\i (00:05:09) roam y 192
+\i (00:05:10) roam x -16
+\i (00:05:10) roam y 64
+\i (00:05:10) roam y 16
+\i (00:05:10) roam y 48
+\i (00:05:10) roam y 80
+\i (00:05:10) roam y 16
+\i (00:05:10) roam y 16
+\i (00:05:10) roam y 16
+\i (00:05:10) roam y 16
+\i (00:05:10) roam y 32
+\i (00:05:10) roam y 32
+\i (00:05:10) roam end
+\i (00:05:11) pick grid -6.6203 48.2670
+\t (00:05:11) last pick:  -7.0000 48.0000
+\i (00:05:12) prepopup -6.6203 48.2670
+\i (00:05:19) pop dyn_option_select '@:@Show element' 
+\i (00:05:19) show element 
+\i (00:05:19) generaledit 
+\i (00:05:38) setwindow text
+\i (00:05:38) close
+\i (00:05:40) setwindow pcb
+\i (00:05:40) roam start
+\i (00:05:40) roam x 16
+\i (00:05:40) roam y 32
+\i (00:05:40) roam y 16
+\i (00:05:40) roam y 16
+\i (00:05:40) roam y 16
+\i (00:05:40) roam y 16
+\i (00:05:40) roam y 16
+\i (00:05:40) roam y 32
+\i (00:05:40) roam y 80
+\i (00:05:40) roam y 112
+\i (00:05:40) roam x -16
+\i (00:05:40) roam y 96
+\i (00:05:40) roam x -16
+\i (00:05:40) roam y 64
+\i (00:05:40) roam y 64
+\i (00:05:40) roam x -16
+\i (00:05:40) roam y 16
+\i (00:05:40) roam y 16
+\i (00:05:41) roam y 16
+\i (00:05:41) roam y 16
+\i (00:05:41) roam y 16
+\i (00:05:41) roam x 16
+\i (00:05:41) roam y 32
+\i (00:05:41) roam y 16
+\i (00:05:41) roam x 16
+\i (00:05:41) roam y 16
+\i (00:05:41) roam y 16
+\i (00:05:41) roam y 16
+\i (00:05:41) roam x 16
+\i (00:05:41) roam x 16
+\i (00:05:41) roam x 80
+\i (00:05:41) roam y -64
+\i (00:05:41) roam x 32
+\i (00:05:41) roam y -48
+\i (00:05:41) roam end
+\i (00:05:42) zoom out 1 
+\i (00:05:42) setwindow pcb
+\i (00:05:42) zoom out -13.4811 6.0499
+\i (00:05:42) trapsize 5008
+\i (00:05:42) zoom out 1 
+\i (00:05:42) setwindow pcb
+\i (00:05:42) zoom out -13.4812 6.0498
+\i (00:05:42) trapsize 10016
+\i (00:05:42) roam start
+\i (00:05:42) roam y -16
+\i (00:05:42) roam x -64
+\i (00:05:42) roam y -96
+\i (00:05:42) roam x -112
+\i (00:05:42) roam y -112
+\i (00:05:42) roam x -112
+\i (00:05:42) roam y -80
+\i (00:05:43) roam x -80
+\i (00:05:43) roam y -64
+\i (00:05:43) roam x 16
+\i (00:05:43) roam x 48
+\i (00:05:43) roam y 64
+\i (00:05:43) roam x 48
+\i (00:05:43) roam y 64
+\i (00:05:43) roam end
+\i (00:05:43) pick grid -79.7363 57.0813
+\t (00:05:43) last pick:  -80.0000 57.0000
+\i (00:05:49) pick grid -0.0095 149.4282
+\t (00:05:49) last pick:  0.0000 149.0000
+\i (00:05:50) setwindow form.find
+\i (00:05:50) FORM find shapes YES 
+\i (00:05:51) setwindow pcb
+\i (00:05:51) pick grid 0.7918 149.0276
+\t (00:05:51) last pick:  1.0000 149.0000
+\i (00:05:52) pick grid 2.3944 148.6269
+\t (00:05:52) last pick:  2.0000 149.0000
+\i (00:05:53) zoom in 1 
+\i (00:05:53) setwindow pcb
+\i (00:05:53) zoom in -19.2401 133.4027
+\i (00:05:53) trapsize 5008
+\i (00:05:53) zoom in 1 
+\i (00:05:53) setwindow pcb
+\i (00:05:53) zoom in -18.8394 134.2040
+\i (00:05:53) trapsize 2504
+\i (00:05:53) zoom out 1 
+\i (00:05:53) setwindow pcb
+\i (00:05:53) zoom out -18.1382 134.9552
+\i (00:05:53) trapsize 5008
+\i (00:05:55) pick grid ext -0.5102 141.6659
+\t (00:05:55) last pick:  -1.0000 142.0000
+\i (00:05:57) pick grid ext 1.9937 78.0648
+\t (00:05:57) last pick:  2.0000 78.0000
+\i (00:05:57) roam start
+\i (00:05:58) roam y 16
+\i (00:05:58) roam y 144
+\i (00:05:58) roam y 128
+\i (00:05:58) roam y 64
+\i (00:05:58) roam y 96
+\i (00:05:58) roam end
+\i (00:05:59) pick grid ext -0.2098 66.0954
+\t (00:05:59) last pick:  0.0000 66.0000
+\i (00:06:01) pick grid ext 1.3928 3.2955
+\t (00:06:01) last pick:  1.0000 3.0000
+\i (00:06:02) zoom in 1 
+\i (00:06:02) setwindow pcb
+\i (00:06:02) zoom in -25.6502 3.5960
+\i (00:06:02) trapsize 2504
+\i (00:06:03) zoom in 1 
+\i (00:06:03) setwindow pcb
+\i (00:06:03) zoom in -23.8473 9.2550
+\i (00:06:03) trapsize 1252
+\i (00:06:04) roam start
+\i (00:06:04) roam x 16
+\i (00:06:04) roam x 240
+\i (00:06:04) roam y 144
+\i (00:06:04) roam x 80
+\i (00:06:04) roam y 112
+\i (00:06:04) roam x 80
+\i (00:06:04) roam y 96
+\i (00:06:04) roam x 80
+\i (00:06:04) roam y 96
+\i (00:06:05) roam y -16
+\i (00:06:05) roam y -112
+\i (00:06:05) roam x 16
+\i (00:06:05) roam y -128
+\i (00:06:06) roam x 16
+\i (00:06:06) roam end
+\i (00:06:07) pick grid -13.0555 7.0765
+\t (00:06:07) last pick:  -13.0000 7.0000
+\i (00:06:08) pick grid 0.2657 10.9326
+\t (00:06:08) last pick:  0.0000 11.0000
+\i (00:06:08) pick grid 0.3659 11.0828
+\t (00:06:08) last pick:  0.0000 11.0000
+\i (00:06:09) prepopup 0.3659 11.0828
+\i (00:06:19) pop dyn_option_select '@:@Show element' 
+\i (00:06:19) show element 
+\i (00:06:19) generaledit 
+\i (00:06:35) setwindow text
+\i (00:06:35) close
+\i (00:06:35) setwindow pcb
+\i (00:06:35) zoom out 1 
+\i (00:06:35) setwindow pcb
+\i (00:06:35) zoom out -17.3623 16.1159
+\i (00:06:35) trapsize 2504
+\i (00:06:36) pick grid -14.5078 0.9417
+\t (00:06:36) last pick:  -15.0000 1.0000
+\i (00:06:37) roam start
+\i (00:06:37) roam y -16
+\i (00:06:38) roam x 32
+\i (00:06:38) roam y -32
+\i (00:06:38) roam y -16
+\i (00:06:38) roam x 16
+\i (00:06:38) roam y -16
+\i (00:06:38) roam x 16
+\i (00:06:38) roam x 48
+\i (00:06:38) roam y -48
+\i (00:06:38) roam x 16
+\i (00:06:38) roam y -32
+\i (00:06:38) roam x 16
+\i (00:06:38) roam y -16
+\i (00:06:38) roam y -16
+\i (00:06:38) roam y -32
+\i (00:06:38) roam y -32
+\i (00:06:38) roam x -32
+\i (00:06:38) roam y -80
+\i (00:06:38) roam x -48
+\i (00:06:38) roam y -96
+\i (00:06:38) roam x -32
+\i (00:06:38) roam y -112
+\i (00:06:38) roam x -32
+\i (00:06:38) roam y -80
+\i (00:06:38) roam x -16
+\i (00:06:38) roam y -48
+\i (00:06:38) roam y -16
+\i (00:06:38) roam y -16
+\i (00:06:38) roam y -16
+\i (00:06:38) roam x 16
+\i (00:06:38) roam y -64
+\i (00:06:38) roam x 32
+\i (00:06:38) roam y -48
+\i (00:06:38) roam x 16
+\i (00:06:38) roam y -64
+\i (00:06:38) roam y -32
+\i (00:06:38) roam x 16
+\i (00:06:38) roam y -48
+\i (00:06:39) roam y -32
+\i (00:06:39) roam x 16
+\i (00:06:39) roam y -48
+\i (00:06:39) roam y -64
+\i (00:06:39) roam y -48
+\i (00:06:39) roam y -48
+\i (00:06:39) roam x -16
+\i (00:06:39) roam y -32
+\i (00:06:39) roam x -16
+\i (00:06:39) roam y -16
+\i (00:06:39) roam x -16
+\i (00:06:39) roam x -16
+\i (00:06:39) roam y -16
+\i (00:06:39) roam x -16
+\i (00:06:39) roam y -16
+\i (00:06:39) roam x -32
+\i (00:06:39) roam y -64
+\i (00:06:39) roam x -48
+\i (00:06:39) roam y -96
+\i (00:06:39) roam x -16
+\i (00:06:39) roam y -64
+\i (00:06:39) roam y -48
+\i (00:06:39) roam y -48
+\i (00:06:39) roam end
+\i (00:06:40) pick grid -0.1099 85.2759
+\t (00:06:40) last pick:  0.0000 85.0000
+\i (00:06:41) pick grid 0.0403 84.9754
+\t (00:06:41) last pick:  0.0000 85.0000
+\i (00:06:41) prepopup 0.0403 84.9754
+\i (00:06:51) pop dyn_option_select '@:@Show element' 
+\i (00:06:51) show element 
+\i (00:06:51) generaledit 
+\i (00:06:58) setwindow text
+\i (00:06:58) close
+\i (00:06:59) setwindow pcb
+\i (00:06:59) zoom out 1 
+\i (00:06:59) setwindow pcb
+\i (00:06:59) zoom out -17.4375 92.6376
+\i (00:06:59) trapsize 5008
+\i (00:07:00) pick grid -26.8525 93.8395
+\t (00:07:00) last pick:  -27.0000 94.0000
+\i (00:07:04) prmed 
+\i (00:07:05) setwindow form.prmedit
+\i (00:07:05) FORM prmedit text  
+\i (00:07:05) FORM prmedit design  
+\i (00:07:07) FORM prmedit units Inch 
+   (00:07:07) Accuracy or unit changes can cause design round-off issues. DRCs and physical changes should be checked.
+\i (00:07:08) fillin confirm
+\e (00:07:08) Change may cause round-off; run dbcheck.
+\i (00:07:10) FORM prmedit apply  
+\w (00:07:10) WARNING(SPMHUT-48): Scaled value has been rounded off.
+\i (00:07:10) setwindow pcb
+\i (00:07:10) trapsize 197
+\t (00:07:10) Performing DRC...
+\t (00:07:10) The number of threads for DRC checking is reduced from 20 to the maximum supported (16).
+\t (00:07:10) Multithreaded DRC update (16 threads).
+\t (00:07:11) No DRC errors detected.
+\i (00:07:11) setwindow form.prmedit
+\i (00:07:11) FORM prmedit done  
+\i (00:07:11) setwindow pcb
+\i (00:07:11) generaledit 
+\i (00:07:13) zoom in 1 
+\i (00:07:13) setwindow pcb
+\i (00:07:13) zoom in -0.5169 5.1416
+\i (00:07:13) trapsize 99
+\i (00:07:14) pick grid -0.4538 4.7572
+\t (00:07:14) last pick:  -0.4728 4.7674
+\i (00:07:16) pick grid -0.2271 5.5655
+\t (00:07:16) last pick:  -0.2364 5.5554
+\i (00:07:16) prepopup -0.2271 5.5655
+\i (00:07:18) pop dyn_option_select '@:@Show element' 
+\i (00:07:18) show element 
+\i (00:07:18) generaledit 
+\i (00:07:25) setwindow text
+\i (00:07:25) close
+\i (00:07:25) setwindow pcb
+\i (00:07:25) roam start
+\i (00:07:25) roam y 16
+\i (00:07:25) roam x 16
+\i (00:07:25) roam y 32
+\i (00:07:25) roam x 16
+\i (00:07:25) roam y 16
+\i (00:07:25) roam y 16
+\i (00:07:25) roam x 16
+\i (00:07:25) roam y 16
+\i (00:07:25) roam y 32
+\i (00:07:25) roam x 16
+\i (00:07:25) roam y 32
+\i (00:07:25) roam y 32
+\i (00:07:25) roam y 16
+\i (00:07:26) roam y 16
+\i (00:07:26) roam y 16
+\i (00:07:26) roam y 16
+\i (00:07:26) roam y 96
+\i (00:07:26) roam y 96
+\i (00:07:26) roam x -16
+\i (00:07:26) roam y 112
+\i (00:07:26) roam y 64
+\i (00:07:26) roam y 64
+\i (00:07:26) roam y 32
+\i (00:07:26) roam x -16
+\i (00:07:26) roam y 64
+\i (00:07:26) roam x -16
+\i (00:07:26) roam y 64
+\i (00:07:26) roam x -16
+\i (00:07:26) roam y 64
+\i (00:07:26) roam y 48
+\i (00:07:26) roam end
+\i (00:07:27) pick grid 0.1083 3.0067
+\t (00:07:27) last pick:  0.1182 2.9944
+\i (00:07:27) prepopup 0.1083 3.0067
+\i (00:07:31) pop dyn_option_select '@:@Show element' 
+\i (00:07:31) show element 
+\i (00:07:31) generaledit 
+\i (00:07:36) setwindow text
+\i (00:07:36) close
+\i (00:07:37) setwindow pcb
+\i (00:07:37) pick grid -0.1362 2.5986
+\t (00:07:37) last pick:  -0.1182 2.6004
+\i (00:07:38) prepopup -0.1362 2.5986
+\i (00:07:39) pop dyn_option_select '@:@Show element' 
+\i (00:07:39) show element 
+\i (00:07:39) generaledit 
+\i (00:07:45) setwindow text
+\i (00:07:45) close
+\i (00:07:55) setwindow pcb
+\i (00:07:55) prmed 
+\i (00:07:57) setwindow form.prmedit
+\i (00:07:57) FORM prmedit units Millimeter 
+   (00:07:57) Accuracy or unit changes can cause design round-off issues. DRCs and physical changes should be checked.
+\i (00:07:59) fillin confirm
+\e (00:07:59) Change may cause round-off; run dbcheck.
+\i (00:08:00) FORM prmedit apply  
+\w (00:08:00) WARNING(SPMHUT-48): Scaled value has been rounded off.
+\i (00:08:00) setwindow pcb
+\i (00:08:00) trapsize 2504
+\t (00:08:00) Performing DRC...
+\t (00:08:00) The number of threads for DRC checking is reduced from 20 to the maximum supported (16).
+\t (00:08:00) Multithreaded DRC update (16 threads).
+\t (00:08:01) No DRC errors detected.
+\i (00:08:01) setwindow form.prmedit
+\i (00:08:01) FORM prmedit done  
+\i (00:08:01) setwindow pcb
+\i (00:08:01) generaledit 
+\i (00:08:02) exit 
+\e (00:08:02) Do you want to save the changes you made to C:/Jeonghyun/GIT/RFSoC_FrontEnd/Documents/xilinx/xm500.brd?
+\i (00:08:03) fillin no 
+\t (00:08:03)     Journal end - Tue Nov 28 22:31:26 2023

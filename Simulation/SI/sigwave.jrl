@@ -1,0 +1,12 @@
+\t (00:00:00) sigwave 23.1 P001 Windows SPB 64-bit Edition
+\t (00:00:00)     Journal start - Fri Dec  1 14:42:46 2023
+\t (00:00:00)         Host=LAPTOP-ETOV1IS0 User=alexi Pid=27232 CPUs=20
+\t (00:00:00) CmdLine= sigwave _NODOC_ -pid Waveform26084
+\t (00:00:00) 
+   (00:00:00) Loading sigwave.cxt 
+\i (00:00:01) setwindow main
+\i (00:00:01) deselect all
+\i (00:00:01) zoom fit
+\i (00:00:03) graph mode eye
+\i (00:00:17) exit
+\t (00:00:17)     Journal end - Fri Dec  1 14:43:03 2023

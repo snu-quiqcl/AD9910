@@ -991,6 +991,37 @@ def exp12():
             print('exit exp11')
             dds.fpga.close()
             return
+        
+def exp13():
+    """
+    Trigger mode test
+    """
+    dds = AD9910(ArtyS7(None))
+    dds.reset_driver()
+    dds.auto_mode()
+    dds.set_trigger_mode() # set trigger mode in FPGA
+    
+    dds.delay_cycle(10)
+    dds.io_update(ch1=1, ch2=0)
+    
+    dds.trigger_ready()
+    dds.exit_trigger_mode()
+    
+    while True:
+        print('[1] auto start')
+        print('[2] auto stop')
+        print('[q] exit')
+        order_in = input()
+        if( order_in == '1' ):
+            dds.auto_start()
+        elif( order_in == '2'):
+            dds.auto_stop()
+            dds.read_rti_fifo()
+            #dds.read_rti_fifo()
+        elif( order_in == 'q'):
+            print('exit exp11')
+            dds.fpga.close()
+            return
     
         
 def real_exp1(port):
@@ -2617,6 +2648,8 @@ if __name__ == '__main__':
             exp11()
         elif( order_in == '12'):
             exp12()
+        elif( order_in == '13'):
+            exp13()
         elif( order_in == 'r1'):
             port = input('PORT : ')
             real_exp1(port)

@@ -42,14 +42,14 @@ module main(
     output ck_io_6, // LDAC
     */
 
-    output ja_7, //powerdown
-    inout ja_6, //sdio
+    inout ja_7, //powerdown
+    output ja_6, //sdio
     output ja_5, //csb
-    output ja_4, //reset
+    inout ja_4, //reset
     output ja_3, // sclk
-    output ja_2, // powerdown2
-    inout ja_1, //sdio2
-    output ja_0, // csb2
+    input ja_2, // powerdown2
+    input ja_1, //sdio2
+    input ja_0, // csb2
     output jb_0,
     output jb_1,
     output jb_2,
@@ -222,20 +222,20 @@ module main(
     /////////////////////////////////////////////////////////////////
     // Command definition for DDS
     /////////////////////////////////////////////////////////////////
-    parameter CMD_WRITE_DDS_REG = "WRITE DDS REG"; // 13 characters
+    parameter CMD_WRITE_DDS_REG = "WRITE DDS REG";      // 13 characters
     parameter CMD_RESET_DRIVER = "RESET DRIVER";        //12 characters. this reset ad9910 driver. notice that 
-                                                        //fifo_generator IP requires 6 cycles to work properly at least
-                                                        //after reset 
-    parameter CMD_SET_COUNTER = "SET COUNTER";      // 13 characters. this sets auto mode of FPGA
+                                                            //fifo_generator IP requires 6 cycles to work properly at least
+                                                            //after reset 
+    parameter CMD_SET_COUNTER = "SET COUNTER";          // 13 characters. this sets auto mode of FPGA
     parameter CMD_AUTO_START = "AUTO START";            // 10 characters. this start auto mode of FPGA
     parameter CMD_AUTO_STOP = "AUTO STOP";              // 9 characters. this stop auto mode of FPGA
     parameter CMD_SET_DDS_PIN = "SET DDS PIN";          // 11 characters. this sets DDS profile, parallel, io_update pin
     parameter CMD_WRITE_FIFO = "WRITE FIFO";            // 10 characters. this store data to FIFO. FIFO depth is set to 512
     parameter CMD_READ_RTI_FIFO = "READ RTI FIFO";      // 13 characters. this read rti_core_prime FIFO
-    parameter CMD_OVERRIDE_EN = "OVERRIDE EN";       // 12 characters. this sets FPGA to manula mode
-    parameter CMD_OVERRIDE_DIS = "OVERRIDE DIS";       // 13 characters. this sets FPGA to manula mode
+    parameter CMD_OVERRIDE_EN = "OVERRIDE EN";          // 12 characters. this sets FPGA to manula mode
+    parameter CMD_OVERRIDE_DIS = "OVERRIDE DIS";        // 13 characters. this sets FPGA to manula mode
     parameter CMD_IOUPDATE_DDS_REG = "DDS IO UPDATE";   // 13 characters. this makes IO_UPDATE pulse
-    parameter CMD_EXCEPTION_LOG = "EXCEPTION LOG"; // 13 characters. report exceptions occured
+    parameter CMD_EXCEPTION_LOG = "EXCEPTION LOG";      // 13 characters. report exceptions occured
 
     parameter INST_LENGTH = 8'h10;
     parameter INST_WIDTH = INST_LENGTH * 8;
@@ -286,6 +286,8 @@ module main(
     wire [2:0] profile2;
     wire [18:0] parallel_out;   
     reg[4:0] io_update_count;
+    wire power_down_1;
+    wire power_down_2;
     
     //AD9910 driver
     AD9910_driver
@@ -326,7 +328,7 @@ module main(
         .gpo_busy_error(gpo_busy_error),
         .gpi_data_ready(gpi_data_ready),
         .gpi_out(gpi_out),
-        .io({ja_6, ja_1}),
+        .io({ja_7, ja_4}),
         .sck(sck),
         .cs(cs),
         .io_update1(io_update1),
@@ -400,10 +402,10 @@ module main(
         .counter(counter)
         );
                      
-    assign {ja_7, /*ja_6, */ja_5, ja_4, ja_3, ja_2, /*ja_1, */ja_0}  = {io_update1, /*io[0], */cs[0], parallel_out[18], sck, io_update2, /*io[1], */cs[1]};
-    assign {jb_7, jb_6, jb_5, jb_4, jb_3, jb_2, jb_1, jb_0}  = {profile1[2], profile1[1], profile1[0], profile2[2], profile2[1], profile2[0], parallel_out[17], parallel_out[16]};
-    assign {jc_7, jc_6, jc_5, jc_4, jc_3, jc_2, jc_1, jc_0}  = parallel_out[15:8];
-    assign {jd_7, jd_6, jd_5, jd_4, jd_3, jd_2, jd_1, jd_0}  = parallel_out[7:0];
+    assign {/*ja_7,*/ ja_6, ja_5, /*ja_4,*/ ja_3/*, ja_2, ja_1, ja_0*/}  = {/*io[0], */sck, cs[0], /*io[1], */cs[1]/*,trigger_start, trigger_stop, GPO_reg*/};
+    assign {jb_7, jb_6, jb_5, jb_4, jb_3, jb_2, jb_1, jb_0}  = {profile1[2], profile1[1], profile1[0], io_update1, io_update2, profile2[0], profile2[1], profile2[2]};
+    //assign {jc_7, /*jc_6, */jc_5, /*jc_4, */jc_3, jc_2, /*jc_1, */jc_0}  = {io_update1, /*io[0], */cs[0], /*parallel_out[18],*/ sck, io_update2, /*io[1], */cs[1],power_down_1,power_down_2};
+    //assign {jd_7, jd_6, jd_5, jd_4, jd_3, jd_2/*, jd_1, jd_0*/}  = {profile1[2], profile1[1], profile1[0], profile2[2], profile2[1], profile2[0]/*, parallel_out[17], parallel_out[16]*/};
 
     /////////////////////////////////////////////////////////////////
     // Command definition for DNA_PORT command
@@ -455,38 +457,69 @@ module main(
     // This command reads the 32-bit patterns
     parameter CMD_READ_BIT_PATTERNS = "READ BITS"; // 9 characters
 
-
+    /////////////////////////////////////////////////////////////////
+    // Command definition for Trigger mode
+    /////////////////////////////////////////////////////////////////
+    parameter CMD_TRIGGER_MODE = "TRIGGER MODE";
+    parameter CMD_TRIGGER_READY = "TRIGGER READY";
+    parameter CMD_BRAM_CLEAR = "BRAM CLEAR";
+    parameter CMD_TRIGGER_MODE_EXIT = "TRIGGER MODE EXIT";
+    parameter BRAM_DEPTH = 10;
+    
+    reg trigger_start;
+    reg trigger_stop;
+    reg trigger_ready;
+    reg GPI_reg;
+    
+    reg [INST_WIDTH-1:0] BRAM_din;
+    reg [BRAM_DEPTH - 1:0] BRAM_length;
+    reg [BRAM_DEPTH - 1:0] BRAM_write_addr;
+    reg [BRAM_DEPTH - 1:0] BRAM_read_addr;
+    reg BRAM_out_valid_buffer1;
+    reg BRAM_out_valid_buffer2;
+    reg BRAM_write_en;
+    reg [INST_WIDTH-1:0] BRAM_out_buffer1;
+    reg [INST_WIDTH-1:0] BRAM_out_buffer2;
+    
+    wire [INST_WIDTH-1:0] BRAM_out;
+    wire BRAM_out_valid;
+    
+    blk_mem_gen_0 bram(
+        .clka(CLK100MHZ),
+        .addra(BRAM_write_addr),
+        .dina(BRAM_din),
+        .wea(BRAM_write_en),
+        .addrb(BRAM_read_addr),
+        .clkb(CLK100MHZ),
+        .doutb(BRAM_out)
+    );
 
 
     /////////////////////////////////////////////////////////////////
     // Main FSM
     /////////////////////////////////////////////////////////////////
-	reg [3:0] main_state;
+	reg [4:0] main_state;
     // State definition of FSM
     // Common state
-    parameter MAIN_IDLE = 4'h0;
-    parameter MAIN_DDS_WAIT_FOR_BUSY_ON = 4'h1;
-    parameter MAIN_DDS_WAIT_FOR_BUSY_OFF = 4'h2;
-    
-    /*
-    parameter MAIN_DAC_WAIT_FOR_BUSY_ON = 4'h3;
-    parameter MAIN_DAC_WAIT_FOR_BUSY_OFF = 4'h4;
-    parameter MAIN_DAC_LDAC_PAUSE = 4'h5;
-    parameter MAIN_DAC_LDAC_OFF = 4'h6;
-   */
-    ////
-    //****parameter added for AD9910**** this if statement is for IO UPDATE of AD9910
-    ////
-    parameter MAIN_DRIVER_RESET = 4'h7;
-    parameter MAIN_SET_COUNTER = 4'h8;
-    parameter MAIN_SET_DDS_PIN = 4'ha;
-    parameter MAIN_WRITE_FIFO = 4'hb;
-    parameter MAIN_READ_RTI_FIFO = 4'hc;
-    parameter MAIN_DDS_IOUPDATE_OUT = 4'hd;
-    parameter MAIN_DDS_IOUPDATE_END = 4'he;
+    parameter MAIN_IDLE = 5'h0;
+    parameter MAIN_DDS_WAIT_FOR_BUSY_ON = 5'h1;
+    parameter MAIN_DDS_WAIT_FOR_BUSY_OFF = 5'h2;
+    parameter MAIN_DRIVER_RESET = 5'h7;
+    parameter MAIN_SET_COUNTER = 5'h8;
+    parameter MAIN_SET_DDS_PIN = 5'ha;
+    parameter MAIN_WRITE_FIFO = 5'hb;
+    parameter MAIN_READ_RTI_FIFO = 5'hc;
+    parameter MAIN_DDS_IOUPDATE_OUT = 5'hd;
+    parameter MAIN_DDS_IOUPDATE_END = 5'he;
+    parameter MAIN_TRIGGER_IDLE = 5'hf;
+    parameter MAIN_TRIGGER_DATA_WRITE = 5'h10;
+    parameter MAIN_TRIGGER_DATA_CLEAR = 5'h11;
+    parameter MAIN_TRIGGER_READY = 5'h12;
+    parameter MAIN_TRIGGER_START = 5'h13;
+    parameter MAIN_TRIGGER_STOP = 5'h14;
+    parameter MAIN_TRIGGER_EXIT = 5'h15;
 
-
-    parameter MAIN_UNKNOWN_CMD =4'hf;
+    parameter MAIN_UNKNOWN_CMD =5'h1f;
     
 
     initial begin
@@ -496,13 +529,29 @@ module main(
         TX_buffer2_ready <= 1'b0;
     end
     
-    always @ (posedge CLK100MHZ)
+    always @ (posedge CLK100MHZ) begin
+        trigger_start <= ja_2;
+        trigger_stop <= ja_1;
+        GPI_reg <= jb_1;
+        BRAM_write_addr <= BRAM_length;
+        
         if (esc_char_detected == 1'b1) begin
             if (esc_char == "C") begin
                 TX_buffer1_ready <= 1'b0;
                 TX_buffer2_ready <= 1'b0;
                 main_state <= MAIN_IDLE;
             end
+        end
+        else if ((CMD_Length == $bits(CMD_TRIGGER_MODE_EXIT)/8) && (CMD_Buffer[$bits(CMD_TRIGGER_MODE_EXIT):1] == CMD_TRIGGER_MODE_EXIT)) begin
+            auto_start <= 1'b0;
+            start_counter <= 1'b0;
+            BRAM_write_en <= 1'b0;
+            BRAM_out_valid_buffer1 <= 1'b0;
+            BRAM_out_valid_buffer2 <= 1'b0;
+            flush_rto_fifo <= 1'b1;
+            reset_counter <=  1'b1;
+            BRAM_read_addr <= {BRAM_DEPTH{1'b0}};
+            main_state <= MAIN_TRIGGER_EXIT;
         end
         else begin
             case (main_state)
@@ -530,9 +579,6 @@ module main(
                             end
                         end
                         
-                        ////
-                        //****code added for AD9910**** this if statement is for IO UPDATE of AD9910
-                        ////
                         else if ((CMD_Length == $bits(CMD_IOUPDATE_DDS_REG)/8) && (CMD_Buffer[$bits(CMD_IOUPDATE_DDS_REG):1] == CMD_IOUPDATE_DDS_REG)) begin
                             if (BTF_Length != OVERRIDE_LENGTH) begin
                                 TX_buffer1[1:13*8] <= {"Wrong length", BTF_Length[7:0]}; // Assuming that BTF_Length is less than 256
@@ -552,6 +598,9 @@ module main(
                                 main_state <= MAIN_DRIVER_RESET;
                                 reset_driver <= 1'b1;
                                 reset_counter <= 1'b1;
+                                BRAM_length <= {BRAM_DEPTH{1'b0}};
+                                BRAM_write_addr <= {BRAM_DEPTH{1'b0}};
+                                BRAM_read_addr <= {BRAM_DEPTH{1'b0}};
                             end
                         end
                         
@@ -688,6 +737,21 @@ module main(
                             main_state <= MAIN_IDLE;
                         end
                         
+                        else if ((CMD_Length == $bits(CMD_TRIGGER_MODE)/8) && (CMD_Buffer[$bits(CMD_TRIGGER_MODE):1] == CMD_TRIGGER_MODE)) begin
+                            main_state <= MAIN_TRIGGER_IDLE;
+                            BRAM_din <= {INST_WIDTH{1'b0}};
+                            BRAM_read_addr <= {BRAM_DEPTH{1'b0}};
+                            BRAM_write_en <= 1'b0;
+                        end
+                        
+                        else if ((CMD_Length == $bits(CMD_BRAM_CLEAR)/8) && (CMD_Buffer[$bits(CMD_BRAM_CLEAR):1] == CMD_BRAM_CLEAR)) begin
+                            BRAM_din <= {INST_WIDTH{1'b0}};
+                            BRAM_write_addr <= {BRAM_DEPTH{1'b0}};
+                            BRAM_length <= {BRAM_DEPTH{1'b0}};
+                            BRAM_read_addr <= {BRAM_DEPTH{1'b0}};
+                            BRAM_write_en <= 1'b0;
+                        end
+                        
                         else begin
                             main_state <= MAIN_UNKNOWN_CMD;
                         end
@@ -758,6 +822,119 @@ module main(
                         main_state <= MAIN_IDLE;
                         read_rti_fifo <= 1'b0;
                     end
+                    
+                ///////////////////////////////////////////////////////////////////////////
+                // Trigger Mode FSM
+                ///////////////////////////////////////////////////////////////////////////
+                    
+                MAIN_TRIGGER_IDLE: 
+                    begin
+                        if (CMD_Ready == 1'b1) begin 
+                            if ((CMD_Length == $bits(CMD_WRITE_FIFO)/8) && (CMD_Buffer[$bits(CMD_WRITE_FIFO):1] == CMD_WRITE_FIFO)) begin
+                                if (BTF_Length != INST_LENGTH) begin
+                                    TX_buffer1[1:13*8] <= {"Wrong length", BTF_Length[7:0]}; // Assuming that BTF_Length is less than 256
+                                    TX_buffer1_length[TX_BUFFER1_LENGTH_WIDTH-1:0] <= 'd13;
+                                    TX_buffer1_ready <= 1'b1;
+                                end
+                                else begin
+                                    main_state <= MAIN_TRIGGER_DATA_WRITE;
+                                    BRAM_write_en <= 1'b1;
+                                    BRAM_length <= BRAM_length + 1;
+                                    BRAM_write_addr <= BRAM_length;
+                                    BRAM_din[INST_WIDTH - 1:0] <= BTF_Buffer[INST_WIDTH:1];
+                                end
+                            end
+                            
+                            else if ((CMD_Length == $bits(MAIN_TRIGGER_DATA_CLEAR)/8) && (CMD_Buffer[$bits(MAIN_TRIGGER_DATA_CLEAR):1] == MAIN_TRIGGER_DATA_CLEAR)) begin
+                                main_state <= MAIN_TRIGGER_DATA_CLEAR;
+                                BRAM_length <= {BRAM_DEPTH{1'b0}};
+                            end
+                            
+                            else if ((CMD_Length == $bits(CMD_TRIGGER_READY)/8) && (CMD_Buffer[$bits(CMD_TRIGGER_READY):1] == CMD_TRIGGER_READY)) begin
+                                main_state <= MAIN_TRIGGER_READY;
+                            end
+                        end
+                    end
+                    
+                MAIN_TRIGGER_READY: 
+                    begin
+                        if( BRAM_length > BRAM_read_addr ) begin
+                            BRAM_out_valid_buffer1 <= 1'b1;
+                            BRAM_out_valid_buffer2 <= BRAM_out_valid_buffer1;
+                            
+                            BRAM_out_buffer1 <= BRAM_out;
+                            BRAM_out_buffer2 <= BRAM_out_buffer1;
+                            
+                            BRAM_read_addr <= BRAM_read_addr + 1;
+                            
+                            write_rto_fifo <=  BRAM_out_valid_buffer2;
+                            rto_fifo_din[INST_WIDTH - 1:0] <= BRAM_out_buffer2[INST_WIDTH-1:0];
+                        end
+                        
+                        else begin
+                            BRAM_out_valid_buffer1 <= 1'b0;
+                            BRAM_out_valid_buffer2 <= BRAM_out_valid_buffer1;
+                            
+                            BRAM_out_buffer1 <= BRAM_out;
+                            BRAM_out_buffer2 <= BRAM_out_buffer1;
+                            
+                            write_rto_fifo <=  BRAM_out_valid_buffer2;
+                            rto_fifo_din[INST_WIDTH - 1:0] <= BRAM_out_buffer2[INST_WIDTH-1:0];
+                        end
+                        
+                        if( trigger_start == 1'b1 ) begin
+                            auto_start <= 1'b1;
+                            start_counter <= 1'b1;
+                            main_state <= MAIN_TRIGGER_START;
+                        end
+                        
+                        else if( trigger_stop == 1'b1 )begin
+                            auto_start <= 1'b0;
+                            start_counter <= 1'b0;
+                            flush_rto_fifo <= 1'b1;
+                            reset_counter <=  1'b1;
+                            main_state <= MAIN_TRIGGER_STOP;
+                        end
+                    end
+                
+                MAIN_TRIGGER_DATA_WRITE: 
+                    begin
+                        BRAM_write_en <= 1'b0;
+                        main_state <= MAIN_TRIGGER_IDLE;
+                    end
+                    
+                MAIN_TRIGGER_DATA_CLEAR: 
+                    begin
+                        main_state <= MAIN_TRIGGER_IDLE;
+                    end
+                
+                MAIN_TRIGGER_START: 
+                    begin
+                        if( trigger_stop == 1'b1 )begin
+                            auto_start <= 1'b0;
+                            start_counter <= 1'b0;
+                            flush_rto_fifo <= 1'b1;
+                            reset_counter <=  1'b1;
+                            main_state <= MAIN_TRIGGER_STOP;
+                        end
+                    end
+                    
+                MAIN_TRIGGER_STOP: 
+                    begin
+                        BRAM_out_valid_buffer1 <= 1'b0;
+                        BRAM_out_valid_buffer2 <= 1'b0;
+                        flush_rto_fifo <= 1'b0;
+                        reset_counter <=  1'b0;
+                        main_state <= MAIN_TRIGGER_READY;
+                        BRAM_read_addr <= {BRAM_DEPTH{1'b0}};
+                    end
+                    
+                MAIN_TRIGGER_EXIT: 
+                    begin
+                        flush_rto_fifo <= 1'b0;
+                        reset_counter <=  1'b0;
+                        main_state <= MAIN_IDLE;
+                    end
 
 
 
@@ -775,7 +952,8 @@ module main(
                 default:
                     main_state <= MAIN_IDLE;
             endcase
-        end            
+        end     
+    end       
                     
 	////////////////////////////////////////////////////////////////
 	// Detect when BTN0 is pressed

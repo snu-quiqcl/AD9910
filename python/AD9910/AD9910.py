@@ -762,140 +762,140 @@ class AD9910:
         return max(min(self.bits_to_represent(\
                         self.frequency_to_FTW(frequency)) - 16, 15),0)
     
-    def set_parallel_frequency(self, frequency, set_fm_gain = True, \
-                               parallel_en = 1):
-        """
-        frequency : frequency to set
-        set_fm_gain : whether to set fm_gain dynamically 
-        parallel_en : whether to set TxEnable high
-        """
+    # def set_parallel_frequency(self, frequency, set_fm_gain = True, \
+    #                            parallel_en = 1):
+    #     """
+    #     frequency : frequency to set
+    #     set_fm_gain : whether to set fm_gain dynamically 
+    #     parallel_en : whether to set TxEnable high
+    #     """
         
-        data_to_send = 0
-        delayed_cycle = 0
+    #     data_to_send = 0
+    #     delayed_cycle = 0
         
-        fm_gain = self.minimum_fm_gain(frequency)
-        print("frequency : " + str(frequency) + " fm_gain :" + str(fm_gain))
+    #     fm_gain = self.minimum_fm_gain(frequency)
+    #     print("frequency : " + str(frequency) + " fm_gain :" + str(fm_gain))
         
-        FTW_16bit = int(self.frequency_to_FTW(frequency) // \
-                        ( 2 ** self.fm_gain ))
+    #     FTW_16bit = int(self.frequency_to_FTW(frequency) // \
+    #                     ( 2 ** self.fm_gain ))
         
-        if( fm_gain != self.fm_gain and set_fm_gain == True ):
-            self.set_fm_gain(fm_gain)
-            self.delay_cycle(self.write_32_duration)
-            delayed_cycle += self.write_32_duration
+    #     if( fm_gain != self.fm_gain and set_fm_gain == True ):
+    #         self.set_fm_gain(fm_gain)
+    #         self.delay_cycle(self.write_32_duration)
+    #         delayed_cycle += self.write_32_duration
         
-        data_to_send = ( ( DEST_DDS_PARALLEL << (CHANNEL_LENGTH + 32) ) \
-                        | ( self.dest_val << 32 ) \
-                        | ( parallel_en << 18  ) \
-                        | ( 0b10 << 16 ) \
-                        | ( FTW_16bit & 0xffff ))
-        data_int_list = self.make_8_int_list(data_to_send)
+    #     data_to_send = ( ( DEST_DDS_PARALLEL << (CHANNEL_LENGTH + 32) ) \
+    #                     | ( self.dest_val << 32 ) \
+    #                     | ( parallel_en << 18  ) \
+    #                     | ( 0b10 << 16 ) \
+    #                     | ( FTW_16bit & 0xffff ))
+    #     data_int_list = self.make_8_int_list(data_to_send)
         
-        if( self.auto_en ):
-            fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
-            self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
-            self.fpga.send_command('WRITE FIFO')
-        else:
-            self.fpga.send_mod_BTF_int_list(data_int_list)
-            self.fpga.send_command('SET DDS PIN')
+    #     if( self.auto_en ):
+    #         fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
+    #         self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
+    #         self.fpga.send_command('WRITE FIFO')
+    #     else:
+    #         self.fpga.send_mod_BTF_int_list(data_int_list)
+    #         self.fpga.send_command('SET DDS PIN')
             
-        self.delay_cycle(-delayed_cycle)
+    #     self.delay_cycle(-delayed_cycle)
         
-    def set_parallel_amplitude(self, amplitude, parallel_en = 1):
-        """
-        amplitude : frequency to set
-        parallel_en : whether to set TxEnable high
-        """
+    # def set_parallel_amplitude(self, amplitude, parallel_en = 1):
+    #     """
+    #     amplitude : frequency to set
+    #     parallel_en : whether to set TxEnable high
+    #     """
         
-        data_to_send = 0
+    #     data_to_send = 0
         
-        ASF_14bit = self.amplitude_to_ASF(amplitude)
+    #     ASF_14bit = self.amplitude_to_ASF(amplitude)
             
-        data_to_send = ( ( DEST_DDS_PARALLEL << (CHANNEL_LENGTH + 32) ) \
-                        | ( self.dest_val << 32 ) \
-                        | ( parallel_en << 18  ) \
-                        | ( 0b00 << 16 ) \
-                        | ( ( ASF_14bit & 0x3fff ) << 2 ) )
-        data_int_list = self.make_8_int_list(data_to_send)
+    #     data_to_send = ( ( DEST_DDS_PARALLEL << (CHANNEL_LENGTH + 32) ) \
+    #                     | ( self.dest_val << 32 ) \
+    #                     | ( parallel_en << 18  ) \
+    #                     | ( 0b00 << 16 ) \
+    #                     | ( ( ASF_14bit & 0x3fff ) << 2 ) )
+    #     data_int_list = self.make_8_int_list(data_to_send)
         
-        if( self.auto_en ):
-            fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
-            self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
-            self.fpga.send_command('WRITE FIFO')
-        else:
-            self.fpga.send_mod_BTF_int_list(data_int_list)
-            self.fpga.send_command('SET DDS PIN')
+    #     if( self.auto_en ):
+    #         fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
+    #         self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
+    #         self.fpga.send_command('WRITE FIFO')
+    #     else:
+    #         self.fpga.send_mod_BTF_int_list(data_int_list)
+    #         self.fpga.send_command('SET DDS PIN')
     
-    def set_parallel_phase(self, phase, parallel_en = 1):
-        """
-        phase : phase to set
-        parallel_en : whether to set TxEnable high
-        """
+    # def set_parallel_phase(self, phase, parallel_en = 1):
+    #     """
+    #     phase : phase to set
+    #     parallel_en : whether to set TxEnable high
+    #     """
         
-        data_to_send = 0
+    #     data_to_send = 0
         
-        POW_16bit = self.phase_to_POW(phase)
+    #     POW_16bit = self.phase_to_POW(phase)
             
-        data_to_send = ( ( DEST_DDS_PARALLEL << (CHANNEL_LENGTH + 32) ) \
-                        | ( self.dest_val << 32 ) \
-                        | ( parallel_en << 18  ) \
-                        | ( 0b01 << 16 ) \
-                        | ( POW_16bit & 0xffff ))
-        data_int_list = self.make_8_int_list(data_to_send)
+    #     data_to_send = ( ( DEST_DDS_PARALLEL << (CHANNEL_LENGTH + 32) ) \
+    #                     | ( self.dest_val << 32 ) \
+    #                     | ( parallel_en << 18  ) \
+    #                     | ( 0b01 << 16 ) \
+    #                     | ( POW_16bit & 0xffff ))
+    #     data_int_list = self.make_8_int_list(data_to_send)
         
-        if( self.auto_en ):
-            fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
-            self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
-            self.fpga.send_command('WRITE FIFO')
-        else:
-            self.fpga.send_mod_BTF_int_list(data_int_list)
-            self.fpga.send_command('SET DDS PIN')
+    #     if( self.auto_en ):
+    #         fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
+    #         self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
+    #         self.fpga.send_command('WRITE FIFO')
+    #     else:
+    #         self.fpga.send_mod_BTF_int_list(data_int_list)
+    #         self.fpga.send_command('SET DDS PIN')
     
-    def set_parallel_polar(self, amplitude, phase, set_amplitude_lsb = False,\
-                            set_phase_lsb = False, parallel_en = 1):
-        """
-        amplitude : amplitude to set
-        phase : phase to set
-        set_amplitude_lsb : whether to set amplitude lsb using ASF register
-        set_phase_lsb : whether to set phase lsb using POW register
-        parallel_en : whether to set TxEnable high
-        """
+    # def set_parallel_polar(self, amplitude, phase, set_amplitude_lsb = False,\
+    #                         set_phase_lsb = False, parallel_en = 1):
+    #     """
+    #     amplitude : amplitude to set
+    #     phase : phase to set
+    #     set_amplitude_lsb : whether to set amplitude lsb using ASF register
+    #     set_phase_lsb : whether to set phase lsb using POW register
+    #     parallel_en : whether to set TxEnable high
+    #     """
         
-        data_to_send = 0
-        delayed_cycle = 0
+    #     data_to_send = 0
+    #     delayed_cycle = 0
         
-        ASF = self.amplitude_to_ASF(amplitude)
-        ASF_8bit = ( ASF >> 6 ) & 0xff
+    #     ASF = self.amplitude_to_ASF(amplitude)
+    #     ASF_8bit = ( ASF >> 6 ) & 0xff
         
-        POW = self.phase_to_POW(phase)
-        POW_8bit = ( POW >> 8 ) & 0xff
+    #     POW = self.phase_to_POW(phase)
+    #     POW_8bit = ( POW >> 8 ) & 0xff
         
-        if( set_amplitude_lsb == True ):
-            self.set_amplitude(1, 0, amplitude)
-            self.delay_cycle(2000)
-            delayed_cycle += 2000
-        if( set_phase_lsb == True):
-            self.set_phase(1, 0, phase)
-            self.delay_cycle(2000)
-            delayed_cycle += 2000
+    #     if( set_amplitude_lsb == True ):
+    #         self.set_amplitude(1, 0, amplitude)
+    #         self.delay_cycle(2000)
+    #         delayed_cycle += 2000
+    #     if( set_phase_lsb == True):
+    #         self.set_phase(1, 0, phase)
+    #         self.delay_cycle(2000)
+    #         delayed_cycle += 2000
             
-        data_to_send = ( ( DEST_DDS_PARALLEL << (CHANNEL_LENGTH + 32) ) \
-                        | ( self.dest_val << 32 ) \
-                        | ( parallel_en << 18  ) \
-                        | ( 0b11 << 16 ) \
-                        | ( ASF_8bit << 8 ) \
-                        | ( POW_8bit ) )
-        data_int_list = self.make_8_int_list(data_to_send)
+    #     data_to_send = ( ( DEST_DDS_PARALLEL << (CHANNEL_LENGTH + 32) ) \
+    #                     | ( self.dest_val << 32 ) \
+    #                     | ( parallel_en << 18  ) \
+    #                     | ( 0b11 << 16 ) \
+    #                     | ( ASF_8bit << 8 ) \
+    #                     | ( POW_8bit ) )
+    #     data_int_list = self.make_8_int_list(data_to_send)
         
-        if( self.auto_en ):
-            fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
-            self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
-            self.fpga.send_command('WRITE FIFO')
-        else:
-            self.fpga.send_mod_BTF_int_list(data_int_list)
-            self.fpga.send_command('SET DDS PIN')
+    #     if( self.auto_en ):
+    #         fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
+    #         self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
+    #         self.fpga.send_command('WRITE FIFO')
+    #     else:
+    #         self.fpga.send_mod_BTF_int_list(data_int_list)
+    #         self.fpga.send_command('SET DDS PIN')
             
-        self.delay_cycle(-delayed_cycle)
+    #     self.delay_cycle(-delayed_cycle)
     
     def io_update(self, ch1, ch2):
         delayed_cycle = 0
@@ -1018,6 +1018,18 @@ class AD9910:
                         | ( ( zero_crossing & 0x1 ) << 3 ) \
                         | ( ( ram_mode_ctrl & 0x7 ) << 0 ) )
         self.write64(ch1, ch2, PROFILE0_ADDR + profile, data_to_send)
+        
+    def set_trigger_mode(self):
+        self.fpga.send_command('TRIGGER MODE')
+        
+    def exit_trigger_mode(self):
+        self.fpga.send_command('TRIGGER MODE EXIT')
+        
+    def trigger_bram_clear(self):
+        self.fpga.send_command('BRAM CLEAR')
+        
+    def trigger_ready(self):
+        self.fpga.send_command('TRIGGER READY')
         
 
 if __name__ == "__main__":

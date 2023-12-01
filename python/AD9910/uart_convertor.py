@@ -47,13 +47,13 @@ logic CLK100MHZ;
 logic BTN0;
 logic BTN1;
 logic BTN2;
-logic ja_7; //powerdown
-wire ja_6; //sdio
+wire ja_7; //powerdown
+logic ja_6; //sdio
 logic ja_5; //csb
-logic ja_4; //reset
+wire ja_4; //reset
 logic ja_3; // sclk
 logic ja_2; // powerdown2
-wire ja_1; //sdio2
+logic ja_1; //sdio2
 logic ja_0; // csb2
 logic jb_0;
 logic jb_1;
@@ -90,8 +90,8 @@ wire jd_7;
 
 logic io_val;
 
-assign ja_1 = (~main0.AD9910_driver_0.slave_en_wire)? 1'bz:io_val;
-assign ja_6 = (~main0.AD9910_driver_0.slave_en_wire)? 1'bz:io_val;
+assign ja_4 = (~main0.AD9910_driver_0.slave_en_wire)? 1'bz:io_val;
+assign ja_7 = (~main0.AD9910_driver_0.slave_en_wire)? 1'bz:io_val;
 
 main main0(
     .Uart_RXD(Uart_RXD),
