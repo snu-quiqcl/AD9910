@@ -991,6 +991,54 @@ def exp12():
             print('exit exp11')
             dds.fpga.close()
             return
+        
+def exp13():
+    """
+    Trigger mode test
+    """
+    dds = AD9910(ArtyS7(None))
+    dds.reset_driver()
+    dds.auto_mode()
+    dds.set_trigger_mode() # set trigger mode in FPGA
+    
+    dds.delay_cycle(10)
+    dds.io_update(ch1=1, ch2=0)
+    dds.delay_cycle(10)
+    dds.set_profile_pin(profile1 = 1, profile2 = 0)
+    dds.delay_cycle(10)
+    dds.set_profile_pin(profile1 = 2, profile2 = 0)
+    dds.delay_cycle(10)
+    dds.set_profile_pin(profile1 = 4, profile2 = 0)
+    dds.delay_cycle(10)
+    dds.set_profile_pin(profile1 = 7, profile2 = 0)
+    dds.delay_cycle(10)
+    dds.set_profile_pin(profile1 = 3, profile2 = 0)
+    dds.delay_cycle(10)
+    dds.set_profile_pin(profile1 = 2, profile2 = 0)
+    dds.delay_cycle(10)
+    dds.set_profile_pin(profile1 = 1, profile2 = 0)
+    dds.delay_cycle(10)
+    dds.set_profile_pin(profile1 = 0, profile2 = 0)
+    dds.delay_cycle(10)
+    
+    dds.trigger_ready()
+    dds.exit_trigger_mode()
+    
+    while True:
+        print('[1] auto start')
+        print('[2] auto stop')
+        print('[q] exit')
+        order_in = input()
+        if( order_in == '1' ):
+            dds.auto_start()
+        elif( order_in == '2'):
+            dds.auto_stop()
+            dds.read_rti_fifo()
+            #dds.read_rti_fifo()
+        elif( order_in == 'q'):
+            print('exit exp11')
+            dds.fpga.close()
+            return
     
         
 def real_exp1(port):
@@ -1128,22 +1176,14 @@ def real_exp2(port):
     dds.set_frequency(1,0,300 * MHz)
     dds.io_update(1,0)
     
-    dds.set_CFR2(1, 0, amp_en_single_tone = 0, internal_IO_update = 0, 
-                 SYNC_CLK_en = 0, DRG_dest = 0, DRG_en = 0, 
-                 DRG_no_dwell_high = 0, DRG_no_dwell_low = 0, read_eff_FTW = 1, 
-                 IO_update_rate = 0, PDCLK_en = 0, PDCLK_inv = 0, Tx_inv = 0, 
-                 matched_latency_en = 0, data_ass_hold = 0, sync_val_dis = 1, 
-                 parallel_port = 1, FM_gain = 15)
-    dds.io_update(1,0)
-    
     dds.set_amplitude(ch1 =1 ,ch2 = 0, amplitude_frac = 1.0)
     
     dds.io_update(1,0)
-    time.sleep(15)
+    time.sleep(5)
     dds.set_frequency(ch1 =1 ,ch2 = 0, freq = 200*MHz)
     
     dds.io_update(1,0)
-    time.sleep(15)
+    time.sleep(5)
     dds.set_frequency(ch1 =1 ,ch2 = 0, freq = 100*MHz)
     
     dds.io_update(1,0)
@@ -2625,6 +2665,8 @@ if __name__ == '__main__':
             exp11()
         elif( order_in == '12'):
             exp12()
+        elif( order_in == '13'):
+            exp13()
         elif( order_in == 'r1'):
             port = input('PORT : ')
             real_exp1(port)

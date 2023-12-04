@@ -6,3 +6,6 @@
 4. Check AD9910 eval board jumper
  (1) ground of input
  (2) profile pin (p_0, p_1, p_2), EXT_PWR_DWN, RESET
+
+2023 / 11 / 21
+트리거 신호를 받고 single tone 모드로 사용하는 것인지, ram mode로 사용하는것인지 여쭤봐야함

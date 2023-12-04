@@ -1,0 +1,23 @@
+\t (00:00:00) sigwave 23.1 P001 Windows SPB 64-bit Edition
+\t (00:00:00)     Journal start - Fri Dec  1 14:41:05 2023
+\t (00:00:00)         Host=LAPTOP-ETOV1IS0 User=alexi Pid=26804 CPUs=20
+\t (00:00:00) CmdLine= sigwave _NODOC_ -pid Waveform26084
+\t (00:00:00) 
+   (00:00:00) Loading sigwave.cxt 
+\i (00:00:01) setwindow main
+\i (00:00:01) deselect all
+\i (00:00:01) zoom fit
+\i (00:00:12) select root
+\i (00:00:12) deselect all
+\i (00:00:12) zoom fit
+\i (00:00:22) zoom fit
+\i (00:00:37) select root
+\i (00:00:37) deselect all
+\i (00:00:37) zoom fit
+\i (00:00:43) graph mode eye
+\i (00:00:56) select root
+\i (00:00:56) eye diagram params -clockfreq " 0 s" -clockoffset " 0 s"
+\i (00:00:56) deselect all
+\i (00:00:56) zoom fit
+\i (00:01:26) exit
+\t (00:01:26)     Journal end - Fri Dec  1 14:42:31 2023

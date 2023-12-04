@@ -1,0 +1,41 @@
+\t (00:00:30) sigxp 23.1 P001 Windows SPB 64-bit Edition
+\t (00:00:30)     Journal start - Fri Dec  1 14:40:59 2023
+\t (00:00:30)         Host=LAPTOP-ETOV1IS0 User=alexi Pid=26084 CPUs=20
+\t (00:00:30) CmdLine= C:\Cadence\OrCADX_23.1\tools\bin\sigxp.exe
+\t (00:00:30) 
+\t (00:00:30) Starting new design...
+\i (00:00:31) trapsize 6494
+\i (00:00:31) trapsize 6494
+\i (00:00:31) trapsize 6494
+   (00:00:31) Already Placed Circuit
+\i (00:00:31) trapsize 23
+\i (00:00:32) sigxp background 
+\i (00:00:33) signal simulate 
+\i (00:00:37) sigxp background 
+\i (00:00:42) pick grid 5506.61 4238.55
+\t (00:00:42) last pick:  5506.50 4238.50
+\i (00:00:42) trapsize 41
+\i (00:00:43) spreadsheet Parameters LBUTTONCLICKED CIRCUIT.DESIGN.C1.capacitance VALUE
+\i (00:00:49) signal simulate 
+\i (00:00:49) sigxp background 
+\i (00:00:58) signal simulate 
+\i (00:00:59) sigxp background 
+\i (00:01:02) spreadsheet Parameters STORE CIRCUIT.DESIGN.C1.capacitance VALUE "500pF"
+\i (00:01:05) pick grid 5512.18 4236.20
+\t (00:01:05) last pick:  5512.00 4236.00
+\i (00:01:06) spreadsheet Parameters LBUTTONCLICKED CIRCUIT.DESIGN.C1.capacitance VALUE
+\i (00:01:09) spreadsheet Parameters STORE CIRCUIT.DESIGN.C1.capacitance VALUE "100pF"
+\i (00:01:10) signal simulate 
+\i (00:01:13) sigxp background 
+\i (00:02:10) drag_start grid 5503.98 4239.16
+\i (00:02:10) roam y 16
+\i (00:02:10) roam y 16
+\i (00:02:10) drag_stop grid 5513.82 4226.37
+\i (00:02:11) prepopup 5508.25 4237.52
+\i (00:02:12) pop dyn_option_select @:@Delete 
+\i (00:02:14) signal simulate 
+\i (00:02:18) sigxp background 
+\i (00:02:35) exit 
+\e (00:02:35) Would you like to save the changes made in  SPI_SIM.top
+\i (00:02:36) fillin yes 
+\t (00:02:36)     Journal end - Fri Dec  1 14:43:05 2023
