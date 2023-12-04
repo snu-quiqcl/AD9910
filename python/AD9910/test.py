@@ -1003,6 +1003,7 @@ def exp13():
     
     dds.delay_cycle(10)
     dds.io_update(ch1=1, ch2=0)
+<<<<<<< HEAD
     dds.delay_cycle(10)
     dds.set_profile_pin(profile1 = 1, profile2 = 0)
     dds.delay_cycle(10)
@@ -1020,6 +1021,8 @@ def exp13():
     dds.delay_cycle(10)
     dds.set_profile_pin(profile1 = 0, profile2 = 0)
     dds.delay_cycle(10)
+=======
+>>>>>>> 35ee2d8cb1dbbc41fcb59d89bc5a6573e8529bcb
     
     dds.trigger_ready()
     dds.exit_trigger_mode()

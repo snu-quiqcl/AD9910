@@ -862,18 +862,36 @@ module main(
                             BRAM_out_valid_buffer1 <= 1'b1;
                             BRAM_out_valid_buffer2 <= BRAM_out_valid_buffer1;
                             
+<<<<<<< HEAD
                             BRAM_read_addr <= BRAM_read_addr + 1;
                             
                             write_rto_fifo <=  BRAM_out_valid_buffer2;
                             rto_fifo_din[INST_WIDTH - 1:0] <= BRAM_out[INST_WIDTH-1:0];
+=======
+                            BRAM_out_buffer1 <= BRAM_out;
+                            BRAM_out_buffer2 <= BRAM_out_buffer1;
+                            
+                            BRAM_read_addr <= BRAM_read_addr + 1;
+                            
+                            write_rto_fifo <=  BRAM_out_valid_buffer2;
+                            rto_fifo_din[INST_WIDTH - 1:0] <= BRAM_out_buffer2[INST_WIDTH-1:0];
+>>>>>>> 35ee2d8cb1dbbc41fcb59d89bc5a6573e8529bcb
                         end
                         
                         else begin
                             BRAM_out_valid_buffer1 <= 1'b0;
                             BRAM_out_valid_buffer2 <= BRAM_out_valid_buffer1;
                             
+<<<<<<< HEAD
                             write_rto_fifo <=  BRAM_out_valid_buffer2;
                             rto_fifo_din[INST_WIDTH - 1:0] <= BRAM_out[INST_WIDTH-1:0];
+=======
+                            BRAM_out_buffer1 <= BRAM_out;
+                            BRAM_out_buffer2 <= BRAM_out_buffer1;
+                            
+                            write_rto_fifo <=  BRAM_out_valid_buffer2;
+                            rto_fifo_din[INST_WIDTH - 1:0] <= BRAM_out_buffer2[INST_WIDTH-1:0];
+>>>>>>> 35ee2d8cb1dbbc41fcb59d89bc5a6573e8529bcb
                         end
                         
                         if( trigger_start == 1'b1 ) begin
@@ -919,11 +937,16 @@ module main(
                         BRAM_out_valid_buffer2 <= 1'b0;
                         flush_rto_fifo <= 1'b0;
                         reset_counter <=  1'b0;
+<<<<<<< HEAD
                         BRAM_read_addr <= {BRAM_DEPTH{1'b0}};
                         
                         if( trigger_stop == 1'b0 )begin
                             main_state <= MAIN_TRIGGER_READY;
                         end
+=======
+                        main_state <= MAIN_TRIGGER_READY;
+                        BRAM_read_addr <= {BRAM_DEPTH{1'b0}};
+>>>>>>> 35ee2d8cb1dbbc41fcb59d89bc5a6573e8529bcb
                     end
                     
                 MAIN_TRIGGER_EXIT: 
