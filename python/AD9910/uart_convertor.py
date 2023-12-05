@@ -152,6 +152,8 @@ always begin
     CLK100MHZ = ~CLK100MHZ;
 end
 
+int j,k;
+
 parameter MAX_LENGTH = 256;
 
 logic [MAX_LENGTH-1:0] TEMP;

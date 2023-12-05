@@ -1023,13 +1023,23 @@ class AD9910:
         self.fpga.send_command('TRIGGER MODE')
         
     def exit_trigger_mode(self):
-        self.fpga.send_command('TRIGGER MODE EXIT')
+        self.fpga.send_command('TRIGGER EXIT')
         
     def trigger_bram_clear(self):
         self.fpga.send_command('BRAM CLEAR')
         
     def trigger_ready(self):
         self.fpga.send_command('TRIGGER READY')
+        
+    def reset_DDS(self):
+        self.fpga.send_command('RESET DDS')
+    
+    def powerdown(self):
+        self.fpga.send_command('POWER DOWN')
+    
+    def poweron(self):
+        self.fpga.send_command('POWER ON')
+        
         
 
 if __name__ == "__main__":

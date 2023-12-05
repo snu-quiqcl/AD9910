@@ -63,8 +63,7 @@ module AD9910_driver
     output wire io_update1,
     output wire io_update2,
     output wire [2:0] profile1,
-    output wire [2:0] profile2,
-    output wire [18:0] parallel_out
+    output wire [2:0] profile2
     );
     
 wire counter_matched;
@@ -91,14 +90,12 @@ wire [NUM_CS - 1:0] cs_val_wire;
 wire wr_en_io_update;
 wire wr_en_profile;
 wire [5:0] profile;
-wire wr_en_parallel;
 wire [1:0] io_update;
 
 assign spi_config_selected = ( gpo_out[47:32+CHANNEL_LENGTH] ==  1 ) && selected;
 assign spi_data_selected = (gpo_out[47:32+CHANNEL_LENGTH] == 0 ) && selected;
 assign wr_en_io_update = ( gpo_out[47:32+CHANNEL_LENGTH] ==  2 ) && selected;
 assign wr_en_profile = ( gpo_out[47:32+CHANNEL_LENGTH] ==  3 ) && selected;
-assign wr_en_parallel = ( gpo_out[47:32+CHANNEL_LENGTH] ==  4 ) && selected;
 assign profile1[2:0] = profile[2:0];
 assign profile2[2:0] = profile[5:3];
 assign io_update1 = io_update[0:0];
@@ -254,21 +251,6 @@ profile_port
     .wr_en(wr_en_profile),
     .data_in(spi_data_in[5:0]),
     .data_out(profile)
-    );
-    
-single_output_port
-#(
-    .NUM_DATA(19),
-    .DEST_VAL(DEST_VAL),
-    .CHANNEL_LENGTH(CHANNEL_LENGTH)
-)
-parallel_port_1
-(
-    .clk(clk),
-    .reset(reset),
-    .wr_en(wr_en_parallel),
-    .data_in(spi_data_in[18:0]),
-    .data_out(parallel_out)
     );
 
 endmodule

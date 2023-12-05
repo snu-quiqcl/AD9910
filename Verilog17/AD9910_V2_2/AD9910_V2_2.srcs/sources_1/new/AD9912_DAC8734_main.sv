@@ -188,7 +188,11 @@ module main(
     defparam sender.TX_BUFFER2_WIDTH = TX_BUFFER2_WIDTH;
 
 
-
+    /////////////////////////////////////////////////////////////////
+    // DDS power control and reset
+    /////////////////////////////////////////////////////////////////
+    reg power_down;
+    reg reset_DDS;
 
     /////////////////////////////////////////////////////////////////
     // LED0 & LED1 intensity adjustment
@@ -284,7 +288,6 @@ module main(
     wire io_update2;
     wire [2:0] profile1;
     wire [2:0] profile2;
-    wire [18:0] parallel_out;   
     reg[4:0] io_update_count;
     wire power_down_1;
     wire power_down_2;
@@ -334,8 +337,7 @@ module main(
         .io_update1(io_update1),
         .io_update2(io_update2),
         .profile1(profile1),
-        .profile2(profile2),
-        .parallel_out(parallel_out)
+        .profile2(profile2)
         );
     reg rto_timestamp_error_buffer;
     reg[INST_WIDTH - 1:0] rto_timestamp_error_data_buffer;
@@ -404,7 +406,7 @@ module main(
                      
     assign {/*ja_7,*/ ja_6, ja_5, /*ja_4,*/ ja_3/*, ja_2, ja_1, ja_0*/}  = {/*io[0], */sck, cs[0], /*io[1], */cs[1]/*,trigger_start, trigger_stop, GPO_reg*/};
     assign {jb_7, jb_6, jb_5, jb_4, jb_3, jb_2, jb_1, jb_0}  = {profile1[2], profile1[1], profile1[0], io_update1, io_update2, profile2[0], profile2[1], profile2[2]};
-    //assign {jc_7, /*jc_6, */jc_5, /*jc_4, */jc_3, jc_2, /*jc_1, */jc_0}  = {io_update1, /*io[0], */cs[0], /*parallel_out[18],*/ sck, io_update2, /*io[1], */cs[1],power_down_1,power_down_2};
+    assign {jc_7, jc_6, jc_5, jc_4, jc_3, jc_2, jc_1, jc_0}  = {power_down, 1'b0, reset_DDS,1'b0,1'b0,1'b0,1'b0,1'b0};
     //assign {jd_7, jd_6, jd_5, jd_4, jd_3, jd_2/*, jd_1, jd_0*/}  = {profile1[2], profile1[1], profile1[0], profile2[2], profile2[1], profile2[0]/*, parallel_out[17], parallel_out[16]*/};
 
     /////////////////////////////////////////////////////////////////
@@ -463,7 +465,7 @@ module main(
     parameter CMD_TRIGGER_MODE = "TRIGGER MODE";
     parameter CMD_TRIGGER_READY = "TRIGGER READY";
     parameter CMD_BRAM_CLEAR = "BRAM CLEAR";
-    parameter CMD_TRIGGER_MODE_EXIT = "TRIGGER MODE EXIT";
+    parameter CMD_TRIGGER_MODE_EXIT = "TRIGGER EXIT";
     parameter BRAM_DEPTH = 10;
     
     reg trigger_start;
@@ -496,6 +498,15 @@ module main(
 
 
     /////////////////////////////////////////////////////////////////
+    // Command definition for POWER DOWN AND ON
+    /////////////////////////////////////////////////////////////////
+    parameter CMD_POWER_DOWN = "POWER DOWN";
+    parameter CMD_POWER_ON = "POWER ON";
+    parameter CMD_RESET_DDS = "RESET DDS";
+    
+    reg reset_DDS_counter;
+    
+    /////////////////////////////////////////////////////////////////
     // Main FSM
     /////////////////////////////////////////////////////////////////
 	reg [4:0] main_state;
@@ -518,6 +529,7 @@ module main(
     parameter MAIN_TRIGGER_START = 5'h13;
     parameter MAIN_TRIGGER_STOP = 5'h14;
     parameter MAIN_TRIGGER_EXIT = 5'h15;
+    parameter MAIN_RESET_DDS = 5'h16;
 
     parameter MAIN_UNKNOWN_CMD =5'h1f;
     
@@ -527,6 +539,8 @@ module main(
         patterns <= 'd0;
         TX_buffer1_ready <= 1'b0;
         TX_buffer2_ready <= 1'b0;
+        power_down <= 1'b0;
+        reset_DDS <= 1'b0;
     end
     
     always @ (posedge CLK100MHZ) begin
@@ -542,7 +556,7 @@ module main(
                 main_state <= MAIN_IDLE;
             end
         end
-        else if ((CMD_Length == $bits(CMD_TRIGGER_MODE_EXIT)/8) && (CMD_Buffer[$bits(CMD_TRIGGER_MODE_EXIT):1] == CMD_TRIGGER_MODE_EXIT)) begin
+        else if((CMD_Ready == 1'b1) && (CMD_Length == $bits(CMD_TRIGGER_MODE_EXIT)/8) && (CMD_Buffer[$bits(CMD_TRIGGER_MODE_EXIT):1] == CMD_TRIGGER_MODE_EXIT)) begin
             auto_start <= 1'b0;
             start_counter <= 1'b0;
             BRAM_write_en <= 1'b0;
@@ -752,6 +766,20 @@ module main(
                             BRAM_write_en <= 1'b0;
                         end
                         
+                        else if ((CMD_Length == $bits(CMD_POWER_DOWN)/8) && (CMD_Buffer[$bits(CMD_POWER_DOWN):1] == CMD_POWER_DOWN)) begin
+                            power_down <= 1'b1;
+                        end
+                        
+                        else if ((CMD_Length == $bits(CMD_POWER_ON)/8) && (CMD_Buffer[$bits(CMD_POWER_ON):1] == CMD_POWER_ON)) begin
+                            power_down <= 1'b0;
+                        end
+                        
+                        else if ((CMD_Length == $bits(CMD_RESET_DDS)/8) && (CMD_Buffer[$bits(CMD_RESET_DDS):1] == CMD_RESET_DDS)) begin
+                            reset_DDS <= 1'b1;
+                            reset_DDS_counter <= 4'ha;
+                            main_state <= MAIN_RESET_DDS;
+                        end
+                        
                         else begin
                             main_state <= MAIN_UNKNOWN_CMD;
                         end
@@ -884,6 +912,7 @@ module main(
                         
                         else if( trigger_stop == 1'b1 )begin
                             auto_start <= 1'b0;
+                            reset_driver <= 1'b1;
                             start_counter <= 1'b0;
                             flush_rto_fifo <= 1'b1;
                             reset_counter <=  1'b1;
@@ -907,6 +936,7 @@ module main(
                         if( trigger_stop == 1'b1 )begin
                             auto_start <= 1'b0;
                             start_counter <= 1'b0;
+                            reset_driver <= 1'b1;
                             flush_rto_fifo <= 1'b1;
                             reset_counter <=  1'b1;
                             main_state <= MAIN_TRIGGER_STOP;
@@ -919,6 +949,7 @@ module main(
                         BRAM_out_valid_buffer2 <= 1'b0;
                         flush_rto_fifo <= 1'b0;
                         reset_counter <=  1'b0;
+                        reset_driver <= 1'b0;
                         BRAM_read_addr <= {BRAM_DEPTH{1'b0}};
                         
                         if( trigger_stop == 1'b0 )begin
@@ -932,8 +963,15 @@ module main(
                         reset_counter <=  1'b0;
                         main_state <= MAIN_IDLE;
                     end
-
-
+                    
+                MAIN_RESET_DDS:
+                    begin
+                        reset_DDS_counter <= reset_DDS_counter - 1;
+                        if( reset_DDS_counter == 4'h0 ) begin
+                            reset_DDS <= 1'b0;
+                            main_state <= MAIN_IDLE;
+                        end
+                    end
 
 
                 MAIN_UNKNOWN_CMD:

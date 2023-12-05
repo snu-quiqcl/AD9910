@@ -40,7 +40,7 @@ assign data_out[NUM_DATA-1:0] = data_buffer[NUM_DATA-1:0];
 
 always @(posedge clk) begin
     if( reset == 1'b1 ) begin
-        data_buffer <= 0;
+        data_buffer[NUM_DATA-1:0] <= {NUM_DATA{1'b0}};
     end
     
     else begin
