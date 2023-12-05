@@ -16,51 +16,53 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7s50csga324-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.cache/wt [current_project]
-set_property parent.project_path C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.xpr [current_project]
+set_property webtalk.parent_dir C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.cache/wt [current_project]
+set_property parent.project_path C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.cache/ip [current_project]
+set_property ip_output_repo c:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib -sv {
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/data_sender_v1_01.sv
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/AD9912_DAC8734_main.sv
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/spi_fsm_module.sv
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/shift_register_out.sv
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/shift_register_in.sv
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/clock_divider.sv
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/rto_core_prime.sv
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/gpo_core_prime.sv
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/timestamp_counter.sv
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/gpi_core_prime.sv
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/rti_core_prime.sv
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/AD9910_driver.sv
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/single_output_port.sv
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/spi_multiple_single_output.sv
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/data_sender_v1_01.sv
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/AD9912_DAC8734_main.sv
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/spi_fsm_module.sv
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/shift_register_out.sv
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/shift_register_in.sv
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/clock_divider.sv
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/rto_core_prime.sv
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/gpo_core_prime.sv
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/timestamp_counter.sv
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/gpi_core_prime.sv
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/rti_core_prime.sv
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/AD9910_driver.sv
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/single_output_port.sv
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/spi_multiple_single_output.sv
 }
 read_verilog -library xil_defaultlib {
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/ascii2hex.v
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/async_receiver.v
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/async_transmitter.v
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/data_receiver_v1_00.v
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/hex2ascii.v
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/new/led_intensity_adjust.v
-  C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/imports/new/device_DNA.v
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/ascii2hex.v
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/async_receiver.v
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/async_transmitter.v
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/data_receiver_v1_00.v
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/hex2ascii.v
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/new/led_intensity_adjust.v
+  C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/imports/new/device_DNA.v
 }
-read_ip -quiet C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.xci
-set_property used_in_implementation false [get_files -all c:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.xdc]
+read_ip -quiet C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.xci
+set_property used_in_implementation false [get_files -all c:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/ip/fifo_generator_1/fifo_generator_1.xdc]
 
-read_ip -quiet C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xci
-set_property used_in_implementation false [get_files -all c:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0_ooc.xdc]
+read_ip -quiet C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xci
+set_property used_in_implementation false [get_files -all c:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xdc]
+set_property used_in_implementation false [get_files -all c:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0_ooc.xdc]
+
+read_ip -quiet C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
+set_property used_in_implementation false [get_files -all c:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -70,8 +72,8 @@ set_property used_in_implementation false [get_files -all c:/Jeonghyun/Lab/Taehy
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc
-set_property used_in_implementation false [get_files C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc]
+read_xdc C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc
+set_property used_in_implementation false [get_files C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]

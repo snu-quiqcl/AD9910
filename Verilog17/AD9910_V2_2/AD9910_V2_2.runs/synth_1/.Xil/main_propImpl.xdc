@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:C:/Jeonghyun/Lab/TaehyunKim/DDS/AD9910/JHPARK/JeonghyunPark/AD9910_CODE-AD9910V1_1/Verilog17/AD9910_V2_0/AD9910_V2_0.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc rfile:../../../AD9910_V2_0.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc rfile:../../../AD9910_V2_2.srcs/constrs_1/imports/Arty_S7/Arty-S7-50-Master.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:9 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict {PACKAGE_PIN R2 IOSTANDARD SSTL135} [get_ports CLK100MHZ]
 set_property src_info {type:XDC file:1 line:20 export:INPUT save:INPUT read:READ} [current_design]

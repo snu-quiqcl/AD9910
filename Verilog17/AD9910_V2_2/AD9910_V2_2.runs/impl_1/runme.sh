@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_1/AD9910_V2_1.runs/impl_1'
+HD_PWD='C:/Jeonghyun/GIT/AD9910_CODE/Verilog17/AD9910_V2_2/AD9910_V2_2.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -41,7 +41,7 @@ EAStep()
 }
 
 # pre-commands:
-/bin/touch .write_bitstream.begin.rst
+/bin/touch .init_design.begin.rst
 EAStep vivado -log main.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source main.tcl -notrace
 
 

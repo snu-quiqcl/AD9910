@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
-| Date         : Mon Jan 16 16:50:16 2023
+| Date         : Tue Dec  5 20:02:28 2023
 | Host         : LAPTOP-ETOV1IS0 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -file main_control_sets_placed.rpt
 | Design       : main
@@ -21,7 +21,7 @@ Table of Contents
 +-------------------------------+-------+
 |             Status            | Count |
 +-------------------------------+-------+
-| Number of unique control sets |    81 |
+| Number of unique control sets |    97 |
 +-------------------------------+-------+
 
 
@@ -31,12 +31,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |            7870 |         3185 |
-| No           | No                    | Yes                    |              21 |           10 |
-| No           | Yes                   | No                     |              68 |           25 |
-| Yes          | No                    | No                     |            3291 |         1037 |
+| No           | No                    | No                     |            7832 |         2751 |
+| No           | No                    | Yes                    |              21 |           11 |
+| No           | Yes                   | No                     |              84 |           31 |
+| Yes          | No                    | No                     |            3246 |          931 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |            1747 |          376 |
+| Yes          | Yes                   | No                     |            1922 |          388 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
