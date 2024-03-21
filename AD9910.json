@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Mar 15 11:10:14 2024
+
+@author: alexi
+"""
+
+'AD9910_driver.sv', 
+'main.sv', 
+'ascii2decimal.v', 
+'ascii2hex.v', 
+'async_receiver.v', 
+'async_transmitter.v', 
+'clock_divider.sv', 
+'data_receiver_v1_00.v', 
+'data_sender_v1_01.sv', 
+'device_DNA.v', 
+'gpi_core_prime.sv', 
+'gpo_core_prime.sv', 
+'gpo_core_prime_addr.sv', 
+'hex2ascii.v', 
+'rti_core_prime.sv', 
+'rto_core_prime.sv', 
+'rto_core_prime_addr.sv', 
+'shift_register_in.sv', 
+'shift_register_out.sv', 
+'single_output_port.sv', 
+'spi_fsm_module.sv', 
+'spi_multiple_single_output.sv', 
+'spi_single_output.sv', 
+'timestamp_counter.sv'
