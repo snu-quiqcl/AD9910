@@ -1,0 +1,9 @@
+{
+    "common_path" : "C:/Jeonghyun/SNU_GIT/AD9910/VerilogCode",
+    "target_path" : "C:/Jeonghyun/Lab/AD9910",
+    "vivado_path" : "C:/Xilinx/Vivado/2017.3/bin/vivado.bat",
+    "board_path" : "C:/Xilinx/Vivado/2017.3/data/boards/board_files",
+    "part_name" : "xc7s50csga324-1",
+    "constraints" : "C:/Jeonghyun/SNU_GIT/AD9910/VerilogCode/Arty-S7-50-Master.xdc",
+    "version" : "2017.3"
+}
