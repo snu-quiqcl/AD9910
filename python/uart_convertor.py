@@ -47,22 +47,22 @@ logic CLK100MHZ;
 logic BTN0;
 logic BTN1;
 logic BTN2;
-wire ja_7; //powerdown
-logic ja_6; //sdio
-logic ja_5; //csb
-wire ja_4; //reset
-logic ja_3; // sclk
-logic ja_2; // powerdown2
-logic ja_1; //sdio2
-logic ja_0; // csb2
-logic jb_0;
-logic jb_1;
-logic jb_2;
-logic jb_3;
-logic jb_4;
-logic jb_5;
-logic jb_6;
-logic jb_7;
+reg ja_7; //powerdown
+reg ja_6; //sdio
+reg ja_5; //csb
+reg ja_4; //reset
+reg ja_3; // sclk
+reg ja_2; // powerdown2
+reg ja_1; //sdio2
+reg ja_0; // csb2
+wire jb_0;
+wire jb_1;
+wire jb_2;
+wire jb_3;
+wire jb_4;
+wire jb_5;
+wire jb_6;
+wire jb_7;
 logic [5:2] led;
 logic led0_r;
 logic led0_g;
@@ -90,8 +90,7 @@ wire jd_7;
 
 logic io_val;
 
-assign ja_4 = (~main0.AD9910_driver_0.slave_en_wire)? 1'bz:io_val;
-assign ja_7 = (~main0.AD9910_driver_0.slave_en_wire)? 1'bz:io_val;
+assign jc_4 = (~main0.AD9910_driver_0.slave_en_wire)? 1'bz:io_val;
 
 main main0(
     .Uart_RXD(Uart_RXD),
@@ -162,6 +161,15 @@ integer i;
 initial begin
     //TEMP = (2**256-1) & 256'b 00001010 00001101 11001100 11001100 11001100 00001100 00000000 00000000 11111111 00111111 00001110 00111001 01100001 00110001 00100011;
     //TEMP = (2**256-1) & 256'b 1000010100 1000011010 1110011000 1110011000 1110011000 1000011000 1000000000 1000000000 1111111110 1001111110 1000011100 1001110010 1011000010 1001100010 1001000110;
+    
+    ja_7 <= 1'b1;
+    ja_6 <= 1'b1;
+    ja_5 <= 1'b1;
+    ja_4 <= 1'b1;
+    ja_3 <= 1'b1;
+    ja_2 <= 1'b1;
+    ja_1 <= 1'b1;
+    ja_0 <= 1'b1;
     
     Uart_RXD = 1;
     CLK100MHZ = 0;
