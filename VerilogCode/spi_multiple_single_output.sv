@@ -34,33 +34,25 @@ module spi_multiple_single_output
     input wire sck_next,
     input wire [NUM_CS - 1:0]cs_val,
     output wire sdi,
-    inout wire [NUM_CS - 1:0]io,
+    inout wire io,
     output wire sck,
     output wire [NUM_CS - 1:0] cs
 );
-wire[NUM_CS - 1:0] sdi_dummy;
+assign sdi = 1'b0;
 
-assign sdi = | (sdi_dummy & cs_val);
-
-genvar j;
-
-generate
-    for( j = 0; j < NUM_CS; j = j+1) begin:IOBUF_ios
-        IOBUF #(
-            .DRIVE(12), // Specify the output drive strength
-            .IBUF_LOW_PWR("FALSE"),             // Low Power - "TRUE", High Performance = "FALSE"
-            .IOSTANDARD("LVCMOS33"),           // Specify the I/O standard
-            .SLEW("SLOW")                      // Specify the output slew rate
-        ) 
-        IOBUF_io
-        (
-            .O(sdi_dummy[j]),                            // Buffer output
-            .IO(io[j]),                         // Buffer inout port (connect directly to top-level port)
-            .I(sdo),                            // Buffer input
-            .T(slave_en)                        // 3-state enable input, high=input, low=output
-        );
-    end
-endgenerate
+IOBUF #(
+    .DRIVE                                  (12), // Specify the output drive strength
+    .IBUF_LOW_PWR                           ("FALSE"),            // Low Power - "TRUE", High Performance = "FALSE"
+    .IOSTANDARD                             ("LVCMOS33"),          // Specify the I/O standard
+    .SLEW                                   ("SLOW")                      // Specify the output slew rate
+) 
+IOBUF_io
+(
+    .O                                      (),                            // Buffer output
+    .IO                                     (io),                            // Buffer inout port (connect directly to top-level port)
+    .I                                      (sdo),                            // Buffer input
+    .T                                      (slave_en)                        // 3-state enable input, high=input, low=output
+);
 
 reg sck_buffer;
 reg[NUM_CS -1 :0] cs_buffer;

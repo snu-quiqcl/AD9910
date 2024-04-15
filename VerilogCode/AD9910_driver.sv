@@ -57,7 +57,7 @@ module AD9910_driver
     output wire gpo_busy_error,
     output wire gpi_data_ready,
     output wire [127:0] gpi_out,
-    inout wire [NUM_CS - 1:0] io,
+    inout wire io,
     output wire sck,
     output wire [NUM_CS - 1:0] cs,
     output wire io_update1,

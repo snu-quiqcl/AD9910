@@ -12,7 +12,7 @@ import serial
 import os
 import shutil
 
-TEST = 1
+TEST = 0
     
 class escapeSequenceDetected(Exception):
     def __init__(self, escape_char):

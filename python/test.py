@@ -12,7 +12,7 @@ from uart_convertor import convertor_chain
 import time
 
 def exp1():
-    dds = AD9910(ArtyS7('COM12'))
+    dds = AD9910(ArtyS7('COM17'))
     dds.reset_driver()
     dds.override_enable()
     dds.set_internal()
@@ -21,11 +21,11 @@ def exp1():
     dds.set_profile_register(ch1 = 1, ch2 = 1, freq = 100*MHz, phase = 0 * RAD, 
                             amplitude = 1.0, profile = 1)
     dds.set_profile_pin(profile1 = 1, profile2 = 0)
-    dds.reset_DDS()
-    dds.powerdown(1,0)
-    dds.powerdown(0,1)
-    dds.poweron(1,1)
-    dds.set_external()
+    # dds.reset_DDS()
+    # dds.powerdown(1,0)
+    dds.powerdown(1,1)
+    # dds.poweron(1,1)
+    # dds.set_external()
     while True:
         print('[1] auto start')
         print('[2] auto stop')
@@ -1234,7 +1234,7 @@ def real_exp2(port):
     time.sleep(5)
     dds.set_frequency(ch1 =1 ,ch2 = 0, freq = 100*MHz)
     
-    dds.io_update(1,0)
+    dds.io_update(1,1)
     
     while True:
         print('[1] auto start')
