@@ -12,16 +12,21 @@ from uart_convertor import convertor_chain
 import time
 
 def exp1():
-    dds = AD9910(ArtyS7('COM17'))
+    dds = AD9910(ArtyS7('COM15'))
     dds.reset_driver()
+    dds.reset_DDS()
     dds.override_enable()
     dds.set_internal()
-    dds.set_profile_register(ch1 = 1, ch2 = 1, freq = 50*MHz, phase = 0 * RAD, 
+    dds.initialize(1,1)
+    dds.set_profile_pin(0,0)
+
+    dds.io_update(1,1)
+    dds.set_profile_register(ch1 = 1, ch2 = 1, freq = 10*MHz, phase = 0 * RAD, 
                              amplitude = 1.0, profile = 0)
-    dds.set_profile_register(ch1 = 1, ch2 = 1, freq = 100*MHz, phase = 0 * RAD, 
+    dds.set_profile_register(ch1 = 1, ch2 = 1, freq = 20*MHz, phase = 0 * RAD, 
                             amplitude = 1.0, profile = 1)
-    dds.set_profile_pin(profile1 = 1, profile2 = 0)
-    # dds.reset_DDS()
+    
+    dds.io_update(1,1)
     # dds.powerdown(1,0)
     dds.powerdown(1,1)
     # dds.poweron(1,1)
