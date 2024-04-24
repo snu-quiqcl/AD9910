@@ -2,6 +2,8 @@
     "verilog" : {
         "name" : "AD9910",
         "top": "main.sv",
+        "top_module_name" : "main",
+        "gen_ip" : "False",
         "files" : [
             "AD9910_driver.sv", 
             "main.sv", 
