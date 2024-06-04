@@ -445,15 +445,42 @@ timestamp_counter timestamp_counter_0(
 // select_io_profile = 1 -> external
 // select_io_profile = 0 -> internal
 ////
+reg ja_0_buffer1;
+reg ja_0_buffer2;
+reg ja_1_buffer1;
+reg ja_1_buffer2;
+reg ja_2_buffer1;
+reg ja_2_buffer2;
+reg ja_3_buffer1;
+reg ja_3_buffer2;
+reg ja_4_buffer1;
+reg ja_4_buffer2;
+reg ja_5_buffer1;
+reg ja_5_buffer2;
+reg ja_6_buffer1;
+reg ja_6_buffer2;
+reg ja_7_buffer1;
+reg ja_7_buffer2;
 
-assign jb_0 = (select_io_profile == 1'b1) ? ja_7 : profile1[1];
-assign jb_1 = (select_io_profile == 1'b1) ? ja_6 : io_update1;
-assign jb_2 = (select_io_profile == 1'b1) ? ja_5 : profile2[0];
-assign jb_3 = (select_io_profile == 1'b1) ? ja_4 : profile2[2];
-assign jb_4 = (select_io_profile == 1'b1) ? ja_3 : profile1[2];
-assign jb_5 = (select_io_profile == 1'b1) ? ja_2 : profile1[0];
-assign jb_6 = (select_io_profile == 1'b1) ? ja_1 : io_update2;
-assign jb_7 = (select_io_profile == 1'b1) ? ja_0 : profile2[1];
+assign jb_0 = (select_io_profile == 1'b1) ? ja_7_buffer2 : profile1[1];
+assign jb_1 = (select_io_profile == 1'b1) ? ja_6_buffer2 : io_update1;
+assign jb_2 = (select_io_profile == 1'b1) ? ja_5_buffer2 : profile2[0];
+assign jb_3 = (select_io_profile == 1'b1) ? ja_4_buffer2 : profile2[2];
+assign jb_4 = (select_io_profile == 1'b1) ? ja_3_buffer2 : profile1[2];
+assign jb_5 = (select_io_profile == 1'b1) ? ja_2_buffer2 : profile1[0];
+assign jb_6 = (select_io_profile == 1'b1) ? ja_1_buffer2 : io_update2;
+assign jb_7 = (select_io_profile == 1'b1) ? ja_0_buffer2 : profile2[1];
+
+always @ (posedge CLK100MHZ) begin
+    {ja_0_buffer2, ja_0_buffer1} <= {ja_0_buffer1,ja_0};
+    {ja_1_buffer2, ja_1_buffer1} <= {ja_1_buffer1,ja_1};
+    {ja_2_buffer2, ja_2_buffer1} <= {ja_2_buffer1,ja_2};
+    {ja_3_buffer2, ja_3_buffer1} <= {ja_3_buffer1,ja_3};
+    {ja_4_buffer2, ja_4_buffer1} <= {ja_4_buffer1,ja_4};
+    {ja_5_buffer2, ja_5_buffer1} <= {ja_5_buffer1,ja_5};
+    {ja_6_buffer2, ja_6_buffer1} <= {ja_6_buffer1,ja_6};
+    {ja_7_buffer2, ja_7_buffer1} <= {ja_7_buffer1,ja_7};
+end
 
 assign jc_0 = sck;
 assign jc_1 = cs[0];
