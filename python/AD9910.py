@@ -6,7 +6,6 @@ Created on Thu Aug  6 05:08:40 2020
 """
 
 from Arty_S7_v1_01 import ArtyS7
-#This ArtyS7 is in the AD9912 folder
 from unit_set import *
 
 """
@@ -47,7 +46,6 @@ DEST_SPI_DATA           = 0x00
 DEST_SPI_CONFIG         = 0x01
 DEST_DDS_IO_UPDATE      = 0x02
 DEST_DDS_PROFILE        = 0x03
-DEST_DDS_PARALLEL       = 0x04
 
 CHANNEL_LENGTH          = 12
 
@@ -62,44 +60,55 @@ SPI_CONFIG_READ         = ( ( 0 << 31 ) \
                         | ( 0b00000000 << 16 ) \
                         | ( 16 << 0 ) )
                         
-"""
-SPI CONFIG
-31      lsb_first
-30      slave_en
-29      end_spi
-28:24   dummy
-23:16   cs
-15:11   length
-10      cspol
-9       cpol
-8       cpha
-7:0     clk_div
 
-GENERAL INST
-127:112 dummy
-111:108 dest (functionality)
-107:96  dest (channel value)
-95:32   timestamp
-31:0    data
-"""
 
 class AD9910:
-    def __init__(self, fpga, min_freq = 10 * MHz, max_freq = 400 * MHz, sys_clk = 1000 * MHz, 
-                 dest_val = 1, auto_en = False):                        
+    def __init__(
+            self, 
+            fpga : ArtyS7 = None, 
+            min_freq : float = 10 * MHz, 
+            max_freq : float = 400 * MHz, 
+            sys_clk : float = 1000 * MHz, 
+        ):                        
         #default min_freq, max_freq should be checked.
         """
+        Parameters
+        ----------
         fpga            : ArtyS7
         max_freq        : maximum output frequency of DDS
         min_freq        : minimum output frequency of DDS
         sys_clk         : REF_CLK of DDS
         
+                                  
+        Returns
+        -------
+        None
+        
         in this version we assum not using PLL in DDS. after this version 
-        parameter about PLL will be added
+        parameter about PLL will be added.
+        
+        AD9910 has CFR (ConFiguration Register) which specifies machine 
+        property(e.g. output sin or cos, profile mode or ram mode etc). In
+        this init function, set CFR register value as a default value
+        
+        Disabled Features
+        
+        dest_val        : Destination address declared in Verilog code
+                          this dest_val is used when multiple IP modules
+                          are declared, and we have to designate these modules.
+                          But in almost case you donnot have to specify this
+                          dest_val value
+        auto_en         : Verilog code of AD9910 code has auto function.
+                          In auto mode, you make command with timestamp, which 
+                          is exact time when command is executed. However, 
+                          in almost cases this auto function will be disabled,
+                          and make direct command at that time.
+        
+        
         """
         self.fpga = fpga
-        self.auto_en = auto_en
-        self.dest_val = dest_val
-        self.code_list = []
+        self.fpga.send_command('OVERRIDE EN')
+        self.dest_val = 1
         self.time = 0
         self.fm_gain = 0
         self.spi_config = 0
@@ -110,14 +119,23 @@ class AD9910:
         self.max_freq = max_freq
         self.min_freq = min_freq
         self.sys_clk = sys_clk
-        self.write_addr_duration = 150
-        self.write_32_duration = 600
-        self.write_64_duration = 1200
-        self.read_32_duration  = 600
-        self.read_64_duration  = 1200
         
+    def make_8_int_list(self, data : int):
+        """
         
-    def make_8_int_list(self, data):
+        Parameters
+        ----------
+        data : int
+            int data to make 8 int lists
+
+        Returns
+        -------
+        int_list : list(int)
+            list of int which will be sent to FPGA
+            
+        This function returns list of int which will be sent to FPGA
+
+        """
         int_list = []
         int_list.append( ( data >> 56 ) & 0xff )
         int_list.append( ( data >> 48 ) & 0xff )
@@ -130,37 +148,18 @@ class AD9910:
         
         return int_list
     
-    def convert_to_16_int_list(self, data_list):
-        if( len(data_list) != 8 ):
-            print('Error in covert_to_17_int_list : length of data_list'\
-                  ' should be 8')
-            raise ValueError(data_list)
-        
-        int_list = []
-        int_list.append(data_list[0])
-        int_list.append(data_list[1])
-        int_list.append(data_list[2])
-        int_list.append(data_list[3])
-        
-        int_list.append( ( self.time >> 56 ) & 0xff )
-        int_list.append( ( self.time >> 48 ) & 0xff )
-        int_list.append( ( self.time >> 40 ) & 0xff )
-        int_list.append( ( self.time >> 32 ) & 0xff )
-        int_list.append( ( self.time >> 24 ) & 0xff )
-        int_list.append( ( self.time >> 16 ) & 0xff )
-        int_list.append( ( self.time >> 8  ) & 0xff )
-        int_list.append( ( self.time >> 0  ) & 0xff )
-        
-        int_list.append(data_list[4])
-        int_list.append(data_list[5])
-        int_list.append(data_list[6])
-        int_list.append(data_list[7])
-        
-        print(int_list)
-        
-        return int_list
-    
-    def read_int_list(self, length = 65):
+    def read_int_list(self, length : int = 65):
+        """
+        Parameters
+        ----------
+        length : int
+            number of time which we will read data from FPGA
+
+        Returns
+        -------
+        int_list : list(int)
+            read data list from FPGA
+        """
         int_list = []
         next_val = 0
         for i in range(length):
@@ -168,35 +167,65 @@ class AD9910:
             int_list.append(int.from_bytes(next_val.encode('latin-1'),'little'))
         
         return int_list
-    
-    def read_17_int_list(self):
-        int_list = []
-        next_val = 0
-        for i in range(17):
-            next_val = self.fpga.read_next()
-            int_list.append(int.from_bytes(next_val.encode('latin-1'),'little'))
         
-        return int_list
-        
-    def delay_cycle(self, shift_cycle):
-        if(str(type(shift_cycle)) != '<class \'int\'>'):
-            print('Error in delay_cycle : shift_cycle unit should be \'int\'')
-            raise TypeError(shift_cycle)
+    def set_config(
+            self, 
+            cs : int = 0, 
+            length : int = 8, 
+            end_spi : int = 0, 
+            slave_en : int = 0, 
+            lsb_first : int = 0, 
+            cspol : int = 0, 
+            cpol : int = 0, 
+            cpha : int = 0, 
+            clk_div : int = 16
+        ):
+        """
+        Parameters
+        ----------
+        cs : int
+            Number of chip selected to send data
+        length : int
+            Length of data which will be sent
+        end_spi : int 
+            Indicate whether SPI communication ends after this command
+        slave_en : int 
+            Indicate whether FPGA read from other devices.
+            (i.e. AD9910 : master -> FPGA : slave)
+        lsb_first : int
+            Specify order of data. For instance, at lsb first data 0b00001111 
+            data will be sent as 0 0 0 0 1 1 1 1, and msb first data will be 
+            sent as 1 1 1 1 0 0 0 0.
+        cspol : int 
+            Chip select polarity. when cspol is 0, chip select be LOW
+            when data is sent. When cspol is 1, chip select become HIGH when 
+            data is sent.
+        cpol : int
+            Clock polarity. when clock polarity is 0, positive edge makes data 
+            transmission to module. On the other hand, when clock polarity is 1
+            negative edge makes data transmission.
+        cpha : int
+            Clock phase. When cpha is 0, data(SDIO) changes when data 
+            transmission ends. On the other hand, when cpha is 1, data 
+            changes when data transmission occurs.
+        clk_div : int
+            Division of clock which will be used as a SCLK. For instance, when 
+            FPGA clock is 100MHz, and clk_div is 16, SCLK is 100/16 = 6.25MHz
+
+        Returns
+        -------
+        config_int_list : list(int)
+            SPI configuration data list from FPGA
             
-        self.time = self.time + shift_cycle
-    
-    def delay(self, shift_second):
-        self.time = self.time + int( shift_second * ( 100000000 ) )
-    
-    def set_config(self, cs = 0, length = 8, end_spi = 0, slave_en = 0, 
-                   lsb_first = 0, dummy = 0, cspol = 0, cpol = 0, cpha = 0, 
-                   clk_div = 16):
+        This function returns SPI configuration int list according to input
+        parameters.
+        """
         config = ( ( DEST_SPI_CONFIG  << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 )
                         | ( lsb_first << 31 ) \
                         | ( slave_en << 30 ) \
                         | ( end_spi << 29 ) \
-                        | ( dummy << 24 ) \
+                        | ( 0 << 24 ) \
                         | ( cs << 16 ) \
                         | ( ( length - 1 ) << 11 ) \
                         | ( cspol << 10 ) \
@@ -209,109 +238,87 @@ class AD9910:
         self.spi_config_int_list = config_int_list
         return config_int_list
     
-    def make_write_list(self, data, length = 8):
+    def make_write_list(
+            self, 
+            data : int
+        ):
+        """
+        Parameters
+        ----------
+        data : int
+            data will be sent to FPGA. 
+
+        Returns
+        -------
+        data_int_list : list(int)
+            data will be sent to FPGA. 
+        """
         data_to_send = ( ( DEST_SPI_DATA  << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 )
                         | ( data & 0xffffffff ) )
         data_int_list = self.make_8_int_list(data_to_send)
         return data_int_list
     
-    def write(self, ch1, ch2, register_addr, register_data_list, last_length):
+    def write(
+            self, 
+            ch1 : bool, 
+            ch2 : bool, 
+            register_addr : int, 
+            register_data_list : int, 
+            last_length : int
+        ):
         """
         register_addr   : address of register in DDS. this is int type.
         register_data   : data to be input. this is int type and length in
                         binary should be equal to 16.
         """
-        delayed_cycle = 0
         config_int_list1 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
                                            length = 8)
         
         addr_int_list = self.make_write_list(register_addr << 24)
         
-        if( self.auto_en ):
-            fifo_config_int_list1 = self.convert_to_16_int_list(config_int_list1)
-            self.delay_cycle(1)
-            
-            fifo_addr_int_list = self.convert_to_16_int_list(addr_int_list)
-            self.delay_cycle(self.write_32_duration)
-            
-            self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_addr_int_list)
-            self.fpga.send_command('WRITE FIFO')
-            
-            delayed_cycle += ( 1 + self.write_32_duration )
-        else:
-            self.fpga.send_mod_BTF_int_list(config_int_list1)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(addr_int_list)
-            self.fpga.send_command('WRITE DDS REG')
         
+        self.fpga.send_mod_BTF_int_list(config_int_list1)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(addr_int_list)
+        self.fpga.send_command('WRITE DDS REG')
+    
         for i in range(len(register_data_list) - 1):
             if ( i == 0 ):
                 config_int_list2 = self.set_config( cs =((ch2 << 1)|(ch1 << 0)), 
                                                    length = 32)
-                if( self.auto_en ):
-                    fifo_config_int_list2 = self.convert_to_16_int_list(config_int_list2)
-                    self.delay_cycle(1)
-                    
-                    self.fpga.send_mod_BTF_int_list(fifo_config_int_list2)
-                    self.fpga.send_command('WRITE FIFO')
-                    
-                    delayed_cycle += 1
-                else:
-                    print('set config')
-                    self.fpga.send_mod_BTF_int_list(config_int_list2)
-                    self.fpga.send_command('WRITE DDS REG')
+                self.fpga.send_mod_BTF_int_list(config_int_list2)
+                self.fpga.send_command('WRITE DDS REG')
                 
             data_int_list = self.make_write_list(register_data_list[i])
-            print(register_data_list[i])
-            if( self.auto_en ):
-                fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
-                self.delay_cycle(self.write_32_duration)
-                
-                self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
-                self.fpga.send_command('WRITE FIFO')
-                
-                delayed_cycle += self.write_32_duration
-            else:
-                self.fpga.send_mod_BTF_int_list(data_int_list)
-                self.fpga.send_command('WRITE DDS REG')
-        
+            
+            self.fpga.send_mod_BTF_int_list(data_int_list)
+            self.fpga.send_command('WRITE DDS REG')
+    
         config_int_list3 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
                                            length = last_length,
                                            end_spi = 1 )
         
         last_int_list = self.make_write_list(register_data_list[-1] << ( 32 - last_length ) )
         
-        if( self.auto_en ):
-            fifo_config_int_list3 = self.convert_to_16_int_list(config_int_list3)
-            self.delay_cycle(1)
-            
-            fifo_last_int_list = self.convert_to_16_int_list(last_int_list)
-            self.delay_cycle(self.write_32_duration)
-            
-            self.fpga.send_mod_BTF_int_list(fifo_config_int_list3)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_last_int_list)
-            self.fpga.send_command('WRITE FIFO')
-            
-            delayed_cycle += ( 1 + self.write_32_duration )
-        else:
-            self.fpga.send_mod_BTF_int_list(config_int_list3)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(last_int_list)
-            self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(config_int_list3)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(last_int_list)
+        self.fpga.send_command('WRITE DDS REG')
         
-        self.delay_cycle(-delayed_cycle)
         
-    def write32(self, ch1, ch2, register_addr, register_data):
+    def write32(
+            self, 
+            ch1 : bool, 
+            ch2 : bool, 
+            register_addr : int, 
+            register_data_list : int
+        ):
         """
         register_addr   : address of register in DDS. this is int type.
         register_data   : data to be input. this is int type and length in
                         binary should be equal to 32.
         """
-        delayed_cycle = 0
         config_int_list1 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
                                            length = 8)
         addr_int_list = self.make_write_list(register_addr << 24)
@@ -319,48 +326,27 @@ class AD9910:
                                            length = 32, end_spi = 1 )
         data_int_list = self.make_write_list(register_data)
         
-        if( self.auto_en ):
-            fifo_config_int_list1 = self.convert_to_16_int_list(config_int_list1)
-            self.delay_cycle(1)
-            
-            fifo_addr_int_list = self.convert_to_16_int_list(addr_int_list)
-            self.delay_cycle(self.write_addr_duration)
-            
-            fifo_config_int_list2 = self.convert_to_16_int_list(config_int_list2)
-            self.delay_cycle(1)
-            
-            fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
-            self.delay_cycle(self.write_32_duration)
-            
-            self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_addr_int_list)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_config_int_list2)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
-            self.fpga.send_command('WRITE FIFO')
-            
-            delayed_cycle += self.write_addr_duration + self.write_32_duration + 1*2
-        else:
-            self.fpga.send_mod_BTF_int_list(config_int_list1)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(addr_int_list)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(config_int_list2)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(data_int_list)
-            self.fpga.send_command('WRITE DDS REG')
-        
-        self.delay_cycle(-delayed_cycle)
+        self.fpga.send_mod_BTF_int_list(config_int_list1)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(addr_int_list)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(config_int_list2)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(data_int_list)
+        self.fpga.send_command('WRITE DDS REG')
     
-    def write64(self, ch1, ch2, register_addr, register_data):
+    def write64(
+            self,
+            ch1 : bool, 
+            ch2 : bool, 
+            register_addr : int, 
+            register_data_list : int
+        ):
         """
         register_addr   : address of register in DDS. this is int type.
         register_data   : data to be input. this is int type and length in
                         binary should be equal to 32.
         """
-        delayed_cycle = 0
         config_int_list1 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
                                            length = 8)
         addr_int_list = self.make_write_list(register_addr << 24)
@@ -371,60 +357,29 @@ class AD9910:
                                            length = 32, end_spi = 1 )
         data_int_list2 = self.make_write_list(register_data)
         
-        if( self.auto_en ):
-            fifo_config_int_list1 = self.convert_to_16_int_list(config_int_list1)
-            self.delay_cycle(1)
+        self.fpga.send_mod_BTF_int_list(config_int_list1)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(addr_int_list)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(config_int_list2)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(data_int_list1)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(config_int_list3)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(data_int_list2)
+        self.fpga.send_command('WRITE DDS REG')
             
-            fifo_addr_int_list = self.convert_to_16_int_list(addr_int_list)
-            self.delay_cycle(self.write_addr_duration)
-            
-            fifo_config_int_list2 = self.convert_to_16_int_list(config_int_list2)
-            self.delay_cycle(1)
-            
-            fifo_data_int_list1 = self.convert_to_16_int_list(data_int_list1)
-            self.delay_cycle(self.write_32_duration)
-            
-            fifo_config_int_list3 = self.convert_to_16_int_list(config_int_list3)
-            self.delay_cycle(1)
-            
-            fifo_data_int_list2 = self.convert_to_16_int_list(data_int_list2)
-            self.delay_cycle(self.write_32_duration)
-            
-            self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_addr_int_list)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_config_int_list2)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_data_int_list1)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_config_int_list3)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_data_int_list2)
-            self.fpga.send_command('WRITE FIFO')
-            
-            delayed_cycle += self.write_addr_duration + 1 + 2*( self.write_32_duration + 1 )
-        else:
-            self.fpga.send_mod_BTF_int_list(config_int_list1)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(addr_int_list)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(config_int_list2)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(data_int_list1)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(config_int_list3)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(data_int_list2)
-            self.fpga.send_command('WRITE DDS REG')
-            
-        self.delay_cycle(-delayed_cycle)
         
-    def read32(self, ch1, ch2, register_addr):
+    def read32(
+            self,
+            ch1 : bool, 
+            ch2 : bool, 
+            register_addr : int, 
+        ):
         """
         register_addr   : address of register in DDS. this is int type.
         """
-        delayed_cycle = 0
         if( ch1 == ch2 ):
             print('Error in read32 : only one channel should be selected or'\
                   'not selected')
@@ -440,46 +395,26 @@ class AD9910:
                                            slave_en = 1 )
         data_int_list = self.make_write_list(0)
         
-        if( self.auto_en ):
-            fifo_config_int_list1 = self.convert_to_16_int_list(config_int_list1)
-            self.delay_cycle(1)
+    
+        self.fpga.send_mod_BTF_int_list(config_int_list1)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(addr_int_list)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(config_int_list2)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(data_int_list)
+        self.fpga.send_command('WRITE DDS REG')
             
-            fifo_addr_int_list = self.convert_to_16_int_list(addr_int_list)
-            self.delay_cycle(self.write_addr_duration)
-            
-            fifo_config_int_list2 = self.convert_to_16_int_list(config_int_list2)
-            self.delay_cycle(1)
-            
-            fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
-            self.delay_cycle(self.read_32_duration)
-            
-            self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_addr_int_list)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_config_int_list2)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
-            self.fpga.send_command('WRITE FIFO')
-            
-            delayed_cycle += self.write_addr_duration + 1 + ( self.read_32_duration + 1 )
-        else:
-            self.fpga.send_mod_BTF_int_list(config_int_list1)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(addr_int_list)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(config_int_list2)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(data_int_list)
-            self.fpga.send_command('WRITE DDS REG')
-            
-        self.delay_cycle(-delayed_cycle)
-        
-    def read64(self, ch1, ch2, register_addr, end_spi = 1):
+    def read64(
+            self, 
+            ch1 : bool, 
+            ch2 : bool, 
+            register_addr : int, 
+            end_spi = 1
+        ):
         """
         register_addr   : address of register in DDS. this is int type.
         """
-        delayed_cycle = 0
         if( ch1 == ch2 ):
             print('Error in read32 : only one channel should be selected or'\
                   'not selected')
@@ -499,56 +434,22 @@ class AD9910:
                                            slave_en = 1 )
         data_int_list = self.make_write_list(0)
         
-        if( self.auto_en ):
-            fifo_config_int_list1 = self.convert_to_16_int_list(config_int_list1)
-            self.delay_cycle(1)
-            
-            fifo_addr_int_list = self.convert_to_16_int_list(addr_int_list)
-            self.delay_cycle(self.write_addr_duration)
-            
-            fifo_config_int_list2 = self.convert_to_16_int_list(config_int_list2)
-            self.delay_cycle(1)
-            
-            fifo_data_int_list1 = self.convert_to_16_int_list(data_int_list)
-            self.delay_cycle(self.read_32_duration)
-            
-            fifo_config_int_list3 = self.convert_to_16_int_list(config_int_list3)
-            self.delay_cycle(1)
-            
-            fifo_data_int_list2 = self.convert_to_16_int_list(data_int_list)
-            self.delay_cycle(self.read_32_duration)
-            
-            self.fpga.send_mod_BTF_int_list(fifo_config_int_list1)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_addr_int_list)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_config_int_list2)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_data_int_list1)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_config_int_list3)
-            self.fpga.send_command('WRITE FIFO')
-            self.fpga.send_mod_BTF_int_list(fifo_data_int_list2)
-            self.fpga.send_command('WRITE FIFO')
-            
-            delayed_cycle += self.write_addr_duration + 1 + 2 * ( self.read_32_duration + 1 )
-        else:
-            self.fpga.send_mod_BTF_int_list(config_int_list1)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(addr_int_list)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(config_int_list2)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(data_int_list)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(config_int_list3)
-            self.fpga.send_command('WRITE DDS REG')
-            self.fpga.send_mod_BTF_int_list(data_int_list)
-            self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(config_int_list1)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(addr_int_list)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(config_int_list2)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(data_int_list)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(config_int_list3)
+        self.fpga.send_command('WRITE DDS REG')
+        self.fpga.send_mod_BTF_int_list(data_int_list)
+        self.fpga.send_command('WRITE DDS REG')
             
         self.delay_cycle(-delayed_cycle)
     
-    def frequency_to_FTW(self, freq):
+    def frequency_to_FTW(self, freq : int):
         """
         makes frequency to FTW of DDS. Not need to consider sys_clk.
         Note that FTW is 32 bits in AD9910
@@ -565,7 +466,7 @@ class AD9910:
         
         return POW
     
-    def amplitude_to_ASF(self, amplitude_frac):
+    def amplitude_to_ASF(self, amplitude_frac : float):
         if(amplitude_frac > 1 or amplitude_frac < 0):
             print('Error in amplitude_to_ASF: ampltiude range error (%s).'\
                   % amplitude_frac, 'ampltiude should be in 0 to 1')
@@ -583,7 +484,12 @@ class AD9910:
         
         self.write32(ch1, ch2, FTW_ADDR, self.frequency_to_FTW(freq_in_Hz) )
         
-    def set_phase(self, ch1, ch2, phase):
+    def set_phase(
+            self, 
+            ch1 : bool, 
+            ch2 : bool, 
+            phase : float
+        ):
         """
         phase           : phase user want to set
         unit            : unit of phase. defualt is fraction of 2 pi
@@ -591,7 +497,12 @@ class AD9910:
         self.write(ch1, ch2, POW_ADDR, [self.phase_to_POW(phase)], 
                    last_length = 16 )
         
-    def set_amplitude(self, ch1, ch2, amplitude_frac):
+    def set_amplitude(
+            self, 
+            ch1 : bool, 
+            ch2 : bool, 
+            amplitude_frac : float
+        ):
         if(amplitude_frac > 1 or amplitude_frac < 0):
             print('Error in amplitude_to_ASF: ampltiude range error (%s).'\
                   % amplitude_frac, 'ampltiude should be in 0 to 1')
@@ -599,30 +510,43 @@ class AD9910:
         print('set amplitude')
         self.write32(ch1, ch2, ASF_ADDR, ( self.amplitude_to_ASF(amplitude_frac) << 2 ) )
         
-    def initialize(self, ch1, ch2):
+    def initialize(
+            self, 
+            ch1 : bool, 
+            ch2 : bool
+        ):
         delayed_cycle = 0
         self.set_CFR1(ch1,ch2)
-        if self.auto_en == True: 
-            self.delay_cycle(self.write_64_duration)
-            delayed_cycle += self.write_64_duration
         self.set_CFR2(ch1,ch2)
-        if self.auto_en == True: 
-            self.delay_cycle(self.write_64_duration)
-            delayed_cycle += self.write_64_duration
         self.set_CFR3(ch1,ch2)
-        if self.auto_en == True: 
-            self.delay_cycle(self.write_64_duration)
-            delayed_cycle += self.write_64_duration
         self.delay_cycle(-delayed_cycle)
         
-    def set_CFR1(self, ch1, ch2, ram_en = 0, ram_playback = 0, manual_OSK = 0, 
-                 inverse_sinc_filter = 0, internal_porfile = 0, sine = 1,
-                 load_LRR = 0, autoclear_DRG = 0, autoclear_phase = 0, 
-                 clear_DRG = 0, clear_phase = 0, load_ARR = 0, OSK_en = 0,
-                 auto_OSK = 0, digital_power_down = 0, DAC_power_down = 0, 
-                 REFCLK_powerdown = 0, aux_DAC_powerdown = 0, 
-                 external_power_down_ctrl = 0, SDIO_in_only = 0, 
-                 LSB_first = 0):
+    def set_CFR1(
+            self, 
+            ch1, 
+            ch2, 
+            ram_en = 0, 
+            ram_playback = 0, 
+            manual_OSK = 0, 
+            inverse_sinc_filter = 0, 
+            internal_porfile = 0, 
+            sine = 1,
+            load_LRR = 0, 
+            autoclear_DRG = 0, 
+            autoclear_phase = 0, 
+            clear_DRG = 0, 
+            clear_phase = 0, 
+            load_ARR = 0, 
+            OSK_en = 0,
+            auto_OSK = 0, 
+            digital_power_down = 0, 
+            DAC_power_down = 0, 
+            REFCLK_powerdown = 0, 
+            aux_DAC_powerdown = 0, 
+            external_power_down_ctrl = 0, 
+            SDIO_in_only = 0, 
+            LSB_first = 0
+        ):
         CFR1_setting = ( 
             ( ram_en << 31 ) 
             | (ram_playback << 29)  
@@ -716,15 +640,11 @@ class AD9910:
         phase_in_rad = phase
             
         FTW = self.frequency_to_FTW(freq_in_Hz)
-        print('freq : %d' % (freq) + 'FTW : ' + "{0:b}".format(FTW))
         POW = self.phase_to_POW(phase_in_rad)
-        print('phase : %f' % (phase) + 'POW : ' + "{0:b}".format(POW))
         ASF = self.amplitude_to_ASF(amplitude)
-        print('amp : %f' % (amplitude) + 'ASF : ' + "{0:b}".format(ASF))
         
         data = ( ASF << 48 ) | ( POW << 32 ) | ( FTW << 0 )
         
-        print('SPI : '+ bin(data)[2:].zfill(64))
         self.write64(ch1, ch2, PROFILE0_ADDR + profile, data)
         
     def set_profile_pin(self, profile1, profile2):
@@ -735,14 +655,9 @@ class AD9910:
                         | ( ( profile2 << 3 ) & 0b111000 ) )
         data_int_list = self.make_8_int_list(data_to_send)
         
-        if( self.auto_en ):
-            fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
-            self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
-            self.fpga.send_command('WRITE FIFO')
-        else:
-            self.fpga.send_mod_BTF_int_list(data_int_list)
-            self.fpga.send_command('SET DDS PIN')
-            
+        self.fpga.send_mod_BTF_int_list(data_int_list)
+        self.fpga.send_command('SET DDS PIN')
+        
     def bits_to_represent(self, num):
         val = num
         count = 0
@@ -763,7 +678,6 @@ class AD9910:
                         self.frequency_to_FTW(frequency)) - 16, 15),0)
     
     def io_update(self, ch1, ch2):
-        delayed_cycle = 0
         data_to_send1 = 0
         data_to_send1 = ( ( DEST_DDS_IO_UPDATE << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 ) \
@@ -777,39 +691,12 @@ class AD9910:
                         | ( ( 0 ) << 1 ) \
                         | ( 0 ) )
         data_int_list2 = self.make_8_int_list(data_to_send2)
-        
-        if( self.auto_en ):
-            fifo_data_int_list1 = self.convert_to_16_int_list(data_int_list1)
-            self.fpga.send_mod_BTF_int_list(fifo_data_int_list1)
-            self.fpga.send_command('WRITE FIFO')
-            
-            #self.delay_cycle(5)
-            #delayed_cycle += 5
-            self.delay_cycle(5) # temporaly changed for PLL usagement (25MHz->1GHz)
-            delayed_cycle += 5
-            
-            fifo_data_int_list2 = self.convert_to_16_int_list(data_int_list2)
-            self.fpga.send_mod_BTF_int_list(fifo_data_int_list2)
-            self.fpga.send_command('WRITE FIFO')
-        else:
-            self.fpga.send_mod_BTF_int_list(data_int_list1)
-            self.fpga.send_command('DDS IO UPDATE')
-            self.fpga.send_mod_BTF_int_list(data_int_list2)
-            self.fpga.send_command('DDS IO UPDATE')
-        
-        self.delay_cycle(-delayed_cycle)
     
-    def auto_mode(self):
-        self.auto_en = True
+        self.fpga.send_mod_BTF_int_list(data_int_list1)
+        self.fpga.send_command('DDS IO UPDATE')
+        self.fpga.send_mod_BTF_int_list(data_int_list2)
+        self.fpga.send_command('DDS IO UPDATE')
         
-    def auto_mode_disable(self):
-        self.auto_en = False
-    
-    def auto_start(self):
-        self.fpga.send_command('AUTO START')
-        
-    def auto_stop(self):
-        self.fpga.send_command('AUTO STOP')
         
     def write_fifo(self, data):
         data_to_send = ( data & 0xffffffffffffffff )
@@ -826,19 +713,7 @@ class AD9910:
         data_int_list = self.make_8_int_list(data_to_send)
         self.fpga.send_mod_BTF_int_list(data_int_list)
         self.fpga.send_command('SET COUNTER')
-    
-    def override_enable(self):
-        self.fpga.send_command('OVERRIDE EN')
         
-    def override_disable(self):
-        self.fpga.send_command('OVERRIDE DIS')
-        
-    def now(self):
-        return self.time
-    
-    def set_now_cycle(self, time):
-        self.time = time
-    
     def reset_driver(self):
         self.fpga.send_command('RESET DRIVER')
     
@@ -905,8 +780,6 @@ class AD9910:
 
 if __name__ == "__main__":
     dds = AD9910(ArtyS7(None))
-    #dds.io_update(1,1)
-    dds.auto_en = True
     dds.io_update(1,1)
     dds.set_profile_pin(1,1)
     dds.set_profile_register(1,1,100*MHz,0*RAD,1.0,0)
