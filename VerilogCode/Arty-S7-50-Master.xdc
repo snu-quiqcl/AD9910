@@ -44,21 +44,29 @@ set_property -dict {PACKAGE_PIN J16 IOSTANDARD LVCMOS33} [get_ports BTN2]
 
 ## PMOD Header JA
 #set_property -dict { PACKAGE_PIN L17   IOSTANDARD LVCMOS33 } [get_ports { ja[0] }]; #IO_L4P_T0_D04_14 Sch=ja_p[1]
-set_property -dict { PACKAGE_PIN L17   IOSTANDARD LVCMOS33 } [get_ports { ja_0 }]; #IO_L4P_T0_D04_14 Sch=ja_p[1]
+set_property PACKAGE_PIN L17                            [get_ports "ja_0"];
+set_property IOSTANDARD LVCMOS33                        [get_ports "ja_0"];
 #set_property -dict { PACKAGE_PIN L18   IOSTANDARD LVCMOS33 } [get_ports { ja[1] }]; #IO_L4N_T0_D05_14 Sch=ja_n[1]
-set_property -dict { PACKAGE_PIN L18   IOSTANDARD LVCMOS33 } [get_ports { ja_1 }]; #IO_L4N_T0_D05_14 Sch=ja_n[1]
-#set_property -dict { PACKAGE_PIN M14   IOSTANDARD LVCMOS33 } [get_ports { ja[2] }]; #IO_L5P_T0_D06_14 Sch=ja_p[2]
-set_property -dict {PACKAGE_PIN M14 IOSTANDARD LVCMOS33} [get_ports ja_2]
-#set_property -dict { PACKAGE_PIN N14   IOSTANDARD LVCMOS33 } [get_ports { ja[3] }]; #IO_L5N_T0_D07_14 Sch=ja_n[2]
-set_property -dict {PACKAGE_PIN N14 IOSTANDARD LVCMOS33} [get_ports ja_3]
-#set_property -dict { PACKAGE_PIN M16   IOSTANDARD LVCMOS33 } [get_ports { ja[4] }]; #IO_L7P_T1_D09_14 Sch=ja_p[3]
-set_property -dict { PACKAGE_PIN M16   IOSTANDARD LVCMOS33 } [get_ports { ja_4 }]; #IO_L7P_T1_D09_14 Sch=ja_p[3]
-#set_property -dict { PACKAGE_PIN M17   IOSTANDARD LVCMOS33 } [get_ports { ja[5] }]; #IO_L7N_T1_D10_14 Sch=ja_n[3]
-set_property -dict { PACKAGE_PIN M17   IOSTANDARD LVCMOS33 } [get_ports { ja_5 }]; #IO_L7N_T1_D10_14 Sch=ja_n[3]
-#set_property -dict { PACKAGE_PIN M18   IOSTANDARD LVCMOS33 } [get_ports { ja[6] }]; #IO_L8P_T1_D11_14 Sch=ja_p[4]
-set_property -dict {PACKAGE_PIN M18 IOSTANDARD LVCMOS33} [get_ports ja_6]
-#set_property -dict { PACKAGE_PIN N18   IOSTANDARD LVCMOS33 } [get_ports { ja[7] }]; #IO_L8N_T1_D12_14 Sch=ja_n[4]
-set_property -dict {PACKAGE_PIN N18 IOSTANDARD LVCMOS33} [get_ports ja_7]
+set_property PACKAGE_PIN L18                            [get_ports "ja_1"];
+set_property IOSTANDARD LVCMOS33                        [get_ports "ja_1"];
+#set_property  PACKAGE_PIN M14   IOSTANDARD LVCMOS33  [get_ports "ja[2]"]; #IO_L5P_T0_D06_14 Sch=ja_p[2]
+set_property PACKAGE_PIN M14                            [get_ports "ja_2"];
+set_property IOSTANDARD LVCMOS33                        [get_ports "ja_2"];
+#set_property  PACKAGE_PIN N14   IOSTANDARD LVCMOS33  [get_ports "ja[3]"]; #IO_L5N_T0_D07_14 Sch=ja_n[2]
+set_property PACKAGE_PIN N14                            [get_ports "ja_3"];
+set_property IOSTANDARD LVCMOS33                        [get_ports "ja_3"];
+#set_property  PACKAGE_PIN M16   IOSTANDARD LVCMOS33  [get_ports "ja[4]"]; #IO_L7P_T1_D09_14 Sch=ja_p[3]
+set_property PACKAGE_PIN M16                            [get_ports "ja_4"];
+set_property IOSTANDARD LVCMOS33                        [get_ports "ja_4"];
+#set_property  PACKAGE_PIN M17   IOSTANDARD LVCMOS33  [get_ports "ja[5]"]; #IO_L7N_T1_D10_14 Sch=ja_n[3]
+set_property PACKAGE_PIN M17                            [get_ports "ja_5"];
+set_property IOSTANDARD LVCMOS33                        [get_ports "ja_5"];
+#set_property  PACKAGE_PIN M18   IOSTANDARD LVCMOS33  [get_ports "ja[6]"]; #IO_L8P_T1_D11_14 Sch=ja_p[4]
+set_property PACKAGE_PIN M18                            [get_ports "ja_6"];
+set_property IOSTANDARD LVCMOS33                        [get_ports "ja_6"];
+#set_property  PACKAGE_PIN N18   IOSTANDARD LVCMOS33  [get_ports "ja[7]"]; #IO_L8N_T1_D12_14 Sch=ja_n[4]
+set_property PACKAGE_PIN N18                            [get_ports "ja_7"];
+set_property IOSTANDARD LVCMOS33                        [get_ports "ja_7"];
 
 
 ## PMOD Header JB
@@ -251,16 +259,5 @@ set_property CONFIG_MODE SPIx4 [current_design]
 ## this property must be set even if SW3 is not used in the design.
 set_property INTERNAL_VREF 0.675 [get_iobanks 34]
 
-
-
-
-set_property DRIVE 16 [get_ports ja_2]
-set_property SLEW FAST [get_ports ja_2]
-set_property DRIVE 16 [get_ports ja_3]
-set_property SLEW FAST [get_ports ja_3]
-set_property DRIVE 16 [get_ports ja_6]
-set_property SLEW FAST [get_ports ja_6]
-set_property DRIVE 16 [get_ports ja_7]
-set_property SLEW FAST [get_ports ja_7]
 
 
