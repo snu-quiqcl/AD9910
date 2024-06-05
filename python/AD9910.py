@@ -5,6 +5,7 @@ Created on Thu Aug  6 05:08:40 2020
 @author: JeonghyunPark
 """
 
+import time
 from Arty_S7_v1_01 import ArtyS7
 from unit_set import *
 
@@ -69,7 +70,7 @@ class AD9910:
             min_freq : float = 10 * MHz, 
             max_freq : float = 400 * MHz, 
             sys_clk : float = 1000 * MHz, 
-        ):                        
+        ) -> None:                        
         #default min_freq, max_freq should be checked.
         """
         Parameters
@@ -120,7 +121,7 @@ class AD9910:
         self.min_freq = min_freq
         self.sys_clk = sys_clk
         
-    def make_8_int_list(self, data : int):
+    def make_8_int_list(self, data : int) -> list[int]:
         """
         
         Parameters
@@ -147,26 +148,6 @@ class AD9910:
         int_list.append( ( data >> 0  ) & 0xff )
         
         return int_list
-    
-    def read_int_list(self, length : int = 65):
-        """
-        Parameters
-        ----------
-        length : int
-            number of time which we will read data from FPGA
-
-        Returns
-        -------
-        int_list : list(int)
-            read data list from FPGA
-        """
-        int_list = []
-        next_val = 0
-        for i in range(length):
-            next_val = self.fpga.read_next()
-            int_list.append(int.from_bytes(next_val.encode('latin-1'),'little'))
-        
-        return int_list
         
     def set_config(
             self, 
@@ -179,7 +160,7 @@ class AD9910:
             cpol : int = 0, 
             cpha : int = 0, 
             clk_div : int = 16
-        ):
+        ) -> None:
         """
         Parameters
         ----------
@@ -241,7 +222,7 @@ class AD9910:
     def make_write_list(
             self, 
             data : int
-        ):
+        )->list[int]:
         """
         Parameters
         ----------
@@ -266,7 +247,7 @@ class AD9910:
             register_addr : int, 
             register_data_list : int, 
             last_length : int
-        ):
+        ) -> None:
         """
         register_addr   : address of register in DDS. this is int type.
         register_data   : data to be input. this is int type and length in
@@ -313,7 +294,7 @@ class AD9910:
             ch2 : bool, 
             register_addr : int, 
             register_data_list : int
-        ):
+        ) -> None:
         """
         register_addr   : address of register in DDS. this is int type.
         register_data   : data to be input. this is int type and length in
@@ -341,7 +322,7 @@ class AD9910:
             ch2 : bool, 
             register_addr : int, 
             register_data_list : int
-        ):
+        ) -> None:
         """
         register_addr   : address of register in DDS. this is int type.
         register_data   : data to be input. this is int type and length in
@@ -370,86 +351,7 @@ class AD9910:
         self.fpga.send_mod_BTF_int_list(data_int_list2)
         self.fpga.send_command('WRITE DDS REG')
             
-        
-    def read32(
-            self,
-            ch1 : bool, 
-            ch2 : bool, 
-            register_addr : int, 
-        ):
-        """
-        register_addr   : address of register in DDS. this is int type.
-        """
-        if( ch1 == ch2 ):
-            print('Error in read32 : only one channel should be selected or'\
-                  'not selected')
-            raise ValueError( bin( ch2 << 1 | ch1 ) )
-        
-        config_int_list1 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
-                                           length = 8, end_spi = 0, 
-                                           slave_en = 0 )
-        addr_int_list = self.make_write_list( ( register_addr << 24 ) \
-                                             | ( 1 << 31 ) )
-        config_int_list2 = self.set_config( cs = ((ch2 << 1)|(ch1 << 0)), 
-                                           length = 32, end_spi = 1,
-                                           slave_en = 1 )
-        data_int_list = self.make_write_list(0)
-        
-    
-        self.fpga.send_mod_BTF_int_list(config_int_list1)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(addr_int_list)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(config_int_list2)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(data_int_list)
-        self.fpga.send_command('WRITE DDS REG')
-            
-    def read64(
-            self, 
-            ch1 : bool, 
-            ch2 : bool, 
-            register_addr : int, 
-            end_spi = 1
-        ):
-        """
-        register_addr   : address of register in DDS. this is int type.
-        """
-        if( ch1 == ch2 ):
-            print('Error in read32 : only one channel should be selected or'\
-                  'not selected')
-            raise ValueError( bin( ch2 << 1 | ch1 ) )
-        
-        config_int_list1 = self.set_config(cs = ((ch2 << 1) | (ch1 << 0)), 
-                                           length = 8)
-        addr_int_list = self.make_write_list( ( register_addr << 24 ) \
-                                             | ( 1 << 31 ) )
-            
-        config_int_list2 = self.set_config( cs = ((ch2 << 1)|(ch1 << 0)), 
-                                           length = 32, end_spi = 0, 
-                                           slave_en = 1 )
-        data_int_list = self.make_write_list(0)
-        config_int_list3 = self.set_config( cs = ((ch2 << 1)|(ch1 << 0)), 
-                                           length = 32, end_spi = 1,
-                                           slave_en = 1 )
-        data_int_list = self.make_write_list(0)
-        
-        self.fpga.send_mod_BTF_int_list(config_int_list1)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(addr_int_list)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(config_int_list2)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(data_int_list)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(config_int_list3)
-        self.fpga.send_command('WRITE DDS REG')
-        self.fpga.send_mod_BTF_int_list(data_int_list)
-        self.fpga.send_command('WRITE DDS REG')
-            
-        self.delay_cycle(-delayed_cycle)
-    
-    def frequency_to_FTW(self, freq : int):
+    def frequency_to_FTW(self, freq : int) -> int:
         """
         makes frequency to FTW of DDS. Not need to consider sys_clk.
         Note that FTW is 32 bits in AD9910
@@ -458,7 +360,7 @@ class AD9910:
         
         return FTW
     
-    def phase_to_POW(self, phase):
+    def phase_to_POW(self, phase : float) -> int:
         """
         notice that defulat unit is radian
         """
@@ -466,7 +368,7 @@ class AD9910:
         
         return POW
     
-    def amplitude_to_ASF(self, amplitude_frac : float):
+    def amplitude_to_ASF(self, amplitude_frac : float) -> int:
         if(amplitude_frac > 1 or amplitude_frac < 0):
             print('Error in amplitude_to_ASF: ampltiude range error (%s).'\
                   % amplitude_frac, 'ampltiude should be in 0 to 1')
@@ -475,7 +377,7 @@ class AD9910:
         
         return ASF
         
-    def set_frequency(self, ch1, ch2, freq):
+    def set_frequency(self, ch1, ch2, freq) -> None:
         """
         freq            : frequency user want to set
         unit            : unit of frequency. default is MHz
@@ -489,7 +391,7 @@ class AD9910:
             ch1 : bool, 
             ch2 : bool, 
             phase : float
-        ):
+        ) -> None:
         """
         phase           : phase user want to set
         unit            : unit of phase. defualt is fraction of 2 pi
@@ -502,7 +404,7 @@ class AD9910:
             ch1 : bool, 
             ch2 : bool, 
             amplitude_frac : float
-        ):
+        ) -> None:
         if(amplitude_frac > 1 or amplitude_frac < 0):
             print('Error in amplitude_to_ASF: ampltiude range error (%s).'\
                   % amplitude_frac, 'ampltiude should be in 0 to 1')
@@ -510,11 +412,7 @@ class AD9910:
         print('set amplitude')
         self.write32(ch1, ch2, ASF_ADDR, ( self.amplitude_to_ASF(amplitude_frac) << 2 ) )
         
-    def initialize(
-            self, 
-            ch1 : bool, 
-            ch2 : bool
-        ):
+    def initialize(self, ch1 : bool, ch2 : bool) -> None:
         delayed_cycle = 0
         self.set_CFR1(ch1,ch2)
         self.set_CFR2(ch1,ch2)
@@ -523,30 +421,30 @@ class AD9910:
         
     def set_CFR1(
             self, 
-            ch1, 
-            ch2, 
-            ram_en = 0, 
-            ram_playback = 0, 
-            manual_OSK = 0, 
-            inverse_sinc_filter = 0, 
-            internal_porfile = 0, 
-            sine = 1,
-            load_LRR = 0, 
-            autoclear_DRG = 0, 
-            autoclear_phase = 0, 
-            clear_DRG = 0, 
-            clear_phase = 0, 
-            load_ARR = 0, 
-            OSK_en = 0,
-            auto_OSK = 0, 
-            digital_power_down = 0, 
-            DAC_power_down = 0, 
-            REFCLK_powerdown = 0, 
-            aux_DAC_powerdown = 0, 
-            external_power_down_ctrl = 0, 
-            SDIO_in_only = 0, 
-            LSB_first = 0
-        ):
+            ch1 : bool, 
+            ch2 : bool, 
+            ram_en : bool = 0, 
+            ram_playback : bool = 0, 
+            manual_OSK : bool = 0, 
+            inverse_sinc_filter : bool = 0, 
+            internal_porfile : bool = 0, 
+            sine : bool = 1,
+            load_LRR : bool = 0, 
+            autoclear_DRG : bool = 0, 
+            autoclear_phase : bool = 0, 
+            clear_DRG : bool = 0, 
+            clear_phase : bool = 0, 
+            load_ARR : bool = 0, 
+            OSK_en : bool = 0,
+            auto_OSK : bool = 0, 
+            digital_power_down : bool = 0, 
+            DAC_power_down : bool = 0, 
+            REFCLK_powerdown : bool = 0, 
+            aux_DAC_powerdown : bool = 0, 
+            external_power_down_ctrl : bool = 0, 
+            SDIO_in_only : bool = 0, 
+            LSB_first : bool = 0
+        ) -> None:
         CFR1_setting = ( 
             ( ram_en << 31 ) 
             | (ram_playback << 29)  
@@ -575,12 +473,28 @@ class AD9910:
             self.cfr1[1] = CFR1_setting
         self.write32(ch1, ch2, CFR1_ADDR, CFR1_setting)
         
-    def set_CFR2(self, ch1, ch2, amp_en_single_tone = 1, internal_IO_update = 0, 
-                 SYNC_CLK_en = 0, DRG_dest = 0, DRG_en = 0, 
-                 DRG_no_dwell_high = 0, DRG_no_dwell_low = 0, read_eff_FTW = 1, 
-                 IO_update_rate = 0, PDCLK_en = 0, PDCLK_inv = 0, Tx_inv = 0, 
-                 matched_latency_en = 0, data_ass_hold = 0, sync_val_dis = 1, 
-                 parallel_port = 0, FM_gain = 0):
+    def set_CFR2(
+            self, 
+            ch1 : bool, 
+            ch2 : bool, 
+            amp_en_single_tone : bool = 1, 
+            internal_IO_update : bool = 0, 
+            SYNC_CLK_en : bool = 0, 
+            DRG_dest : bool = 0, 
+            DRG_en : bool = 0, 
+            DRG_no_dwell_high : bool = 0, 
+            DRG_no_dwell_low : bool = 0, 
+            read_eff_FTW : bool = 1, 
+            IO_update_rate : bool = 0, 
+            PDCLK_en : bool = 0, 
+            PDCLK_inv : bool = 0, 
+            Tx_inv : bool = 0, 
+            matched_latency_en : bool = 0, 
+            data_ass_hold : bool = 0, 
+            sync_val_dis : bool = 1, 
+            parallel_port : bool = 0, 
+            FM_gain : int = 0
+        ) -> None:
         CFR2_setting = ( 
             ( amp_en_single_tone << 24 ) 
             | ( internal_IO_update << 23 ) 
@@ -608,9 +522,19 @@ class AD9910:
             self.fm_gain = FM_gain
         self.write32(ch1, ch2, CFR2_ADDR, CFR2_setting)
         
-    def set_CFR3(self, ch1, ch2, DRV0 = 0, PLL_VCO = 0, I_CP = 0, 
-                 REFCLK_div_bypass = 1, REFCLK_input_div_reset = 1, 
-                 PFD_reset = 0, PLL_en = 0, N = 0):
+    def set_CFR3(
+            self, 
+            ch1 : bool, 
+            ch2 : bool, 
+            DRV0 : bool = 0, 
+            PLL_VCO : int = 0, 
+            I_CP : int = 0, 
+            REFCLK_div_bypass : bool = 1, 
+            REFCLK_input_div_reset : bool = 1, 
+            PFD_reset : bool = 0, 
+            PLL_en : bool = 0,
+            N : int = 0
+        ) -> None:
         CFR3_setting = (
             ( DRV0 << 28 )
             | ( 1 << 27)
@@ -629,8 +553,15 @@ class AD9910:
             self.cfr3[1] = CFR3_setting
         self.write32(ch1, ch2, CFR3_ADDR, CFR3_setting)
     
-    def set_profile_register(self, ch1, ch2, freq, phase, amplitude, 
-                             profile = 0 ):
+    def set_profile_register(
+            self, 
+            ch1 : bool, 
+            ch2 : bool, 
+            freq : int, 
+            phase : float, 
+            amplitude : float, 
+            profile : int = 0 
+        ) -> None:
         freq_in_Hz = freq
                 
         if( freq_in_Hz < self.min_freq or freq_in_Hz > self.max_freq ):
@@ -647,7 +578,11 @@ class AD9910:
         
         self.write64(ch1, ch2, PROFILE0_ADDR + profile, data)
         
-    def set_profile_pin(self, profile1, profile2):
+    def set_profile_pin(
+            self, 
+            profile1 : int, 
+            profile2 : int
+        ) -> None:
         data_to_send = 0
         data_to_send = ( ( DEST_DDS_PROFILE << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 ) \
@@ -658,7 +593,7 @@ class AD9910:
         self.fpga.send_mod_BTF_int_list(data_int_list)
         self.fpga.send_command('SET DDS PIN')
         
-    def bits_to_represent(self, num):
+    def bits_to_represent(self, num : int) -> int:
         val = num
         count = 0
         while(val > 0):
@@ -667,17 +602,17 @@ class AD9910:
             
         return count
     
-    def set_fm_gain(self, fm_gain):
+    def set_fm_gain(self, fm_gain : int) -> None:
         self.fm_gain = fm_gain & 0xf
         self.cfr1[0] = self.cfr1[0] - ( self.cfr1[0] & 0xf )
         self.cfr1[0] = self.cfr1[0] + fm_gain & 0xf
         self.write32(1, 0, CFR1_ADDR, self.cfr1[0])
     
-    def minimum_fm_gain(self, frequency):
-        return max(min(self.bits_to_represent(\
-                        self.frequency_to_FTW(frequency)) - 16, 15),0)
+    def minimum_fm_gain(self, frequency : int) -> int:
+        return max(min(self.bits_to_represent(
+            self.frequency_to_FTW(frequency)) - 16, 15),0)
     
-    def io_update(self, ch1, ch2):
+    def io_update(self, ch1, ch2) -> None:
         data_to_send1 = 0
         data_to_send1 = ( ( DEST_DDS_IO_UPDATE << (CHANNEL_LENGTH + 32) ) \
                         | ( self.dest_val << 32 ) \
@@ -698,59 +633,74 @@ class AD9910:
         self.fpga.send_command('DDS IO UPDATE')
         
         
-    def write_fifo(self, data):
-        data_to_send = ( data & 0xffffffffffffffff )
-        data_int_list = self.make_8_int_list(data_to_send)
-        fifo_data_int_list = self.convert_to_16_int_list(data_int_list)
-        self.fpga.send_mod_BTF_int_list(fifo_data_int_list)
-        self.fpga.send_command('WRITE FIFO')
-    
-    def read_rti_fifo(self):
-        self.fpga.send_command('READ RTI FIFO')
-        
-    def set_counter(self, counter_offset):
-        data_to_send = ( counter_offset & 0xffffffffffffffff )
-        data_int_list = self.make_8_int_list(data_to_send)
-        self.fpga.send_mod_BTF_int_list(data_int_list)
-        self.fpga.send_command('SET COUNTER')
-        
-    def reset_driver(self):
+    def reset_driver(self) -> None:
         self.fpga.send_command('RESET DRIVER')
-    
-    def read_exception_log(self):
-        self.fpga.send_command('EXCEPTION LOG')
         
-    def ram_write(self, ch1, ch2, data_list):
+    def ram_write(
+            self, 
+            ch1 : bool, 
+            ch2 : bool, 
+            data_list : list[int]
+        ) -> None:
         self.write(ch1, ch2, RAM_ADDR, data_list, 32)
     
-    def ram_write_frequency(self, ch1, ch2, data_list):
+    def ram_write_frequency(
+            self, 
+            ch1 : bool, 
+            ch2 : bool, 
+            data_list : list[int]
+        ) -> None:
         frequency_list = []
         for data_each in data_list:
             frequency_list.append(self.frequency_to_FTW(data_each))
         self.ram_write(ch1, ch2, frequency_list)
     
-    def ram_write_amplitude(self, ch1, ch2, data_list):
+    def ram_write_amplitude(
+            self, 
+            ch1 : bool,  
+            ch2 : bool, 
+            data_list : list[float]
+        ) -> None:
         amplitude_list = []
         for data_each in data_list:
             amplitude_list.append(self.amplitude_to_ASF(data_each) << 18)
         self.ram_write(ch1, ch2, amplitude_list)
         
-    def ram_write_phase(self, ch1, ch2, data_list):
+    def ram_write_phase(
+            self, 
+            ch1 : bool, 
+            ch2 : bool, 
+            data_list : list[float]
+        ) -> None:
         phase_list = []
         for data_each in data_list:
             phase_list.append(self.phase_to_POW(data_each) << 16)
         self.ram_write(ch1, ch2, phase_list)
     
-    def ram_write_polar(self, ch1, ch2, data_list):
+    def ram_write_polar(
+            self, 
+            ch1 : bool, 
+            ch2 : bool, 
+            data_list : list[int]
+        ) -> None:
         polar_list = []
         for data_each in data_list:
             polar_list.append( ( self.phase_to_POW(data_each[0]) << 16 )\
                               | ( self.amplitude_to_ASF(data_each[1]) << 2 ) )
         self.ram_write(ch1, ch2, polar_list)
     
-    def set_ram_profile_register(self,ch1, ch2, addr_step_rate, end_addr, 
-                                 start_addr, no_dwell_high, zero_crossing, 
-                                 ram_mode_ctrl, profile):
+    def set_ram_profile_register(
+            self,
+            ch1 : bool, 
+            ch2 : bool, 
+            addr_step_rate : int, 
+            end_addr : int, 
+            start_addr : int, 
+            no_dwell_high : bool, 
+            zero_crossing : bool, 
+            ram_mode_ctrl : bool, 
+            profile : int
+        ) -> None:
         data_to_send = ( ( ( addr_step_rate & 0xffff ) << 40 ) \
                         | ( ( end_addr & 0x3ff ) << 30 ) \
                         | ( ( start_addr & 0x3ff ) << 14 ) \
@@ -760,27 +710,21 @@ class AD9910:
         self.write64(ch1, ch2, PROFILE0_ADDR + profile, data_to_send)
         
         
-    def reset_DDS(self):
+    def reset_DDS(self) -> None:
         self.fpga.send_command('DDS RESET')
+        time.sleep(1)
     
-    def powerdown(self,ch1,ch2):
+    def powerdown(self,ch1 : bool,ch2 : bool) -> None:
         if ch1 == True: self.fpga.send_command('DDS PWR DOWN1')
         if ch2 == True: self.fpga.send_command('DDS PWR DOWN2')
     
-    def poweron(self,ch1,ch2):
+    def poweron(self,ch1 : bool,ch2 : bool) -> None:
         if ch1 == True: self.fpga.send_command('DDS PWR ON1')
         if ch2 == True: self.fpga.send_command('DDS PWR ON2')
         
-    def set_internal(self):
+    def set_internal(self) -> None:
         self.fpga.send_command('INTERNAL')
     
-    def set_external(self):
+    def set_external(self) -> None:
         self.fpga.send_command('EXTERNAL')
         
-
-if __name__ == "__main__":
-    dds = AD9910(ArtyS7(None))
-    dds.io_update(1,1)
-    dds.set_profile_pin(1,1)
-    dds.set_profile_register(1,1,100*MHz,0*RAD,1.0,0)
-    dds.fpga.close()
