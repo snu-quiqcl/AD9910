@@ -31,39 +31,41 @@ function integer bits_to_represent; //https://www.beyond-circuits.com/wordpress/
 endfunction
 
 module main(
-    input Uart_RXD,
+    input  wire Uart_RXD,
     output Uart_TXD,
-    input CLK100MHZ,
-    input BTN0,
-    input BTN1,
-    input BTN2,
+    input  wire CLK100MHZ,
+    input  wire BTN0,
+    input  wire BTN1,
+    input  wire BTN2,
 
-    input  ja_7, // EXT_PROFILE1_1
-    input  ja_6, // EXT_IOUPDATE1
-    input  ja_5, // EXT_PROFILE2_0
-    input  ja_4, // EXT_PROFILE2_2
-    input  ja_3, // EXT_PROFILE1_2
-    input  ja_2, // EXT_PROFILE1_0
-    input  ja_1, // EXT_IOUPDATE2
-    input  ja_0, // EXT_PROFILE2_1
+    input  wire ja_7, // EXT_PROFILE1_1
+    input  wire ja_6, // EXT_IOUPDATE1
+    input  wire ja_5, // EXT_PROFILE2_0
+    input  wire ja_4, // EXT_PROFILE2_2
     
-    output jb_0, // PROFILE1_1
-    output jb_1, // IOUPDATE1
-    output jb_2, // PROFILE2_0
-    output jb_3, // PROFILE2_2
-    output jb_4, // PROFILE1_2
-    output jb_5, // PROFILE1_0
-    output jb_6, // IOUPDATE2
-    output jb_7, // PROFILE2_1
+    input  wire ja_3, // EXT_PROFILE1_2
+    input  wire ja_2, // EXT_PROFILE1_0
+    input  wire ja_1, // EXT_IOUPDATE2
+    input  wire ja_0, // EXT_PROFILE2_1
     
-    output jc_0, // SCLK1
-    output jc_1, // CSB1
-    output jc_2, // MASTERRESET1
-    output jc_3, // EXT_PWR_DOWN2
-    output jc_4, // SDIO1
-    output jc_5, // CSB2
-    output jc_6, // Not Connected
-    output jc_7, // EXT_PWR_DOWN1
+    output wire jb_0, // PROFILE2_1
+    output wire jb_1, // IOUPDATE2
+    output wire jb_2, // PROFILE1_0
+    output wire jb_3, // PROFILE1_2
+    
+    output wire jb_4, // PROFILE2_2
+    output wire jb_5, // PROFILE2_0
+    output wire jb_6, // IOUPDATE1
+    output wire jb_7, // PROFILE1_1
+    
+    output wire jc_0, // SCLK1
+    output wire jc_1, // CSB1
+    output wire jc_2, // MASTERRESET1
+    output wire jc_3, // EXT_PWR_DOWN2
+    output wire jc_4, // SDIO1
+    output wire jc_5, // CSB2
+    output wire jc_6, // Not Connected
+    output wire jc_7, // EXT_PWR_DOWN1
     
     //////////////////////////////////////////////////////////////////////////
     //RESERVED PINS
@@ -90,25 +92,25 @@ module main(
 /////////////////////////////////////////////////////////////////
 // UART setting
 /////////////////////////////////////////////////////////////////
-parameter ClkFreq = 100000000;	// make sure this matches the clock frequency on your board
-parameter BaudRate = 57600;    // Baud rate
+parameter ClkFreq                           = 100000000;	// make sure this matches the clock frequency on your board
+parameter BaudRate                          = 57600;    // Baud rate
 
 /////////////////////////////////////////////////////////////////
 // Global setting
 /////////////////////////////////////////////////////////////////
-parameter BTF_MAX_BYTES = 9'h100;
-parameter BTF_MAX_BUFFER_WIDTH = 8 * BTF_MAX_BYTES;
-parameter BTF_MAX_BUFFER_COUNT_WIDTH = bits_to_represent(BTF_MAX_BYTES);
+parameter BTF_MAX_BYTES                     = 9'h100;
+parameter BTF_MAX_BUFFER_WIDTH              = 8 * BTF_MAX_BYTES;
+parameter BTF_MAX_BUFFER_COUNT_WIDTH        = bits_to_represent(BTF_MAX_BYTES);
 
 
 /////////////////////////////////////////////////////////////////
 // To receive data from PC
 /////////////////////////////////////////////////////////////////
-parameter BTF_RX_BUFFER_BYTES = BTF_MAX_BYTES;
-parameter BTF_RX_BUFFER_WIDTH = BTF_MAX_BUFFER_WIDTH;
-parameter BTF_RX_BUFFER_COUNT_WIDTH = BTF_MAX_BUFFER_COUNT_WIDTH;
-parameter CMD_RX_BUFFER_BYTES = 4'hf;
-parameter CMD_RX_BUFFER_WIDTH = 8 * CMD_RX_BUFFER_BYTES;
+parameter BTF_RX_BUFFER_BYTES               = BTF_MAX_BYTES;
+parameter BTF_RX_BUFFER_WIDTH               = BTF_MAX_BUFFER_WIDTH;
+parameter BTF_RX_BUFFER_COUNT_WIDTH         = BTF_MAX_BUFFER_COUNT_WIDTH;
+parameter CMD_RX_BUFFER_BYTES               = 4'hf;
+parameter CMD_RX_BUFFER_WIDTH               = 8 * CMD_RX_BUFFER_BYTES;
 
 wire [BTF_RX_BUFFER_WIDTH:1] BTF_Buffer;
 wire [BTF_RX_BUFFER_COUNT_WIDTH-1:0] BTF_Length;
@@ -124,45 +126,45 @@ wire wrong_format;
     
 
 data_receiver receiver(
-    .RxD(Uart_RXD), 
-    .clk(CLK100MHZ), 
-    .BTF_Buffer(BTF_Buffer), 
-    .BTF_Length(BTF_Length), 
-    .CMD_Buffer(CMD_Buffer), 
-    .CMD_Length(CMD_Length), 
-    .CMD_Ready(CMD_Ready), 
-    .esc_char_detected(esc_char_detected), 
-    .esc_char(esc_char),
-    .wrong_format(wrong_format)
+    .RxD                                    (Uart_RXD), 
+    .clk                                    (CLK100MHZ), 
+    .BTF_Buffer                             (BTF_Buffer), 
+    .BTF_Length                             (BTF_Length), 
+    .CMD_Buffer                             (CMD_Buffer), 
+    .CMD_Length                             (CMD_Length), 
+    .CMD_Ready                              (CMD_Ready), 
+    .esc_char_detected                      (esc_char_detected), 
+    .esc_char                               (esc_char),
+    .wrong_format                           (wrong_format)
 );
 defparam receiver.BTF_RX_BUFFER_COUNT_WIDTH = BTF_RX_BUFFER_COUNT_WIDTH;
-defparam receiver.BTF_RX_BUFFER_BYTES = BTF_RX_BUFFER_BYTES; // can be between 1 and 2^BTF_RX_BUFFER_COUNT_WIDTH - 1
-defparam receiver.BTF_RX_BUFFER_WIDTH = BTF_RX_BUFFER_WIDTH;
-defparam receiver.ClkFreq = ClkFreq;
-defparam receiver.BaudRate = BaudRate;
-defparam receiver.CMD_RX_BUFFER_BYTES = CMD_RX_BUFFER_BYTES;
-defparam receiver.CMD_RX_BUFFER_WIDTH = CMD_RX_BUFFER_WIDTH;
+defparam receiver.BTF_RX_BUFFER_BYTES       = BTF_RX_BUFFER_BYTES; // can be between 1 and 2^BTF_RX_BUFFER_COUNT_WIDTH - 1
+defparam receiver.BTF_RX_BUFFER_WIDTH       = BTF_RX_BUFFER_WIDTH;
+defparam receiver.ClkFreq                   = ClkFreq;
+defparam receiver.BaudRate                  = BaudRate;
+defparam receiver.CMD_RX_BUFFER_BYTES       = CMD_RX_BUFFER_BYTES;
+defparam receiver.CMD_RX_BUFFER_WIDTH       = CMD_RX_BUFFER_WIDTH;
 
 /////////////////////////////////////////////////////////////////
 // To send data to PC
 /////////////////////////////////////////////////////////////////
 
-parameter TX_BUFFER1_BYTES =  4'hf;
-parameter TX_BUFFER1_WIDTH = 8 * TX_BUFFER1_BYTES;
-parameter TX_BUFFER1_LENGTH_WIDTH = bits_to_represent(TX_BUFFER1_BYTES);
+parameter TX_BUFFER1_BYTES                  = 4'hf;
+parameter TX_BUFFER1_WIDTH                  = 8 * TX_BUFFER1_BYTES;
+parameter TX_BUFFER1_LENGTH_WIDTH           = bits_to_represent(TX_BUFFER1_BYTES);
 
-parameter TX_BUFFER2_BYTES = BTF_MAX_BYTES;
-parameter TX_BUFFER2_WIDTH = BTF_MAX_BUFFER_WIDTH;
-parameter TX_BUFFER2_LENGTH_WIDTH = BTF_MAX_BUFFER_COUNT_WIDTH;
+parameter TX_BUFFER2_BYTES                  = BTF_MAX_BYTES;
+parameter TX_BUFFER2_WIDTH                  = BTF_MAX_BUFFER_WIDTH;
+parameter TX_BUFFER2_LENGTH_WIDTH           = BTF_MAX_BUFFER_COUNT_WIDTH;
 
 
-reg [TX_BUFFER1_LENGTH_WIDTH-1:0] TX_buffer1_length;
-reg [1:TX_BUFFER1_WIDTH] TX_buffer1;
-reg TX_buffer1_ready;
+reg  [TX_BUFFER1_LENGTH_WIDTH-1:0] TX_buffer1_length;
+reg  [1:TX_BUFFER1_WIDTH] TX_buffer1;
+reg  TX_buffer1_ready;
 
-reg [TX_BUFFER2_LENGTH_WIDTH-1:0] TX_buffer2_length;
-reg [1:TX_BUFFER2_WIDTH] TX_buffer2;
-reg TX_buffer2_ready;
+reg  [TX_BUFFER2_LENGTH_WIDTH-1:0] TX_buffer2_length;
+reg  [1:TX_BUFFER2_WIDTH] TX_buffer2;
+reg  TX_buffer2_ready;
 
 
 wire TX_FIFO_ready;
@@ -170,30 +172,30 @@ wire TX_FIFO_ready;
 wire [1:32] monitoring_32bits;
 
 data_sender sender(
-    .FSMState(),
-    .clk(CLK100MHZ),
-    .TxD(Uart_TXD),
-    .esc_char_detected(esc_char_detected),
-    .esc_char(esc_char),
-    .wrong_format(wrong_format),
-    .TX_buffer1_length(TX_buffer1_length),
-    .TX_buffer1(TX_buffer1),
-    .TX_buffer1_ready(TX_buffer1_ready),
-    .TX_buffer2_length(TX_buffer2_length),
-    .TX_buffer2(TX_buffer2),
-    .TX_buffer2_ready(TX_buffer2_ready),
-    .TX_FIFO_ready(TX_FIFO_ready),
-    .bits_to_send(monitoring_32bits)
+    .FSMState                               (),
+    .clk                                    (CLK100MHZ),
+    .TxD                                    (Uart_TXD),
+    .esc_char_detected                      (esc_char_detected),
+    .esc_char                               (esc_char),
+    .wrong_format                           (wrong_format),
+    .TX_buffer1_length                      (TX_buffer1_length),
+    .TX_buffer1                             (TX_buffer1),
+    .TX_buffer1_ready                       (TX_buffer1_ready),
+    .TX_buffer2_length                      (TX_buffer2_length),
+    .TX_buffer2                             (TX_buffer2),
+    .TX_buffer2_ready                       (TX_buffer2_ready),
+    .TX_FIFO_ready                          (TX_FIFO_ready),
+    .bits_to_send                           (monitoring_32bits)
 );
 
-defparam sender.ClkFreq = ClkFreq;
-defparam sender.BaudRate = BaudRate;
-defparam sender.TX_BUFFER1_LENGTH_WIDTH = TX_BUFFER1_LENGTH_WIDTH;
-defparam sender.TX_BUFFER1_BYTES =  TX_BUFFER1_BYTES;
-defparam sender.TX_BUFFER1_WIDTH = TX_BUFFER1_WIDTH;
-defparam sender.TX_BUFFER2_LENGTH_WIDTH = TX_BUFFER2_LENGTH_WIDTH;
-defparam sender.TX_BUFFER2_BYTES = TX_BUFFER2_BYTES;
-defparam sender.TX_BUFFER2_WIDTH = TX_BUFFER2_WIDTH;
+defparam sender.ClkFreq                     = ClkFreq;
+defparam sender.BaudRate                    = BaudRate;
+defparam sender.TX_BUFFER1_LENGTH_WIDTH     = TX_BUFFER1_LENGTH_WIDTH;
+defparam sender.TX_BUFFER1_BYTES            = TX_BUFFER1_BYTES;
+defparam sender.TX_BUFFER1_WIDTH            = TX_BUFFER1_WIDTH;
+defparam sender.TX_BUFFER2_LENGTH_WIDTH     = TX_BUFFER2_LENGTH_WIDTH;
+defparam sender.TX_BUFFER2_BYTES            = TX_BUFFER2_BYTES;
+defparam sender.TX_BUFFER2_WIDTH            = TX_BUFFER2_WIDTH;
 
 
 
@@ -209,20 +211,20 @@ initial begin
 end
 
 led_intensity_adjust led_intensity_modulator(
-    .led0_r(led0_r), 
-    .led0_g(led0_g), 
-    .led0_b(led0_b), 
-    .led1_r(led1_r), 
-    .led1_g(led1_g), 
-    .led1_b(led1_b), 
-    .red0(red0), 
-    .green0(green0), 
-    .blue0(blue0), 
-    .red1(red1), 
-    .green1(green1), 
-    .blue1(blue1),
-    .intensity(LED_intensity), 
-    .CLK100MHZ(CLK100MHZ) 
+    .led0_r                                 (led0_r), 
+    .led0_g                                 (led0_g), 
+    .led0_b                                 (led0_b), 
+    .led1_r                                 (led1_r), 
+    .led1_g                                 (led1_g), 
+    .led1_b                                 (led1_b), 
+    .red0                                   (red0), 
+    .green0                                 (green0), 
+    .blue0                                  (blue0), 
+    .red1                                   (red1), 
+    .green1                                 (green1), 
+    .blue1                                  (blue1),
+    .intensity                              (LED_intensity), 
+    .CLK100MHZ                              (CLK100MHZ) 
 );
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -236,157 +238,161 @@ led_intensity_adjust led_intensity_modulator(
 /////////////////////////////////////////////////////////////////
 // Command definition for *IDN? command
 /////////////////////////////////////////////////////////////////
-parameter CMD_IDN = "*IDN?";
-parameter IDN_REPLY = "Quiqcl AD9910"; // 13 characters
+parameter CMD_IDN                           = "*IDN?";
+parameter IDN_REPLY                         = "Quiqcl AD9910"; // 13 characters
 
 
 /////////////////////////////////////////////////////////////////
 // Command definition for DDS
 /////////////////////////////////////////////////////////////////
-parameter CMD_WRITE_DDS_REG = "WRITE DDS REG"; // 13 characters
-parameter CMD_RESET_DRIVER = "RESET DRIVER";        //12 characters. this reset ad9910 driver. notice that 
+parameter CMD_WRITE_DDS_REG                 = "WRITE DDS REG"; // 13 characters
+parameter CMD_RESET_DRIVER                  = "RESET DRIVER";        //12 characters. this reset ad9910 driver. notice that 
                                                     //fifo_generator IP requires 6 cycles to work properly at least
                                                     //after reset 
-parameter CMD_SET_COUNTER = "SET COUNTER";      // 13 characters. this sets auto mode of FPGA
-parameter CMD_AUTO_START = "AUTO START";            // 10 characters. this start auto mode of FPGA
-parameter CMD_AUTO_STOP = "AUTO STOP";              // 9 characters. this stop auto mode of FPGA
-parameter CMD_SET_DDS_PIN = "SET DDS PIN";          // 11 characters. this sets DDS profile, parallel, io_update pin
-parameter CMD_WRITE_FIFO = "WRITE FIFO";            // 10 characters. this store data to FIFO. FIFO depth is set to 512
-parameter CMD_READ_RTI_FIFO = "READ RTI FIFO";      // 13 characters. this read rti_core_prime FIFO
-parameter CMD_OVERRIDE_EN = "OVERRIDE EN";       // 12 characters. this sets FPGA to manula mode
-parameter CMD_OVERRIDE_DIS = "OVERRIDE DIS";       // 13 characters. this sets FPGA to manula mode
-parameter CMD_IOUPDATE_DDS_REG = "DDS IO UPDATE";   // 13 characters. this makes IO_UPDATE pulse
-parameter CMD_EXCEPTION_LOG = "EXCEPTION LOG"; // 13 characters. report exceptions occured
-parameter CMD_DDS_PWR_DOWN1 = "DDS PWR DOWN1"; // 13 characters. power down DDS1
-parameter CMD_DDS_PWR_DOWN2 = "DDS PWR DOWN2"; // 13 characters. power down DDS2
-parameter CMD_DDS_PWR_ON1 = "DDS PWR ON1"; // 11 characters. power ON DDS1
-parameter CMD_DDS_PWR_ON2 = "DDS PWR ON2"; // 11 characters. power up DDS2
-parameter CMD_DDS_RESET = "DDS RESET"; // 9 characters. reset all DDS
-parameter CMD_DDS_EXTERNAL = "EXTERNAL"; // 8 use external IOUPDATE and PROFILE
-parameter CMD_DDS_INTERNAL = "INTERNAL"; // 8 use internal IOUPDATE and PROFILE
+parameter CMD_SET_COUNTER                   = "SET COUNTER";      // 13 characters. this sets auto mode of FPGA
+parameter CMD_AUTO_START                    = "AUTO START";            // 10 characters. this start auto mode of FPGA
+parameter CMD_AUTO_STOP                     = "AUTO STOP";              // 9 characters. this stop auto mode of FPGA
+parameter CMD_SET_DDS_PIN                   = "SET DDS PIN";          // 11 characters. this sets DDS profile, parallel, io_update pin
+parameter CMD_WRITE_FIFO                    = "WRITE FIFO";            // 10 characters. this store data to FIFO. FIFO depth is set to 512
+parameter CMD_READ_RTI_FIFO                 = "READ RTI FIFO";      // 13 characters. this read rti_core_prime FIFO
+parameter CMD_OVERRIDE_EN                   = "OVERRIDE EN";       // 12 characters. this sets FPGA to manula mode
+parameter CMD_OVERRIDE_DIS                  = "OVERRIDE DIS";       // 13 characters. this sets FPGA to manula mode
+parameter CMD_IOUPDATE_DDS_REG              = "DDS IO UPDATE";   // 13 characters. this makes IO_UPDATE pulse
+parameter CMD_EXCEPTION_LOG                 = "EXCEPTION LOG"; // 13 characters. report exceptions occured
+parameter CMD_DDS_PWR_DOWN1                 = "DDS PWR DOWN1"; // 13 characters. power down DDS1
+parameter CMD_DDS_PWR_DOWN2                 = "DDS PWR DOWN2"; // 13 characters. power down DDS2
+parameter CMD_DDS_PWR_ON1                   = "DDS PWR ON1"; // 11 characters. power ON DDS1
+parameter CMD_DDS_PWR_ON2                   = "DDS PWR ON2"; // 11 characters. power up DDS2
+parameter CMD_DDS_RESET                     = "DDS RESET"; // 9 characters. reset all DDS
+parameter CMD_DDS_EXTERNAL                  = "EXTERNAL"; // 8 use external IOUPDATE and PROFILE
+parameter CMD_DDS_INTERNAL                  = "INTERNAL"; // 8 use internal IOUPDATE and PROFILE
 
 /////////////////////////////////////////////////////////////////
 // Parameter definition for DDS
 /////////////////////////////////////////////////////////////////
-parameter INST_LENGTH = 8'h10;
-parameter INST_WIDTH = INST_LENGTH * 8;
-parameter OVERRIDE_LENGTH = 8'h8;
-parameter OVERRIDE_WIDTH = OVERRIDE_LENGTH * 8;
+parameter INST_LENGTH                       = 8'h10;
+parameter INST_WIDTH                        = INST_LENGTH * 8;
+parameter OVERRIDE_LENGTH                   = 8'h8;
+parameter OVERRIDE_WIDTH                    = OVERRIDE_LENGTH * 8;
 
-parameter NUM_CS = 8'h2;        // number SPI slave
-parameter DEST_VAL = 12'h1;     // destination number of ad9910
-parameter CHANNEL_LENGTH = 12;  // length of channel in destination
+parameter NUM_CS                            = 8'h2;        // number SPI slave
+parameter DEST_VAL                          = 12'h1;     // destination number of ad9910
+parameter CHANNEL_LENGTH                    = 12;  // length of channel in destination
 
-reg auto_start;
-reg reset_driver;
-reg flush_rto_fifo;
-reg write_rto_fifo;
-reg[INST_WIDTH - 1:0] rto_fifo_din;
-wire[63:0] counter;
-reg flush_rti_fifo;
-reg read_rti_fifo;
-reg gpo_override_en;
-reg gpo_selected_en;
-reg[OVERRIDE_WIDTH - 1:0] gpo_override_value;
-wire[INST_WIDTH - 1:0] rto_timestamp_error_data;    
-wire[INST_WIDTH - 1:0] rto_overflow_error_data;     
+reg  auto_start;
+reg  reset_driver;
+reg  flush_rto_fifo;
+reg  write_rto_fifo;
+reg  [INST_WIDTH - 1:0] rto_fifo_din;
+reg  flush_rti_fifo;
+reg  read_rti_fifo;
+reg  gpo_override_en;
+reg  gpo_selected_en;
+reg  [OVERRIDE_WIDTH - 1:0] gpo_override_value;            
+reg  [2:0]busy_wait_counter;
+reg  [4:0] io_update_count;
+reg select_io_profile;
+reg  [4:0] dds_reset_count;
+reg  dds_reset;
+reg  dds_pwr_down1;
+reg  dds_pwr_down2;
+reg  rto_timestamp_error_buffer;
+reg  [INST_WIDTH - 1:0] rto_timestamp_error_data_buffer;
+reg  rto_overflow_error_buffer;
+reg  [INST_WIDTH - 1:0] rto_overflow_error_data_buffer;
+reg  gpo_overrided_buffer;
+reg  gpo_busy_error_buffer;
+reg  [INST_WIDTH - 1:0] gpo_error_data_buffer;
+reg  rti_overflow_error_buffer;
+reg  [INST_WIDTH - 1:0] rti_overflow_error_data_buffer;
+reg  reset_error;
+
+wire [63:0] counter;
+wire [INST_WIDTH - 1:0] rto_timestamp_error_data;    
+wire [INST_WIDTH - 1:0] rto_overflow_error_data;     
 wire rto_timestamp_error;                           
 wire rto_overflow_error;                            
 wire rto_fifo_full;                                 
 wire rto_fifo_empty;                                
-wire[INST_WIDTH - 1:0] rti_out;                     
-wire[INST_WIDTH - 1:0] rti_overflow_error_data;     
+wire [INST_WIDTH - 1:0] rti_out;                     
+wire [INST_WIDTH - 1:0] rti_overflow_error_data;     
 wire rti_overflow_error;                            
 wire rti_underflow_error;                           
 wire rti_fifo_full;                                 
 wire rti_fifo_empty;                                
 wire spi_busy;                                      
-wire[INST_WIDTH - 1:0] gpo_error_data;              
+wire [INST_WIDTH - 1:0] gpo_error_data;              
 wire gpo_overrided;                                 
 wire gpo_busy_error;                                
-wire gpi_data_ready;                                
-reg [2:0]busy_wait_counter;
-
-wire[INST_WIDTH - 1:0] gpi_out;
-wire[ NUM_CS - 1:0] io;
+wire gpi_data_ready;         
+wire reset_driver_bufg;           
+wire [INST_WIDTH - 1:0] gpi_out;
+wire [ NUM_CS - 1:0] io;
 wire sck;
-wire[NUM_CS-1:0] cs;
+wire [NUM_CS-1:0] cs;
 wire io_update1;
 wire io_update2;
 wire [2:0] profile1;
 wire [2:0] profile2;
 wire [18:0] parallel_out;   
-reg[4:0] io_update_count;
 
-reg select_io_profile;
- 
-reg[4:0] dds_reset_count;
-reg dds_reset;
-reg dds_pwr_down1;
-reg dds_pwr_down2;
+BUFG BUFG_inst (
+   .O(reset_driver_bufg), 
+   .I(reset_driver) 
+);
 
 //AD9910 driver
 AD9910_driver
 #(
-    .NUM_CS(NUM_CS),
-    .DEST_VAL(DEST_VAL),
-    .CHANNEL_LENGTH(CHANNEL_LENGTH)
+    .NUM_CS                                 (NUM_CS),
+    .DEST_VAL                               (DEST_VAL),
+    .CHANNEL_LENGTH                         (CHANNEL_LENGTH)
 )
 AD9910_driver_0
 (
-    .clk(CLK100MHZ),
-    .reset(reset_driver),
-    .auto_start(auto_start),
-    .flush_rto_fifo(flush_rto_fifo),
-    .write_rto_fifo(write_rto_fifo),
-    .rto_fifo_din(rto_fifo_din),
-    .counter(counter),
-    .flush_rti_fifo(flush_rti_fifo),
-    .read_rti_fifo(read_rti_fifo),
-    .gpo_override_en(gpo_override_en),
-    .gpo_selected_en(gpo_selected_en),
-    .gpo_override_value(gpo_override_value),
-    .rto_timestamp_error_data(rto_timestamp_error_data),
-    .rto_overflow_error_data(rto_overflow_error_data),
-    .rto_timestamp_error(rto_timestamp_error),
-    .rto_overflow_error(rto_overflow_error),
-    .rto_fifo_full(rto_fifo_full),
-    .rto_fifo_empty(rto_fifo_empty),
-    .rti_out(rti_out),
-    .rti_overflow_error_data(rti_overflow_error_data),
-    .rti_overflow_error(rti_overflow_error),
-    .rti_underflow_error(rti_underflow_error),
-    .rti_fifo_full(rti_fifo_full),
-    .rti_fifo_empty(rti_fifo_empty),
-    .busy(spi_busy),
-    .gpo_error_data(gpo_error_data),
-    .gpo_overrided(gpo_overrided),
-    .gpo_busy_error(gpo_busy_error),
-    .gpi_data_ready(gpi_data_ready),
-    .gpi_out(gpi_out),
-    .io(jc_4),
-    .sck(sck),
-    .cs(cs),
-    .io_update1(io_update1),
-    .io_update2(io_update2),
-    .profile1(profile1),
-    .profile2(profile2),
-    .parallel_out(parallel_out)
+    .clk                                    (CLK100MHZ),
+    .reset                                  (reset_driver_bufg),
+    .auto_start                             (auto_start),
+    .flush_rto_fifo                         (flush_rto_fifo),
+    .write_rto_fifo                         (write_rto_fifo),
+    .rto_fifo_din                           (rto_fifo_din),
+    .counter                                (counter),
+    .flush_rti_fifo                         (flush_rti_fifo),
+    .read_rti_fifo                          (read_rti_fifo),
+    .gpo_override_en                        (gpo_override_en),
+    .gpo_selected_en                        (gpo_selected_en),
+    .gpo_override_value                     (gpo_override_value),
+    .rto_timestamp_error_data               (rto_timestamp_error_data),
+    .rto_overflow_error_data                (rto_overflow_error_data),
+    .rto_timestamp_error                    (rto_timestamp_error),
+    .rto_overflow_error                     (rto_overflow_error),
+    .rto_fifo_full                          (rto_fifo_full),
+    .rto_fifo_empty                         (rto_fifo_empty),
+    .rti_out                                (rti_out),
+    .rti_overflow_error_data                (rti_overflow_error_data),
+    .rti_overflow_error                     (rti_overflow_error),
+    .rti_underflow_error                    (rti_underflow_error),
+    .rti_fifo_full                          (rti_fifo_full),
+    .rti_fifo_empty                         (rti_fifo_empty),
+    .busy                                   (spi_busy),
+    .gpo_error_data                         (gpo_error_data),
+    .gpo_overrided                          (gpo_overrided),
+    .gpo_busy_error                         (gpo_busy_error),
+    .gpi_data_ready                         (gpi_data_ready),
+    .gpi_out                                (gpi_out),
+    .io                                     (jc_4),
+    .sck                                    (sck),
+    .cs                                     (cs),
+    .io_update1                             (io_update1),
+    .io_update2                             (io_update2),
+    .profile1                               (profile1),
+    .profile2                               (profile2),
+    .parallel_out                           (parallel_out)
 );
 
-reg rto_timestamp_error_buffer;
-reg[INST_WIDTH - 1:0] rto_timestamp_error_data_buffer;
-reg rto_overflow_error_buffer;
-reg[INST_WIDTH - 1:0] rto_overflow_error_data_buffer;
-reg gpo_overrided_buffer;
-reg gpo_busy_error_buffer;
-reg[INST_WIDTH - 1:0] gpo_error_data_buffer;
-reg rti_overflow_error_buffer;
-reg[INST_WIDTH - 1:0] rti_overflow_error_data_buffer;
-reg reset_error;
 
 always @(posedge CLK100MHZ) begin
-    if(reset_driver == 1'b1 | reset_error == 1'b1) begin
+    if(reset_driver_bufg == 1'b1 | reset_error == 1'b1) begin
         rto_timestamp_error_buffer <= 1'b0;
         rto_overflow_error_buffer <= 1'b0;
         gpo_busy_error_buffer <= 1'b0;
@@ -462,14 +468,14 @@ reg ja_6_buffer2;
 reg ja_7_buffer1;
 reg ja_7_buffer2;
 
-assign jb_0 = (select_io_profile == 1'b1) ? ja_7_buffer2 : profile1[1];
-assign jb_1 = (select_io_profile == 1'b1) ? ja_6_buffer2 : io_update1;
-assign jb_2 = (select_io_profile == 1'b1) ? ja_5_buffer2 : profile2[0];
-assign jb_3 = (select_io_profile == 1'b1) ? ja_4_buffer2 : profile2[2];
-assign jb_4 = (select_io_profile == 1'b1) ? ja_3_buffer2 : profile1[2];
-assign jb_5 = (select_io_profile == 1'b1) ? ja_2_buffer2 : profile1[0];
-assign jb_6 = (select_io_profile == 1'b1) ? ja_1_buffer2 : io_update2;
-assign jb_7 = (select_io_profile == 1'b1) ? ja_0_buffer2 : profile2[1];
+assign jb_7 = (select_io_profile == 1'b1) ? ja_7_buffer2 : profile1[1];
+assign jb_6 = (select_io_profile == 1'b1) ? ja_6_buffer2 : io_update1;
+assign jb_5 = (select_io_profile == 1'b1) ? ja_5_buffer2 : profile2[0];
+assign jb_4 = (select_io_profile == 1'b1) ? ja_4_buffer2 : profile2[2];
+assign jb_3 = (select_io_profile == 1'b1) ? ja_3_buffer2 : profile1[2];
+assign jb_2 = (select_io_profile == 1'b1) ? ja_2_buffer2 : profile1[0];
+assign jb_1 = (select_io_profile == 1'b1) ? ja_1_buffer2 : io_update2;
+assign jb_0 = (select_io_profile == 1'b1) ? ja_0_buffer2 : profile2[1];
 
 always @ (posedge CLK100MHZ) begin
     {ja_0_buffer2, ja_0_buffer1} <= {ja_0_buffer1,ja_0};
@@ -493,18 +499,18 @@ assign jc_7 = dds_pwr_down1;
 /////////////////////////////////////////////////////////////////
 // Command definition for DNA_PORT command
 /////////////////////////////////////////////////////////////////
-parameter CMD_DNA_PORT = "DNA_PORT";
+parameter CMD_DNA_PORT                      = "DNA_PORT";
 wire [63:0] DNA_wire;
 device_DNA device_DNA_inst(
-    .clk(CLK100MHZ),
-    .DNA(DNA_wire) // If 4 MSBs == 4'h0, DNA_PORT reading is not finished. If 4 MSBs == 4'h1, DNA_PORT reading is done 
+    .clk                                    (CLK100MHZ),
+    .DNA                                    (DNA_wire) // If 4 MSBs == 4'h0, DNA_PORT reading is not finished. If 4 MSBs == 4'h1, DNA_PORT reading is done 
 );
 
 /////////////////////////////////////////////////////////////////
 // Command definition for LED0 & LED1 intensity adjustment
 /////////////////////////////////////////////////////////////////
-parameter CMD_ADJUST_INTENSITY = "ADJ INTENSITY"; // 13 characters
-parameter CMD_READ_INTENSITY = "READ INTENSITY"; // 14 characters
+parameter CMD_ADJUST_INTENSITY              = "ADJ INTENSITY"; // 13 characters
+parameter CMD_READ_INTENSITY                = "READ INTENSITY"; // 14 characters
 
 
 
@@ -513,13 +519,13 @@ parameter CMD_READ_INTENSITY = "READ INTENSITY"; // 14 characters
 // Command definition to investigate the contents in the BTF buffer
 /////////////////////////////////////////////////////////////////
 // Capturing the snapshot of BTF buffer
-parameter CMD_CAPTURE_BTF_BUFFER = "CAPTURE BTF"; // 11 characters
+parameter CMD_CAPTURE_BTF_BUFFER            = "CAPTURE BTF"; // 11 characters
 reg [BTF_RX_BUFFER_WIDTH:1] BTF_capture;
 // Setting the number of bytes to read from the captured BTF buffer
-parameter CMD_SET_BTF_BUFFER_READING_COUNT = "BTF READ COUNT"; // 14 characters
+parameter CMD_SET_BTF_BUFFER_READING_COUNT  = "BTF READ COUNT"; // 14 characters
 reg [BTF_RX_BUFFER_COUNT_WIDTH-1:0] BTF_read_count;
 // Read from the captured BTF buffer
-parameter CMD_READ_BTF_BUFFER = "READ BTF"; // 8 characters
+parameter CMD_READ_BTF_BUFFER               = "READ BTF"; // 8 characters
 
 
 
@@ -527,9 +533,9 @@ parameter CMD_READ_BTF_BUFFER = "READ BTF"; // 8 characters
 // Command definition for bit patterns manipulation
 /////////////////////////////////////////////////////////////////
 // This command uses the first PATTERN_WIDTH bits as mask bits to update and update those bits with the following PATTERN_WIDTH bits
-parameter CMD_UPDATE_BIT_PATTERNS = "UPDATE BITS"; // 11 characters
-parameter PATTERN_BYTES = 4;
-parameter PATTERN_WIDTH = PATTERN_BYTES * 8; 
+parameter CMD_UPDATE_BIT_PATTERNS           = "UPDATE BITS"; // 11 characters
+parameter PATTERN_BYTES                     = 4;
+parameter PATTERN_WIDTH                     = PATTERN_BYTES * 8; 
 reg [1:PATTERN_WIDTH] patterns;
 wire [1:PATTERN_WIDTH] pattern_masks;
 wire [1:PATTERN_WIDTH] pattern_data;
@@ -538,7 +544,7 @@ assign pattern_masks = BTF_Buffer[2*PATTERN_WIDTH:PATTERN_WIDTH+1];
 assign pattern_data = BTF_Buffer[PATTERN_WIDTH:1];
 
 // This command reads the 32-bit patterns
-parameter CMD_READ_BIT_PATTERNS = "READ BITS"; // 9 characters
+parameter CMD_READ_BIT_PATTERNS             = "READ BITS"; // 9 characters
 
 
 
@@ -547,18 +553,18 @@ parameter CMD_READ_BIT_PATTERNS = "READ BITS"; // 9 characters
 // Main FSM
 /////////////////////////////////////////////////////////////////
 reg [3:0] main_state;
-parameter MAIN_IDLE = 4'h0;
-parameter MAIN_DDS_WAIT_FOR_BUSY_ON = 4'h1;
-parameter MAIN_DDS_WAIT_FOR_BUSY_OFF = 4'h2;
-parameter MAIN_DDS_RESET = 4'h3;
-parameter MAIN_DRIVER_RESET = 4'h7;
-parameter MAIN_SET_COUNTER = 4'h8;
-parameter MAIN_SET_DDS_PIN = 4'ha;
-parameter MAIN_WRITE_FIFO = 4'hb;
-parameter MAIN_READ_RTI_FIFO = 4'hc;
-parameter MAIN_DDS_IOUPDATE_OUT = 4'hd;
-parameter MAIN_DDS_IOUPDATE_END = 4'he;
-parameter MAIN_UNKNOWN_CMD =4'hf;
+parameter MAIN_IDLE                         = 4'h0;
+parameter MAIN_DDS_WAIT_FOR_BUSY_ON         = 4'h1;
+parameter MAIN_DDS_WAIT_FOR_BUSY_OFF        = 4'h2;
+parameter MAIN_DDS_RESET                    = 4'h3;
+parameter MAIN_DRIVER_RESET                 = 4'h7;
+parameter MAIN_SET_COUNTER                  = 4'h8;
+parameter MAIN_SET_DDS_PIN                  = 4'ha;
+parameter MAIN_WRITE_FIFO                   = 4'hb;
+parameter MAIN_READ_RTI_FIFO                = 4'hc;
+parameter MAIN_DDS_IOUPDATE_OUT             = 4'hd;
+parameter MAIN_DDS_IOUPDATE_END             = 4'he;
+parameter MAIN_UNKNOWN_CMD                  =4'hf;
 
 initial begin
     main_state <= MAIN_IDLE;
@@ -914,6 +920,4 @@ assign {d0, d1, d2, d3, d4, d5} = 6'h00;
 assign {led, red1, green1, blue1, red0, green0, blue0} = patterns[1:10];
 assign monitoring_32bits = patterns[1:32];
 
-//assign led[5:2] = main_state[3:0];
- 
 endmodule
