@@ -8,4 +8,4 @@ Start Address      0x00000000
 End Address        0x003FFFFF
 
 Addr1         Addr2         Date                    File(s)
-0x00000000    0x0021728B    Jun  4 20:57:02 2024    C:/Jeonghyun/Lab/AD9910/AD9910/AD9910/AD9910.runs/impl_1/main.bit
+0x00000000    0x0021728B    Jun  5 14:20:51 2024    C:/Jeonghyun/Lab/AD9910/AD9910/AD9910/AD9910.runs/impl_1/main.bit
